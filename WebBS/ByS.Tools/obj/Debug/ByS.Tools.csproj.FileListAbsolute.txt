@@ -1,0 +1,14 @@
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache

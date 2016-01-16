@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDBoticasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BDBoticasEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_PedidosListar" ReturnType="Collection(BDBoticasModel.sp_PedidosListar_Result)">
+      <Parameter Name="TextoBusqueda" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DetallePedido_Productos" ReturnType="Collection(BDBoticasModel.sp_DetallePedido_Productos_Result)">
+      <Parameter Name="NumeroPedido" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UbicacionProducto" ReturnType="Collection(BDBoticasModel.sp_UbicacionProducto_Result)">
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Almacen" EntityType="BDBoticasModel.Almacen" />
+    <EntitySet Name="Chofer" EntityType="BDBoticasModel.Chofer" />
+    <EntitySet Name="Control_Asignacion" EntityType="BDBoticasModel.Control_Asignacion" />
+    <EntitySet Name="DetalleKardex" EntityType="BDBoticasModel.DetalleKardex" />
+    <EntitySet Name="DetalleNotaIngreso" EntityType="BDBoticasModel.DetalleNotaIngreso" />
+    <EntitySet Name="DetalleNotaSalida" EntityType="BDBoticasModel.DetalleNotaSalida" />
+    <EntitySet Name="DetallePedido" EntityType="BDBoticasModel.DetallePedido" />
+    <EntitySet Name="Kardex" EntityType="BDBoticasModel.Kardex" />
+    <EntitySet Name="NotaIngreso" EntityType="BDBoticasModel.NotaIngreso" />
+    <EntitySet Name="NotaSalida" EntityType="BDBoticasModel.NotaSalida" />
+    <EntitySet Name="Pedido" EntityType="BDBoticasModel.Pedido" />
+    <EntitySet Name="Productos" EntityType="BDBoticasModel.Productos" />
+    <EntitySet Name="Ubicacion" EntityType="BDBoticasModel.Ubicacion" />
+    <EntitySet Name="UbicacionProducto" EntityType="BDBoticasModel.UbicacionProducto" />
+    <EntitySet Name="Vehiculo" EntityType="BDBoticasModel.Vehiculo" />
+    <AssociationSet Name="FK_Kardex_Almacen" Association="BDBoticasModel.FK_Kardex_Almacen">
+      <End Role="Almacen" EntitySet="Almacen" />
+      <End Role="Kardex" EntitySet="Kardex" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotaSalida_Almacen" Association="BDBoticasModel.FK_NotaSalida_Almacen">
+      <End Role="Almacen" EntitySet="Almacen" />
+      <End Role="NotaSalida" EntitySet="NotaSalida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ubicacion_Almacen" Association="BDBoticasModel.FK_Ubicacion_Almacen">
+      <End Role="Almacen" EntitySet="Almacen" />
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleNotaIngreso_NotaIngreso" Association="BDBoticasModel.FK_DetalleNotaIngreso_NotaIngreso">
+      <End Role="NotaIngreso" EntitySet="NotaIngreso" />
+      <End Role="DetalleNotaIngreso" EntitySet="DetalleNotaIngreso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleNotaSalida_NotaSalida" Association="BDBoticasModel.FK_DetalleNotaSalida_NotaSalida">
+      <End Role="NotaSalida" EntitySet="NotaSalida" />
+      <End Role="DetalleNotaSalida" EntitySet="DetalleNotaSalida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleNotaSalida_Productos" Association="BDBoticasModel.FK_DetalleNotaSalida_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="DetalleNotaSalida" EntitySet="DetalleNotaSalida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_Pedido" Association="BDBoticasModel.FK_DetallePedido_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="DetallePedido" EntitySet="DetallePedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_Productos" Association="BDBoticasModel.FK_DetallePedido_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="DetallePedido" EntitySet="DetallePedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotaSalida_Pedido" Association="BDBoticasModel.FK_NotaSalida_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="NotaSalida" EntitySet="NotaSalida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ubicacion_UbicacionProducto" Association="BDBoticasModel.FK_Ubicacion_UbicacionProducto">
+      <End Role="UbicacionProducto" EntitySet="UbicacionProducto" />
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+    </AssociationSet>
+    <FunctionImport Name="sp_DetalleNotaIngreso" ReturnType="Collection(BDBoticasModel.sp_DetalleNotaIngreso_Result)">
+      <Parameter Name="NumeroNotaIngreso" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_PedidosListar_Result">
+    <Property Type="String" Name="NumeroPedido" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="IdSucursal" Nullable="true" />
+    <Property Type="String" Name="Sucursal" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Estado" Nullable="true" />
+    <Property Type="String" Name="FechaRegistro" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UsuarioRegistro" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="UsuarioAsignado" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DireccionEntrega" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sp_DetallePedido_Productos_Result">
+    <Property Type="Int32" Name="Item" Nullable="false" />
+    <Property Type="String" Name="NumeroPedido" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UnidadMedida" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Atendido" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="sp_UbicacionProducto_Result">
+    <Property Type="String" Name="Fila" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Columna" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Nivel" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Posicion" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Almacen" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="Almacen">
+    <Key>
+      <PropertyRef Name="IdAlmacen" />
+    </Key>
+    <Property Name="IdAlmacen" Type="Int32" Nullable="false" />
+    <Property Name="NombreAlmacen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UsuarioRegistro" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="FechaRegsitro" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Kardex" Relationship="BDBoticasModel.FK_Kardex_Almacen" FromRole="Almacen" ToRole="Kardex" />
+    <NavigationProperty Name="NotaSalida" Relationship="BDBoticasModel.FK_NotaSalida_Almacen" FromRole="Almacen" ToRole="NotaSalida" />
+    <NavigationProperty Name="Ubicacion" Relationship="BDBoticasModel.FK_Ubicacion_Almacen" FromRole="Almacen" ToRole="Ubicacion" />
+  </EntityType>
+  <EntityType Name="Chofer">
+    <Key>
+      <PropertyRef Name="IdChofer" />
+    </Key>
+    <Property Name="IdChofer" Type="Int32" Nullable="false" />
+    <Property Name="NroDoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NroTelefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NroLicencia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CateLicencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Control_Asignacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVehiculo" Type="Int32" />
+    <Property Name="IdChofer" Type="Int32" />
+    <Property Name="FechaReg" Type="DateTime" Precision="3" />
+    <Property Name="Turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DetalleKardex">
+    <Key>
+      <PropertyRef Name="NumeroKardex" />
+      <PropertyRef Name="NumeroDocumento" />
+    </Key>
+    <Property Name="NumeroKardex" Type="Int32" Nullable="false" />
+    <Property Name="NumeroDocumento" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TipodeMovimiento" Type="Int32" />
+    <Property Name="NumeroNotaIngreso" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NumeroSalida" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="DetalleNotaIngreso">
+    <Key>
+      <PropertyRef Name="NumeroNotaIngreso" />
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="NumeroNotaIngreso" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="NotaIngreso" Relationship="BDBoticasModel.FK_DetalleNotaIngreso_NotaIngreso" FromRole="DetalleNotaIngreso" ToRole="NotaIngreso" />
+  </EntityType>
+  <EntityType Name="DetalleNotaSalida">
+    <Key>
+      <PropertyRef Name="NumeroSalida" />
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="NumeroSalida" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="NotaSalida" Relationship="BDBoticasModel.FK_DetalleNotaSalida_NotaSalida" FromRole="DetalleNotaSalida" ToRole="NotaSalida" />
+    <NavigationProperty Name="Productos" Relationship="BDBoticasModel.FK_DetalleNotaSalida_Productos" FromRole="DetalleNotaSalida" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="DetallePedido">
+    <Key>
+      <PropertyRef Name="Item" />
+      <PropertyRef Name="NumeroPedido" />
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="Item" Type="Int32" Nullable="false" />
+    <Property Name="NumeroPedido" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Pedido" Relationship="BDBoticasModel.FK_DetallePedido_Pedido" FromRole="DetallePedido" ToRole="Pedido" />
+    <NavigationProperty Name="Productos" Relationship="BDBoticasModel.FK_DetallePedido_Productos" FromRole="DetallePedido" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Kardex">
+    <Key>
+      <PropertyRef Name="NumeroKardex" />
+      <PropertyRef Name="IdProducto" />
+      <PropertyRef Name="IdAlmacen" />
+    </Key>
+    <Property Name="NumeroKardex" Type="Int32" Nullable="false" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="IdAlmacen" Type="Int32" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SaldoActual" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Almacen" Relationship="BDBoticasModel.FK_Kardex_Almacen" FromRole="Kardex" ToRole="Almacen" />
+  </EntityType>
+  <EntityType Name="NotaIngreso">
+    <Key>
+      <PropertyRef Name="NumeroNotaIngreso" />
+    </Key>
+    <Property Name="NumeroNotaIngreso" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="NumeroOrdenCompra" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="UsuarioRecibo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="idAlmacen" Type="Int32" />
+    <Property Name="GuiaRemsion" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DetalleNotaIngreso" Relationship="BDBoticasModel.FK_DetalleNotaIngreso_NotaIngreso" FromRole="NotaIngreso" ToRole="DetalleNotaIngreso" />
+  </EntityType>
+  <EntityType Name="NotaSalida">
+    <Key>
+      <PropertyRef Name="NumeroSalida" />
+    </Key>
+    <Property Name="NumeroSalida" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="NumeroPedido" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="FechaSalida" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="idAlmacen" Type="Int32" />
+    <Property Name="UsuarioPicking" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Almacen" Relationship="BDBoticasModel.FK_NotaSalida_Almacen" FromRole="NotaSalida" ToRole="Almacen" />
+    <NavigationProperty Name="DetalleNotaSalida" Relationship="BDBoticasModel.FK_DetalleNotaSalida_NotaSalida" FromRole="NotaSalida" ToRole="DetalleNotaSalida" />
+    <NavigationProperty Name="Pedido" Relationship="BDBoticasModel.FK_NotaSalida_Pedido" FromRole="NotaSalida" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="NumeroPedido" />
+    </Key>
+    <Property Name="NumeroPedido" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="IdSucursal" Type="Int32" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioRegistro" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="UsuarioAsignado" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="DetallePedido" Relationship="BDBoticasModel.FK_DetallePedido_Pedido" FromRole="Pedido" ToRole="DetallePedido" />
+    <NavigationProperty Name="NotaSalida" Relationship="BDBoticasModel.FK_NotaSalida_Pedido" FromRole="Pedido" ToRole="NotaSalida" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idProducto" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UnidadMedida" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Presentacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DetalleNotaSalida" Relationship="BDBoticasModel.FK_DetalleNotaSalida_Productos" FromRole="Productos" ToRole="DetalleNotaSalida" />
+    <NavigationProperty Name="DetallePedido" Relationship="BDBoticasModel.FK_DetallePedido_Productos" FromRole="Productos" ToRole="DetallePedido" />
+  </EntityType>
+  <EntityType Name="Ubicacion">
+    <Key>
+      <PropertyRef Name="idUbicacion" />
+    </Key>
+    <Property Name="idUbicacion" Type="Int32" Nullable="false" />
+    <Property Name="IdAlmacen" Type="Int32" />
+    <Property Name="Fila" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Columna" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Nivel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="posicion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Almacen" Relationship="BDBoticasModel.FK_Ubicacion_Almacen" FromRole="Ubicacion" ToRole="Almacen" />
+    <NavigationProperty Name="UbicacionProducto" Relationship="BDBoticasModel.FK_Ubicacion_UbicacionProducto" FromRole="Ubicacion" ToRole="UbicacionProducto" />
+  </EntityType>
+  <EntityType Name="UbicacionProducto">
+    <Key>
+      <PropertyRef Name="idUbicacion" />
+    </Key>
+    <Property Name="idUbicacion" Type="Int32" Nullable="false" />
+    <Property Name="IdProducto" Type="Int32" />
+    <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Ubicacion" Relationship="BDBoticasModel.FK_Ubicacion_UbicacionProducto" FromRole="UbicacionProducto" ToRole="Ubicacion" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="IdVehiculo" />
+    </Key>
+    <Property Name="IdVehiculo" Type="Int32" Nullable="false" />
+    <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tara" Type="Int32" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Kardex_Almacen">
+    <End Type="BDBoticasModel.Almacen" Role="Almacen" Multiplicity="1" />
+    <End Type="BDBoticasModel.Kardex" Role="Kardex" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacen">
+        <PropertyRef Name="IdAlmacen" />
+      </Principal>
+      <Dependent Role="Kardex">
+        <PropertyRef Name="IdAlmacen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotaSalida_Almacen">
+    <End Type="BDBoticasModel.Almacen" Role="Almacen" Multiplicity="0..1" />
+    <End Type="BDBoticasModel.NotaSalida" Role="NotaSalida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacen">
+        <PropertyRef Name="IdAlmacen" />
+      </Principal>
+      <Dependent Role="NotaSalida">
+        <PropertyRef Name="idAlmacen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ubicacion_Almacen">
+    <End Type="BDBoticasModel.Almacen" Role="Almacen" Multiplicity="0..1" />
+    <End Type="BDBoticasModel.Ubicacion" Role="Ubicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacen">
+        <PropertyRef Name="IdAlmacen" />
+      </Principal>
+      <Dependent Role="Ubicacion">
+        <PropertyRef Name="IdAlmacen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleNotaIngreso_NotaIngreso">
+    <End Type="BDBoticasModel.NotaIngreso" Role="NotaIngreso" Multiplicity="1" />
+    <End Type="BDBoticasModel.DetalleNotaIngreso" Role="DetalleNotaIngreso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotaIngreso">
+        <PropertyRef Name="NumeroNotaIngreso" />
+      </Principal>
+      <Dependent Role="DetalleNotaIngreso">
+        <PropertyRef Name="NumeroNotaIngreso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleNotaSalida_NotaSalida">
+    <End Type="BDBoticasModel.NotaSalida" Role="NotaSalida" Multiplicity="1" />
+    <End Type="BDBoticasModel.DetalleNotaSalida" Role="DetalleNotaSalida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotaSalida">
+        <PropertyRef Name="NumeroSalida" />
+      </Principal>
+      <Dependent Role="DetalleNotaSalida">
+        <PropertyRef Name="NumeroSalida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleNotaSalida_Productos">
+    <End Type="BDBoticasModel.Productos" Role="Productos" Multiplicity="1" />
+    <End Type="BDBoticasModel.DetalleNotaSalida" Role="DetalleNotaSalida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="DetalleNotaSalida">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_Pedido">
+    <End Type="BDBoticasModel.Pedido" Role="Pedido" Multiplicity="1" />
+    <End Type="BDBoticasModel.DetallePedido" Role="DetallePedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="NumeroPedido" />
+      </Principal>
+      <Dependent Role="DetallePedido">
+        <PropertyRef Name="NumeroPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_Productos">
+    <End Type="BDBoticasModel.Productos" Role="Productos" Multiplicity="1" />
+    <End Type="BDBoticasModel.DetallePedido" Role="DetallePedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="DetallePedido">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotaSalida_Pedido">
+    <End Type="BDBoticasModel.Pedido" Role="Pedido" Multiplicity="1" />
+    <End Type="BDBoticasModel.NotaSalida" Role="NotaSalida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="NumeroPedido" />
+      </Principal>
+      <Dependent Role="NotaSalida">
+        <PropertyRef Name="NumeroPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ubicacion_UbicacionProducto">
+    <End Type="BDBoticasModel.UbicacionProducto" Role="UbicacionProducto" Multiplicity="1" />
+    <End Type="BDBoticasModel.Ubicacion" Role="Ubicacion" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UbicacionProducto">
+        <PropertyRef Name="idUbicacion" />
+      </Principal>
+      <Dependent Role="Ubicacion">
+        <PropertyRef Name="idUbicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_DetalleNotaIngreso_Result">
+    <Property Type="String" Name="NumeroNotaIngreso" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="Producto" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="UnidadMedida" Nullable="true" MaxLength="20" />
+  </ComplexType>
+</Schema>

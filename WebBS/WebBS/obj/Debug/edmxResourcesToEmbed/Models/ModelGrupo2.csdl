@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelGrupo2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FichaTecnicaProductoProveedor">
+    <Key>
+      <PropertyRef Name="codigoFichaTecProveedor" />
+    </Key>
+    <Property Name="codigoFichaTecProveedor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="nomTecnico" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="modoUso" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contraIndicacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="condicionesUso" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="condicionesAlmacen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="condicionesComercial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="temperaturaMinima" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="temperaturaMaxima" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="laboratorioOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FichaTecnicaProductoFarmacia" Relationship="ModelGrupo2Model.FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor" FromRole="FichaTecnicaProductoProveedor" ToRole="FichaTecnicaProductoFarmacia" />
+  </EntityType>
+  <EntityType Name="HojaMerma">
+    <Key>
+      <PropertyRef Name="numeroHojaMerma" />
+    </Key>
+    <Property Name="numeroHojaMerma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cantidadInsumo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="motivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_Trazabilidad_HojaMerma" FromRole="HojaMerma" ToRole="Trazabilidad" />
+  </EntityType>
+  <EntityType Name="InformeTrazabilidad">
+    <Key>
+      <PropertyRef Name="codigoInformeTrazabilidad" />
+    </Key>
+    <Property Name="codigoInformeTrazabilidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="producto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="detalleAnalisis" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="anexo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigoTraza" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_InformeTrazabilidad_Trazabilidad" FromRole="InformeTrazabilidad" ToRole="Trazabilidad" />
+  </EntityType>
+  <EntityType Name="InformeVenta">
+    <Key>
+      <PropertyRef Name="codigoVenta" />
+    </Key>
+    <Property Name="codigoVenta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaVenta" Type="DateTime" Precision="0" />
+    <Property Name="nombreProducto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="nombreCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_Trazabilidad_InformeVenta" FromRole="InformeVenta" ToRole="Trazabilidad" />
+  </EntityType>
+  <EntityType Name="Kardex">
+    <Key>
+      <PropertyRef Name="numeroKardex" />
+    </Key>
+    <Property Name="numeroKardex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="ingreso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="salidas" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="saldos" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_Trazabilidad_Kardex" FromRole="Kardex" ToRole="Trazabilidad" />
+  </EntityType>
+  <EntityType Name="LibroReceta">
+    <Key>
+      <PropertyRef Name="nombreProducto" />
+    </Key>
+    <Property Name="nombreProducto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaProducto" Type="DateTime" Precision="0" />
+    <Property Name="quimicoLaboratorista" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_Trazabilidad_LibroReceta" FromRole="LibroReceta" ToRole="Trazabilidad" />
+  </EntityType>
+  <EntityType Name="OrdenDeCompra">
+    <Key>
+      <PropertyRef Name="codigoCompra" />
+    </Key>
+    <Property Name="codigoCompra" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaCompra" Type="DateTime" Precision="0" />
+    <Property Name="nombreProducto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="nombreProveedor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="costo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_Trazabilidad_OrdenDeCompra" FromRole="OrdenDeCompra" ToRole="Trazabilidad" />
+  </EntityType>
+  <EntityType Name="OrdenDeDespacho">
+    <Key>
+      <PropertyRef Name="numeroOrden" />
+    </Key>
+    <Property Name="numeroOrden" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="totalPedidos" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="pesoTotal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Trazabilidad" Relationship="Self.FK_Trazabilidad_OrdenDeDespacho" FromRole="OrdenDeDespacho" ToRole="Trazabilidad" />
+  </EntityType>
+  <EntityType Name="Procedimiento">
+    <Key>
+      <PropertyRef Name="codigoProcedimiento" />
+    </Key>
+    <Property Name="codigoProcedimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="version" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fechIniVigencia" Type="DateTime" Precision="0" />
+    <Property Name="fechFinVigencia" Type="DateTime" Precision="0" />
+    <Property Name="responsable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="unidadPlazo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FichaTecnicaProductoFarmacia" Relationship="ModelGrupo2Model.FK_FichaTecnicaProductoFarmacia_Procedimiento" FromRole="Procedimiento" ToRole="FichaTecnicaProductoFarmacia" />
+  </EntityType>
+  <EntityType Name="Trazabilidad">
+    <Key>
+      <PropertyRef Name="codigoTraza" />
+    </Key>
+    <Property Name="codigoTraza" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaTraza" Type="DateTime" Precision="0" />
+    <Property Name="producto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigoVenta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="numeroKardex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="codigoCompra" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="numeroOrden" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="numeroHojaMerma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="nombreProducto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="codigoFichaTecProducto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HojaMerma" Relationship="Self.FK_Trazabilidad_HojaMerma" FromRole="Trazabilidad" ToRole="HojaMerma" />
+    <NavigationProperty Name="InformeTrazabilidad" Relationship="Self.FK_InformeTrazabilidad_Trazabilidad" FromRole="Trazabilidad" ToRole="InformeTrazabilidad" />
+    <NavigationProperty Name="InformeVenta" Relationship="Self.FK_Trazabilidad_InformeVenta" FromRole="Trazabilidad" ToRole="InformeVenta" />
+    <NavigationProperty Name="Kardex" Relationship="Self.FK_Trazabilidad_Kardex" FromRole="Trazabilidad" ToRole="Kardex" />
+    <NavigationProperty Name="LibroReceta" Relationship="Self.FK_Trazabilidad_LibroReceta" FromRole="Trazabilidad" ToRole="LibroReceta" />
+    <NavigationProperty Name="OrdenDeCompra" Relationship="Self.FK_Trazabilidad_OrdenDeCompra" FromRole="Trazabilidad" ToRole="OrdenDeCompra" />
+    <NavigationProperty Name="OrdenDeDespacho" Relationship="Self.FK_Trazabilidad_OrdenDeDespacho" FromRole="Trazabilidad" ToRole="OrdenDeDespacho" />
+    <NavigationProperty Name="FichaTecnicaProductoFarmacia" Relationship="ModelGrupo2Model.FK_Trazabilidad_FichaTecnicaProductoFarmacia" FromRole="Trazabilidad" ToRole="FichaTecnicaProductoFarmacia" />
+  </EntityType>
+  <Association Name="FK_Trazabilidad_HojaMerma">
+    <End Role="HojaMerma" Type="Self.HojaMerma" Multiplicity="0..1" />
+    <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HojaMerma">
+        <PropertyRef Name="numeroHojaMerma" />
+      </Principal>
+      <Dependent Role="Trazabilidad">
+        <PropertyRef Name="numeroHojaMerma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InformeTrazabilidad_Trazabilidad">
+    <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="0..1" />
+    <End Role="InformeTrazabilidad" Type="Self.InformeTrazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trazabilidad">
+        <PropertyRef Name="codigoTraza" />
+      </Principal>
+      <Dependent Role="InformeTrazabilidad">
+        <PropertyRef Name="codigoTraza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trazabilidad_InformeVenta">
+    <End Role="InformeVenta" Type="Self.InformeVenta" Multiplicity="0..1" />
+    <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InformeVenta">
+        <PropertyRef Name="codigoVenta" />
+      </Principal>
+      <Dependent Role="Trazabilidad">
+        <PropertyRef Name="codigoVenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trazabilidad_Kardex">
+    <End Role="Kardex" Type="Self.Kardex" Multiplicity="0..1" />
+    <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kardex">
+        <PropertyRef Name="numeroKardex" />
+      </Principal>
+      <Dependent Role="Trazabilidad">
+        <PropertyRef Name="numeroKardex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trazabilidad_LibroReceta">
+    <End Role="LibroReceta" Type="Self.LibroReceta" Multiplicity="0..1" />
+    <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LibroReceta">
+        <PropertyRef Name="nombreProducto" />
+      </Principal>
+      <Dependent Role="Trazabilidad">
+        <PropertyRef Name="nombreProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trazabilidad_OrdenDeCompra">
+    <End Role="OrdenDeCompra" Type="Self.OrdenDeCompra" Multiplicity="0..1" />
+    <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenDeCompra">
+        <PropertyRef Name="codigoCompra" />
+      </Principal>
+      <Dependent Role="Trazabilidad">
+        <PropertyRef Name="codigoCompra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trazabilidad_OrdenDeDespacho">
+    <End Role="OrdenDeDespacho" Type="Self.OrdenDeDespacho" Multiplicity="0..1" />
+    <End Role="Trazabilidad" Type="Self.Trazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenDeDespacho">
+        <PropertyRef Name="numeroOrden" />
+      </Principal>
+      <Dependent Role="Trazabilidad">
+        <PropertyRef Name="numeroOrden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelGrupo2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FichaTecnicaProductoProveedor" EntityType="Self.FichaTecnicaProductoProveedor" />
+    <EntitySet Name="HojaMerma" EntityType="Self.HojaMerma" />
+    <EntitySet Name="InformeTrazabilidad" EntityType="Self.InformeTrazabilidad" />
+    <EntitySet Name="InformeVenta" EntityType="Self.InformeVenta" />
+    <EntitySet Name="Kardex" EntityType="Self.Kardex" />
+    <EntitySet Name="LibroReceta" EntityType="Self.LibroReceta" />
+    <EntitySet Name="OrdenDeCompra" EntityType="Self.OrdenDeCompra" />
+    <EntitySet Name="OrdenDeDespacho" EntityType="Self.OrdenDeDespacho" />
+    <EntitySet Name="Procedimiento" EntityType="Self.Procedimiento" />
+    <EntitySet Name="Trazabilidad" EntityType="Self.Trazabilidad" />
+    <AssociationSet Name="FK_Trazabilidad_HojaMerma" Association="Self.FK_Trazabilidad_HojaMerma">
+      <End Role="HojaMerma" EntitySet="HojaMerma" />
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InformeTrazabilidad_Trazabilidad" Association="Self.FK_InformeTrazabilidad_Trazabilidad">
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+      <End Role="InformeTrazabilidad" EntitySet="InformeTrazabilidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trazabilidad_InformeVenta" Association="Self.FK_Trazabilidad_InformeVenta">
+      <End Role="InformeVenta" EntitySet="InformeVenta" />
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trazabilidad_Kardex" Association="Self.FK_Trazabilidad_Kardex">
+      <End Role="Kardex" EntitySet="Kardex" />
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trazabilidad_LibroReceta" Association="Self.FK_Trazabilidad_LibroReceta">
+      <End Role="LibroReceta" EntitySet="LibroReceta" />
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trazabilidad_OrdenDeCompra" Association="Self.FK_Trazabilidad_OrdenDeCompra">
+      <End Role="OrdenDeCompra" EntitySet="OrdenDeCompra" />
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trazabilidad_OrdenDeDespacho" Association="Self.FK_Trazabilidad_OrdenDeDespacho">
+      <End Role="OrdenDeDespacho" EntitySet="OrdenDeDespacho" />
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+    </AssociationSet>
+    <EntitySet Name="FichaTecnicaProductoFarmacia" EntityType="ModelGrupo2Model.FichaTecnicaProductoFarmacia" />
+    <AssociationSet Name="FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor" Association="ModelGrupo2Model.FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor">
+      <End Role="FichaTecnicaProductoProveedor" EntitySet="FichaTecnicaProductoProveedor" />
+      <End Role="FichaTecnicaProductoFarmacia" EntitySet="FichaTecnicaProductoFarmacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FichaTecnicaProductoFarmacia_Procedimiento" Association="ModelGrupo2Model.FK_FichaTecnicaProductoFarmacia_Procedimiento">
+      <End Role="Procedimiento" EntitySet="Procedimiento" />
+      <End Role="FichaTecnicaProductoFarmacia" EntitySet="FichaTecnicaProductoFarmacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trazabilidad_FichaTecnicaProductoFarmacia" Association="ModelGrupo2Model.FK_Trazabilidad_FichaTecnicaProductoFarmacia">
+      <End Role="FichaTecnicaProductoFarmacia" EntitySet="FichaTecnicaProductoFarmacia" />
+      <End Role="Trazabilidad" EntitySet="Trazabilidad" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FichaTecnicaProductoFarmacia">
+    <Key>
+      <PropertyRef Name="codigoFichaTecProducto" />
+    </Key>
+    <Property Name="codigoFichaTecProducto" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="etiquetado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="procedimientoAlmacen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="procedimientoVenta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="procedimiemtoDistribucion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="posologia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quimicoFarmaceutico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="aprobar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codigoProcedimiento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="codigoFichaTecProveedor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FichaTecnicaProductoProveedor" Relationship="ModelGrupo2Model.FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor" FromRole="FichaTecnicaProductoFarmacia" ToRole="FichaTecnicaProductoProveedor" />
+    <NavigationProperty Name="Procedimiento" Relationship="ModelGrupo2Model.FK_FichaTecnicaProductoFarmacia_Procedimiento" FromRole="FichaTecnicaProductoFarmacia" ToRole="Procedimiento" />
+    <NavigationProperty Name="Trazabilidad" Relationship="ModelGrupo2Model.FK_Trazabilidad_FichaTecnicaProductoFarmacia" FromRole="FichaTecnicaProductoFarmacia" ToRole="Trazabilidad" />
+  </EntityType>
+  <Association Name="FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor">
+    <End Type="ModelGrupo2Model.FichaTecnicaProductoProveedor" Role="FichaTecnicaProductoProveedor" Multiplicity="0..1" />
+    <End Type="ModelGrupo2Model.FichaTecnicaProductoFarmacia" Role="FichaTecnicaProductoFarmacia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FichaTecnicaProductoProveedor">
+        <PropertyRef Name="codigoFichaTecProveedor" />
+      </Principal>
+      <Dependent Role="FichaTecnicaProductoFarmacia">
+        <PropertyRef Name="codigoFichaTecProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FichaTecnicaProductoFarmacia_Procedimiento">
+    <End Type="ModelGrupo2Model.Procedimiento" Role="Procedimiento" Multiplicity="0..1" />
+    <End Type="ModelGrupo2Model.FichaTecnicaProductoFarmacia" Role="FichaTecnicaProductoFarmacia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedimiento">
+        <PropertyRef Name="codigoProcedimiento" />
+      </Principal>
+      <Dependent Role="FichaTecnicaProductoFarmacia">
+        <PropertyRef Name="codigoProcedimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trazabilidad_FichaTecnicaProductoFarmacia">
+    <End Type="ModelGrupo2Model.FichaTecnicaProductoFarmacia" Role="FichaTecnicaProductoFarmacia" Multiplicity="0..1" />
+    <End Type="ModelGrupo2Model.Trazabilidad" Role="Trazabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FichaTecnicaProductoFarmacia">
+        <PropertyRef Name="codigoFichaTecProducto" />
+      </Principal>
+      <Dependent Role="Trazabilidad">
+        <PropertyRef Name="codigoFichaTecProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

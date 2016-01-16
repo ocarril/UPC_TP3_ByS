@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="163add38f5db49308f94d8b04f505377" Name="Diagram1">
+        <EntityTypeShape EntityType="ModelGrupo2_Model.FichaTecnicaProductoFarmacia" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.FichaTecnicaProductoProveedor" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.HojaMerma" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.InformeTrazabilidad" Width="1.5" PointX="7.5" PointY="2.125" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.InformeVenta" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.Kardex" Width="1.5" PointX="3" PointY="14.875" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.LibroReceta" Width="1.5" PointX="3" PointY="18.125" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.OrdenDeCompra" Width="1.5" PointX="3" PointY="20.875" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.OrdenDeDespacho" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.Procedimiento" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="ModelGrupo2_Model.Trazabilidad" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_FichaTecnicaProductoFarmacia_Procedimiento" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_Trazabilidad_FichaTecnicaProductoFarmacia" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_Trazabilidad_HojaMerma" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_InformeTrazabilidad_Trazabilidad" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_Trazabilidad_InformeVenta" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_Trazabilidad_Kardex" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_Trazabilidad_LibroReceta" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_Trazabilidad_OrdenDeCompra" />
+        <AssociationConnector Association="ModelGrupo2_Model.FK_Trazabilidad_OrdenDeDespacho" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10BF2791-9BB9-469D-9D40-59C4D1B6E3FD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebBS</RootNamespace>
+    <AssemblyName>WebBS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Log4Net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\ui.jqgrid.css" />
+    <Content Include="Content\images\bg.png" />
+    <Content Include="Content\images\Calender.png" />
+    <Content Include="Content\images\icoCalendar.gif" />
+    <Content Include="Content\images\icoEditar.png" />
+    <Content Include="Content\images\icoEliminar.png" />
+    <Content Include="Content\images\img_ajax.gif" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\New.png" />
+    <Content Include="Content\images\Pagos.png" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\util.js" />
+    <Content Include="Content\js\ViewModel\NotaIngreso.js" />
+    <Content Include="Content\js\ViewModel\Picking.js" />
+    <Content Include="Content\js\ViewModel\PickingPedido.js" />
+    <Content Include="Content\js\ViewModel\Producto.js" />
+    <Content Include="Content\js\ViewModel\Trazabilidad.js" />
+    <Content Include="fonts\font-awesome-4.3.0\css\font-awesome.css" />
+    <Content Include="fonts\font-awesome-4.3.0\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\font-awesome-4.3.0\fonts\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome-4.3.0\less\animated.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\bordered-pulled.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\core.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\fixed-width.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\font-awesome.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\icons.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\larger.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\list.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\mixins.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\path.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\rotated-flipped.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\stacked.less" />
+    <Content Include="fonts\font-awesome-4.3.0\less\variables.less" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\font-awesome.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_animated.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_bordered-pulled.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_core.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_fixed-width.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_icons.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_larger.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_list.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_mixins.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_path.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_rotated-flipped.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_stacked.scss" />
+    <Content Include="fonts\font-awesome-4.3.0\scss\_variables.scss" />
+    <EntityDeploy Include="Models\BDBoticas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BDBoticas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BDBoticas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BDBoticas.edmx</DependentUpon>
+      <LastGenOutput>BDBoticas.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BDBoticas.edmx.diagram">
+      <DependentUpon>BDBoticas.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BDBoticas.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BDBoticas.edmx</DependentUpon>
+      <LastGenOutput>BDBoticas.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Trazabilidad\ModelGrupo2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelGrupo2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Trazabilidad\ModelGrupo2.edmx.diagram">
+      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Helper\AjaxHelper.js" />
+    <Content Include="Scripts\Helper\AjaxUtil.js" />
+    <Content Include="Scripts\Helper\CROMUtil.js" />
+    <Content Include="Scripts\Helper\DateTimeHelper.js" />
+    <Content Include="Scripts\Helper\General.js" />
+    <Content Include="Scripts\Helper\HtmlGenerator.js" />
+    <Content Include="Scripts\Helper\json2.js" />
+    <Content Include="Scripts\Helper\LocalStorageHelper.js" />
+    <Content Include="Scripts\Helper\Modal.js" />
+    <Content Include="Scripts\Helper\ModalHelper.js" />
+    <Content Include="Scripts\Helper\UploadHelper.js" />
+    <Content Include="Scripts\Helper\Validator.js" />
+    <Content Include="Scripts\Jqgrid\harvest.sig" />
+    <Content Include="Scripts\Helper\harvest.sig" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Models\Trazabilidad\ModelGrupo2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
+      <LastGenOutput>ModelGrupo2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Trazabilidad\ModelGrupo2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
+      <LastGenOutput>ModelGrupo2.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Jqgrid\grid.locale-en.js" />
+    <Content Include="Scripts\Jqgrid\grid.locale-es.js" />
+    <Content Include="Scripts\Jqgrid\jquery.jqGrid.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-print.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\knockout-3.4.0.js" />
+    <Content Include="Scripts\MensajeCarga\Imagenes\Cargando.gif" />
+    <Content Include="Scripts\MensajeCarga\MensajeCarga.css" />
+    <Content Include="Scripts\MensajeCarga\MensajeCarga.js" />
+    <Content Include="Scripts\MessageBox\MessageBox.css" />
+    <Content Include="Scripts\MessageBox\MessageBox.js" />
+    <Content Include="Scripts\toastr\toastr.min.css" />
+    <Content Include="Scripts\toastr\toastr.min.js" />
+    <Content Include="Content\js\ViewModel\Presupuesto\Gastos.js" />
+    <Content Include="Content\js\ViewModel\Presupuesto\Plantilla.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\NotaIngreso\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Clases\Seguridad.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NotaIngresoController.cs" />
+    <Compile Include="Controllers\PickingController.cs" />
+    <Compile Include="Controllers\PresupuestoController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\ReturnValor.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Almacen.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BDBoticas.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDBoticas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BDBoticas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BDBoticas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDBoticas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Chofer.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Control_Asignacion.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetalleKardex.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetalleNotaIngreso.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetalleNotaSalida.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetallePedido.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Kardex.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginEntity.cs" />
+    <Compile Include="Models\NotaIngreso.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NotaSalida.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pedido.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Productos.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_DetalleNotaIngreso_Result.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_DetallePedido_Productos_Result.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_PedidosListar_Result.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_UbicacionProducto_Result.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\FichaTecnicaProductoFarmacia.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\FichaTecnicaProductoProveedor.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\HojaMerma.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\InformeTrazabilidad.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\InformeVenta.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\Kardex.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\LibroReceta.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\ModelGrupo2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelGrupo2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\ModelGrupo2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\ModelGrupo2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\OrdenDeCompra.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\OrdenDeDespacho.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\Procedimiento.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trazabilidad\Trazabilidad.cs">
+      <DependentUpon>ModelGrupo2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ubicacion.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UbicacionProducto.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vehiculo.cs">
+      <DependentUpon>BDBoticas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Picking\Index.cshtml" />
+    <Content Include="Views\Inventario\Index.cshtml" />
+    <Content Include="Views\Inventario\Nuevo.cshtml" />
+    <Content Include="Views\Inventario\Consultar.cshtml" />
+    <Content Include="Views\Picking\SeleccionarPedido.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Producto\Index.cshtml" />
+    <Content Include="Views\Producto\Trazabilidad.cshtml" />
+    <Content Include="Views\Shared\_LogOn.cshtml" />
+    <Content Include="Views\Presupuesto\Gastos.cshtml" />
+    <Content Include="Views\Presupuesto\Plantilla.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Scripts\MessageBox\images\" />
+    <Folder Include="Scripts\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByS.Presupuesto.Entities\ByS.Presupuesto.Entities.csproj">
+      <Project>{90e9a655-c490-4550-91f6-c5ede7396bc7}</Project>
+      <Name>ByS.Presupuesto.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.Presupuesto.Logic\ByS.Presupuesto.Logic.csproj">
+      <Project>{c4c22c09-36a1-4b49-8f40-3f4adc55eaba}</Project>
+      <Name>ByS.Presupuesto.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.RHumanos.Entities\ByS.RHumanos.Entities.csproj">
+      <Project>{7d008652-de8b-4695-b762-2670e8e70b3a}</Project>
+      <Name>ByS.RHumanos.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.RHumanos.Logic\ByS.RHumanos.Logic.csproj">
+      <Project>{d29df893-1326-401b-ad7e-6f8fd9af463f}</Project>
+      <Name>ByS.RHumanos.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.Tools\ByS.Tools.csproj">
+      <Project>{f354fade-3ef8-46dc-9d21-e44a4efc75b8}</Project>
+      <Name>ByS.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>37635</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:37635/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

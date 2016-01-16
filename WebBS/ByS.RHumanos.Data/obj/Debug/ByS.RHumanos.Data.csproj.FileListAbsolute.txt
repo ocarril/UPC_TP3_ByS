@@ -1,0 +1,17 @@
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll

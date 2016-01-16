@@ -1,0 +1,9 @@
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
+D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache

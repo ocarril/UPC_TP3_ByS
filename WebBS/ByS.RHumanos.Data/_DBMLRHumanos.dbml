@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_ByS" Class="_DBMLRHumanosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;Initial Catalog=BD_ByS;Integrated Security=True" SettingsObjectName="ByS.RHumanos.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="RecursosHumanos.pa_S_Area" Method="pa_S_Area">
+    <ElementType Name="pa_S_AreaResult">
+      <Column Name="codArea" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desNombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="gloDescripcion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="indActivo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="segUsuarioCrea" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="segUsuarioEdita" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="segFechaCrea" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="segFechaEdita" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="segMaquinaOrigen" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="indEliminado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="RecursosHumanos.pa_S_Empleado" Method="pa_S_Empleado">
+    <Parameter Name="p_codEmpleado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_codArea" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_desNombre" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="p_desApellido" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="pa_S_EmpleadoResult">
+      <Column Name="codEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codPersona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codCargoNombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="codArea" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codAreaNombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="desNombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="desApellido" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="indActivo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="segUsuarioCrea" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="segUsuarioEdita" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="segFechaCrea" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="segFechaEdita" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="segMaquinaOrigen" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="indEliminado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="RecursosHumanos.pa_S_EmpleadoLogin" Method="pa_S_EmpleadoLogin">
+    <Parameter Name="p_desLogin" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="pa_S_EmpleadoLoginResult">
+      <Column Name="codEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codArea" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desNombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="desApellido" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

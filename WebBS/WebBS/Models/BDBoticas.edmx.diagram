@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f06427c5c68941a795ec541a3be0727b" Name="Diagram1">
+        <EntityTypeShape EntityType="BDBoticasModel.Almacen" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="BDBoticasModel.Chofer" Width="1.5" PointX="8.75" PointY="6.875" />
+        <EntityTypeShape EntityType="BDBoticasModel.Control_Asignacion" Width="1.5" PointX="5.75" PointY="10.875" />
+        <EntityTypeShape EntityType="BDBoticasModel.DetalleKardex" Width="1.5" PointX="7.75" PointY="10.875" />
+        <EntityTypeShape EntityType="BDBoticasModel.DetalleNotaIngreso" Width="1.5" PointX="10" PointY="3.375" />
+        <EntityTypeShape EntityType="BDBoticasModel.DetalleNotaSalida" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="BDBoticasModel.DetallePedido" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="BDBoticasModel.Kardex" Width="1.5" PointX="3" PointY="13.5" />
+        <EntityTypeShape EntityType="BDBoticasModel.NotaIngreso" Width="1.5" PointX="7.75" PointY="3" />
+        <EntityTypeShape EntityType="BDBoticasModel.NotaSalida" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="BDBoticasModel.Pedido" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="BDBoticasModel.Productos" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="BDBoticasModel.Ubicacion" Width="1.5" PointX="6" PointY="6.5" />
+        <EntityTypeShape EntityType="BDBoticasModel.UbicacionProducto" Width="1.5" PointX="3.75" PointY="11" />
+        <EntityTypeShape EntityType="BDBoticasModel.Vehiculo" Width="1.5" PointX="9.75" PointY="10.875" />
+        <AssociationConnector Association="BDBoticasModel.FK_Kardex_Almacen" />
+        <AssociationConnector Association="BDBoticasModel.FK_NotaSalida_Almacen" />
+        <AssociationConnector Association="BDBoticasModel.FK_Ubicacion_Almacen" />
+        <AssociationConnector Association="BDBoticasModel.FK_DetalleNotaIngreso_NotaIngreso" />
+        <AssociationConnector Association="BDBoticasModel.FK_DetalleNotaSalida_NotaSalida" />
+        <AssociationConnector Association="BDBoticasModel.FK_DetalleNotaSalida_Productos" />
+        <AssociationConnector Association="BDBoticasModel.FK_DetallePedido_Pedido" />
+        <AssociationConnector Association="BDBoticasModel.FK_DetallePedido_Productos" />
+        <AssociationConnector Association="BDBoticasModel.FK_NotaSalida_Pedido" />
+        <AssociationConnector Association="BDBoticasModel.FK_Ubicacion_UbicacionProducto" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
