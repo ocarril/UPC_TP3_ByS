@@ -1,4 +1,4 @@
-/* MODULO DE PRESUPUESTO :*/
+/* MODULO DE PRESUPUESTO para prueba :*/
 USE [master]
 GO
 
