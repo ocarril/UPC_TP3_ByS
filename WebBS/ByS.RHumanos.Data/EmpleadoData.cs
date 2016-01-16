@@ -9,9 +9,9 @@ namespace ByS.RHumanos.Data
 { 
 	/// <summary>
 	/// Proyecto    :  Modulo de Mantenimiento de : 
-	/// Creacion    : CROM - Orlando Carril Ramírez
+	/// Creacion    : CROM - Orlando Carril
 	/// Fecha       : 26/11/2015-12:29:08 a.m.
-	/// Descripcion : Capa de Datos 
+	/// Descripcion : Capa de Datos - UPC - EPE
 	/// Archivo     : [RecursosHumanos.EmpleadoData.cs]
 	/// </summary>
 	public class EmpleadoData
