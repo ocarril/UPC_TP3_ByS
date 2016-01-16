@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Entity.cs" />
+    <Compile Include="Entities\ClasePrueba.cs" />
     <Compile Include="DTO\PresupuestoEntityDTO.cs" />
     <Compile Include="Parametro.cs" />
     <Compile Include="DTO\GastoEntityDTO.cs" />
