@@ -1,0 +1,279 @@
+﻿
+@{
+    ViewBag.Title = "Nota de Ingreso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-info">
+    <h4 class="panel-heading">Lista de Notas de Ingreso</h4>
+    <div class="panel-body">       
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-5 col-sm-4 col-xs-12">Fecha Nota Ingreso:</label>
+                        <div class="col-md-7 col-sm-8 col-xs-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="value: FiltroBusqueda.FechaInicio" />
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-5 col-sm-4 col-xs-12 visible-sm">&nbsp;</label>
+                        <div class="col-md-7 col-sm-8 col-xs-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="value: FiltroBusqueda.FechaFin" />
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-5 col-sm-4 col-xs-12">N° Nota Ingreso:</label>
+                        <div class="col-md-7 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: FiltroBusqueda.NumeroNotaIngreso" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-3 col-sm-4 col-xs-12">Proveedor:</label>
+                        <div class="col-md-9 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: FiltroBusqueda.Proveedor" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group form-group-sm">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-default btn-sm form-control" data-bind="click: $root.BuscarNotaIngreso">
+                                <i class="fa fa-fw fa-search"></i>Buscar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-primary" data-bind="click: $root.NuevaNota">Nuevo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Acciones</th>
+                            <th class="text-center">Nro Nota Ingreso</th>
+                            <th class="text-center">Nro Orden Compra</th>
+                            <th class="text-center">Fecha Creación</th>
+                            <th class="text-center">Proveedor</th>
+                            <th class="text-center">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: notas">                       
+                        <tr>
+                            <td class="text-center">                                
+                                <i class="fa fa-fw fa-search" data-bind="click: $root.VerDetalleNota"></i>
+                                @*<i class="fa fa-fw fa-pencil" data-bind="click: $root.VerDetalleNota"></i>*@
+                                <i class="fa fa-fw fa-trash-o" data-bind="click: $root.EliminarNota"></i>
+                            </td>
+                            <td class="text-center" data-bind="text: $data.NumeroNotaIngreso"></td>
+                            <td class="text-center" data-bind="text: $data.NumeroOrdenCompra"></td>
+                            <td class="text-center" data-bind="text: util.date.format($data.Fecha, 'dd/MM/yyyy')"></td>
+                            <td class="text-center" data-bind="text: $data.UsuarioRecibo"></td>
+                            <td data-bind="text: $data.Observaciones"></td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-nota" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nota de Ingreso</h4>
+            </div>
+            <div class="modal-body">                
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Nota Ingreso:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" data-bind="value: NotaIngreso.Fecha" disabled />
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Supervisor Almacén:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control text-uppercase" data-bind="value: NotaIngreso.Supervisor" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Almacén:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" data-bind="options: $root.almacenes, optionsText: 'NombreAlmacen', optionsValue: 'IdAlmacen', value: NotaIngreso.idAlmacen"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro Orden Compra:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: NotaIngreso.NumeroOrdenCompra" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Proveedor:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nro Guia Proveedor:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: NotaIngreso.GuiaRemsion" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Observaciones:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: NotaIngreso.Observaciones" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 text-right">
+                            <button type="button" class="btn btn-primary" data-bind="click: AgregarItem">Agregar item</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Eliminar</th>
+                                    <th>Código</th>
+                                    <th>Producto</th>
+                                    <th>Unidad de Medida</th>
+                                    <th>Cantidad</th>
+                                    <th>Observaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: NotaIngreso.DetalleNotaIngreso">
+                                <tr>
+                                    <td class="text-center">
+                                        <i class="fa fa-fw fa-trash-o" data-bind="click: $root.EliminarItem"></i>
+                                    </td>
+                                    <td data-bind="text: $data.IdProducto"></td>
+                                    <td data-bind="text: $data.Producto"></td>
+                                    <td data-bind="text: $data.UnidadMedida"></td>
+                                    <td data-bind="text: $data.Cantidad"></td>
+                                    <td data-bind="text: $data.Observaciones"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                    
+                </div>
+            </div>
+            <div class="modal-footer">   
+                <button type="button" class="btn btn-primary" data-bind="click: Guardar">Guardar</button>             
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-item" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregar Item</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Codigo:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="value: NuevoItem.IdProducto" />
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" data-bind="click: BuscarProducto">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Producto:</label>
+                    <input type="text" class="form-control" data-bind="value: NuevoItem.Producto" disabled />
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Cantidad:</label>
+                            <input type="text" class="form-control" data-bind="value: NuevoItem.Cantidad" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Unidad de medida:</label>
+                            <input type="text" class="form-control" data-bind="value: NuevoItem.UnidadMedida" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Observaciones:</label>
+                    <textarea class="form-control" rows="3" data-bind="value: NuevoItem.Observaciones"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bind="click: GuardarNuevoItem">Agregar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/ViewModel/NotaIngreso.js"></script>
+
+

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel panel-info">
+    <h4 class="panel-heading">Inventario</h4>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-4 col-xs-12">Buscar datos:</label>
+                        <div class="col-md-10 col-sm-8 col-xs-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="" />
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default">Grabar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <div class="form-group">
+                <h4 class="col-xs-12 text-center">
+                    Registro de nuevos
+                </h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Fecha Inicial</th>
+                            <th class="text-center">Fecha Final</th>
+                            <th class="text-center">Sucursal</th>
+                            <th class="text-center">Almacen</th>
+                            <th class="text-center">Descripcion</th>
+                            <th class="text-center">Fecha Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: inventario">
+                        <tr>
+                            <td class="text-center" data-bind="text: $data.FechaInicial"></td>
+                            <td class="text-center" data-bind="text: $data.FechaFinal"></td>
+                            <td data-bind="text: $data.Sucursal"></td>
+                            <td data-bind="text: $data.Almacen"></td>
+                            <td data-bind="text: $data.Descripcion"></td>
+                            <td class="text-center" data-bind="text: $data.FechaRegistro"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

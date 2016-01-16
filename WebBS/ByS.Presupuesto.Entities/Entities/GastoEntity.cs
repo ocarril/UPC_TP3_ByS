@@ -10,7 +10,7 @@ namespace ByS.Presupuesto.Entities
 	/// Proyecto    : Modulo de Presupuesto 
 	/// Creacion    : OCR
 	/// Fecha       : 26/11/2015-12:29:08 a.m.
-	/// Descripcion : Capa de Entidades 
+	/// Descripcion : Capa de Entidades del Presupuesto 
 	/// Archivo     : [Presupuesto.Gasto.cs]
 	/// </summary>
     public class GastoEntity : Entity

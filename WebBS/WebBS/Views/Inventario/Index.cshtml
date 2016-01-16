@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel panel-info">
+    <h4 class="panel-heading">Inventario</h4>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-4 col-xs-12">Criterio:</label>
+                        <div class="col-md-10 col-sm-8 col-xs-12">                            
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="" />
+                                <div class="input-group-btn">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            Opciones <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <li><a href="#">Buscar</a></li>
+                                            <li><a href="#">Limpiar</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="~/Inventario/Nuevo">Nuevo</a></li>
+                                            <li><a href="#">Consultar</a></li>
+                                        </ul>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <div class="form-group">
+                <h4 class="col-xs-12 text-center">
+                    Registro de Inventario
+                </h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Fecha</th>
+                            <th class="text-center">Descripcion</th>
+                            <th class="text-center">Sucursal</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: inventario">
+                        <tr>
+                            <td class="text-center" data-bind="text: $data.Fecha"></td>
+                            <td data-bind="text: $data.Descripcion"></td>
+                            <td data-bind="text: $data.Sucursal"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

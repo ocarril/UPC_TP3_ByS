@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewBag.Title = "Trazabilidad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .tab-pane { background: #fff; padding: 20px 15px 10px 15px; border: 1px solid #ddd; border-top:0; }    
+</style>
+<div class="panel panel-info">
+    <h4 class="panel-heading">
+        Consultar Trazabilidad
+    </h4>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">Codigo de producto:</label>
+                    <input type="text" class="form-control" data-bind="value: Filtro.CodigoProducto" />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">Fecha Inicio:</label>
+                    <div class="input-group">                        
+                        <input type="text" class="form-control" data-bind="value: Filtro.FechaInicio" placeholder="dd/mm/aaaa" />
+                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">Fecha Fin:</label>
+                    <div class="input-group">                       
+                        <input type="text" class="form-control" data-bind="value: Filtro.FechaFin" placeholder="dd/mm/aaaa" />
+                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    </div> 
+                </div>
+            </div>  
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label><br />
+                    <button type="button" class="btn btn-primary" data-bind="click: ConsultarTrazabilidad">Consultar</button>                    
+                </div>
+            </div>                       
+        </div>                
+    </div>
+</div>
+<h2 class="text-info" data-bind="text: Filtro.NombreProducto"></h2>
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#InformeVenta" aria-controls="InformeVenta" role="tab" data-toggle="tab">Informe de venta</a></li>
+        <li role="presentation"><a href="#Kardex" aria-controls="Kardex" role="tab" data-toggle="tab">Kardex</a></li>
+        <li role="presentation"><a href="#OrdenCompra" aria-controls="OrdenCompra" role="tab" data-toggle="tab">Orden de compra</a></li>
+        <li role="presentation"><a href="#OrdenPedido" aria-controls="OrdenPedido" role="tab" data-toggle="tab">Orden de pedido</a></li>
+        <li role="presentation"><a href="#LibroReceta" aria-controls="LibroReceta" role="tab" data-toggle="tab">Libro Receta</a></li>
+        <li role="presentation"><a href="#HojaMerma" aria-controls="HojaMerma" role="tab" data-toggle="tab">Hoja Merma</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="InformeVenta">
+            <div class="table-responsive" data-bind="visible: VentasArray().length > 0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-2">Fecha</th>
+                            <th>Cliente</th>
+                            <th class="col-xs-2">Cantidad</th>
+                            <th class="col-xs-2">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: VentasArray">
+                        <tr>
+                            <td data-bind="text: util.date.format($data.fechaVenta, 'dd/MM/yyyy')"></td>
+                            <td data-bind="text: $data.nombreCliente"></td>
+                            <td>
+                                <span data-bind="text: $data.cantidad"></span>
+                                <span data-bind="text: 'UND'"></span>
+                            </td>
+                            <td>
+                                <span data-bind="text: 'S/.'"></span>
+                                <span data-bind="text: $data.precio"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="text-danger" data-bind="visible: VentasArray().length == 0">No hay datos para mostrar</h4>                        
+        </div>
+        <div role="tabpanel" class="tab-pane" id="Kardex">
+            <div class="table-responsive" data-bind="visible: KardexArray().length > 0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Ingresos</th>
+                            <th>Salidas</th>
+                            <th>Saldos</th>
+                            <th>Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: KardexArray">
+                        <tr>
+                            <td data-bind="text: $data.Fecha"></td>
+                            <td data-bind="text: $data.Ingreso"></td>
+                            <td data-bind="text: $data.Salidas"></td>
+                            <td data-bind="text: $data.Saldos"></td>
+                            <td data-bind="text: $data.Observaciones"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <h4 class="text-danger" data-bind="visible: KardexArray().length == 0">No hay datos para mostrar</h4>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="OrdenCompra">
+            <div class="table-responsive" data-bind="visible: OrdenesCompraArray().length> 0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Proveedor</th>
+                            <th>Cantidad</th>
+                            <th>Costo</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: OrdenesCompraArray">
+                        <tr>
+                            <td data-bind="text: $data.Fecha"></td>
+                            <td data-bind="text: $data.Proveedor"></td>
+                            <td data-bind="text: $data.Cantidad"></td>
+                            <td data-bind="text: $data.Costo"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="text-danger" data-bind="visible: OrdenesCompraArray().length == 0">No hay datos para mostrar</h4> 
+        </div>
+        <div role="tabpanel" class="tab-pane" id="OrdenPedido">
+            <div class="table-responsive" data-bind="visible: OrdenesPedidoArray().length > 0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Número pedido</th>
+                            <th>Cantidad</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: OrdenesPedidoArray">
+                        <tr>
+                            <td data-bind="text: $data.Fecha"></td>
+                            <td data-bind="text: $data.NumeroPedido"></td>
+                            <td data-bind="text: $data.Cantidad"></td>
+                            <td data-bind="text: $data.Estado"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <h4 class="text-danger" data-bind="visible: OrdenesPedidoArray().length == 0">No hay datos para mostrar</h4> 
+        </div>
+        <div role="tabpanel" class="tab-pane" id="LibroReceta">
+            <div class="table-responsive" data-bind="visible: RecetasArray().length > 0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Laboratorista</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: RecetasArray">
+                        <tr>
+                            <td data-bind="text: $data.Fecha"></td>
+                            <td data-bind="text: $data.Laboratorista"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <h4 class="text-danger" data-bind="visible: RecetasArray().length == 0">No hay datos para mostrar</h4> 
+        </div>
+        <div role="tabpanel" class="tab-pane" id="HojaMerma">
+            <div class="table-responsive" data-bind="visible: HojaMermaArray().length > 0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Motivo</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: HojaMermaArray">
+                        <tr>
+                            <td data-bind="text: $data.Fecha"></td>
+                            <td data-bind="text: $data.Motivo"></td>
+                            <td data-bind="text: $data.Cantidad"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <h4 class="text-danger" data-bind="visible: HojaMermaArray().length == 0">No hay datos para mostrar</h4> 
+        </div>        
+    </div>
+</div>
+<script src="~/Content/js/ViewModel/Trazabilidad.js"></script>
+

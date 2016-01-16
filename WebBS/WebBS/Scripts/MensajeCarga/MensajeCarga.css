@@ -1,0 +1,50 @@
+﻿.mensajeCarga 
+{
+    background-image:url(Imagenes/Cargando.gif);
+	background-repeat:no-repeat;
+	background-position:center center;
+	width: 35px;
+	min-height: 35px;
+}
+
+.mensajeCargaPlanit
+{
+	border: 0;
+	min-height:35px;
+	min-width:35px;
+	background-color: transparent;
+	top:50%;
+	left:50%;
+	position: fixed;
+	display: none;
+	outline: none;
+	z-index: 10002;
+}
+.mensajeCargaPlanitBackground {
+	background-color: #F0F0F0;
+	opacity: 0.5;
+	filter:  alpha(opacity=50);
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	display: none;
+	z-index: 10001;
+}
+
+.x-mask-msg
+{
+    background-color:transparent;
+    border: 0 solid;
+    padding:0;
+}
+.x-mask-msg div
+{      
+    background-image:url(Imagenes/Cargando.gif);
+    border: 0 solid;
+    background-position:center center;
+    padding: 20px;
+    background-color:transparent;
+    font: '"Museo Sans 300",Verdana, Tahoma';
+}

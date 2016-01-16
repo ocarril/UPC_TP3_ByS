@@ -1,0 +1,85 @@
+﻿/*Core*/
+.messageBoxCROM
+{
+    font-family:"Museo Sans 300", Helvetica, sans-serif;
+    font-size: 14px;
+    color: #111111;
+    background: #ddd;
+    position: absolute;
+    max-width: 100%;
+}
+
+.messageBoxCROM .cabecera { padding: 3px 10px; overflow: hidden; }
+.messageBoxCROM .cabecera .titulo { float: left; font-size: 16px; text-decoration: underline; }
+.messageBoxCROM .cabecera .botonCerrar { float: right; cursor: pointer; }
+
+.messageBoxCROM .contenido { padding: 10px; }
+
+.messageBoxCROM .botonera { padding: 5px 10px; text-align: right; }
+.messageBoxCROM .botonera .buttonCROM { color:#5A9BF8; cursor:pointer; }
+.messageBoxCROM .botonera .buttonCROM:hover { color: #4880D4; font-weight:bold; }
+
+.panelSuperposicion
+{
+	position: fixed; 
+	top: 0;
+	left: 0; 
+	width: 100%;
+	height: 100%; 
+	background-color: Black;
+	display: none;
+}
+
+
+/*Error*/
+.messageBoxCROM.error {
+	color: #990099;
+	background: #FF8484;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F0D0F0), to(#FF8484) );
+	background: -moz-linear-gradient(-90deg, #F0D0F0, #FF8484 );
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#F0D0F0', EndColorStr='#FF8484' );
+}
+.messageBoxCROM.error .cabecera { background-color:#F58A8D; color:#D8000C; }
+
+
+/*Alerta*/
+.messageBoxCROM.alerta
+{
+    color: #9F6000;
+    background: #F1DA7E;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F1DA7E));
+    background: -moz-linear-gradient(-90deg, #FFFFFF, #F1DA7E );
+    border: 1px solid #9F6000; 
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFFFFF', EndColorStr='#F1DA7E' );
+}
+.messageBoxCROM.alerta .cabecera { background-color:#F1DA7E; }
+
+
+/*Informacion*/
+.messageBoxCROM.informacion
+{
+    color: #000000;
+    background: #E6FFE6;
+    position: fixed;
+    border: 1px solid #339933;
+}
+.messageBoxCROM.informacion .cabecera { display:none; }
+
+.messageBoxPosicionDefaultCROM { top:0px; right:10px;}
+
+
+/*Confirmacion*/
+.messageBoxCROM.confirmacion
+{
+    color: #0066FF;
+    background: #8FB6E4;
+    background: -webkit-gradient(linear, left top, left bottom, from(#C5D9F1), to(#8FB6E4));
+    background: -moz-linear-gradient(-90deg, #C5D9F1, #8FB6E4); /*filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,
+		StartColorStr='#C5D9F1', EndColorStr='#8FB6E4' );*/
+    border: 1px solid #0000CC;
+}
+.messageBoxCROM.confirmacion .cabecera
+{
+    background-color: #8FB6E4;
+    color: #0066FF;
+}

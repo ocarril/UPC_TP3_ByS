@@ -1,0 +1,312 @@
+﻿
+@{
+    ViewBag.Title = "Picking de Pedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .table .row-select { background-color: #ebebeb; }
+    .table .row-atendido { color: #0090D7; }
+</style>
+<div class="panel panel-info">
+    <h4 class="panel-heading">Realizar Picking de Pedidos</h4>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Usuario:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" value="@WebBS.Clases.Seguridad.ObtenerUsuarioSession().Nombre" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" value="@DateTime.Now.ToShortDateString()" disabled />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Número de pedido:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="value: $root.PedidoBuscar" />
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" data-bind="click: $root.ConsultarPedidos">
+                                        Consultar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <h4 class="col-xs-12 text-center">
+                    Lista de Pedidos
+                </h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Fecha</th>
+                            <th class="text-center">Número de pedido</th>
+                            <th class="text-center">Sucursal</th>
+                            <th class="text-center">Estado</th>                            
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: pedidos">
+                        <tr data-bind="css: {'row-select': $data.Seleccionado, 'row-atendido': $data.Estado() == 'Atendido' }, click: $root.SeleccionarPedido">
+                            <td class="text-center" data-bind="text: $data.Fecha"></td>
+                            <td class="text-center" data-bind="text: $data.NumeroPedido"></td>
+                            <td data-bind="text: $data.Sucursal"></td>
+                            <td class="text-center" data-bind="text: $data.Estado"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-inline text-right">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-primary form-control" data-bind="click: $root.VerPedido">Seleccionar pedido a pickar</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-primary form-control">Actualizar lista de picking</button>
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-primary form-control">Salir</button>
+                    </div>
+                </div>*@
+            </div> 
+        </div>
+    </div>
+</div>
+<div id="modal-detalle-pedido" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Detalle del pedido</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Número de pedido:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetallePedido.NumeroPedido" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha entrega:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" data-bind="value: DetallePedido.Fecha" />
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Sucursal:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetallePedido.Sucursal" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Dirección de entrega:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetallePedido.DireccionEntrega" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive" data-bind="visible: DetallePedido.Productos().length > 0">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Código artículo</th>
+                                    <th class="text-center">Nombre del artículo</th>
+                                    <th class="text-center">Unidad de Medida</th>
+                                    <th class="text-center">Cantidad pedida</th>
+                                    <th class="text-center">Cantidad atendida</th>
+                                    <th class="text-center">Saldo</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: DetallePedido.Productos">
+                                <tr data-bind="css:{'row-select': $data.Seleccionado }, click: $root.SeleccionarProducto">
+                                    <td class="text-center" data-bind="text: $data.IdProducto"></td>
+                                    <td class="text-center" data-bind="text: $data.Descripcion"></td>
+                                    <td data-bind="text: $data.UnidadMedida"></td>
+                                    <td data-bind="text: $data.Cantidad"></td>
+                                    <td data-bind="text: $data.Atendido"></td>
+                                    <td data-bind="text: $data.Saldo"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--ko if: DetallePedido.Productos().length == 0-->
+                    <p class="alert alert-warning">No se ha registrado artículos para este pedido</p>                   
+                    <!--/ko-->
+                </div>                
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-primary" data-bind="click: $root.VerProducto">Seleccionar producto</button>
+                <!--ko if: DetallePedido.Estado() == 'Pendiente' -->
+                <button type="button" class="btn btn-primary" data-bind="click: $root.CerrarPedido">Cerrar pedido</button>
+                <!--/ko-->
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-detalle-producto" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Detalle del Producto</h4>
+            </div>
+            <div class="modal-body">
+                <fieldset class="form-horizontal" data-bind="enable: DetallePedido.Estado() == 'Pendiente'">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Código producto:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetalleProducto.IdProducto" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Descripción:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetalleProducto.Descripcion" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Unidad de medida:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetalleProducto.UnidadMedida" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Ubicación en almacén:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetalleProducto.Ubicacion" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Cantidad pedida:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetalleProducto.Cantidad" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Saldo:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetalleProducto.Saldo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Cantidad a atender:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: DetalleProducto.Atendido, valueUpdate:'afterkeydown'" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-primary" data-bind="click: $root.ConsultarStock">Consultar stock</button>
+                <button type="button" class="btn btn-default">Solicitar reabastecimiento</button>
+                <!--ko if: DetallePedido.Estado() == 'Pendiente' -->
+                <button type="button" class="btn btn-default" data-bind="click: $root.RegistrarCantidad">Registrar cantidad</button>
+                <!--/ko-->
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>                
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-stock" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Stock producto</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Descripción:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: ProductoExistencias.Descripcion" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Stock actual</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: ProductoExistencias.Stock() + ' ' + ProductoExistencias.UnidadMedida()" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/ViewModel/PickingPedido.js"></script>

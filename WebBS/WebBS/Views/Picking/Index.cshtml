@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Generar Picking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .table td { cursor:default; }
+    .table .row-select { background-color: #ebebeb; }
+</style>
+<div class="panel panel-info">
+    <h4 class="panel-heading">Generar Lista de Picking</h4>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Número Picking:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control text-uppercase" data-bind="value: picking.NumeroPicking" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Entrega:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="value: picking.FechaEntrega" />
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Responsable:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <select class="form-control" data-bind="options: responsables, optionsText: 'Nombre', optionsValue: 'IdPersona', optionsCaption: '-Seleccione un responsable-', value: picking.IdResponsable"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">                        
+                        <div class="col-xs-12">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button type="button" class="btn btn-primary form-control" data-bind="click: $root.SeleccionarPedidos">Seleccionar pedidos</button>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button type="button" class="btn btn-default form-control" data-bind="click: $root.Grabar">Grabar</button>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button type="button" class="btn btn-default form-control" data-bind="click: $root.Listar">Listar</button>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button type="button" class="btn btn-default form-control" data-bind="click: $root.Salir">Salir</button>
+                                    </div>                                    
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 data-bind="text: $root.ContarSeleccionados"></h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Pedido</th>
+                            <th class="text-center">Sucursal</th>
+                            <th class="text-center">Estado</th>                            
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: pedidos">
+                        <tr data-bind="css: {'row-select': $data.Seleccionado }, click: $root.SeleccionarFila">
+                            <td class="text-center" data-bind="text: $data.Pedido"></td>
+                            <td class="text-center" data-bind="text: $data.Sucursal"></td>
+                            <td class="text-center" data-bind="text: $data.Estado"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-seleccionar-pedidos" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-full-screen" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Seleccionar Pedidos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Pedidos:</label>
+                            <input type="text" class="form-control" data-bind="value: FiltroPedido.Inicio" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="hidden-xs">&nbsp;</label>
+                            <input type="text" class="form-control" data-bind="value: FiltroPedido.Fin" />
+                        </div>
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label>Sucursal:</label>
+                    <select class="form-control" data-bind="options: sucursales, optionsCaption: '-Todos-',value: FiltroPedido.Sucursal"></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bind="click: FiltrarPedidos">Aceptar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/ViewModel/Picking.js"></script>
