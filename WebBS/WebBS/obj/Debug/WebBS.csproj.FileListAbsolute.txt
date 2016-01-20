@@ -51,3 +51,9 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dl
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\Bys.Trazabilidad.Logic.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Data.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\Bys.Trazabilidad.Logic.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Data.pdb
