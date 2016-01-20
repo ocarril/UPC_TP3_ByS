@@ -25,6 +25,7 @@ D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
 D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
 D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
 D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+<<<<<<< HEAD
 D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
 D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
 D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
@@ -35,3 +36,15 @@ D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.En
 D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
 D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
 D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+=======
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
+C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+>>>>>>> origin/master
