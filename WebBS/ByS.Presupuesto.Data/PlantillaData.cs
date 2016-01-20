@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-
 using ByS.Presupuesto.Entities;
 using ByS.Presupuesto.Entities.DTO;
 using log4net;
@@ -19,6 +18,9 @@ namespace ByS.Presupuesto.Data
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(PlantillaData));
         private string conexion = string.Empty;
+
+        //Plantilla data
+
 
         public PlantillaData()
         {
