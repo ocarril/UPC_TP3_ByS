@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.dll
 C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.pdb
 C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\GitHubPushLib.dll
 C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
 C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb
+=======
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\GitHubPushLib.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb
+>>>>>>> origin/master
