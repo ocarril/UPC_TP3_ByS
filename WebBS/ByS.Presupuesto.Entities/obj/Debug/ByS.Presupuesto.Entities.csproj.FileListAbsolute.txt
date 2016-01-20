@@ -8,3 +8,8 @@ D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupu
 D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb
 D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
 F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.pdb
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\GitHubPushLib.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb

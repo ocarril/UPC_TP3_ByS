@@ -21,3 +21,16 @@ D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logi
 D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.dll
 D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.pdb
 F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Logic\bin\Debug\log4net.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.pdb
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\GitHubPushLib.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\log4net.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.pdb
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.pdb
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.csprojResolveAssemblyReference.cache
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.dll
+D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.pdb
