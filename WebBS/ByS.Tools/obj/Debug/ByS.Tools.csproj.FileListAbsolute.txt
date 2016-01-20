@@ -1,51 +1,8 @@
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
-<<<<<<< HEAD
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
-=======
-<<<<<<< HEAD
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
-=======
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
->>>>>>> origin/master
->>>>>>> origin/master
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb

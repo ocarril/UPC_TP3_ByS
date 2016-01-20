@@ -1,64 +1,10 @@
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
-<<<<<<< HEAD
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
-=======
-<<<<<<< HEAD
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
-=======
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
->>>>>>> origin/master
->>>>>>> origin/master
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
+C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
