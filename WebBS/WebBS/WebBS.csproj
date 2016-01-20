@@ -190,13 +190,6 @@
       <DependentUpon>BDBoticas.edmx</DependentUpon>
       <LastGenOutput>BDBoticas.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="Models\Trazabilidad\ModelGrupo2.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelGrupo2.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Trazabilidad\ModelGrupo2.edmx.diagram">
-      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\Helper\AjaxHelper.js" />
     <Content Include="Scripts\Helper\AjaxUtil.js" />
     <Content Include="Scripts\Helper\CROMUtil.js" />
@@ -212,16 +205,6 @@
     <Content Include="Scripts\Jqgrid\harvest.sig" />
     <Content Include="Scripts\Helper\harvest.sig" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Models\Trazabilidad\ModelGrupo2.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
-      <LastGenOutput>ModelGrupo2.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Trazabilidad\ModelGrupo2.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
-      <LastGenOutput>ModelGrupo2.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Jqgrid\grid.locale-en.js" />
     <Content Include="Scripts\Jqgrid\grid.locale-es.js" />
@@ -337,54 +320,6 @@
     </Compile>
     <Compile Include="Models\sp_UbicacionProducto_Result.cs">
       <DependentUpon>BDBoticas.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\FichaTecnicaProductoFarmacia.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\FichaTecnicaProductoProveedor.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\HojaMerma.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\InformeTrazabilidad.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\InformeVenta.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\Kardex.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\LibroReceta.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\ModelGrupo2.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelGrupo2.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\ModelGrupo2.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\ModelGrupo2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelGrupo2.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\OrdenDeCompra.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\OrdenDeDespacho.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\Procedimiento.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Trazabilidad\Trazabilidad.cs">
-      <DependentUpon>ModelGrupo2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ubicacion.cs">
       <DependentUpon>BDBoticas.tt</DependentUpon>
