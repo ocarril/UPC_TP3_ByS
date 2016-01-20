@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Logic.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Logic.pdb
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Data.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Entities.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Tools.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\GitHubPushLib.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\log4net.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Data.pdb
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Entities.pdb
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Tools.pdb
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.csprojResolveAssemblyReference.cache
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.pdb
-=======
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Logic.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Logic.pdb
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Data.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Entities.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Tools.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\GitHubPushLib.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\log4net.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Data.pdb
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Entities.pdb
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Tools.pdb
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.pdb
->>>>>>> origin/master
-=======
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Logic.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Logic.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Presupuesto.Data.dll
@@ -42,4 +11,3 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\bin\Debug\ByS.Tools.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Logic\obj\Debug\ByS.Presupuesto.Logic.pdb
->>>>>>> origin/master

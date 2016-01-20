@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
-=======
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
->>>>>>> origin/master
-=======
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
@@ -27,4 +6,3 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resource
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
->>>>>>> origin/master

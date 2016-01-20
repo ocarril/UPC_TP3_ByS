@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
-=======
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-C:\Users\alumnos.VA109-22\Documents\GitHub\UPC_TP3_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
->>>>>>> origin/master
-=======
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
@@ -33,4 +8,3 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.p
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
->>>>>>> origin/master
