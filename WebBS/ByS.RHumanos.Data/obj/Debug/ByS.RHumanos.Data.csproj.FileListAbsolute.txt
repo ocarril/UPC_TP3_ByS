@@ -1,63 +1,10 @@
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
-<<<<<<< HEAD
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
-=======
-<<<<<<< HEAD
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
-=======
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
->>>>>>> origin/master
->>>>>>> origin/master
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb

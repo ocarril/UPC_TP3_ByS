@@ -1,38 +1,6 @@
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
-<<<<<<< HEAD
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
-=======
-<<<<<<< HEAD
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
-=======
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
->>>>>>> origin/master
->>>>>>> origin/master
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
