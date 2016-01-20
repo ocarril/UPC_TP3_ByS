@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelGrupo2_ModelStoreContainer" CdmEntityContainer="ModelGrupo2Entities">
+    <EntitySetMapping Name="FichaTecnicaProductoFarmacia">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.FichaTecnicaProductoFarmacia">
+        <MappingFragment StoreEntitySet="FichaTecnicaProductoFarmacia">
+          <ScalarProperty Name="codigoFichaTecProveedor" ColumnName="codigoFichaTecProveedor" />
+          <ScalarProperty Name="codigoProcedimiento" ColumnName="codigoProcedimiento" />
+          <ScalarProperty Name="aprobar" ColumnName="aprobar" />
+          <ScalarProperty Name="quimicoFarmaceutico" ColumnName="quimicoFarmaceutico" />
+          <ScalarProperty Name="posologia" ColumnName="posologia" />
+          <ScalarProperty Name="procedimiemtoDistribucion" ColumnName="procedimiemtoDistribucion" />
+          <ScalarProperty Name="procedimientoVenta" ColumnName="procedimientoVenta" />
+          <ScalarProperty Name="procedimientoAlmacen" ColumnName="procedimientoAlmacen" />
+          <ScalarProperty Name="etiquetado" ColumnName="etiquetado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigoFichaTecProducto" ColumnName="codigoFichaTecProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FichaTecnicaProductoProveedor">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.FichaTecnicaProductoProveedor">
+        <MappingFragment StoreEntitySet="FichaTecnicaProductoProveedor">
+          <ScalarProperty Name="laboratorioOrigen" ColumnName="laboratorioOrigen" />
+          <ScalarProperty Name="temperaturaMaxima" ColumnName="temperaturaMaxima" />
+          <ScalarProperty Name="temperaturaMinima" ColumnName="temperaturaMinima" />
+          <ScalarProperty Name="condicionesComercial" ColumnName="condicionesComercial" />
+          <ScalarProperty Name="condicionesAlmacen" ColumnName="condicionesAlmacen" />
+          <ScalarProperty Name="condicionesUso" ColumnName="condicionesUso" />
+          <ScalarProperty Name="contraIndicacion" ColumnName="contraIndicacion" />
+          <ScalarProperty Name="modoUso" ColumnName="modoUso" />
+          <ScalarProperty Name="nomTecnico" ColumnName="nomTecnico" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigoFichaTecProveedor" ColumnName="codigoFichaTecProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HojaMerma">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.HojaMerma">
+        <MappingFragment StoreEntitySet="HojaMerma">
+          <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="cantidadInsumo" ColumnName="cantidadInsumo" />
+          <ScalarProperty Name="numeroHojaMerma" ColumnName="numeroHojaMerma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InformeTrazabilidad">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.InformeTrazabilidad">
+        <MappingFragment StoreEntitySet="InformeTrazabilidad">
+          <ScalarProperty Name="codigoTraza" ColumnName="codigoTraza" />
+          <ScalarProperty Name="anexo" ColumnName="anexo" />
+          <ScalarProperty Name="detalleAnalisis" ColumnName="detalleAnalisis" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="codigoInformeTrazabilidad" ColumnName="codigoInformeTrazabilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InformeVenta">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.InformeVenta">
+        <MappingFragment StoreEntitySet="InformeVenta">
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="fechaVenta" ColumnName="fechaVenta" />
+          <ScalarProperty Name="codigoVenta" ColumnName="codigoVenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kardex">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.Kardex">
+        <MappingFragment StoreEntitySet="Kardex">
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="saldos" ColumnName="saldos" />
+          <ScalarProperty Name="salidas" ColumnName="salidas" />
+          <ScalarProperty Name="ingreso" ColumnName="ingreso" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="numeroKardex" ColumnName="numeroKardex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibroReceta">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.LibroReceta">
+        <MappingFragment StoreEntitySet="LibroReceta">
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="quimicoLaboratorista" ColumnName="quimicoLaboratorista" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="codigoReceta" ColumnName="codigoReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdenDeCompra">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.OrdenDeCompra">
+        <MappingFragment StoreEntitySet="OrdenDeCompra">
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="codigoProveedor" ColumnName="codigoProveedor" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="codigoCompra" ColumnName="codigoCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdenDeDespacho">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.OrdenDeDespacho">
+        <MappingFragment StoreEntitySet="OrdenDeDespacho">
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="pesoTotal" ColumnName="pesoTotal" />
+          <ScalarProperty Name="totalPedidos" ColumnName="totalPedidos" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="numeroOrden" ColumnName="numeroOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedimiento">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.Procedimiento">
+        <MappingFragment StoreEntitySet="Procedimiento">
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="unidadPlazo" ColumnName="unidadPlazo" />
+          <ScalarProperty Name="responsable" ColumnName="responsable" />
+          <ScalarProperty Name="fechFinVigencia" ColumnName="fechFinVigencia" />
+          <ScalarProperty Name="fechIniVigencia" ColumnName="fechIniVigencia" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="codigoProcedimiento" ColumnName="codigoProcedimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trazabilidad">
+      <EntityTypeMapping TypeName="ModelGrupo2_Model.Trazabilidad">
+        <MappingFragment StoreEntitySet="Trazabilidad">
+          <ScalarProperty Name="codigoFichaTecProducto" ColumnName="codigoFichaTecProducto" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="numeroHojaMerma" ColumnName="numeroHojaMerma" />
+          <ScalarProperty Name="numeroOrden" ColumnName="numeroOrden" />
+          <ScalarProperty Name="codigoCompra" ColumnName="codigoCompra" />
+          <ScalarProperty Name="numeroKardex" ColumnName="numeroKardex" />
+          <ScalarProperty Name="codigoVenta" ColumnName="codigoVenta" />
+          <ScalarProperty Name="fechaTraza" ColumnName="fechaTraza" />
+          <ScalarProperty Name="codigoTraza" ColumnName="codigoTraza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
