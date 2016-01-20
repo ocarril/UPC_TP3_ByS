@@ -8,6 +8,8 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\Bys.Trazabilidad.Logic.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\log4net.dll
@@ -23,6 +25,7 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\WebGrease.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Data.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Inventario.Entities.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Inventario.Logic.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
@@ -30,6 +33,8 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\Bys.Trazabilidad.Logic.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.xml
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
@@ -43,6 +48,7 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Data.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
@@ -51,9 +57,3 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dl
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Entities.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\Bys.Trazabilidad.Logic.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Data.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Entities.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\Bys.Trazabilidad.Logic.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Trazabilidad.Data.pdb
