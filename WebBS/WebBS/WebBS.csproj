@@ -457,6 +457,14 @@
       <Project>{f354fade-3ef8-46dc-9d21-e44a4efc75b8}</Project>
       <Name>ByS.Tools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ByS.Trazabilidad.Entities\ByS.Trazabilidad.Entities.csproj">
+      <Project>{d569f4c2-8d0f-4aa3-bc61-57370281ac99}</Project>
+      <Name>ByS.Trazabilidad.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bys.Trazabilidad.Logic\Bys.Trazabilidad.Logic.csproj">
+      <Project>{a04f2e06-d9be-41ff-b632-46d540946d3f}</Project>
+      <Name>Bys.Trazabilidad.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
