@@ -426,6 +426,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ByS.Inventario.Entities\ByS.Inventario.Entities.csproj">
+      <Project>{7f5f5051-e86e-46ab-8c57-397d2bf9268b}</Project>
+      <Name>ByS.Inventario.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.Inventario.Logic\ByS.Inventario.Logic.csproj">
+      <Project>{b2a514cc-a106-4d84-82ac-894313ee3317}</Project>
+      <Name>ByS.Inventario.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ByS.Presupuesto.Entities\ByS.Presupuesto.Entities.csproj">
       <Project>{90e9a655-c490-4550-91f6-c5ede7396bc7}</Project>
       <Name>ByS.Presupuesto.Entities</Name>

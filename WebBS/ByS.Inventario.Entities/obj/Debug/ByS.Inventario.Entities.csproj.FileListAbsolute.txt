@@ -1,0 +1,5 @@
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.dll
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.csprojResolveAssemblyReference.cache
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.dll
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.pdb

@@ -1,0 +1,4 @@
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.dll
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.dll
+D:\tp3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.pdb

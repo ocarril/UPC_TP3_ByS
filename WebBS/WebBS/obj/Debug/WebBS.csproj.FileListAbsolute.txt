@@ -1,445 +1,53 @@
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\WebBS.dll.config
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\WebBS.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\WebBS.pdb
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Helpers.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Mvc.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Razor.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.WebPages.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Helpers.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Mvc.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Razor.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.WebPages.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-C:\Users\jtorres\Desktop\WebBS\WebBS\obj\Debug\WebBS.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\obj\Debug\WebBS.pdb
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\Antlr3.Runtime.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\Newtonsoft.Json.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Optimization.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\WebGrease.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\Newtonsoft.Json.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\System.Web.Optimization.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\EntityFramework.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\EntityFramework.xml
-C:\Users\jtorres\Desktop\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\WebBS.dll.config
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\WebBS.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\WebBS.pdb
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\Antlr3.Runtime.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\EntityFramework.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\Newtonsoft.Json.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Helpers.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Mvc.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Optimization.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Razor.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.WebPages.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\WebGrease.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\EntityFramework.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\Newtonsoft.Json.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Helpers.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Mvc.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Optimization.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.Razor.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.WebPages.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\obj\Debug\WebBS.dll
-C:\Users\jmallqui.NTCIP\Google Drive\TP2\CodeVS\WebBS\WebBS\obj\Debug\WebBS.pdb
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\WebBS.dll.config
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\WebBS.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\WebBS.pdb
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\Antlr3.Runtime.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\EntityFramework.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\Newtonsoft.Json.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Helpers.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Mvc.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Optimization.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Razor.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.WebPages.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\WebGrease.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\EntityFramework.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\Newtonsoft.Json.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Helpers.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Mvc.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Optimization.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.Razor.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.WebPages.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\obj\Debug\WebBS.dll
-G:\Juan Mallqui Proyectos\JUAN MALLQUI\UPC\WebBS\WebBS\obj\Debug\WebBS.pdb
-D:\team\WebBS\WebBS\bin\WebBS.dll.config
-D:\team\WebBS\WebBS\bin\WebBS.dll
-D:\team\WebBS\WebBS\bin\WebBS.pdb
-D:\team\WebBS\WebBS\bin\Antlr3.Runtime.dll
-D:\team\WebBS\WebBS\bin\EntityFramework.dll
-D:\team\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-D:\team\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-D:\team\WebBS\WebBS\bin\Newtonsoft.Json.dll
-D:\team\WebBS\WebBS\bin\System.Web.Helpers.dll
-D:\team\WebBS\WebBS\bin\System.Web.Mvc.dll
-D:\team\WebBS\WebBS\bin\System.Web.Optimization.dll
-D:\team\WebBS\WebBS\bin\System.Web.Razor.dll
-D:\team\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-D:\team\WebBS\WebBS\bin\System.Web.WebPages.dll
-D:\team\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-D:\team\WebBS\WebBS\bin\WebGrease.dll
-D:\team\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-D:\team\WebBS\WebBS\bin\EntityFramework.xml
-D:\team\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-D:\team\WebBS\WebBS\bin\Newtonsoft.Json.xml
-D:\team\WebBS\WebBS\bin\System.Web.Helpers.xml
-D:\team\WebBS\WebBS\bin\System.Web.Mvc.xml
-D:\team\WebBS\WebBS\bin\System.Web.Optimization.xml
-D:\team\WebBS\WebBS\bin\System.Web.Razor.xml
-D:\team\WebBS\WebBS\bin\System.Web.WebPages.xml
-D:\team\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-D:\team\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-D:\team\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-D:\team\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-D:\team\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-D:\team\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\team\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\team\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-D:\team\WebBS\WebBS\obj\Debug\WebBS.dll
-D:\team\WebBS\WebBS\obj\Debug\WebBS.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\WebBS.dll.config
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\WebBS.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\WebBS.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\Antlr3.Runtime.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Presupuesto.Entities.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Tools.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\EntityFramework.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\log4net.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\Newtonsoft.Json.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Helpers.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Mvc.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Optimization.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Razor.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.WebPages.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\WebGrease.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Tools.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\EntityFramework.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\Newtonsoft.Json.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Helpers.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Mvc.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Optimization.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.Razor.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.WebPages.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\obj\Debug\WebBS.dll
-D:\Ocarril\_NET\MVC4\VS2013\WebBS\WebBS\obj\Debug\WebBS.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\WebBS.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\WebBS.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\Antlr3.Runtime.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Presupuesto.Entities.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Tools.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\EntityFramework.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\log4net.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\mscorlib.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\Newtonsoft.Json.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Helpers.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Mvc.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Optimization.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Razor.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.WebPages.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\WebGrease.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Tools.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\EntityFramework.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\Newtonsoft.Json.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Helpers.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Mvc.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Optimization.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.Razor.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.WebPages.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\es\mscorlib.resources.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\normidna.nlp
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\normnfc.nlp
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\normnfd.nlp
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\normnfkc.nlp
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\bin\normnfkd.nlp
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\obj\Debug\WebBS.dll
-F:\CROMSistemas\VS2012\ByS\TP03\WebBS\WebBS\obj\Debug\WebBS.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\log4net.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\WebGrease.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.dll
-D:\Tp03\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.pdb
-<<<<<<< HEAD
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\log4net.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\WebGrease.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.dll
-D:\Proyecto\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.pdb
-=======
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\log4net.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\WebGrease.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.dll
-D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\log4net.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\WebGrease.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.dll
-C:\Users\alumnos.VA109-09\Downloads\BYS\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.pdb
->>>>>>> origin/master
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\WebBS.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Inventario.Entities.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Inventario.Logic.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\log4net.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\Microsoft.Web.Infrastructure.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\WebGrease.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Inventario.Entities.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Inventario.Logic.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Entities.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Logic.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Entities.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Logic.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Tools.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\Antlr3.Runtime.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\EntityFramework.SqlServer.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\Newtonsoft.Json.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Helpers.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Mvc.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Optimization.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.Razor.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Deployment.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\System.Web.WebPages.Razor.xml
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.Presupuesto.Data.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\ByS.RHumanos.Data.pdb
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Helpers.resources.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.Razor.resources.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.resources.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.csprojResolveAssemblyReference.cache
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.dll
+D:\tp3\UPC_TP3_ByS\WebBS\WebBS\obj\Debug\WebBS.pdb
