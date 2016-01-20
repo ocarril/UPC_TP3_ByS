@@ -1,4 +1,4 @@
-USE BD_ByS
+﻿USE BD_ByS
 GO
 
 CREATE SCHEMA Presupuesto
@@ -8,6 +8,9 @@ CREATE SCHEMA RecursosHumanos
 GO
 
 CREATE SCHEMA Maestros
+GO
+
+CREATE SCHEMA Trazabilidad
 GO
 
 /***************************************************************************************
@@ -382,3 +385,283 @@ ON [DATABASE01]
 END
 GO
 
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.FichaTecnicaProductoFarmacia
+* Tabla para almacenar la Ficha Tecnica de Cada Producto con la informacion de la propia Farmacia
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.FichaTecnicaProductoFarmacia') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[FichaTecnicaProductoFarmacia](
+	[codigoFichaTecProducto] [varchar](10) NOT NULL,
+	[nombre] [varchar](10) NULL,
+	[descripcion] [varchar](10) NULL,
+	[etiquetado] [varchar](10) NULL,
+	[procedimientoAlmacen] [varchar](255) NULL,
+	[procedimientoVenta] [varchar](255) NULL,
+	[procedimiemtoDistribucion] [varchar](255) NULL,
+	[posologia] [varchar](50) NULL,
+	[quimicoFarmaceutico] [varchar](10) NULL,
+	[aprobar] [varchar](10) NULL,
+	[codigoProcedimiento] [varchar](10) NULL,
+	[codigoFichaTecProveedor] [varchar](10) NULL,
+ CONSTRAINT [PK_FichaTecnicaProductoFarmacia] PRIMARY KEY CLUSTERED 
+(
+	[codigoFichaTecProducto] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.FichaTecnicaProductoProveedor
+* Tabla para almacenar la Ficha Tecnica de Cada Producto basado en la informacion del Proveedor
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.FichaTecnicaProductoProveedor') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[FichaTecnicaProductoProveedor](
+	[codigoFichaTecProveedor] [varchar](10) NOT NULL,
+	[nombre] [varchar](10) NULL,
+	[nomTecnico] [varchar](10) NULL,
+	[modoUso] [varchar](255) NULL,
+	[contraIndicacion] [varchar](255) NULL,
+	[condicionesUso] [varchar](255) NULL,
+	[condicionesAlmacen] [varchar](255) NULL,
+	[condicionesComercial] [varchar](255) NULL,
+	[temperaturaMinima] [varchar](10) NULL,
+	[temperaturaMaxima] [varchar](10) NULL,
+	[laboratorioOrigen] [varchar](50) NULL,
+ CONSTRAINT [PK_FichaTecnicaProductoProveedor] PRIMARY KEY CLUSTERED 
+(
+	[codigoFichaTecProveedor] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.HojaMerma
+* Tabla para almacenar la informacion de los productos que se pierden en el proceso de 
+* elaboracion de una formula en el laboratorio.
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.HojaMerma') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[HojaMerma](
+	[numeroHojaMerma] [varchar](10) NOT NULL,
+	[cantidadInsumo] [varchar](10) NULL,
+	[fecha] [date] NULL,
+	[motivo] [varchar](50) NULL,
+	[codigoProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_HojaMerma] PRIMARY KEY CLUSTERED 
+(
+	[numeroHojaMerma] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.InformeTrazabilidad
+* Tabla para almacenar la informacion del Analisis del Informe de Trazabilidad
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.InformeTrazabilidad') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[InformeTrazabilidad](
+	[codigoInformeTrazabilidad] [varchar](10) NOT NULL,
+	[producto] [varchar](50) NULL,
+	[detalleAnalisis] [varchar](255) NULL,
+	[anexo] [varchar](255) NULL,
+	[codigoTraza] [varchar](10) NULL,
+ CONSTRAINT [PK_InformeTrazabilidad] PRIMARY KEY CLUSTERED 
+(
+	[codigoInformeTrazabilidad] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.InformeVenta
+* Tabla que almacena la informacion de las Ventas que se han dado por cada producto
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.InformeVenta') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[InformeVenta](
+	[codigoVenta] [varchar](10) NOT NULL,
+	[fechaVenta] [date] NULL,
+	[nombreProducto] [varchar](10) NULL,
+	[cantidad] [varchar](10) NULL,
+	[nombreCliente] [varchar](10) NULL,
+	[precio] [varchar](10) NULL,
+	[codigoProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_InformeVenta] PRIMARY KEY CLUSTERED 
+(
+	[codigoVenta] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.Kardex
+* Tabla que contiene la informacion del movimiento de un Producto
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.Kardex') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[Kardex](
+	[numeroKardex] [varchar](10) NOT NULL,
+	[fecha] [date] NULL,
+	[ingreso] [varchar](10) NULL,
+	[salidas] [varchar](10) NULL,
+	[saldos] [varchar](10) NULL,
+	[observaciones] [varchar](255) NULL,
+	[codigoProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_Kardex] PRIMARY KEY CLUSTERED 
+(
+	[numeroKardex] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.LibroReceta
+* Tabla que contiene la informacion de todas las recetas para elaborar los preparados
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.LibroReceta') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[LibroReceta](
+	[nombreProducto] [varchar](10) NOT NULL,
+	[fechaProducto] [date] NULL,
+	[quimicoLaboratorista] [varchar](10) NULL,
+	[codigoProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_LibroReceta] PRIMARY KEY CLUSTERED 
+(
+	[nombreProducto] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.OrdenDeCompra
+* Tabla que contiene la informacion de las Ordenes de Compra que se han generado para mantener el stock
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.OrdenDeCompra') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[OrdenDeCompra](
+	[codigoCompra] [varchar](10) NOT NULL,
+	[fechaCompra] [date] NULL,
+	[nombreProducto] [varchar](10) NULL,
+	[cantidad] [varchar](10) NULL,
+	[nombreProveedor] [varchar](10) NULL,
+	[costo] [varchar](10) NULL,
+	[codigoProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_OrdenDeCompra] PRIMARY KEY CLUSTERED 
+(
+	[codigoCompra] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.OrdenDeDespacho
+* Tabla que contiene la informacion de los movimientos de un producto desde la Principal a las Sucursales
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.OrdenDeDespacho') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[OrdenDeDespacho](
+	[numeroOrden] [varchar](10) NOT NULL,
+	[fecha] [date] NULL,
+	[totalPedidos] [varchar](10) NULL,
+	[pesoTotal] [varchar](10) NULL,
+	[observaciones] [varchar](255) NULL,
+	[codigoProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_OrdenDeDespacho] PRIMARY KEY CLUSTERED 
+(
+	[numeroOrden] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.Procedimiento
+* Tabla que registra la informacion del procedimiento administrativo que rigen las actividades de Boticas B&S
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.Procedimiento') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[Procedimiento](
+	[codigoProcedimiento] [varchar](10) NOT NULL,
+	[version] [varchar](10) NULL,
+	[fechIniVigencia] [date] NULL,
+	[fechFinVigencia] [date] NULL,
+	[responsable] [varchar](50) NULL,
+	[unidadPlazo] [varchar](10) NULL,
+	[observaciones] [varchar](50) NULL,
+ CONSTRAINT [PK_Procedimiento] PRIMARY KEY CLUSTERED 
+(
+	[codigoProcedimiento] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.Producto
+* Tabla que contiene la informacion de cada Producto que se tiene en la Farmacia
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.Producto') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[Producto](
+	[codigoProducto] [varchar](10) NOT NULL,
+	[nombreProducto] [varchar](50) NULL,
+	[descripcion] [varchar](50) NULL,
+	[tipoProducto] [varchar](50) NULL,
+	[presentacion] [varchar](10) NULL,
+	[pesoProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_Producto] PRIMARY KEY CLUSTERED 
+(
+	[codigoProducto] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
+
+/***************************************************************************************
+* CREACION DE LA TABLA : Trazabilidad.Trazabilidad
+* Tabla que contiene el detalle de la información de trazabilidad realizada a los productos seleccionados
+****************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Trazabilidad.Trazabilidad') AND type in (N'U'))
+BEGIN
+CREATE TABLE [Trazabilidad].[Trazabilidad](
+	[codigoTraza] [varchar](10) NOT NULL,
+	[fechaTraza] [date] NULL,
+	[producto] [varchar](50) NULL,
+	[descripcion] [varchar](255) NULL,
+	[codigoVenta] [varchar](10) NULL,
+	[numeroKardex] [varchar](10) NULL,
+	[codigoCompra] [varchar](10) NULL,
+	[numeroOrden] [varchar](10) NULL,
+	[numeroHojaMerma] [varchar](10) NULL,
+	[nombreProducto] [varchar](10) NULL,
+	[codigoFichaTecProducto] [varchar](10) NULL,
+ CONSTRAINT [PK_Trazabilidad] PRIMARY KEY CLUSTERED 
+(
+	[codigoTraza] ASC
+)
+)
+ON [DATABASE01]
+END
+GO
