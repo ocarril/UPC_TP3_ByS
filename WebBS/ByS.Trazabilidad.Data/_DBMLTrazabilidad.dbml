@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_ByS" Class="_DBMLTrazabilidadDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=BD_ByS;Integrated Security=True" SettingsObjectName="ByS.Trazabilidad.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="Trazabilidad.pa_S_Kardex" Method="pa_S_Kardex">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_fechaIni" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="p_fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="pa_S_KardexResult">
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ingreso" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="numeroKardex" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="saldos" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="salidas" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_S_LibroReceta" Method="pa_S_LibroReceta">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_fechaIni" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="p_fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="pa_S_LibroRecetaResult">
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fechaProducto" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nombreProducto" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="quimicoLaboratorista" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_S_OrdendeCompra" Method="pa_S_OrdendeCompra">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_fechaIni" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="p_fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="pa_S_OrdendeCompraResult">
+      <Column Name="cantidad" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="codigoCompra" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="costo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fechaCompra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nombreProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="nombreProveedor" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_S_OrdenDeDespacho" Method="pa_S_OrdenDeDespacho">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_fechaIni" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="p_fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="pa_S_OrdenDeDespachoResult">
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="numeroOrden" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="pesoTotal" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="totalPedidos" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_S_HojaMerma" Method="pa_S_HojaMerma">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_fechaIni" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="p_fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="pa_S_HojaMermaResult">
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="cantidadInsumo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="motivo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="numeroHojaMerma" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_S_InformeVenta" Method="pa_S_InformeVenta">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_fechaIni" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="p_fechaFin" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="pa_S_InformeVentaResult">
+      <Column Name="codigoVenta" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaVenta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nombreProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="precio" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="nombreCliente" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_S_Producto" Method="pa_S_Producto">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_nomProducto" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="pa_S_ProductoResult">
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombreProducto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pesoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="presentacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="tipoProducto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_S_FichaTecnicaProductoFarmacia" Method="pa_S_FichaTecnicaProductoFarmacia">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="pa_S_FichaTecnicaProductoFarmaciaResult">
+      <Column Name="codigoFichaTecProducto" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="aprobar" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="codigoFichaTecProveedor" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="codigoProcedimiento" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="etiquetado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="posologia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="procedimiemtoDistribucion" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="procedimientoAlmacen" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="procedimientoVenta" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="quimicoFarmaceutico" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_U_FichaTecnicaProductoFarmacia" Method="pa_U_FichaTecnicaProductoFarmacia">
+    <Parameter Name="p_codigoFichaTecProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_nombre" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_descripcion" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_etiquetado" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_procedimientoAlmacen" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="p_procedimientoVenta" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="p_procedimiemtoDistribucion" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="p_posologia" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_quimicoFarmaceutico" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_aprobar" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
