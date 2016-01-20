@@ -410,6 +410,8 @@
     <Content Include="Views\Shared\_LogOn.cshtml" />
     <Content Include="Views\Presupuesto\Gastos.cshtml" />
     <Content Include="Views\Presupuesto\Plantilla.cshtml" />
+    <Content Include="Views\Trazabilidad\Index.cshtml" />
+    <Content Include="Views\Trazabilidad\Trazabilidad.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
