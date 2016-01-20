@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ByS.Presupuesto.Entities.DTO
 {
+
+    //comentario de prueba
     public class GastoEntityDTO 
     {
         public int codGasto { get; set; }
