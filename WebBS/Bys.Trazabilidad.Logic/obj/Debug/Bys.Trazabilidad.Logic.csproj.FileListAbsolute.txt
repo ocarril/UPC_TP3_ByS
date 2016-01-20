@@ -1,0 +1,36 @@
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.dll
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.pdb
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.dll
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.dll
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.dll
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\log4net.dll
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.pdb
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.pdb
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.pdb
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.csprojResolveAssemblyReference.cache
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.dll
+E:\BOTICA\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.pdb
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.dll
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.pdb
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.dll
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.dll
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.dll
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\log4net.dll
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.pdb
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.pdb
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.pdb
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.dll
+C:\Users\Alexander\Downloads\TP3\Probar fuente tp3\WebBS_20160114_1804\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.pdb
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.dll
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.pdb
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.dll
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.dll
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.dll
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\log4net.dll
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.pdb
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.pdb
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.pdb
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.csprojResolveAssemblyReference.cache
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.dll
+D:\UPC TP3-PROJECT\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.pdb

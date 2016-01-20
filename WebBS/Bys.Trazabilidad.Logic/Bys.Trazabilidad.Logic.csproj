@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A04F2E06-D9BE-41FF-B632-46D540946D3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bys.Trazabilidad.Logic</RootNamespace>
+    <AssemblyName>Bys.Trazabilidad.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FichaTecnicaProductoFarmaciaLogic.cs" />
+    <Compile Include="FichaTecnicaProductoProveedorLogic.cs" />
+    <Compile Include="HojaMermaLogic.cs" />
+    <Compile Include="InformeTrazabilidaLogic.cs" />
+    <Compile Include="InformeVentaLogic.cs" />
+    <Compile Include="KardexLogic.cs" />
+    <Compile Include="LibroRecetaLogic.cs" />
+    <Compile Include="OrdenDeCompraLogic.cs" />
+    <Compile Include="OrdendeDespachoLogic.cs" />
+    <Compile Include="ProductoLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByS.Tools\ByS.Tools.csproj">
+      <Project>{f354fade-3ef8-46dc-9d21-e44a4efc75b8}</Project>
+      <Name>ByS.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.Trazabilidad.Data\ByS.Trazabilidad.Data.csproj">
+      <Project>{9a6a2cfe-95fb-4e5c-a3ed-52e7d729b9e4}</Project>
+      <Name>ByS.Trazabilidad.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.Trazabilidad.Entities\ByS.Trazabilidad.Entities.csproj">
+      <Project>{d569f4c2-8d0f-4aa3-bc61-57370281ac99}</Project>
+      <Name>ByS.Trazabilidad.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
