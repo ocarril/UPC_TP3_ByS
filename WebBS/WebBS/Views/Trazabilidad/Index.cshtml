@@ -1,0 +1,294 @@
+﻿@{
+    ViewBag.Title = "Consultar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-info">
+    <h4 class="panel-heading">
+        Consultar ficha técnica de producto
+    </h4>
+    <div class="panel-body">
+        <div class="form-inline text-center">
+            <div class="form-group">
+                <label class="control-label">Buscar Ficha Técnica de Producto:</label>
+                <input type="text" class="form-control" data-bind="value: ProductoConsultar, valueUpdate: 'afterkeydown', event:{ 'keyup': function(v, e){ if(e.keyCode == 13) $root.BuscarProducto(); } }" />
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" data-bind="click: BuscarProducto">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ficha-tecnica" class="panel panel-info">
+    <h4 class="panel-heading">
+        Detalles del producto
+    </h4>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            @*<div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">Cód. Producto:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="form-control" data-bind="text: FichaProducto.codigoFichaTecProducto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-2 col-sm-4 col-xs-12">Nombre:</label>
+                        <div class="col-md-10 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.nombre"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-2 col-sm-4 col-xs-12">Descripción:</label>
+                        <div class="col-md-10 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.descripcion"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Etiquetado:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.etiquetado"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Procedimiento de almacén:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.procedimientoAlmacen"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Procedimiento de venta:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.procedimientoVenta"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Procedimiento de Distribución:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.procedimiemtoDistribucion"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Posología:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.posologia"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-2 col-sm-4 col-xs-12">Químico farmacéutico:</label>
+                        <div class="col-md-10 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.quimicoFarmaceutico"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-2 col-sm-4 col-xs-12">Aprobado por:</label>
+                        <div class="col-md-10 col-sm-8 col-xs-12">
+                            <div class="form-control" data-bind="text: FichaProducto.aprobar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--ko if: FichaProducto.nombre-->
+            <div class="row print-disable">
+                <div class="col-xs-12">
+                    <div class="form-group form-group-sm">
+                        <div class="col-md-10 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-4">
+                            @*<button type="button" class="btn btn-primary" data-bind="click: AbrirModalActualizar">Actualizar ficha</button>*@
+                            <button type="button" class="btn btn-default" data-bind="click: ImprimirFicha">Imprimir</button>
+                            <button type="button" class="btn btn-default" data-bind="click: LimpiarPantalla">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ko-->
+        </div>
+    </div>
+</div>
+<div id="modal-productos" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Lista de productos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="col-xs-1">Código</th>
+                                    <th>Detalle</th>
+                                    <th class="text-center col-xs-1">#</th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: productos">
+                                <tr>
+                                    <td data-bind="text: $data.codigoFichaTecProducto"></td>
+                                    <td data-bind="text: $data.nombre"></td>
+                                    <td class="text-center">
+                                        <i class="fa fa-check-circle fa-lg" data-bind="click: $root.SeleccionarProducto"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-actualizar" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Actualizar producto</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Cód. Producto:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.codigoFichaTecProducto" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Nombre:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.nombre" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Descripción:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.descripcion" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Etiquetado:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.etiquetado" maxlength="10" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Procedimiento de almacén:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.procedimientoAlmacen" maxlength="255" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Procedimiento de venta:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.procedimientoVenta" maxlength="255" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Procedimiento de Distribución:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.procedimiemtoDistribucion" maxlength="255" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Posología:</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.posologia" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Químico farmacéutico:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.quimicoFarmaceutico" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group form-group-sm">
+                                <label class="control-label col-md-2 col-sm-4 col-xs-12">Aprobado por:</label>
+                                <div class="col-md-10 col-sm-8 col-xs-12">
+                                    <input type="text" class="form-control" data-bind="value: FichaEditar.aprobar" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bind="click: GuardarFicha">Guardar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-print.js"></script>
+<script src="~/Content/js/ViewModel/Producto.js"></script>
