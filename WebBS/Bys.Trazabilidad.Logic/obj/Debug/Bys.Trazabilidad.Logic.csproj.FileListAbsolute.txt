@@ -1,0 +1,12 @@
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\log4net.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.pdb

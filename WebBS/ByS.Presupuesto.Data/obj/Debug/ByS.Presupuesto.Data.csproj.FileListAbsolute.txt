@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
@@ -8,3 +9,15 @@ D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
+=======
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
+>>>>>>> origin/master

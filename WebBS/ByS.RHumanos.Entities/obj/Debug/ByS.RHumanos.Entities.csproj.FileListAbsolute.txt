@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
 D:\tp3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
+=======
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
+>>>>>>> origin/master
