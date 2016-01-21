@@ -17,32 +17,59 @@
 
 function ViewModel() {
     var self = this;
+
+    self.productos = ko.observableArray();
     self.FichaProducto = new Producto();
     self.FichaEditar = new Producto();
 
+    self.ProductoConsultar = ko.observable();
+
     self.BuscarProducto = function () {
-        if (!self.FichaProducto.codigoFichaTecProducto()) {
-            toastr.warning('Ingrese un código de producto para buscar');
+        if (!self.ProductoConsultar()) {
+            toastr.warning('Ingrese un producto para buscar');
             return;
         }
 
-        $.getJSON(urlPath + 'Producto/FichaTecnicaFarmacia?id=' + self.FichaProducto.codigoFichaTecProducto())
-            .done(function (data) {
-                //console.log(data);
-                self.FichaProducto.nombre(data.nombre);
-                self.FichaProducto.descripcion(data.descripcion);
-                self.FichaProducto.etiquetado(data.etiquetado);
-                self.FichaProducto.procedimientoAlmacen(data.procedimientoAlmacen);
-                self.FichaProducto.procedimientoVenta(data.procedimientoVenta);
-                self.FichaProducto.procedimiemtoDistribucion(data.procedimiemtoDistribucion);
-                self.FichaProducto.posologia(data.posologia);
-                self.FichaProducto.quimicoFarmaceutico(data.quimicoFarmaceutico);
-                self.FichaProducto.aprobar(data.aprobar);
-                self.FichaProducto.codigoProcedimiento(data.codigoProcedimiento);
-                self.FichaProducto.codigoFichaTecProveedor(data.codigoFichaTecProveedor);
+        $.getJSON(urlPath + 'Trazabilidad/FichaTecnicaFarmacia?producto=' + self.ProductoConsultar())
+            .done(function (data) {                
+                if (data.length == 1) {
+                    self.FichaProducto.nombre(data[0].nombre);
+                    self.FichaProducto.descripcion(data[0].descripcion);
+                    self.FichaProducto.etiquetado(data[0].etiquetado);
+                    self.FichaProducto.procedimientoAlmacen(data[0].procedimientoAlmacen);
+                    self.FichaProducto.procedimientoVenta(data[0].procedimientoVenta);
+                    self.FichaProducto.procedimiemtoDistribucion(data[0].procedimiemtoDistribucion);
+                    self.FichaProducto.posologia(data[0].posologia);
+                    self.FichaProducto.quimicoFarmaceutico(data[0].quimicoFarmaceutico);
+                    self.FichaProducto.aprobar(data[0].aprobar);
+                    self.FichaProducto.codigoProcedimiento(data[0].codigoProcedimiento);
+                    self.FichaProducto.codigoFichaTecProveedor(data[0].codigoFichaTecProveedor);
+                    toastr.info('Se encontró "' + data[0].nombre + '"');
+                } else if (data.length > 1) {
+                    self.productos(data);
+                    $('#modal-productos').modal('show');
+                } else if (data.length == 0) {
+                    toastr.warning('No hay resultados de la búsqueda');
+                    self.LimpiarPantalla();
+                }
             }).fail(function () {
                 toastr.error('El código no está asociado a ningun producto registrado');
             });
+    }
+
+    self.SeleccionarProducto = function (data) {
+        self.FichaProducto.nombre(data.nombre);
+        self.FichaProducto.descripcion(data.descripcion);
+        self.FichaProducto.etiquetado(data.etiquetado);
+        self.FichaProducto.procedimientoAlmacen(data.procedimientoAlmacen);
+        self.FichaProducto.procedimientoVenta(data.procedimientoVenta);
+        self.FichaProducto.procedimiemtoDistribucion(data.procedimiemtoDistribucion);
+        self.FichaProducto.posologia(data.posologia);
+        self.FichaProducto.quimicoFarmaceutico(data.quimicoFarmaceutico);
+        self.FichaProducto.aprobar(data.aprobar);
+        self.FichaProducto.codigoProcedimiento(data.codigoProcedimiento);
+        self.FichaProducto.codigoFichaTecProveedor(data.codigoFichaTecProveedor);
+        $('#modal-productos').modal('hide');
     }
 
     self.AbrirModalActualizar = function () {
@@ -64,7 +91,7 @@ function ViewModel() {
 
     self.GuardarFicha = function () {
         var data = ko.toJS(self.FichaEditar);
-        $.post(urlPath + 'Producto/ActualizarFichaTecnica', { ficha: data })
+        $.post(urlPath + 'Trazabilidad/ActualizarFichaTecnica', { ficha: data })
           .done(function (codigo) {
               //console.log(codigo);
               self.FichaProducto.codigoFichaTecProducto(data.codigoFichaTecProducto);
@@ -82,7 +109,8 @@ function ViewModel() {
 
               toastr.info('Se guardaron cambios', 'Ficha de producto');
               $('#modal-actualizar').modal('hide');
-          }).fail(function () {
+          }).fail(function (dataError) {
+              console.log(dataError);
               toastr.error('No se pudo actualizar la ficha técnica');
           });
     }
