@@ -192,3 +192,132 @@ GO
 ALTER TABLE Presupuesto.SolicitudPresupuestoDeta
 CHECK CONSTRAINT SolicitudPresupuestoDeta_FK02_codSolicitudPresupuesto
 GO
+
+/**********************************************************************************************************/
+/*************************************** Scripts de Trazabilidad ******************************************/
+/**********************************************************************************************************/
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[FichaTecnicaProductoFarmacia]  WITH CHECK ADD  CONSTRAINT [FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor] FOREIGN KEY([codigoFichaTecProveedor])
+	REFERENCES [Trazabilidad].[FichaTecnicaProductoProveedor] ([codigoFichaTecProveedor])
+	
+	ALTER TABLE [Trazabilidad].[FichaTecnicaProductoFarmacia] CHECK CONSTRAINT [FK_FichaTecnicaProductoFarmacia_FichaTecnicaProductoProveedor]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_FichaTecnicaProductoFarmacia_Procedimiento') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[FichaTecnicaProductoFarmacia]  WITH CHECK ADD  CONSTRAINT [FK_FichaTecnicaProductoFarmacia_Procedimiento] FOREIGN KEY([codigoProcedimiento])
+	REFERENCES [Trazabilidad].[Procedimiento] ([codigoProcedimiento])
+
+	ALTER TABLE [Trazabilidad].[FichaTecnicaProductoFarmacia] CHECK CONSTRAINT [FK_FichaTecnicaProductoFarmacia_Procedimiento]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_HojaMerma_Producto') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[HojaMerma]  WITH CHECK ADD  CONSTRAINT [FK_HojaMerma_Producto] FOREIGN KEY([codigoProducto])
+	REFERENCES [Trazabilidad].[Producto] ([codigoProducto])
+
+	ALTER TABLE [Trazabilidad].[HojaMerma] CHECK CONSTRAINT [FK_HojaMerma_Producto]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_InformeTrazabilidad_Trazabilidad') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[InformeTrazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_InformeTrazabilidad_Trazabilidad] FOREIGN KEY([codigoTraza])
+	REFERENCES [Trazabilidad].[Trazabilidad] ([codigoTraza])
+
+	ALTER TABLE [Trazabilidad].[InformeTrazabilidad] CHECK CONSTRAINT [FK_InformeTrazabilidad_Trazabilidad]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_LibroReceta_Producto') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[LibroReceta]  WITH CHECK ADD  CONSTRAINT [FK_LibroReceta_Producto] FOREIGN KEY([codigoProducto])
+	REFERENCES [Trazabilidad].[Producto] ([codigoProducto])
+
+	ALTER TABLE [Trazabilidad].[LibroReceta] CHECK CONSTRAINT [FK_LibroReceta_Producto]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_OrdenDeCompra_Producto') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[OrdenDeCompra]  WITH CHECK ADD  CONSTRAINT [FK_OrdenDeCompra_Producto] FOREIGN KEY([codigoProducto])
+	REFERENCES [Trazabilidad].[Producto] ([codigoProducto])
+
+	ALTER TABLE [Trazabilidad].[OrdenDeCompra] CHECK CONSTRAINT [FK_OrdenDeCompra_Producto]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_OrdenDeDespacho_Producto') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[OrdenDeDespacho]  WITH CHECK ADD  CONSTRAINT [FK_OrdenDeDespacho_Producto] FOREIGN KEY([codigoProducto])
+	REFERENCES [Trazabilidad].[Producto] ([codigoProducto])
+
+	ALTER TABLE [Trazabilidad].[OrdenDeDespacho] CHECK CONSTRAINT [FK_OrdenDeDespacho_Producto]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_FichaTecnicaProductoFarmacia') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_FichaTecnicaProductoFarmacia] FOREIGN KEY([codigoFichaTecProducto])
+	REFERENCES [Trazabilidad].[FichaTecnicaProductoFarmacia] ([codigoFichaTecProducto])
+
+	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_FichaTecnicaProductoFarmacia]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_HojaMerma') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_HojaMerma] FOREIGN KEY([numeroHojaMerma])
+	REFERENCES [Trazabilidad].[HojaMerma] ([numeroHojaMerma])
+
+	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_HojaMerma]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_InformeVenta') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_InformeVenta] FOREIGN KEY([codigoVenta])
+	REFERENCES [Trazabilidad].[InformeVenta] ([codigoVenta])
+
+	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_InformeVenta]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_Kardex') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_Kardex] FOREIGN KEY([numeroKardex])
+	REFERENCES [Trazabilidad].[Kardex] ([numeroKardex])
+
+	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_Kardex]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_LibroReceta') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_LibroReceta] FOREIGN KEY([nombreProducto])
+	REFERENCES [Trazabilidad].[LibroReceta] ([nombreProducto])
+
+	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_LibroReceta]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_OrdenDeCompra') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_OrdenDeCompra] FOREIGN KEY([codigoCompra])
+	REFERENCES [Trazabilidad].[OrdenDeCompra] ([codigoCompra])
+
+	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_OrdenDeCompra]
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_OrdenDeDespacho') 
+BEGIN
+	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_OrdenDeDespacho] FOREIGN KEY([numeroOrden])
+	REFERENCES [Trazabilidad].[OrdenDeDespacho] ([numeroOrden])
+
+	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_OrdenDeDespacho]
+END
+GO
