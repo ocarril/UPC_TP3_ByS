@@ -1445,3 +1445,303 @@ Estados de la PlantillaDeta
             EN_EJECUCION	= 4,
             EJECUTADA		= 5
 */
+
+/**********************************************************************************************************/
+/*************************************** Scripts de Trazabilidad ******************************************/
+/**********************************************************************************************************/
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_FichaTecnicaProductoFarmacia')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_FichaTecnicaProductoFarmacia] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_FichaTecnicaProductoFarmacia]
+(
+ @p_codProducto			VARCHAR(10)=null
+)
+AS
+BEGIN
+	SELECT 
+	 pf.codigoFichaTecProducto
+	,pf.aprobar
+	,pf.codigoFichaTecProveedor 
+	,pf.codigoProcedimiento
+	,pf.descripcion
+	,pf.etiquetado
+	,pf.nombre
+	,pf.posologia 
+	,pf.procedimiemtoDistribucion
+	,pf.procedimientoAlmacen
+	,pf.procedimientoVenta
+	,pf.quimicoFarmaceutico
+	from Trazabilidad.FichaTecnicaProductoFarmacia pf
+	WHERE 
+	ISNULL(pf.codigoFichaTecProducto,'')	=	isnull(@p_codProducto,'0')
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_HojaMerma')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_HojaMerma] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_HojaMerma]
+(
+ @p_codProducto			VARCHAR(10)=null
+,@p_fechaIni	        DATETIME
+,@p_fechaFin			DATETIME
+)
+AS
+BEGIN
+	SELECT 
+	 hm.codigoProducto 
+	,hm.cantidadInsumo
+	,hm.fecha
+	,hm.motivo
+	,hm.numeroHojaMerma	
+	from Trazabilidad.HojaMerma hm
+	WHERE 
+	ISNULL(hm.codigoProducto,'')	=	(CASE WHEN ISNULL(@p_codProducto,'')<>''	
+									 THEN  ISNULL(@p_codProducto,'') 
+									 ELSE ISNULL(hm.codigoProducto,'')	
+								 END) 
+	AND convert(varchar(8),hm.fecha,112)>= CONVERT(varchar(8),@p_fechaIni,112)
+	AND convert(varchar(8),hm.fecha,112)<= CONVERT(varchar(8),@p_fechaFin,112)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_InformeVenta')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_InformeVenta] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_InformeVenta]
+(
+ @p_codProducto			VARCHAR(10)=null
+,@p_fechaIni	        DATETIME=null
+,@p_fechaFin			DATETIME=null
+)
+AS
+BEGIN
+	SELECT 
+	 iv.codigoVenta
+	,iv.fechaVenta
+	,iv.nombreProducto 
+	,iv.cantidad
+	,iv.codigoProducto
+	,iv.precio
+	,iv.nombreCliente	
+	from Trazabilidad.InformeVenta iv
+	WHERE 
+	ISNULL(iv.codigoProducto,'')	=	(CASE WHEN ISNULL(@p_codProducto,'')<>''	
+									 THEN  ISNULL(@p_codProducto,'') 
+									 ELSE ISNULL(iv.codigoProducto,'')	
+								 END) 
+	AND convert(varchar(8),iv.fechaVenta,112)>= CONVERT(varchar(8),@p_fechaIni,112)
+	AND convert(varchar(8),iv.fechaVenta,112)<= CONVERT(varchar(8),@p_fechaFin,112)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_Kardex')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_Kardex] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_Kardex]
+(
+ @p_codProducto			VARCHAR(10)=null
+,@p_fechaIni	        DATETIME
+,@p_fechaFin			DATETIME
+)
+AS
+BEGIN
+	SELECT 
+	 k.codigoProducto
+	,k.fecha
+	,k.ingreso 
+	,k.numeroKardex
+	,k.observaciones
+	,k.saldos
+	,k.salidas
+	from Trazabilidad.Kardex k
+	WHERE 
+	ISNULL(k.codigoProducto,'')	=	(CASE WHEN ISNULL(@p_codProducto,'')<>''	
+									 THEN  ISNULL(@p_codProducto,'') 
+									 ELSE ISNULL(k.codigoProducto,'')	
+								 END) 
+	AND convert(varchar(8),k.fecha,112)>= CONVERT(varchar(8),@p_fechaIni,112)
+	AND convert(varchar(8),k.fecha,112)<= CONVERT(varchar(8),@p_fechaFin,112)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_LibroReceta')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_LibroReceta] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_LibroReceta]
+(
+ @p_codProducto			VARCHAR(10)=null
+,@p_fechaIni	        DATETIME
+,@p_fechaFin			DATETIME
+)
+AS
+BEGIN
+	SELECT 
+	 lr.codigoProducto 
+	,lr.fechaProducto
+	,lr.nombreProducto
+	,lr.quimicoLaboratorista	
+	from Trazabilidad.LibroReceta lr
+	WHERE 
+	ISNULL(lr.codigoProducto,'')	=	(CASE WHEN ISNULL(@p_codProducto,'')<>''	
+									 THEN  ISNULL(@p_codProducto,'') 
+									 ELSE ISNULL(lr.codigoProducto,'')	
+								 END) 
+	AND convert(varchar(8),lr.fechaproducto,112)>= CONVERT(varchar(8),@p_fechaIni,112)
+	AND convert(varchar(8),lr.fechaProducto,112)<= CONVERT(varchar(8),@p_fechaFin,112)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_OrdendeCompra')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_OrdendeCompra] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_OrdendeCompra]
+(
+ @p_codProducto			VARCHAR(10)=null
+,@p_fechaIni	        DATETIME
+,@p_fechaFin			DATETIME
+)
+AS
+BEGIN
+	SELECT 
+	 oc.cantidad 
+	,oc.codigoCompra
+	,oc.codigoProducto 
+	,oc.costo 
+	,oc.fechaCompra 
+	,oc.nombreProducto 
+	,oc.nombreProveedor 
+	from Trazabilidad.OrdenDeCompra oc
+	WHERE 
+	ISNULL(oc.codigoProducto,'')	=	(CASE WHEN ISNULL(@p_codProducto,'')<>''	
+									 THEN  ISNULL(@p_codProducto,'') 
+									 ELSE ISNULL(oc.codigoProducto,'')	
+								 END) 
+	AND convert(varchar(8),oc.fechaCompra,112)>= CONVERT(varchar(8),@p_fechaIni,112)
+	AND convert(varchar(8),oc.fechaCompra,112)<= CONVERT(varchar(8),@p_fechaFin,112)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_OrdenDeDespacho')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_OrdenDeDespacho] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_OrdenDeDespacho]
+(
+ @p_codProducto			VARCHAR(10)=null
+,@p_fechaIni	        DATETIME
+,@p_fechaFin			DATETIME
+)
+AS
+BEGIN
+	SELECT 
+	 od.codigoProducto 
+	,od.fecha
+	,od.numeroOrden 
+	,od.observaciones 
+	,od.pesoTotal 
+	,od.totalPedidos 
+	from Trazabilidad.OrdenDeDespacho od
+	WHERE 
+	ISNULL(od.codigoProducto,'')	=	(CASE WHEN ISNULL(@p_codProducto,'')<>''	
+									 THEN  ISNULL(@p_codProducto,'') 
+									 ELSE ISNULL(od.codigoProducto,'')	
+								 END) 
+	AND convert(varchar(8),od.fecha,112)>= CONVERT(varchar(8),@p_fechaIni,112)
+	AND convert(varchar(8),od.fecha,112)<= CONVERT(varchar(8),@p_fechaFin,112)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_Producto')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_S_Producto] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_S_Producto]
+(
+ @p_codProducto			VARCHAR(10)=null
+,@p_nomProducto	        VARCHAR(50)=null
+)
+AS
+BEGIN
+	SELECT 
+	 p.codigoProducto
+	,p.descripcion
+	,p.nombreProducto 
+	,p.pesoProducto
+	,p.presentacion
+	,p.tipoProducto	
+	from Trazabilidad.Producto p
+	WHERE 
+	ISNULL(p.codigoProducto,'')	=	(CASE WHEN ISNULL(@p_codProducto,'')<>''	
+									 THEN  ISNULL(@p_codProducto,'') 
+									 ELSE ISNULL(p.codigoProducto,'')	
+								 END) 
+	OR P.nombreProducto LIKE '%' +@p_nomProducto +'%'
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_U_FichaTecnicaProductoFarmacia')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_U_FichaTecnicaProductoFarmacia] AS RETURN')
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_U_FichaTecnicaProductoFarmacia')
+BEGIN
+	EXEC('CREATE PROCEDURE [Trazabilidad].[pa_U_FichaTecnicaProductoFarmacia] AS RETURN')
+END
+GO
+
+ALTER PROCEDURE [Trazabilidad].[pa_U_FichaTecnicaProductoFarmacia]
+(
+ @p_codigoFichaTecProducto		varchar(10)
+,@p_nombre         				varchar(10)
+,@p_descripcion           		varchar(10)
+,@p_etiquetado              	varchar(10)
+,@p_procedimientoAlmacen        varchar(255)
+,@p_procedimientoVenta          varchar(255)
+,@p_procedimiemtoDistribucion   varchar(255)
+,@p_posologia          			varchar(50)
+,@p_quimicoFarmaceutico        	varchar(10)
+,@p_aprobar						varchar(10)
+)
+AS
+BEGIN
+	UPDATE 
+	[Trazabilidad].[FichaTecnicaProductoFarmacia]
+	SET 
+	 nombre=@p_nombre    
+	,descripcion=@p_descripcion           		
+	,etiquetado=@p_etiquetado              	
+	,procedimientoAlmacen=@p_procedimientoAlmacen        
+	,procedimientoVenta=@p_procedimientoVenta          
+	,procedimiemtoDistribucion=@p_procedimiemtoDistribucion   
+	,posologia=@p_posologia          			
+	,quimicoFarmaceutico =@p_quimicoFarmaceutico        	
+	,aprobar=@p_aprobar						
+	WHERE 
+	codigoFichaTecProducto       = @p_codigoFichaTecProducto
+END
+GO

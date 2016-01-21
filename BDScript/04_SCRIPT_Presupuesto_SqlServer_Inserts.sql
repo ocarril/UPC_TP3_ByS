@@ -1020,6 +1020,47 @@ INSERt into Presupuesto.Plantilla
 ('2017ALMC01',1,6,5,5,6,'ocarril',getdate());
 GO
 
+/**********************************************************************************************************/
+/*************************************** Scripts de Trazabilidad ******************************************/
+/**********************************************************************************************************/
+INSERT INTO [Trazabilidad].[FichaTecnicaProductoProveedor] 
+([codigoFichaTecProveedor], [nombre], [nomTecnico], [modoUso], [contraIndicacion], [condicionesUso], [condicionesAlmacen], [condicionesComercial], [temperaturaMinima], [temperaturaMaxima], [laboratorioOrigen]) 
+VALUES (N'1', N'FICHA LG', N'LG', N'USO', NULL, NULL, NULL, NULL, NULL, N'10', NULL)
+INSERT INTO [Trazabilidad].[Procedimiento] 
+([codigoProcedimiento], [version], [fechIniVigencia], [fechFinVigencia], [responsable], [unidadPlazo], [observaciones]) 
+VALUES (N'1', N'1', CAST(0xDB3A0B00 AS Date), CAST(0x2E3E0B00 AS Date), N'ROSA ', N'UN', N'OBS')
+INSERT INTO [Trazabilidad].[FichaTecnicaProductoFarmacia] 
+([codigoFichaTecProducto], [nombre], [descripcion], [etiquetado], [procedimientoAlmacen], [procedimientoVenta], [procedimiemtoDistribucion], [posologia], [quimicoFarmaceutico], [aprobar], [codigoProcedimiento], [codigoFichaTecProveedor]) 
+VALUES (N'1', N'FICHA', N'FICHAC', N'etiq2', N'PROC', N'PROC', N'PROC', N'', N'', N'A', N'1', N'1')
+INSERT INTO [Trazabilidad].[Producto] 
+([codigoProducto], [nombreProducto], [descripcion], [tipoProducto], [presentacion], [pesoProducto]) 
+VALUES (N'1', N'CELULAR', N'S6', N'CELULARES', N'S6 GALAXY', N'10')
+INSERT INTO [Trazabilidad].[HojaMerma] 
+([numeroHojaMerma], [cantidadInsumo], [fecha], [motivo], [codigoProducto]) 
+VALUES (N'1', N'3', CAST(0xDB3A0B00 AS Date), N'COMPRA', N'1')
+INSERT INTO [Trazabilidad].[InformeVenta] 
+([codigoVenta], [fechaVenta], [nombreProducto], [cantidad], [nombreCliente], [precio], [codigoProducto]) 
+VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'CELULAR', N'3', N'JUAN PEREZ', N'10', N'1')
+INSERT INTO [Trazabilidad].[Kardex] 
+([numeroKardex], [fecha], [ingreso], [salidas], [saldos], [observaciones], [codigoProducto]) 
+VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'0', N'3', N'100', NULL, N'1')
+INSERT INTO [Trazabilidad].[LibroReceta] 
+([nombreProducto], [fechaProducto], [quimicoLaboratorista], [codigoProducto]) 
+VALUES (N'CELULAR', CAST(0xDB3A0B00 AS Date), N'Q', N'1')
+INSERT INTO [Trazabilidad].[OrdenDeCompra] 
+([codigoCompra], [fechaCompra], [nombreProducto], [cantidad], [nombreProveedor], [costo], [codigoProducto]) 
+VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'CELULAR', N'50', N'LG', N'1000', N'1')
+INSERT INTO [Trazabilidad].[OrdenDeDespacho] 
+([numeroOrden], [fecha], [totalPedidos], [pesoTotal], [observaciones], [codigoProducto]) 
+VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'5', N'300', NULL, N'1')
+INSERT INTO [Trazabilidad].[Trazabilidad] 
+([codigoTraza], [fechaTraza], [producto], [descripcion], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) 
+VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'1', N'CELULAR', N'1', N'1', N'1', N'1', N'1', N'CELULAR', N'1')
+INSERT INTO [Trazabilidad].[InformeTrazabilidad] 
+([codigoInformeTrazabilidad], [producto], [detalleAnalisis], [anexo], [codigoTraza]) 
+VALUES (N'1', N'1', N'PRUEBA', N'155', N'1')
+GO
+
 /*
 SELECT 'Select * from ' + s.name+'.'+t.name FROM sys.tables t 
 inner join sys.schemas s on t.schema_id = s.schema_id
@@ -1039,6 +1080,19 @@ Select * from Presupuesto.Presupuesto
 Select * from Presupuesto.Solicitud
 Select * from Presupuesto.SolicitudDeta
 Select * from RecursosHumanos.Area
+
+SELECT * FROM [Trazabilidad].[FichaTecnicaProductoProveedor] 
+SELECT * FROM [Trazabilidad].[Procedimiento] 
+SELECT * FROM [Trazabilidad].[FichaTecnicaProductoFarmacia] 
+SELECT * FROM [Trazabilidad].[Producto] 
+SELECT * FROM [Trazabilidad].[HojaMerma] 
+SELECT * FROM [Trazabilidad].[InformeVenta] 
+SELECT * FROM [Trazabilidad].[Kardex] 
+SELECT * FROM [Trazabilidad].[LibroReceta] 
+SELECT * FROM [Trazabilidad].[OrdenDeCompra] 
+SELECT * FROM [Trazabilidad].[OrdenDeDespacho] 
+SELECT * FROM [Trazabilidad].[Trazabilidad] 
+SELECT * FROM [Trazabilidad].[InformeTrazabilidad] 
 
 TRUNCATE TABLE RecursosHumanos.Cargo
 TRUNCATE TABLE RecursosHumanos.Empleado
