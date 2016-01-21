@@ -1,0 +1,5 @@
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\bin\Debug\ByS.Trazabilidad.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\bin\Debug\ByS.Trazabilidad.Entities.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.pdb
