@@ -80,6 +80,7 @@ $(document).ready(function () {
     $('#txtmonEstimadoTotal').attr('Disabled', true);
     $('#txtFechaExtemporaneo').attr('Disabled', true);
     $('#txtprcPenalidad').attr('Disabled', true);
+
     $.f_formatoFechas("txtfecEjecucion");
 });
 
@@ -111,6 +112,7 @@ $(document).ready(function () {
             if (fechaActual > fechaMaxima || vEstadoPlantilla.toUpperCase() != 'PENDIENTE') {
                 $('#btnNuevo').attr('class', 'capaOcultar');
                 $('#btnTerminar').attr('class', 'capaOcultar');
+                $('#btnAgregarMasivo').attr('class', 'capaOcultar');
                 if (fechaActual > fechaFinal)
                     $('#txtprcPenalidad').attr('class', 'capaMostrar');
                 else

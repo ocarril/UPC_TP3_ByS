@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using ByS.Presupuesto.Entities.Base;
+using ByS.RHumanos.Entities;
 
 namespace ByS.Presupuesto.Entities
 { 
@@ -15,7 +17,12 @@ namespace ByS.Presupuesto.Entities
 	/// </summary>
     public class GastoEntity : Entity
     {
-        //public int codGasto { get; set; }
+        public GastoEntity()
+        {
+            objPlantillaDeta = new PlantillaDetaEntity();
+            objEmpleadoResp = new EmpleadoEntity();
+        }
+
         public int codPlantillaDeta { get; set; }
         public decimal monTotal { get; set; }
         public decimal cntCantidad { get; set; }
@@ -24,5 +31,7 @@ namespace ByS.Presupuesto.Entities
         public DateTime fecGasto { get; set; }
         public int codEmpleadoResp { get; set; }
 
+        public PlantillaDetaEntity objPlantillaDeta { get; set; }
+        public EmpleadoEntity objEmpleadoResp { get; set; }
     }
 } 

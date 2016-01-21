@@ -5,12 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ByS.Presupuesto.Entities.Base;
+using ByS.RHumanos.Entities;
 
 namespace ByS.Presupuesto.Entities
 {
     public class PlantillaDetaEntity : Entity
     {
-        //public int codPlantillaDeta { get; set; }
+        public PlantillaDetaEntity()
+        {
+            objPlantilla = new PlantillaEntity();
+            objPartida = new PartidaEntity();
+            objEmpleadoAprueba = new EmpleadoEntity();
+        }
+
         public int codPlantilla { get; set; }
         public int codEmpleadoAprueba { get; set; }
         public string gloDescripcion{ get; set; }
@@ -22,6 +29,9 @@ namespace ByS.Presupuesto.Entities
         public string indPlantilla { get; set; }
         public int codPartida { get; set; }
         public string numPartida { get; set; }
-        
+
+        public PlantillaEntity objPlantilla { get; set; }
+        public PartidaEntity objPartida { get; set; }
+        public EmpleadoEntity objEmpleadoAprueba { get; set; }
     }
 }

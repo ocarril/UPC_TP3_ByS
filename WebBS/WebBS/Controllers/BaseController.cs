@@ -61,12 +61,16 @@ namespace WebBS.Controllers
             return lstParaCombos;
         }
 
-        protected SelectList ListarAreasPresupuestales()
+        protected SelectList ListarAreasPresupuestales(bool indTexto = true, bool indSoloUno = false, int codArea = 0)
         {
             EmpleadoLogic objEmpleadoLogic = new EmpleadoLogic();
             List<AreaEntity> lstAreaEntity = new List<AreaEntity>();
             lstAreaEntity = objEmpleadoLogic.ListarAreas();
-            lstAreaEntity.Insert(0, new AreaEntity { Codigo=0, desNombre="-- Todos --" });
+
+            if (indTexto)
+                lstAreaEntity.Insert(0, new AreaEntity { Codigo = 0, desNombre = "-- Todos --" });
+            if (indSoloUno && codArea > 0)
+                lstAreaEntity = lstAreaEntity.FindAll(x => x.Codigo == codArea);
             SelectList lstParaCombos = new SelectList(lstAreaEntity, "Codigo", "desNombre");
             return lstParaCombos;
         }

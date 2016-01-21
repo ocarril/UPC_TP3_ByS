@@ -33,7 +33,7 @@ namespace ByS.Presupuesto.Data
     #endregion
 		
 		public _DBMLPresupuestoDataContext() : 
-				base(global::ByS.Presupuesto.Data.Properties.Settings.Default.BD_BySConnectionString1, mappingSource)
+				base(global::ByS.Presupuesto.Data.Properties.Settings.Default.BD_BySConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -69,17 +69,31 @@ namespace ByS.Presupuesto.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="RecursosHumanos.pa_S_EmpleadoLogin")]
-		public ISingleResult<pa_S_EmpleadoLoginResult> pa_S_EmpleadoLogin([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string p_desLogin)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_U_SolicitudDeta")]
+		public int pa_U_SolicitudDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitudDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(10,2)")] System.Nullable<decimal> p_cntCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(120)")] string p_gloDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioEdita, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_desLogin);
-			return ((ISingleResult<pa_S_EmpleadoLoginResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitudDeta, p_codSolicitud, p_codPlantillaDeta, p_cntCantidad, p_gloDescripcion, p_segUsuarioEdita, p_segMaquinaOrigen);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_D_PlantillaDeta")]
 		public int pa_D_PlantillaDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioEdita, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codPlantillaDeta, p_segUsuarioEdita, p_segMaquinaOrigen);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_D_Solicitud")]
+		public int pa_D_Solicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioElimina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitud, p_segUsuarioElimina, p_segMaquinaOrigen);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_D_SolicitudDeta")]
+		public int pa_D_SolicitudDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitudDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioElimina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitudDeta, p_segUsuarioElimina, p_segMaquinaOrigen);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -104,6 +118,22 @@ namespace ByS.Presupuesto.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codPlantillaDeta, p_codPlantillaDetaRefer, p_codPlantilla, p_segUsuarioCrea, p_segMaquinaOrigen);
 			p_codPlantillaDeta = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_I_Solicitud")]
+		public int pa_I_Solicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(120)")] string p_gloObservacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> p_fecSolicituda, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string p_indTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> p_fecLimite, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codEmpleadoGenera, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioCrea, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitud, p_gloObservacion, p_fecSolicituda, p_indTipo, p_fecLimite, p_codEmpleadoGenera, p_codPresupuesto, p_codRegEstado, p_segUsuarioCrea, p_segMaquinaOrigen);
+			p_codSolicitud = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_I_SolicitudDeta")]
+		public int pa_I_SolicitudDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> p_codSolicitudDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(10,2)")] System.Nullable<decimal> p_cntCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(120)")] string p_gloDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioCrea, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitudDeta, p_codSolicitud, p_codPlantillaDeta, p_cntCantidad, p_gloDescripcion, p_segUsuarioCrea, p_segMaquinaOrigen);
+			p_codSolicitudDeta = ((System.Nullable<int>)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -149,6 +179,41 @@ namespace ByS.Presupuesto.Data
 			return ((ISingleResult<pa_S_PlantillaDetaPaginaResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_Presupuesto")]
+		public ISingleResult<pa_S_PresupuestoResult> pa_S_Presupuesto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_numAnio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_numAnio);
+			return ((ISingleResult<pa_S_PresupuestoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_Solicitud")]
+		public ISingleResult<pa_S_SolicitudResult> pa_S_Solicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_numSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitud, p_numSolicitud, p_fecSolicitadaIni, p_fecSolicitadaFin, p_codRegEstado, p_codPresupuesto);
+			return ((ISingleResult<pa_S_SolicitudResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_SolicitudDeta")]
+		public ISingleResult<pa_S_SolicitudDetaResult> pa_S_SolicitudDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitudDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitudDeta, p_codSolicitud, p_codPlantillaDeta, p_codRegEstado, p_codPresupuesto);
+			return ((ISingleResult<pa_S_SolicitudDetaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_SolicitudDetaPagina")]
+		public ISingleResult<pa_S_SolicitudDetaPaginaResult> pa_S_SolicitudDetaPagina([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_NumPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_TamPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_OrdenPor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4)")] string p_OrdenTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitudDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_NumPagina, p_TamPagina, p_OrdenPor, p_OrdenTipo, p_codSolicitudDeta, p_codSolicitud, p_codPlantillaDeta, p_codRegEstado, p_codPresupuesto);
+			return ((ISingleResult<pa_S_SolicitudDetaPaginaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_SolicitudPagina")]
+		public ISingleResult<pa_S_SolicitudPaginaResult> pa_S_SolicitudPagina([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_NumPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_TamPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_OrdenPor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4)")] string p_OrdenTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_numSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codArea)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_NumPagina, p_TamPagina, p_OrdenPor, p_OrdenTipo, p_codSolicitud, p_numSolicitud, p_fecSolicitadaIni, p_fecSolicitadaFin, p_codRegEstado, p_codPresupuesto, p_codArea);
+			return ((ISingleResult<pa_S_SolicitudPaginaResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_U_Gasto")]
 		public int pa_U_Gasto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(12,2)")] System.Nullable<decimal> p_monTotal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(10,2)")] System.Nullable<decimal> p_cntCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(16)")] string p_numDocumento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(120)")] string p_gloObservacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> p_fecGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codEmpleadoResp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioEdita, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
 		{
@@ -177,123 +242,11 @@ namespace ByS.Presupuesto.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="RecursosHumanos.pa_S_Area")]
-		public ISingleResult<pa_S_AreaResult> pa_S_Area()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_U_Solicitud")]
+		public int pa_U_Solicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(120)")] string p_gloObservacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> p_fecSolicitada, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string p_indTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> p_fecLimite, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codEmpleadoGenera, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioEdita, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<pa_S_AreaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="RecursosHumanos.pa_S_Empleado")]
-		public ISingleResult<pa_S_EmpleadoResult> pa_S_Empleado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codEmpleado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codArea, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_desNombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_desApellido)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codEmpleado, p_codArea, p_desNombre, p_desApellido);
-			return ((ISingleResult<pa_S_EmpleadoResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_Presupuesto")]
-		public ISingleResult<pa_S_PresupuestoResult> pa_S_Presupuesto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_numAnio)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_numAnio);
-			return ((ISingleResult<pa_S_PresupuestoResult>)(result.ReturnValue));
-		}
-	}
-	
-	public partial class pa_S_EmpleadoLoginResult
-	{
-		
-		private int _codEmpleado;
-		
-		private int _codCargo;
-		
-		private int _codArea;
-		
-		private string _desNombre;
-		
-		private string _desApellido;
-		
-		public pa_S_EmpleadoLoginResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleado", DbType="Int NOT NULL")]
-		public int codEmpleado
-		{
-			get
-			{
-				return this._codEmpleado;
-			}
-			set
-			{
-				if ((this._codEmpleado != value))
-				{
-					this._codEmpleado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codCargo", DbType="Int NOT NULL")]
-		public int codCargo
-		{
-			get
-			{
-				return this._codCargo;
-			}
-			set
-			{
-				if ((this._codCargo != value))
-				{
-					this._codCargo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codArea", DbType="Int NOT NULL")]
-		public int codArea
-		{
-			get
-			{
-				return this._codArea;
-			}
-			set
-			{
-				if ((this._codArea != value))
-				{
-					this._codArea = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desNombre", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string desNombre
-		{
-			get
-			{
-				return this._desNombre;
-			}
-			set
-			{
-				if ((this._desNombre != value))
-				{
-					this._desNombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desApellido", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string desApellido
-		{
-			get
-			{
-				return this._desApellido;
-			}
-			set
-			{
-				if ((this._desApellido != value))
-				{
-					this._desApellido = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitud, p_gloObservacion, p_fecSolicitada, p_indTipo, p_fecLimite, p_codEmpleadoGenera, p_codPresupuesto, p_codRegEstado, p_segUsuarioEdita, p_segMaquinaOrigen);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -2163,472 +2116,6 @@ namespace ByS.Presupuesto.Data
 		}
 	}
 	
-	public partial class pa_S_AreaResult
-	{
-		
-		private int _codArea;
-		
-		private string _desNombre;
-		
-		private string _gloDescripcion;
-		
-		private bool _indActivo;
-		
-		private string _segUsuarioCrea;
-		
-		private string _segUsuarioEdita;
-		
-		private System.DateTime _segFechaCrea;
-		
-		private System.Nullable<System.DateTime> _segFechaEdita;
-		
-		private string _segMaquinaOrigen;
-		
-		private bool _indEliminado;
-		
-		public pa_S_AreaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codArea", DbType="Int NOT NULL")]
-		public int codArea
-		{
-			get
-			{
-				return this._codArea;
-			}
-			set
-			{
-				if ((this._codArea != value))
-				{
-					this._codArea = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desNombre", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string desNombre
-		{
-			get
-			{
-				return this._desNombre;
-			}
-			set
-			{
-				if ((this._desNombre != value))
-				{
-					this._desNombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gloDescripcion", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string gloDescripcion
-		{
-			get
-			{
-				return this._gloDescripcion;
-			}
-			set
-			{
-				if ((this._gloDescripcion != value))
-				{
-					this._gloDescripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_indActivo", DbType="Bit NOT NULL")]
-		public bool indActivo
-		{
-			get
-			{
-				return this._indActivo;
-			}
-			set
-			{
-				if ((this._indActivo != value))
-				{
-					this._indActivo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioCrea", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string segUsuarioCrea
-		{
-			get
-			{
-				return this._segUsuarioCrea;
-			}
-			set
-			{
-				if ((this._segUsuarioCrea != value))
-				{
-					this._segUsuarioCrea = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioEdita", DbType="VarChar(25)")]
-		public string segUsuarioEdita
-		{
-			get
-			{
-				return this._segUsuarioEdita;
-			}
-			set
-			{
-				if ((this._segUsuarioEdita != value))
-				{
-					this._segUsuarioEdita = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaCrea", DbType="DateTime NOT NULL")]
-		public System.DateTime segFechaCrea
-		{
-			get
-			{
-				return this._segFechaCrea;
-			}
-			set
-			{
-				if ((this._segFechaCrea != value))
-				{
-					this._segFechaCrea = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaEdita", DbType="DateTime")]
-		public System.Nullable<System.DateTime> segFechaEdita
-		{
-			get
-			{
-				return this._segFechaEdita;
-			}
-			set
-			{
-				if ((this._segFechaEdita != value))
-				{
-					this._segFechaEdita = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segMaquinaOrigen", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string segMaquinaOrigen
-		{
-			get
-			{
-				return this._segMaquinaOrigen;
-			}
-			set
-			{
-				if ((this._segMaquinaOrigen != value))
-				{
-					this._segMaquinaOrigen = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_indEliminado", DbType="Bit NOT NULL")]
-		public bool indEliminado
-		{
-			get
-			{
-				return this._indEliminado;
-			}
-			set
-			{
-				if ((this._indEliminado != value))
-				{
-					this._indEliminado = value;
-				}
-			}
-		}
-	}
-	
-	public partial class pa_S_EmpleadoResult
-	{
-		
-		private int _codEmpleado;
-		
-		private int _codPersona;
-		
-		private int _codCargo;
-		
-		private string _codCargoNombre;
-		
-		private int _codArea;
-		
-		private string _codAreaNombre;
-		
-		private string _desNombre;
-		
-		private string _desApellido;
-		
-		private bool _indActivo;
-		
-		private string _segUsuarioCrea;
-		
-		private string _segUsuarioEdita;
-		
-		private System.DateTime _segFechaCrea;
-		
-		private System.Nullable<System.DateTime> _segFechaEdita;
-		
-		private string _segMaquinaOrigen;
-		
-		private bool _indEliminado;
-		
-		public pa_S_EmpleadoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleado", DbType="Int NOT NULL")]
-		public int codEmpleado
-		{
-			get
-			{
-				return this._codEmpleado;
-			}
-			set
-			{
-				if ((this._codEmpleado != value))
-				{
-					this._codEmpleado = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPersona", DbType="Int NOT NULL")]
-		public int codPersona
-		{
-			get
-			{
-				return this._codPersona;
-			}
-			set
-			{
-				if ((this._codPersona != value))
-				{
-					this._codPersona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codCargo", DbType="Int NOT NULL")]
-		public int codCargo
-		{
-			get
-			{
-				return this._codCargo;
-			}
-			set
-			{
-				if ((this._codCargo != value))
-				{
-					this._codCargo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codCargoNombre", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string codCargoNombre
-		{
-			get
-			{
-				return this._codCargoNombre;
-			}
-			set
-			{
-				if ((this._codCargoNombre != value))
-				{
-					this._codCargoNombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codArea", DbType="Int NOT NULL")]
-		public int codArea
-		{
-			get
-			{
-				return this._codArea;
-			}
-			set
-			{
-				if ((this._codArea != value))
-				{
-					this._codArea = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codAreaNombre", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string codAreaNombre
-		{
-			get
-			{
-				return this._codAreaNombre;
-			}
-			set
-			{
-				if ((this._codAreaNombre != value))
-				{
-					this._codAreaNombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desNombre", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string desNombre
-		{
-			get
-			{
-				return this._desNombre;
-			}
-			set
-			{
-				if ((this._desNombre != value))
-				{
-					this._desNombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_desApellido", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string desApellido
-		{
-			get
-			{
-				return this._desApellido;
-			}
-			set
-			{
-				if ((this._desApellido != value))
-				{
-					this._desApellido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_indActivo", DbType="Bit NOT NULL")]
-		public bool indActivo
-		{
-			get
-			{
-				return this._indActivo;
-			}
-			set
-			{
-				if ((this._indActivo != value))
-				{
-					this._indActivo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioCrea", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string segUsuarioCrea
-		{
-			get
-			{
-				return this._segUsuarioCrea;
-			}
-			set
-			{
-				if ((this._segUsuarioCrea != value))
-				{
-					this._segUsuarioCrea = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioEdita", DbType="VarChar(25)")]
-		public string segUsuarioEdita
-		{
-			get
-			{
-				return this._segUsuarioEdita;
-			}
-			set
-			{
-				if ((this._segUsuarioEdita != value))
-				{
-					this._segUsuarioEdita = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaCrea", DbType="DateTime NOT NULL")]
-		public System.DateTime segFechaCrea
-		{
-			get
-			{
-				return this._segFechaCrea;
-			}
-			set
-			{
-				if ((this._segFechaCrea != value))
-				{
-					this._segFechaCrea = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaEdita", DbType="DateTime")]
-		public System.Nullable<System.DateTime> segFechaEdita
-		{
-			get
-			{
-				return this._segFechaEdita;
-			}
-			set
-			{
-				if ((this._segFechaEdita != value))
-				{
-					this._segFechaEdita = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segMaquinaOrigen", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string segMaquinaOrigen
-		{
-			get
-			{
-				return this._segMaquinaOrigen;
-			}
-			set
-			{
-				if ((this._segMaquinaOrigen != value))
-				{
-					this._segMaquinaOrigen = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_indEliminado", DbType="Bit NOT NULL")]
-		public bool indEliminado
-		{
-			get
-			{
-				return this._indEliminado;
-			}
-			set
-			{
-				if ((this._indEliminado != value))
-				{
-					this._indEliminado = value;
-				}
-			}
-		}
-	}
-	
 	public partial class pa_S_PresupuestoResult
 	{
 		
@@ -2902,6 +2389,1244 @@ namespace ByS.Presupuesto.Data
 				if ((this._monTotalGastado != value))
 				{
 					this._monTotalGastado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class pa_S_SolicitudResult
+	{
+		
+		private int _codSolicitud;
+		
+		private string _numSolicitud;
+		
+		private string _gloObservacion;
+		
+		private System.Nullable<System.DateTime> _fecSolicitada;
+		
+		private string _indTipo;
+		
+		private System.Nullable<System.DateTime> _fecLimite;
+		
+		private int _codEmpleadoGenera;
+		
+		private string _codEmpleadoGeneraNombre;
+		
+		private System.Nullable<int> _codEmpleadoAprueba;
+		
+		private string _codEmpleadoApruebaNombre;
+		
+		private System.Nullable<int> _codPresupuesto;
+		
+		private string _codPresupuestoNombre;
+		
+		private System.Nullable<int> _codRegEstado;
+		
+		private string _segUsuarioCrea;
+		
+		private string _segUsuarioEdita;
+		
+		private System.DateTime _segFechaCrea;
+		
+		private System.Nullable<System.DateTime> _segFechaEdita;
+		
+		private string _segMaquinaOrigen;
+		
+		public pa_S_SolicitudResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codSolicitud", DbType="Int NOT NULL")]
+		public int codSolicitud
+		{
+			get
+			{
+				return this._codSolicitud;
+			}
+			set
+			{
+				if ((this._codSolicitud != value))
+				{
+					this._codSolicitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numSolicitud", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string numSolicitud
+		{
+			get
+			{
+				return this._numSolicitud;
+			}
+			set
+			{
+				if ((this._numSolicitud != value))
+				{
+					this._numSolicitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gloObservacion", DbType="VarChar(100)")]
+		public string gloObservacion
+		{
+			get
+			{
+				return this._gloObservacion;
+			}
+			set
+			{
+				if ((this._gloObservacion != value))
+				{
+					this._gloObservacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecSolicitada", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fecSolicitada
+		{
+			get
+			{
+				return this._fecSolicitada;
+			}
+			set
+			{
+				if ((this._fecSolicitada != value))
+				{
+					this._fecSolicitada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_indTipo", DbType="NVarChar(1) NOT NULL", CanBeNull=false)]
+		public string indTipo
+		{
+			get
+			{
+				return this._indTipo;
+			}
+			set
+			{
+				if ((this._indTipo != value))
+				{
+					this._indTipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecLimite", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fecLimite
+		{
+			get
+			{
+				return this._fecLimite;
+			}
+			set
+			{
+				if ((this._fecLimite != value))
+				{
+					this._fecLimite = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoGenera", DbType="Int NOT NULL")]
+		public int codEmpleadoGenera
+		{
+			get
+			{
+				return this._codEmpleadoGenera;
+			}
+			set
+			{
+				if ((this._codEmpleadoGenera != value))
+				{
+					this._codEmpleadoGenera = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoGeneraNombre", DbType="VarChar(82) NOT NULL", CanBeNull=false)]
+		public string codEmpleadoGeneraNombre
+		{
+			get
+			{
+				return this._codEmpleadoGeneraNombre;
+			}
+			set
+			{
+				if ((this._codEmpleadoGeneraNombre != value))
+				{
+					this._codEmpleadoGeneraNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoAprueba", DbType="Int")]
+		public System.Nullable<int> codEmpleadoAprueba
+		{
+			get
+			{
+				return this._codEmpleadoAprueba;
+			}
+			set
+			{
+				if ((this._codEmpleadoAprueba != value))
+				{
+					this._codEmpleadoAprueba = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoApruebaNombre", DbType="VarChar(82)")]
+		public string codEmpleadoApruebaNombre
+		{
+			get
+			{
+				return this._codEmpleadoApruebaNombre;
+			}
+			set
+			{
+				if ((this._codEmpleadoApruebaNombre != value))
+				{
+					this._codEmpleadoApruebaNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuesto", DbType="Int")]
+		public System.Nullable<int> codPresupuesto
+		{
+			get
+			{
+				return this._codPresupuesto;
+			}
+			set
+			{
+				if ((this._codPresupuesto != value))
+				{
+					this._codPresupuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuestoNombre", DbType="NVarChar(100)")]
+		public string codPresupuestoNombre
+		{
+			get
+			{
+				return this._codPresupuestoNombre;
+			}
+			set
+			{
+				if ((this._codPresupuestoNombre != value))
+				{
+					this._codPresupuestoNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codRegEstado", DbType="Int")]
+		public System.Nullable<int> codRegEstado
+		{
+			get
+			{
+				return this._codRegEstado;
+			}
+			set
+			{
+				if ((this._codRegEstado != value))
+				{
+					this._codRegEstado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioCrea", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segUsuarioCrea
+		{
+			get
+			{
+				return this._segUsuarioCrea;
+			}
+			set
+			{
+				if ((this._segUsuarioCrea != value))
+				{
+					this._segUsuarioCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioEdita", DbType="VarChar(25)")]
+		public string segUsuarioEdita
+		{
+			get
+			{
+				return this._segUsuarioEdita;
+			}
+			set
+			{
+				if ((this._segUsuarioEdita != value))
+				{
+					this._segUsuarioEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaCrea", DbType="DateTime NOT NULL")]
+		public System.DateTime segFechaCrea
+		{
+			get
+			{
+				return this._segFechaCrea;
+			}
+			set
+			{
+				if ((this._segFechaCrea != value))
+				{
+					this._segFechaCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaEdita", DbType="DateTime")]
+		public System.Nullable<System.DateTime> segFechaEdita
+		{
+			get
+			{
+				return this._segFechaEdita;
+			}
+			set
+			{
+				if ((this._segFechaEdita != value))
+				{
+					this._segFechaEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segMaquinaOrigen", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segMaquinaOrigen
+		{
+			get
+			{
+				return this._segMaquinaOrigen;
+			}
+			set
+			{
+				if ((this._segMaquinaOrigen != value))
+				{
+					this._segMaquinaOrigen = value;
+				}
+			}
+		}
+	}
+	
+	public partial class pa_S_SolicitudDetaResult
+	{
+		
+		private int _codSolicitudDeta;
+		
+		private int _codSolicitud;
+		
+		private int _codPlantillaDeta;
+		
+		private decimal _cntCantidad;
+		
+		private string _gloDescripcion;
+		
+		private string _segUsuarioCrea;
+		
+		private string _segUsuarioEdita;
+		
+		private System.DateTime _segFechaCrea;
+		
+		private System.Nullable<System.DateTime> _segFechaEdita;
+		
+		private string _segMaquinaOrigen;
+		
+		public pa_S_SolicitudDetaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codSolicitudDeta", DbType="Int NOT NULL")]
+		public int codSolicitudDeta
+		{
+			get
+			{
+				return this._codSolicitudDeta;
+			}
+			set
+			{
+				if ((this._codSolicitudDeta != value))
+				{
+					this._codSolicitudDeta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codSolicitud", DbType="Int NOT NULL")]
+		public int codSolicitud
+		{
+			get
+			{
+				return this._codSolicitud;
+			}
+			set
+			{
+				if ((this._codSolicitud != value))
+				{
+					this._codSolicitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPlantillaDeta", DbType="Int NOT NULL")]
+		public int codPlantillaDeta
+		{
+			get
+			{
+				return this._codPlantillaDeta;
+			}
+			set
+			{
+				if ((this._codPlantillaDeta != value))
+				{
+					this._codPlantillaDeta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cntCantidad", DbType="Decimal(10,2) NOT NULL")]
+		public decimal cntCantidad
+		{
+			get
+			{
+				return this._cntCantidad;
+			}
+			set
+			{
+				if ((this._cntCantidad != value))
+				{
+					this._cntCantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gloDescripcion", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
+		public string gloDescripcion
+		{
+			get
+			{
+				return this._gloDescripcion;
+			}
+			set
+			{
+				if ((this._gloDescripcion != value))
+				{
+					this._gloDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioCrea", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segUsuarioCrea
+		{
+			get
+			{
+				return this._segUsuarioCrea;
+			}
+			set
+			{
+				if ((this._segUsuarioCrea != value))
+				{
+					this._segUsuarioCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioEdita", DbType="VarChar(25)")]
+		public string segUsuarioEdita
+		{
+			get
+			{
+				return this._segUsuarioEdita;
+			}
+			set
+			{
+				if ((this._segUsuarioEdita != value))
+				{
+					this._segUsuarioEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaCrea", DbType="DateTime NOT NULL")]
+		public System.DateTime segFechaCrea
+		{
+			get
+			{
+				return this._segFechaCrea;
+			}
+			set
+			{
+				if ((this._segFechaCrea != value))
+				{
+					this._segFechaCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaEdita", DbType="DateTime")]
+		public System.Nullable<System.DateTime> segFechaEdita
+		{
+			get
+			{
+				return this._segFechaEdita;
+			}
+			set
+			{
+				if ((this._segFechaEdita != value))
+				{
+					this._segFechaEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segMaquinaOrigen", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segMaquinaOrigen
+		{
+			get
+			{
+				return this._segMaquinaOrigen;
+			}
+			set
+			{
+				if ((this._segMaquinaOrigen != value))
+				{
+					this._segMaquinaOrigen = value;
+				}
+			}
+		}
+	}
+	
+	public partial class pa_S_SolicitudDetaPaginaResult
+	{
+		
+		private int _codSolicitudDeta;
+		
+		private int _codSolicitud;
+		
+		private int _codPlantillaDeta;
+		
+		private string _codPlantillaDetaDescri;
+		
+		private System.Nullable<System.DateTime> _fecEjecucion;
+		
+		private decimal _cntCantidad;
+		
+		private string _gloDescripcion;
+		
+		private string _segUsuarioCrea;
+		
+		private string _segUsuarioEdita;
+		
+		private System.DateTime _segFechaCrea;
+		
+		private System.Nullable<System.DateTime> _segFechaEdita;
+		
+		private string _segMaquinaOrigen;
+		
+		private System.Nullable<int> _codEmpleadoAprueba;
+		
+		private string _codEmpleadoApruebaNombre;
+		
+		private decimal _cntCantidadPlantilla;
+		
+		private string _numPartida;
+		
+		private decimal _monEstimado;
+		
+		private System.Nullable<int> _TOTALROWS;
+		
+		private System.Nullable<long> _ROWNUM;
+		
+		public pa_S_SolicitudDetaPaginaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codSolicitudDeta", DbType="Int NOT NULL")]
+		public int codSolicitudDeta
+		{
+			get
+			{
+				return this._codSolicitudDeta;
+			}
+			set
+			{
+				if ((this._codSolicitudDeta != value))
+				{
+					this._codSolicitudDeta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codSolicitud", DbType="Int NOT NULL")]
+		public int codSolicitud
+		{
+			get
+			{
+				return this._codSolicitud;
+			}
+			set
+			{
+				if ((this._codSolicitud != value))
+				{
+					this._codSolicitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPlantillaDeta", DbType="Int NOT NULL")]
+		public int codPlantillaDeta
+		{
+			get
+			{
+				return this._codPlantillaDeta;
+			}
+			set
+			{
+				if ((this._codPlantillaDeta != value))
+				{
+					this._codPlantillaDeta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPlantillaDetaDescri", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		public string codPlantillaDetaDescri
+		{
+			get
+			{
+				return this._codPlantillaDetaDescri;
+			}
+			set
+			{
+				if ((this._codPlantillaDetaDescri != value))
+				{
+					this._codPlantillaDetaDescri = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecEjecucion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fecEjecucion
+		{
+			get
+			{
+				return this._fecEjecucion;
+			}
+			set
+			{
+				if ((this._fecEjecucion != value))
+				{
+					this._fecEjecucion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cntCantidad", DbType="Decimal(10,2) NOT NULL")]
+		public decimal cntCantidad
+		{
+			get
+			{
+				return this._cntCantidad;
+			}
+			set
+			{
+				if ((this._cntCantidad != value))
+				{
+					this._cntCantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gloDescripcion", DbType="NVarChar(120) NOT NULL", CanBeNull=false)]
+		public string gloDescripcion
+		{
+			get
+			{
+				return this._gloDescripcion;
+			}
+			set
+			{
+				if ((this._gloDescripcion != value))
+				{
+					this._gloDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioCrea", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segUsuarioCrea
+		{
+			get
+			{
+				return this._segUsuarioCrea;
+			}
+			set
+			{
+				if ((this._segUsuarioCrea != value))
+				{
+					this._segUsuarioCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioEdita", DbType="VarChar(25)")]
+		public string segUsuarioEdita
+		{
+			get
+			{
+				return this._segUsuarioEdita;
+			}
+			set
+			{
+				if ((this._segUsuarioEdita != value))
+				{
+					this._segUsuarioEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaCrea", DbType="DateTime NOT NULL")]
+		public System.DateTime segFechaCrea
+		{
+			get
+			{
+				return this._segFechaCrea;
+			}
+			set
+			{
+				if ((this._segFechaCrea != value))
+				{
+					this._segFechaCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaEdita", DbType="DateTime")]
+		public System.Nullable<System.DateTime> segFechaEdita
+		{
+			get
+			{
+				return this._segFechaEdita;
+			}
+			set
+			{
+				if ((this._segFechaEdita != value))
+				{
+					this._segFechaEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segMaquinaOrigen", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segMaquinaOrigen
+		{
+			get
+			{
+				return this._segMaquinaOrigen;
+			}
+			set
+			{
+				if ((this._segMaquinaOrigen != value))
+				{
+					this._segMaquinaOrigen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoAprueba", DbType="Int")]
+		public System.Nullable<int> codEmpleadoAprueba
+		{
+			get
+			{
+				return this._codEmpleadoAprueba;
+			}
+			set
+			{
+				if ((this._codEmpleadoAprueba != value))
+				{
+					this._codEmpleadoAprueba = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoApruebaNombre", DbType="VarChar(82)")]
+		public string codEmpleadoApruebaNombre
+		{
+			get
+			{
+				return this._codEmpleadoApruebaNombre;
+			}
+			set
+			{
+				if ((this._codEmpleadoApruebaNombre != value))
+				{
+					this._codEmpleadoApruebaNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cntCantidadPlantilla", DbType="Decimal(10,2) NOT NULL")]
+		public decimal cntCantidadPlantilla
+		{
+			get
+			{
+				return this._cntCantidadPlantilla;
+			}
+			set
+			{
+				if ((this._cntCantidadPlantilla != value))
+				{
+					this._cntCantidadPlantilla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numPartida", DbType="NVarChar(12) NOT NULL", CanBeNull=false)]
+		public string numPartida
+		{
+			get
+			{
+				return this._numPartida;
+			}
+			set
+			{
+				if ((this._numPartida != value))
+				{
+					this._numPartida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_monEstimado", DbType="Decimal(12,2) NOT NULL")]
+		public decimal monEstimado
+		{
+			get
+			{
+				return this._monEstimado;
+			}
+			set
+			{
+				if ((this._monEstimado != value))
+				{
+					this._monEstimado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTALROWS", DbType="Int")]
+		public System.Nullable<int> TOTALROWS
+		{
+			get
+			{
+				return this._TOTALROWS;
+			}
+			set
+			{
+				if ((this._TOTALROWS != value))
+				{
+					this._TOTALROWS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROWNUM", DbType="BigInt")]
+		public System.Nullable<long> ROWNUM
+		{
+			get
+			{
+				return this._ROWNUM;
+			}
+			set
+			{
+				if ((this._ROWNUM != value))
+				{
+					this._ROWNUM = value;
+				}
+			}
+		}
+	}
+	
+	public partial class pa_S_SolicitudPaginaResult
+	{
+		
+		private int _codSolicitud;
+		
+		private string _numSolicitud;
+		
+		private string _gloObservacion;
+		
+		private System.Nullable<System.DateTime> _fecSolicitada;
+		
+		private string _indTipo;
+		
+		private System.Nullable<System.DateTime> _fecLimite;
+		
+		private int _codEmpleadoGenera;
+		
+		private string _codEmpleadoGeneraNombre;
+		
+		private System.Nullable<int> _codEmpleadoAprueba;
+		
+		private string _codEmpleadoApruebaNombre;
+		
+		private System.Nullable<int> _codPresupuesto;
+		
+		private string _codPresupuestoNombre;
+		
+		private System.Nullable<int> _codRegEstado;
+		
+		private string _segUsuarioCrea;
+		
+		private string _segUsuarioEdita;
+		
+		private System.DateTime _segFechaCrea;
+		
+		private System.Nullable<System.DateTime> _segFechaEdita;
+		
+		private string _segMaquinaOrigen;
+		
+		private System.Nullable<int> _TOTALROWS;
+		
+		private System.Nullable<long> _ROWNUM;
+		
+		public pa_S_SolicitudPaginaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codSolicitud", DbType="Int NOT NULL")]
+		public int codSolicitud
+		{
+			get
+			{
+				return this._codSolicitud;
+			}
+			set
+			{
+				if ((this._codSolicitud != value))
+				{
+					this._codSolicitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numSolicitud", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string numSolicitud
+		{
+			get
+			{
+				return this._numSolicitud;
+			}
+			set
+			{
+				if ((this._numSolicitud != value))
+				{
+					this._numSolicitud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gloObservacion", DbType="VarChar(100)")]
+		public string gloObservacion
+		{
+			get
+			{
+				return this._gloObservacion;
+			}
+			set
+			{
+				if ((this._gloObservacion != value))
+				{
+					this._gloObservacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecSolicitada", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fecSolicitada
+		{
+			get
+			{
+				return this._fecSolicitada;
+			}
+			set
+			{
+				if ((this._fecSolicitada != value))
+				{
+					this._fecSolicitada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_indTipo", DbType="NVarChar(1) NOT NULL", CanBeNull=false)]
+		public string indTipo
+		{
+			get
+			{
+				return this._indTipo;
+			}
+			set
+			{
+				if ((this._indTipo != value))
+				{
+					this._indTipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecLimite", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fecLimite
+		{
+			get
+			{
+				return this._fecLimite;
+			}
+			set
+			{
+				if ((this._fecLimite != value))
+				{
+					this._fecLimite = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoGenera", DbType="Int NOT NULL")]
+		public int codEmpleadoGenera
+		{
+			get
+			{
+				return this._codEmpleadoGenera;
+			}
+			set
+			{
+				if ((this._codEmpleadoGenera != value))
+				{
+					this._codEmpleadoGenera = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoGeneraNombre", DbType="VarChar(82) NOT NULL", CanBeNull=false)]
+		public string codEmpleadoGeneraNombre
+		{
+			get
+			{
+				return this._codEmpleadoGeneraNombre;
+			}
+			set
+			{
+				if ((this._codEmpleadoGeneraNombre != value))
+				{
+					this._codEmpleadoGeneraNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoAprueba", DbType="Int")]
+		public System.Nullable<int> codEmpleadoAprueba
+		{
+			get
+			{
+				return this._codEmpleadoAprueba;
+			}
+			set
+			{
+				if ((this._codEmpleadoAprueba != value))
+				{
+					this._codEmpleadoAprueba = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codEmpleadoApruebaNombre", DbType="VarChar(82)")]
+		public string codEmpleadoApruebaNombre
+		{
+			get
+			{
+				return this._codEmpleadoApruebaNombre;
+			}
+			set
+			{
+				if ((this._codEmpleadoApruebaNombre != value))
+				{
+					this._codEmpleadoApruebaNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuesto", DbType="Int")]
+		public System.Nullable<int> codPresupuesto
+		{
+			get
+			{
+				return this._codPresupuesto;
+			}
+			set
+			{
+				if ((this._codPresupuesto != value))
+				{
+					this._codPresupuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuestoNombre", DbType="NVarChar(100)")]
+		public string codPresupuestoNombre
+		{
+			get
+			{
+				return this._codPresupuestoNombre;
+			}
+			set
+			{
+				if ((this._codPresupuestoNombre != value))
+				{
+					this._codPresupuestoNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codRegEstado", DbType="Int")]
+		public System.Nullable<int> codRegEstado
+		{
+			get
+			{
+				return this._codRegEstado;
+			}
+			set
+			{
+				if ((this._codRegEstado != value))
+				{
+					this._codRegEstado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioCrea", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segUsuarioCrea
+		{
+			get
+			{
+				return this._segUsuarioCrea;
+			}
+			set
+			{
+				if ((this._segUsuarioCrea != value))
+				{
+					this._segUsuarioCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segUsuarioEdita", DbType="VarChar(25)")]
+		public string segUsuarioEdita
+		{
+			get
+			{
+				return this._segUsuarioEdita;
+			}
+			set
+			{
+				if ((this._segUsuarioEdita != value))
+				{
+					this._segUsuarioEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaCrea", DbType="DateTime NOT NULL")]
+		public System.DateTime segFechaCrea
+		{
+			get
+			{
+				return this._segFechaCrea;
+			}
+			set
+			{
+				if ((this._segFechaCrea != value))
+				{
+					this._segFechaCrea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segFechaEdita", DbType="DateTime")]
+		public System.Nullable<System.DateTime> segFechaEdita
+		{
+			get
+			{
+				return this._segFechaEdita;
+			}
+			set
+			{
+				if ((this._segFechaEdita != value))
+				{
+					this._segFechaEdita = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_segMaquinaOrigen", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string segMaquinaOrigen
+		{
+			get
+			{
+				return this._segMaquinaOrigen;
+			}
+			set
+			{
+				if ((this._segMaquinaOrigen != value))
+				{
+					this._segMaquinaOrigen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTALROWS", DbType="Int")]
+		public System.Nullable<int> TOTALROWS
+		{
+			get
+			{
+				return this._TOTALROWS;
+			}
+			set
+			{
+				if ((this._TOTALROWS != value))
+				{
+					this._TOTALROWS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROWNUM", DbType="BigInt")]
+		public System.Nullable<long> ROWNUM
+		{
+			get
+			{
+				return this._ROWNUM;
+			}
+			set
+			{
+				if ((this._ROWNUM != value))
+				{
+					this._ROWNUM = value;
 				}
 			}
 		}

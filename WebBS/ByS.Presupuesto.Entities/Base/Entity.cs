@@ -44,6 +44,8 @@ namespace ByS.Presupuesto.Entities.Base
         /// Fecha de Modificación 
         /// </summary>
         public DateTime? segFechaEdita { get; set; }
-        /// <summary>
+
+        public long ROW { get; set; }
+        public int TOTALROWS { get; set; }
     }
 }

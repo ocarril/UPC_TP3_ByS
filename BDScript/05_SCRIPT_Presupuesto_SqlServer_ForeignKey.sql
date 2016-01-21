@@ -15,14 +15,14 @@ ALTER TABLE Presupuesto.Plantilla
 CHECK CONSTRAINT [Plantilla_FK01_codArea]
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'Plantilla_FK04_codSolicitudPresupuesto') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'Plantilla_FK04_codSolicitud') 
 	ALTER TABLE Presupuesto.Plantilla
-	WITH CHECK 	ADD  CONSTRAINT Plantilla_FK04_codSolicitudPresupuesto 
-	FOREIGN KEY(codSolicitudPresupuesto)
-	REFERENCES Presupuesto.SolicitudPresupuesto (codSolicitudPresupuesto)
+	WITH CHECK 	ADD  CONSTRAINT Plantilla_FK04_codSolicitud 
+	FOREIGN KEY(codSolicitud)
+	REFERENCES Presupuesto.Solicitud (codSolicitud)
 GO
 ALTER TABLE Presupuesto.Plantilla
-CHECK CONSTRAINT Plantilla_FK04_codSolicitudPresupuesto
+CHECK CONSTRAINT Plantilla_FK04_codSolicitud
 GO
 
 -- Creating foreign key on codArea in table 'Empleado'
@@ -160,15 +160,15 @@ ALTER TABLE Presupuesto.PlantillaDeta
 CHECK CONSTRAINT PlantillaDeta_FK03_codPlantilla
 GO
 
--- Creating foreign key on codPlantillaPresupuestalDeta in table 'SolicitudPresupuestoDeta'
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'SolicitudPresupuestoDeta_FK01_codPlantillaDeta') 
-	ALTER TABLE Presupuesto.SolicitudPresupuestoDeta
-	WITH CHECK 	ADD  CONSTRAINT SolicitudPresupuestoDeta_FK01_codPlantillaDeta
+-- Creating foreign key on codPlantillaDeta in table 'SolicitudDeta'
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'SolicitudDeta_FK01_codPlantillaDeta') 
+	ALTER TABLE Presupuesto.SolicitudDeta
+	WITH CHECK 	ADD  CONSTRAINT SolicitudDeta_FK01_codPlantillaDeta
 	FOREIGN KEY(codPlantillaDeta)
 	REFERENCES Presupuesto.PlantillaDeta (codPlantillaDeta)
 GO
-ALTER TABLE Presupuesto.SolicitudPresupuestoDeta
-CHECK CONSTRAINT SolicitudPresupuestoDeta_FK01_codPlantillaDeta
+ALTER TABLE Presupuesto.SolicitudDeta
+CHECK CONSTRAINT SolicitudDeta_FK01_codPlantillaDeta
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'PresupuestoArea_FK02_codPresupuesto') 
@@ -181,14 +181,55 @@ ALTER TABLE Presupuesto.PresupuestoArea
 CHECK CONSTRAINT [PresupuestoArea_FK02_codPresupuesto]
 GO
 
+-- Creating foreign key on codSolicitud in table 'Solicitud'
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'Solicitud_FK01_codPresupuesto') 
+	ALTER TABLE Presupuesto.Solicitud
+	WITH CHECK 	ADD  CONSTRAINT Solicitud_FK01_codPresupuesto
+	FOREIGN KEY(codPresupuesto)
+	REFERENCES Presupuesto.Presupuesto(codPresupuesto) NOT FOR REPLICATION
+GO
+ALTER TABLE Presupuesto.Solicitud
+CHECK CONSTRAINT Solicitud_FK01_codPresupuesto
+GO
 
--- Creating foreign key on codSolicitudPresupuesto in table 'SolicitudPresupuestoDeta'
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'SolicitudPresupuestoDeta_FK02_codSolicitudPresupuesto') 
-	ALTER TABLE Presupuesto.SolicitudPresupuestoDeta
-	WITH CHECK 	ADD  CONSTRAINT SolicitudPresupuestoDeta_FK02_codSolicitudPresupuesto 
-	FOREIGN KEY(codSolicitudPresupuesto)
-	REFERENCES Presupuesto.SolicitudPresupuesto (codSolicitudPresupuesto)
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'Solicitud_FK02_codEmpleadoGenera') 
+	ALTER TABLE Presupuesto.Solicitud
+	WITH CHECK 	ADD  CONSTRAINT Solicitud_FK02_codEmpleadoGenera
+	FOREIGN KEY(codEmpleadoGenera)
+	REFERENCES RecursosHumanos.Empleado(codEmpleado)
 GO
-ALTER TABLE Presupuesto.SolicitudPresupuestoDeta
-CHECK CONSTRAINT SolicitudPresupuestoDeta_FK02_codSolicitudPresupuesto
+ALTER TABLE Presupuesto.Solicitud
+CHECK CONSTRAINT Solicitud_FK02_codEmpleadoGenera
 GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'Solicitud_FK03_codEmpleadoAprueba') 
+	ALTER TABLE Presupuesto.Solicitud
+	WITH CHECK 	ADD  CONSTRAINT Solicitud_FK03_codEmpleadoAprueba
+	FOREIGN KEY(codEmpleadoAprueba)
+	REFERENCES RecursosHumanos.Empleado(codEmpleado) NOT FOR REPLICATION
+GO
+ALTER TABLE Presupuesto.Solicitud
+CHECK CONSTRAINT Solicitud_FK03_codEmpleadoAprueba
+GO
+
+-- Creating foreign key on codSolicitud in table 'SolicitudDeta'
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'SolicitudDeta_FK02_codSolicitud') 
+	ALTER TABLE Presupuesto.SolicitudDeta
+	WITH CHECK 	ADD  CONSTRAINT SolicitudDeta_FK02_codSolicitud
+	FOREIGN KEY(codSolicitud)
+	REFERENCES Presupuesto.Solicitud(codSolicitud)
+GO
+ALTER TABLE Presupuesto.SolicitudDeta
+CHECK CONSTRAINT SolicitudDeta_FK02_codSolicitud
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'SolicitudDeta_FK01_codPlantillaDeta') 
+	ALTER TABLE Presupuesto.SolicitudDeta
+	WITH CHECK 	ADD  CONSTRAINT SolicitudDeta_FK01_codPlantillaDeta
+	FOREIGN KEY(codPlantillaDeta)
+	REFERENCES Presupuesto.PlantillaDeta(codPlantillaDeta)
+GO
+ALTER TABLE Presupuesto.SolicitudDeta
+CHECK CONSTRAINT SolicitudDeta_FK01_codPlantillaDeta
+GO
+

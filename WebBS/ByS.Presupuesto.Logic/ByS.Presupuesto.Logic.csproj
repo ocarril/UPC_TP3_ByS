@@ -49,6 +49,7 @@
     <Compile Include="PlantillaLogic.cs" />
     <Compile Include="PresupuestoLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolicitudLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ByS.Presupuesto.Data\ByS.Presupuesto.Data.csproj">
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\ByS.Presupuesto.Entities\ByS.Presupuesto.Entities.csproj">
       <Project>{90e9a655-c490-4550-91f6-c5ede7396bc7}</Project>
       <Name>ByS.Presupuesto.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.RHumanos.Entities\ByS.RHumanos.Entities.csproj">
+      <Project>{7d008652-de8b-4695-b762-2670e8e70b3a}</Project>
+      <Name>ByS.RHumanos.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\ByS.Tools\ByS.Tools.csproj">
       <Project>{f354fade-3ef8-46dc-9d21-e44a4efc75b8}</Project>

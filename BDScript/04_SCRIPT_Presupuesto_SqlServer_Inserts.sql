@@ -1,6 +1,7 @@
 USE BD_ByS
 GO
 
+/*Select * from RecursosHumanos.Area*/
 insert into RecursosHumanos.Area (desNombre, gloDescripcion,indActivo,segUsuarioCrea,segFechaCrea) values
 ('Contabilidad', 'CONTA', 1,'ocarril',getdate());
 insert into RecursosHumanos.Area (desNombre, gloDescripcion,indActivo,segUsuarioCrea,segFechaCrea) values
@@ -151,8 +152,9 @@ INSERT INTO Presupuesto.Presupuesto
 ('Presupuesto 2017',2017,cast('01/01/2016' as datetime),cast('03/10/2016' as datetime),1,'ocarril',getdate());
 GO
 
+/*
 select * from Presupuesto.Presupuesto
-/*Presupuesto.PresupuestoArea
+Presupuesto.PresupuestoArea
 SELECT * FROM Presupuesto.PresupuestoArea*/
 /*2013*/
 INSERT INTO Presupuesto.PresupuestoArea
@@ -253,24 +255,26 @@ INSERT INTO Presupuesto.PresupuestoArea
 (5,6,39700,1,'OCARRIL', GETDATE());
 GO
 
-/*Presupuesto.SolicitudPresupuesto
-select * from Presupuesto.SolicitudPresupuesto*/
-INSERT INTO Presupuesto.SolicitudPresupuesto
-(numSolicitud,gloObservacion,fecSolicitada,indTipo,fecLimite,segUsuarioCrea,segFechaCrea) VALUES
-('2012-01','Se solicita la elaboracion del presupuesto para 2013',cast('05/06/2012' as datetime),'E',cast('06/06/2013' as datetime),'ocarril',getdate());
-INSERT INTO Presupuesto.SolicitudPresupuesto
-(numSolicitud,gloObservacion,fecSolicitada,indTipo,fecLimite,segUsuarioCrea,segFechaCrea) VALUES
-('2013-01','Se solicita la elaboracion del presupuesto para 2014',cast('05/06/2013' as datetime),'E',cast('06/06/2013' as datetime),'ocarril',getdate());
-INSERT INTO Presupuesto.SolicitudPresupuesto
-(numSolicitud,gloObservacion,fecSolicitada,indTipo,fecLimite,segUsuarioCrea,segFechaCrea) VALUES
-('2014-01','Se solicita la elaboracion del presupuesto para 2015',cast('05/06/2014' as datetime),'E',cast('06/06/2014' as datetime),'ocarril',getdate());
-INSERT INTO Presupuesto.SolicitudPresupuesto
-(numSolicitud,gloObservacion,fecSolicitada,indTipo,fecLimite,segUsuarioCrea,segFechaCrea) VALUES
-('2015-01','Se solicita la elaboracion del presupuesto para 2016',cast('05/06/2015' as datetime),'E',cast('06/06/2015' as datetime),'ocarril',getdate());
-GO
-INSERT INTO Presupuesto.SolicitudPresupuesto
-(numSolicitud,gloObservacion,fecSolicitada,indTipo,fecLimite,segUsuarioCrea,segFechaCrea) VALUES
-('2016-01','Se solicita la elaboracion del presupuesto para 2017',cast('01/01/2016' as datetime),'E',cast('02/03/2015' as datetime),'ocarril',getdate());
+/*
+drop table Presupuesto.Solicitud
+select * from recursoshumanos.empleado
+select * from Presupuesto.Solicitud
+*/
+INSERT INTO Presupuesto.Solicitud
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2012-01','Se solicita la elaboracion del presupuesto para 2013',cast('05/06/2012' as datetime),1,'E',cast('06/06/2013' as datetime),3,'ocarril',getdate());
+INSERT INTO Presupuesto.Solicitud
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2013-01','Se solicita la elaboracion del presupuesto para 2014',cast('05/06/2013' as datetime),1,'E',cast('06/06/2013' as datetime),3,'ocarril',getdate());
+INSERT INTO Presupuesto.Solicitud
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2014-01','Se solicita la elaboracion del presupuesto para 2015',cast('05/06/2014' as datetime),1,'E',cast('06/06/2014' as datetime),3,'ocarril',getdate());
+INSERT INTO Presupuesto.Solicitud
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2015-01','Se solicita la elaboracion del presupuesto para 2016',cast('05/06/2015' as datetime),1,'E',cast('06/06/2015' as datetime),3,'ocarril',getdate());
+INSERT INTO Presupuesto.Solicitud
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2016-01','Se solicita la elaboracion del presupuesto para 2017',cast('01/01/2016' as datetime),1,'E',cast('02/03/2015' as datetime),3,'ocarril',getdate());
 GO
 
 /*PLANTILLAS DE AÑOS ANTERIORES: Presupuesto.Plantilla
@@ -280,22 +284,22 @@ TRUNCATE TABLE Presupuesto.Plantilla
 TRUNCATE TABLE Presupuesto.PlantillaDeta*/
 /*AÑO : 2013*/
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2013CONT01',5,1,1,1,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2013MARK01',5,2,1,1,2,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2013RRHH01',5,3,1,1,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2013LOGI01',5,4,1,1,4,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2013PRES01',5,5,1,1,5,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2013ALMC01',5,6,1,1,6,'ocarril',getdate());
 GO
 
@@ -456,22 +460,22 @@ Insert into Presupuesto.PlantillaDeta(codPlantilla,codEmpleadoAprueba,gloDescrip
 
 /*AÑO : 2014*/
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2014CONT01',5,1,2,2,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2014MARK01',5,2,2,2,2,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2014RRHH01',5,3,2,2,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2014LOGI01',5,4,2,2,4,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2014PRES01',5,5,2,2,5,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2014ALMC01',5,6,2,2,6,'ocarril',getdate());
 GO
 /*Area01*/
@@ -630,22 +634,22 @@ Insert into Presupuesto.PlantillaDeta(codPlantilla,codEmpleadoAprueba,gloDescrip
 
 /*AÑO : 2015*/
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015CONT01',3,1,3,3,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015MARK01',3,2,3,3,2,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015RRHH01',3,3,3,3,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015LOGI01',3,4,3,3,4,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015PRES01',3,5,3,3,5,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015ALMC01',3,6,3,3,6,'ocarril',getdate());
 GO
 
@@ -805,34 +809,28 @@ Insert into Presupuesto.PlantillaDeta(codPlantilla,codEmpleadoAprueba,gloDescrip
 Insert into Presupuesto.PlantillaDeta(codPlantilla,codEmpleadoAprueba,gloDescripcion,monEstimado,cntCantidad,codRegEstado,fecEjecucion,indPlantilla,codPartida,numPartida,segUsuarioCrea,segFechaCrea) values
 (18,6,'Glosa Descripcion 012',7040,1,5,cast('12/06/2015' as datetime),'N',1,'5567788','ocarril',getdate());
 
-
-
-
-
-
-
-
+/*
 select * from [RecursosHumanos].[Empleado]
 select * from [Presupuesto].[Plantilla]
-
+*/
 /*AÑO : 2016*/
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015CONT01',3,1,4,4,1,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015MARK01',3,2,4,4,2,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015RRHH01',3,3,4,4,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015LOGI01',3,4,4,4,4,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015PRES01',3,5,4,4,5,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2015ALMC01',3,6,4,4,6,'ocarril',getdate());
 GO
 
@@ -1003,28 +1001,31 @@ select * from RecursosHumanos.Area
 */
 /*AÑO : 2017 - APERTURA DE PLANTILLAS PARA EL 2017*/
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2017CONT01',1,1,5,5,1,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2017MARK01',1,2,5,5,2,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2017RRHH01',1,3,5,5,3,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2017LOGI01',1,4,5,5,4,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2017PRES01',1,5,5,5,5,'ocarril',getdate());
 INSERt into Presupuesto.Plantilla 
-(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitudPresupuesto,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
+(numPlantilla,codRegEstado,codArea,codPresupuesto,codSolicitud,codEmpleadoElabora,segUsuarioCrea,segFechaCrea) values
 ('2017ALMC01',1,6,5,5,6,'ocarril',getdate());
 GO
 
+/*
 SELECT 'Select * from ' + s.name+'.'+t.name FROM sys.tables t 
 inner join sys.schemas s on t.schema_id = s.schema_id
 GO
+
+[Presupuesto].[pa_S_Presupuesto] 2016
 
 Select * from RecursosHumanos.Cargo
 Select * from RecursosHumanos.Empleado
@@ -1035,7 +1036,21 @@ Select * from Presupuesto.Plantilla
 Select * from Presupuesto.PlantillaDeta
 Select * from Presupuesto.PresupuestoArea
 Select * from Presupuesto.Presupuesto
-Select * from Presupuesto.SolicitudPresupuesto
-Select * from Presupuesto.SolicitudPresupuestoDeta
+Select * from Presupuesto.Solicitud
+Select * from Presupuesto.SolicitudDeta
 Select * from RecursosHumanos.Area
+
+TRUNCATE TABLE RecursosHumanos.Cargo
+TRUNCATE TABLE RecursosHumanos.Empleado
+TRUNCATE TABLE Presupuesto.Gasto
+TRUNCATE TABLE Presupuesto.Partida
+TRUNCATE TABLE Maestros.Persona
+TRUNCATE TABLE Presupuesto.Plantilla
+TRUNCATE TABLE Presupuesto.PlantillaDeta
+TRUNCATE TABLE Presupuesto.PresupuestoArea
+TRUNCATE TABLE Presupuesto.Presupuesto
+TRUNCATE TABLE Presupuesto.Solicitud
+TRUNCATE TABLE Presupuesto.SolicitudDeta
+TRUNCATE TABLE RecursosHumanos.Area
 GO
+*/

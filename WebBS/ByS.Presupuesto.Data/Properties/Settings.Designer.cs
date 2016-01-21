@@ -42,5 +42,15 @@ namespace ByS.Presupuesto.Data.Properties {
                 return ((string)(this["BD_BySConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MUAKS-PC\\CROMSYSTEM;Initial Catalog=BD_ByS;User ID=SA")]
+        public string BD_BySConnectionString2 {
+            get {
+                return ((string)(this["BD_BySConnectionString2"]));
+            }
+        }
     }
 }

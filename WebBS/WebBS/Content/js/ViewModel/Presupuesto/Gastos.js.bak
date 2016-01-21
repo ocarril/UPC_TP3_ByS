@@ -58,7 +58,6 @@ $(document).ready(function () {
         }
     });
 
-    
     $('#txtAnio').val($('#hddnumAnio').val());
     $('#txtsegUsuarioEdita').attr('Disabled', true);
     $('#txtsegFechaEdita').attr('Disabled', true);

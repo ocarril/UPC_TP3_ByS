@@ -582,8 +582,6 @@ BEGIN
 END
 GO
 
---left join Presupuesto.PlantillaDeta pd gt on pd.codPlantillaDeta = gt.codPlantillaDeta
-
 IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_I_Gasto')
 BEGIN
 	EXEC('CREATE PROCEDURE [Presupuesto].[pa_I_Gasto] AS RETURN')
@@ -863,3 +861,587 @@ BEGIN
 	codPlantilla           = 	@p_codPlantilla
 END
 GO
+
+/*2016-ENE-19*/
+/*------------------------------------------------------------------------
+  PROCEDIMIENTO ALMACENADOS PRA LAS TABLAS Maestros
+*/------------------------------------------------------------------------
+IF OBJECT_ID (N'[Maestros].[fcnCrearCodigo]', N'FN') IS NOT NULL
+    DROP FUNCTION [Maestros].[fcnCrearCodigo];
+GO
+CREATE FUNCTION [Maestros].[fcnCrearCodigo]
+(  
+	@Length int,
+	@MaxNumber varchar(10)
+)
+RETURNS varchar(100)
+AS
+BEGIN  
+	DECLARE @Padded varchar(100)  
+	DECLARE @BaseLen int  
+	DECLARE @PadChar char(1)
+	SET @PadChar = '0'
+	SET @MaxNumber =  isnull(@MaxNumber,'0')
+	SET @MaxNumber = convert(int,@MaxNumber)+1
+	SET @BaseLen = LEN(@MaxNumber)
+    IF @BaseLen >= @Length    
+	BEGIN     
+		SET @Padded = @MaxNumber    
+	END
+	ELSE    
+	BEGIN      
+		SET @Padded = REPLICATE(@PadChar, @Length - @BaseLen) + @MaxNumber    
+	END 
+	RETURN @Padded
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_Solicitud')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_S_Solicitud] AS RETURN')
+	--[Presupuesto].[pa_S_SolicitudPagina] 1,10,'codSolicitud','asc',null,153
+END
+GO
+ALTER PROCEDURE [Presupuesto].[pa_S_Solicitud]
+(
+	 @p_codSolicitud		INT=null
+	,@p_numSolicitud		varchar(10)=null
+	,@p_fecSolicitadaIni	varchar(10)=null
+	,@p_fecSolicitadaFin	varchar(10)=null
+	,@p_codRegEstado		INT=null
+	,@p_codPresupuesto 		INT=null
+)
+AS
+BEGIN
+		SELECT 
+		 s.codSolicitud
+		,s.numSolicitud
+		,s.gloObservacion
+		,s.fecSolicitada
+		,s.indTipo
+		,s.fecLimite
+		,s.codEmpleadoGenera
+		,eg.desApellido +', ' + eg.desNombre codEmpleadoGeneraNombre
+		,s.codEmpleadoAprueba
+		,ea.desApellido +', ' + ea.desNombre codEmpleadoApruebaNombre
+		,s.codPresupuesto
+		,pr.desNombre			codPresupuestoNombre
+		,s.codRegEstado
+		,s.segUsuarioCrea
+		,s.segUsuarioEdita
+		,s.segFechaCrea
+		,s.segFechaEdita
+		,s.segMaquinaOrigen
+		from Presupuesto.Solicitud s
+		inner join RecursosHumanos.Empleado eg on s.codEmpleadoGenera = eg.codEmpleado
+		left  join RecursosHumanos.Empleado ea on s.codEmpleadoAprueba = ea.codEmpleado
+		left  join Presupuesto.Presupuesto	pr on s.codPresupuesto	 = pr.codPresupuesto
+		WHERE 
+		ISNULL(s.codSolicitud,'')	=	(CASE WHEN ISNULL(@p_codSolicitud,'')<>''	
+									 THEN  ISNULL(@p_codSolicitud,'') 
+									 ELSE ISNULL(s.codSolicitud,'')	
+									 END) 
+		AND ISNULL(s.numSolicitud,'')	LIKE	(CASE WHEN ISNULL(@p_numSolicitud,'')<>''	
+										 THEN  '%' + ISNULL(@p_numSolicitud,'') + '%' 
+										 ELSE ISNULL(s.numSolicitud,'')	
+									 END) 									 
+		AND ISNULL(s.codPresupuesto,'')	=	(CASE WHEN ISNULL(@p_codPresupuesto,'')<>''	
+										 THEN  ISNULL(@p_codPresupuesto,'') 
+										 ELSE ISNULL(s.codPresupuesto,'')	
+									 END) 
+											 									 
+		AND s.indEliminado	 = 0
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_SolicitudPagina')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_S_SolicitudPagina] AS RETURN')
+	--[Presupuesto].[pa_S_SolicitudPagina] 1,10,'codSolicitud','asc'
+	--Select * from Presupuesto.Solicitud s
+	--Select * from Presupuesto.Presupuesto
+END
+GO
+ALTER PROCEDURE [Presupuesto].[pa_S_SolicitudPagina]
+(
+	 @p_NumPagina			int
+	,@p_TamPagina			int
+	,@p_OrdenPor			varchar(30)=null
+	,@p_OrdenTipo			varchar(4)=null
+	,@p_codSolicitud		INT=null
+	,@p_numSolicitud		varchar(10)=null
+	,@p_fecSolicitadaIni	varchar(10)=null
+	,@p_fecSolicitadaFin	varchar(10)=null
+	,@p_codRegEstado		INT=null
+	,@p_codPresupuesto 		INT=null
+	,@p_codArea 			INT=null
+)
+AS
+BEGIN
+	SELECT
+	*
+	FROM
+	(	
+		SELECT 
+		 s.codSolicitud
+		,s.numSolicitud
+		,s.gloObservacion
+		,s.fecSolicitada
+		,s.indTipo
+		,s.fecLimite
+		,s.codEmpleadoGenera
+		,eg.desApellido +', ' + eg.desNombre codEmpleadoGeneraNombre
+		,s.codEmpleadoAprueba
+		,ea.desApellido +', ' + ea.desNombre codEmpleadoApruebaNombre
+		,s.codPresupuesto
+		,pr.desNombre			codPresupuestoNombre
+		,s.codRegEstado
+		,s.segUsuarioCrea
+		,s.segUsuarioEdita
+		,s.segFechaCrea
+		,s.segFechaEdita
+		,s.segMaquinaOrigen
+		,COUNT(*) OVER() AS [TOTALROWS]
+	    ,ROW_NUMBER() OVER (ORDER BY CASE WHEN @p_OrdenPor = 'fecSolicituda'  and @p_OrdenTipo = 'ASC' 
+										   THEN s.fecSolicitada
+									 END ASC,
+									 CASE WHEN @p_OrdenPor = 'fecSolicituda'  and @p_OrdenTipo = 'DESC' 
+										   THEN s.fecSolicitada
+									 END DESC,	  	   
+									 CASE WHEN @p_OrdenPor = 'numSolicitud'  and @p_OrdenTipo = 'ASC'  
+										  THEN s.numSolicitud 
+									 END ASC,
+									 CASE WHEN @p_OrdenPor = 'numSolicitud'  and @p_OrdenTipo = 'DESC'  
+										  THEN s.numSolicitud
+									 END DESC  
+									 ) AS [ROWNUM]
+		from Presupuesto.Solicitud s
+		inner join RecursosHumanos.Empleado eg on s.codEmpleadoGenera = eg.codEmpleado
+		left  join RecursosHumanos.Empleado ea on s.codEmpleadoAprueba = ea.codEmpleado
+		left  join Presupuesto.Presupuesto	pr on s.codPresupuesto	 = pr.codPresupuesto
+		WHERE 
+		ISNULL(s.codSolicitud,0)	=	(CASE WHEN ISNULL(@p_codSolicitud,0)<>0	
+										 THEN  ISNULL(@p_codSolicitud,0) 
+										 ELSE ISNULL(s.codSolicitud,0)	
+										 END) 
+		AND ISNULL(s.numSolicitud,'')	LIKE	(CASE WHEN ISNULL(@p_numSolicitud,'')<>''	
+													 THEN  '%' + ISNULL(@p_numSolicitud,'') + '%' 
+													 ELSE ISNULL(s.numSolicitud,'')	
+												 END) 									 
+		--AND ISNULL(s.numSolicitud,'')	=	(CASE WHEN ISNULL(@p_codPresupuesto,0)<>0	
+		--								 THEN  ISNULL(@p_codPresupuesto,0) 
+		--								 ELSE ISNULL(pr.numAnio,0)	
+		--							 END) 
+		AND ISNULL(eg.codArea,0)	=	(CASE WHEN ISNULL(@p_codArea,0)<>0	
+										 THEN  ISNULL(@p_codArea,0) 
+										 ELSE ISNULL(eg.codArea,0)	
+									 END) 									 									 
+		AND s.indEliminado	 = 0
+	)
+	AS Tabla
+	WHERE ROWNUM BETWEEN (@p_NumPagina*@p_TamPagina) - @p_TamPagina + 1 
+					 AND (@p_NumPagina*@p_TamPagina)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_I_Solicitud')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_I_Solicitud] AS RETURN')
+END
+GO
+ALTER  PROCEDURE [Presupuesto].[pa_I_Solicitud]
+(@p_codSolicitud				int output
+,@p_gloObservacion           	varchar(120)
+,@p_fecSolicituda              	datetime
+,@p_indTipo                 	varchar(1)
+,@p_fecLimite         			datetime
+,@p_codEmpleadoGenera          	int
+,@p_codPresupuesto				int=null
+,@p_codRegEstado              	int=null
+,@p_segUsuarioCrea           	varchar(25)
+,@p_segMaquinaOrigen         	varchar(25)
+)
+AS
+BEGIN
+	DECLARE @padAnio			varchar(4)
+	DECLARE @p_numSolicitud		varchar(10)
+
+	SET @padAnio = 	LTRIM(RTRIM(YEAR(GETDATE())))
+	DECLARE @Codigo VARCHAR(10)
+
+	SELECT @Codigo = MAX(SUBSTRING(numSolicitud,5,5)) 
+	FROM Presupuesto.Solicitud
+	WHERE 
+	LEFT(numSolicitud,4) = 	@padAnio AND LEN(numSolicitud)=8
+	
+	SET @p_numSolicitud = @padAnio +[Maestros].[fcnCrearCodigo](5,@Codigo)
+
+	INSERT INTO [Presupuesto].[Solicitud]
+	(numSolicitud
+	,gloObservacion
+	,fecSolicitada
+	,indTipo
+	,fecLimite
+	,codEmpleadoGenera
+	,codPresupuesto
+	,codRegEstado
+	,segUsuarioCrea
+	,segFechaCrea
+	,segMaquinaOrigen
+	)
+	VALUES
+	(@p_numSolicitud
+	,@p_gloObservacion
+	,@p_fecSolicituda
+	,@p_indTipo
+	,@p_fecLimite
+	,@p_codEmpleadoGenera
+	,@p_codPresupuesto
+	,@p_codRegEstado
+	,@p_segUsuarioCrea
+	,getdate()
+	,@p_segMaquinaOrigen
+	)
+	SET @p_codSolicitud  = @@IDENTITY
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_U_Solicitud')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_U_Solicitud] AS RETURN')
+END
+GO
+ALTER  PROCEDURE [Presupuesto].[pa_U_Solicitud]
+(
+ @p_codSolicitud				int
+,@p_gloObservacion           	varchar(120)
+,@p_fecSolicitada              	datetime
+,@p_indTipo                 	varchar(1)
+,@p_fecLimite         			datetime
+,@p_codEmpleadoGenera          	int
+,@p_codPresupuesto				int=null
+,@p_codRegEstado              	int=null
+,@p_segUsuarioEdita           	varchar(25)
+,@p_segMaquinaOrigen         	varchar(25)
+)
+AS
+BEGIN
+	UPDATE 
+	[Presupuesto].[Solicitud]
+	SET 
+	 gloObservacion           = 	@p_gloObservacion    
+	,fecSolicitada            = 	@p_fecSolicitada     
+	,indTipo                  = 	@p_indTipo           
+	,fecLimite         	      = 	@p_fecLimite         
+	,codEmpleadoGenera        = 	@p_codEmpleadoGenera 
+	,codPresupuesto		      = 	@p_codPresupuesto		
+	,codRegEstado             = 	@p_codRegEstado      
+	,segUsuarioEdita          = 	@p_segUsuarioEdita
+	,segMaquinaOrigen         = 	@p_segMaquinaOrigen
+	,segFechaEdita			  =		getdate()
+	WHERE 
+	codSolicitud              = 	@p_codSolicitud
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_D_Solicitud')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_D_Solicitud] AS RETURN')
+END
+GO
+ALTER PROCEDURE [Presupuesto].[pa_D_Solicitud]
+(
+ @p_codSolicitud                int
+,@p_segUsuarioElimina          	varchar(25)
+,@p_segMaquinaOrigen         	varchar(25)
+)
+AS
+BEGIN
+	UPDATE 
+	[Presupuesto].[Solicitud]
+	SET
+	 segUsuarioEdita  =@p_segUsuarioElimina  
+	,segMaquinaOrigen =@p_segMaquinaOrigen 
+	,indEliminado	  =1
+	WHERE 
+	[codSolicitud]        =@p_codSolicitud
+END
+GO
+/*
+ Tabla : Presupuesto.SolicitudDeta
+*/
+ IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_SolicitudDeta')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_S_SolicitudDeta] AS RETURN')
+	--[Presupuesto].[pa_S_SolicitudDeta] 1,10,'codSolicitudDeta','asc',null,153
+END
+GO
+ALTER PROCEDURE [Presupuesto].[pa_S_SolicitudDeta]
+(
+	 @p_codSolicitudDeta		INT=null
+	,@p_codSolicitud    		INT=null
+	,@p_codPlantillaDeta		INT=null
+	,@p_codRegEstado			INT=null
+	,@p_codPresupuesto 			INT=null
+)
+AS
+BEGIN
+		SELECT 
+		 d.codSolicitudDeta
+		,d.codSolicitud
+		,d.codPlantillaDeta
+		,d.cntCantidad
+		,d.gloDescripcion
+		,d.segUsuarioCrea
+		,d.segUsuarioEdita
+		,d.segFechaCrea
+		,d.segFechaEdita
+		,d.segMaquinaOrigen
+		from Presupuesto.SolicitudDeta d
+		inner join Presupuesto.Solicitud		s on s.codSolicitud= d.codSolicitud
+		left  join Presupuesto.PlantillaDeta	p on d.codPlantillaDeta	 = p.codPlantillaDeta
+		WHERE 
+		ISNULL(d.codSolicitudDeta,'')	=	(CASE WHEN ISNULL(@p_codSolicitudDeta,'')<>''	
+											 THEN  ISNULL(@p_codSolicitudDeta,'') 
+											 ELSE ISNULL(d.codSolicitudDeta,'')	
+											 END) 
+		AND ISNULL(d.codSolicitud,'')	LIKE	(CASE WHEN ISNULL(@p_codSolicitud,'')<>''	
+												 THEN  '%' + ISNULL(@p_codSolicitud,'') + '%' 
+												 ELSE ISNULL(d.codSolicitud,'')	
+											 END) 									 
+		AND ISNULL(d.codPlantillaDeta,'')	LIKE	(CASE WHEN ISNULL(@p_codPlantillaDeta,'')<>''	
+												 THEN  '%' + ISNULL(@p_codPlantillaDeta,'') + '%' 
+												 ELSE ISNULL(d.codPlantillaDeta,'')	
+											 END) 									 
+		AND ISNULL(s.codRegEstado,'')	LIKE	(CASE WHEN ISNULL(@p_codRegEstado,'')<>''	
+												 THEN  '%' + ISNULL(@p_codRegEstado,'') + '%' 
+												 ELSE ISNULL(s.codRegEstado,'')	
+											 END) 									 
+		AND ISNULL(s.codPresupuesto,'')	=	(CASE WHEN ISNULL(@p_codPresupuesto,'')<>''	
+												 THEN  ISNULL(@p_codPresupuesto,'') 
+												 ELSE ISNULL(s.codPresupuesto,'')	
+											 END) 
+											 									 
+		AND s.indEliminado	 = 0
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_SolicitudDetaPagina')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_S_SolicitudDetaPagina] AS RETURN')
+	--[Presupuesto].[pa_S_SolicitudDetaPagina] 1,10,'codSolicitudDeta','asc',null
+END
+GO
+ALTER PROCEDURE [Presupuesto].[pa_S_SolicitudDetaPagina]
+(
+	 @p_NumPagina				int
+	,@p_TamPagina				int
+	,@p_OrdenPor				varchar(30)=null
+	,@p_OrdenTipo				varchar(4)=null
+	,@p_codSolicitudDeta		INT=null
+	,@p_codSolicitud    		INT=null
+	,@p_codPlantillaDeta		INT=null
+	,@p_codRegEstado			INT=null
+	,@p_codPresupuesto 			INT=null
+)
+AS
+BEGIN
+	SELECT
+	*
+	FROM
+	(	
+		SELECT 
+		 d.codSolicitudDeta
+		,d.codSolicitud
+		,d.codPlantillaDeta
+		,P.gloDescripcion	codPlantillaDetaDescri
+		,p.fecEjecucion
+		,d.cntCantidad
+		,d.gloDescripcion
+		,d.segUsuarioCrea
+		,d.segUsuarioEdita
+		,d.segFechaCrea
+		,d.segFechaEdita
+		,d.segMaquinaOrigen
+		,p.codEmpleadoAprueba
+		,e.desApellido+', ' + e.desNombre codEmpleadoApruebaNombre
+		,p.cntCantidad		cntCantidadPlantilla
+		,p.numPartida
+		,p.monEstimado
+		,COUNT(*) OVER() AS [TOTALROWS]
+	    ,ROW_NUMBER() OVER (ORDER BY CASE WHEN @p_OrdenPor = 'codPlantillaDeta'  and @p_OrdenTipo = 'ASC' 
+										   THEN s.fecSolicitada
+									 END ASC,
+									 CASE WHEN @p_OrdenPor = 'codPlantillaDeta'  and @p_OrdenTipo = 'DESC' 
+										   THEN s.fecSolicitada
+									 END DESC,	  	   
+									 CASE WHEN @p_OrdenPor = 'fecEjecucion'  and @p_OrdenTipo = 'ASC'  
+										  THEN p.fecEjecucion 
+									 END ASC,
+									 CASE WHEN @p_OrdenPor = 'fecEjecucion'  and @p_OrdenTipo = 'DESC'  
+										  THEN p.fecEjecucion
+									 END DESC  
+							 ) AS [ROWNUM]
+		
+		from Presupuesto.SolicitudDeta d
+		inner join Presupuesto.Solicitud		s on s.codSolicitud= d.codSolicitud
+		inner  join Presupuesto.PlantillaDeta	p on d.codPlantillaDeta	 = p.codPlantillaDeta
+		left join RecursosHumanos.Empleado e on p.codEmpleadoAprueba = e.codEmpleado
+		WHERE 
+		ISNULL(d.codSolicitudDeta,'')	=	(CASE WHEN ISNULL(@p_codSolicitudDeta,'')<>''	
+											 THEN  ISNULL(@p_codSolicitudDeta,'') 
+											 ELSE ISNULL(d.codSolicitudDeta,'')	
+											 END) 
+		AND ISNULL(d.codSolicitud,'')	LIKE	(CASE WHEN ISNULL(@p_codSolicitud,'')<>''	
+												 THEN  '%' + ISNULL(@p_codSolicitud,'') + '%' 
+												 ELSE ISNULL(d.codSolicitud,'')	
+											 END) 									 
+		AND ISNULL(d.codPlantillaDeta,'')	LIKE	(CASE WHEN ISNULL(@p_codPlantillaDeta,'')<>''	
+												 THEN  '%' + ISNULL(@p_codPlantillaDeta,'') + '%' 
+												 ELSE ISNULL(d.codPlantillaDeta,'')	
+											 END) 									 
+		AND ISNULL(s.codRegEstado,'')	LIKE	(CASE WHEN ISNULL(@p_codRegEstado,'')<>''	
+												 THEN  '%' + ISNULL(@p_codRegEstado,'') + '%' 
+												 ELSE ISNULL(s.codRegEstado,'')	
+											 END) 									 
+		AND ISNULL(s.codPresupuesto,'')	=	(CASE WHEN ISNULL(@p_codPresupuesto,'')<>''	
+												 THEN  ISNULL(@p_codPresupuesto,'') 
+												 ELSE ISNULL(s.codPresupuesto,'')	
+											 END) 
+											 									 
+		AND s.indEliminado	 = 0
+	)
+	AS Tabla
+	WHERE ROWNUM BETWEEN (@p_NumPagina*@p_TamPagina) - @p_TamPagina + 1 
+					 AND (@p_NumPagina*@p_TamPagina)
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_I_SolicitudDeta')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_I_SolicitudDeta] AS RETURN')
+END
+GO
+ALTER  PROCEDURE [Presupuesto].[pa_I_SolicitudDeta]
+(@p_codSolicitudDeta			int output
+,@p_codSolicitud           		int
+,@p_codPlantillaDeta           	int
+,@p_cntCantidad	    			decimal(10,2)
+,@p_gloDescripcion       		varchar(120)
+,@p_segUsuarioCrea           	varchar(25)
+,@p_segMaquinaOrigen         	varchar(25)
+)
+AS
+BEGIN
+	INSERT INTO [Presupuesto].[SolicitudDeta]
+	(codSolicitud    
+	,codPlantillaDeta
+	,cntCantidad	    
+	,gloDescripcion 
+	,segFechaCrea 
+	,segUsuarioCrea  
+	,segMaquinaOrigen
+	)
+	VALUES
+	(@p_codSolicitud
+	,@p_codPlantillaDeta       
+	,@p_cntCantidad	    	
+	,@p_gloDescripcion    
+	,getdate()
+	,@p_segUsuarioCrea    
+	,@p_segMaquinaOrigen  
+	)
+	SET @p_codSolicitudDeta  = @@IDENTITY
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_U_SolicitudDeta')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_U_SolicitudDeta] AS RETURN')
+END
+GO
+ALTER  PROCEDURE [Presupuesto].[pa_U_SolicitudDeta]
+(
+ @p_codSolicitudDeta			int
+,@p_codSolicitud           		int
+,@p_codPlantillaDeta           	int
+,@p_cntCantidad	    			decimal(10,2)
+,@p_gloDescripcion       		varchar(120)
+,@p_segUsuarioEdita           	varchar(25)
+,@p_segMaquinaOrigen         	varchar(25)
+)
+AS
+BEGIN
+	UPDATE 
+	[Presupuesto].[SolicitudDeta]
+	SET 
+	 codSolicitud           = 	@p_codSolicitud      
+	,codPlantillaDeta       = 	@p_codPlantillaDeta  
+	,cntCantidad	    	= 	@p_cntCantidad	     
+	,gloDescripcion         = 	@p_gloDescripcion    
+	,segUsuarioEdita        = 	@p_segUsuarioEdita   
+	,segMaquinaOrigen       = 	@p_segMaquinaOrigen 	
+	,segFechaEdita			=		getdate()
+	WHERE 
+	codSolicitudDeta        = 	@p_codSolicitudDeta
+END
+GO
+
+IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_D_SolicitudDeta')
+BEGIN
+	EXEC('CREATE PROCEDURE [Presupuesto].[pa_D_SolicitudDeta] AS RETURN')
+END
+GO
+ALTER PROCEDURE [Presupuesto].[pa_D_SolicitudDeta]
+(
+ @p_codSolicitudDeta            int
+,@p_segUsuarioElimina          	varchar(25)
+,@p_segMaquinaOrigen         	varchar(25)
+)
+AS
+BEGIN
+	UPDATE 
+	[Presupuesto].[SolicitudDeta]
+	SET
+	 segUsuarioEdita  =@p_segUsuarioElimina  
+	,segMaquinaOrigen =@p_segMaquinaOrigen 
+	,indEliminado	  =1
+	WHERE 
+	[codSolicitudDeta]        =@p_codSolicitudDeta
+END
+GO
+
+/*numDiasExtemporaneo
+select * from RecursosHumanos.Empleado
+select * from Presupuesto.Presupuesto
+
+select p.numPlantilla,p.codEmpleadoElabora,e.desApellido+', '+e.desNombre,
+p.codPresupuesto,pr.desNombre,p.numDiasExtemporaneo 
+from Presupuesto.Plantilla p 
+inner join Presupuesto.Presupuesto pr on p.codPresupuesto = pr.codPresupuesto
+inner join RecursosHumanos.Empleado e on e.codempleado = p.codEmpleadoElabora
+where p.codEmpleadoElabora=1
+
+--ACTUALIZA EL REGISTRO PARA LOS DIAS DE VENCIMIENTO
+UPDATE Presupuesto.Plantilla 
+SET numDiasExTemporaneo=0 where codEmpleadoElabora=1 AND codPresupuesto = 4
+
+Estados del Presupuesto
+            PENDIENTE		= 1,
+            APROBADO		= 2,
+            DESAPROBADO		= 3,
+            EN_EJECUCION	= 4,
+            EJECUTADO_CERRADO = 5,
+Estados de la Plantilla
+            PENDIENTE		= 1,
+            TERMINADA_INGRESO = 2,
+            APROBADA		= 3,
+            DESAPROBADA		= 4,
+            EJECUTADA		= 5
+Estados de la PlantillaDeta
+            POR_APROBAR		= 1,
+            APROBADA		= 2,
+            DESAPROBADA		= 3,
+            EN_EJECUCION	= 4,
+            EJECUTADA		= 5
+*/

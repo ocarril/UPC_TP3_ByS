@@ -17,6 +17,12 @@ namespace ByS.Presupuesto.Entities
         public int? codEmpleado{ get; set; }
         public string desNombre{ get; set; }
         public string desApellido{ get; set; }
+        public int codSolicitud{ get; set; }
+        public int codSolicitudDeta { get; set; }
+        public string numSolicitud{ get; set; }
+        public string fecInicio { get; set; }
+        public string fecFinal{ get; set; }
+        public int codPresupuesto{ get; set; }
 
         public int p_NumPagina{ get; set; }
         public int p_TamPagina{ get; set; }

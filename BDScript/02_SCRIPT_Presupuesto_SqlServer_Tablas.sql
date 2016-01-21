@@ -209,7 +209,7 @@ CREATE TABLE Presupuesto.Plantilla
   codRegEstado 				int  		NOT NULL,
   codArea 					int  NOT NULL,
   codPresupuesto			int  NOT NULL,
-  codSolicitudPresupuesto 	int  NOT NULL,
+  codSolicitud			 	int  NOT NULL,
   codEmpleadoElabora 		int  NOT NULL,
   segUsuarioCrea    		VARCHAR(25)    NOT NULL CONSTRAINT DEF_Plantilla_segUsuarioCrea DEFAULT USER_NAME(),
   segUsuarioEdita   		VARCHAR(25)    NULL,
@@ -325,29 +325,33 @@ END
 GO
 
 /***************************************************************************************
-* CREACION DE LA TABLA : Presupuesto.Presupuesto
-* Tabla para almacenar los presupuestos por año
+* CREACION DE LA TABLA : Presupuesto.Solicitud
+* Tabla para almacenar los presupuestos por aÃ±o
 ****************************************************************************************/
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Presupuesto.SolicitudPresupuesto') AND type in (N'U'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Presupuesto.Solicitud') AND type in (N'U'))
 BEGIN
--- Creating table 'SolicitudPresupuesto'
-	CREATE TABLE Presupuesto.SolicitudPresupuesto 
+-- Creating table 'Solicitud'
+	CREATE TABLE Presupuesto.Solicitud
 	(
-    codSolicitudPresupuesto int		IDENTITY(1,1)NOT NULL,
-    numSolicitud			nvarchar(10)		NOT NULL,
-    gloObservacion			nvarchar(100)		NULL,
+    codSolicitud			int	IDENTITY(1,1)	NOT NULL,
+	numSolicitud			varchar(10)		NOT NULL,
+    gloObservacion			varchar(100)		NULL,
     fecSolicitada			datetime			NULL,
     indTipo					nvarchar(1)			NOT NULL,
     fecLimite				datetime			NULL,
-	segUsuarioCrea    		VARCHAR(25)			NOT NULL CONSTRAINT DEF_SolicitudPresupuesto_segUsuarioCrea DEFAULT USER_NAME(),
+	codEmpleadoGenera		int					NOT NULL,
+    codEmpleadoAprueba		int					NULL,
+    codPresupuesto 			int					NULL,
+	codRegEstado			INT					NULL,
+	segUsuarioCrea    		VARCHAR(25)			NOT NULL CONSTRAINT DEF_Solicitud_segUsuarioCrea DEFAULT USER_NAME(),
 	segUsuarioEdita   		VARCHAR(25)			NULL,
-	segFechaCrea      		DATETIME			NOT NULL CONSTRAINT DEF_SolicitudPresupuesto_segFechaCrea   DEFAULT GETDATE(),
+	segFechaCrea      		DATETIME			NOT NULL CONSTRAINT DEF_Solicitud_segFechaCrea   DEFAULT GETDATE(),
 	segFechaEdita     		DATETIME			NULL,
-	segMaquinaOrigen  		VARCHAR(25)			NOT NULL CONSTRAINT DEF_SolicitudPresupuesto_segMaquina	  DEFAULT (host_name()),
-	indEliminado      		BIT					NOT NULL CONSTRAINT DEF_SolicitudPresupuesto_indEliminado	  DEFAULT (0),
-   CONSTRAINT PK_SolicitudPresupuesto_codPresupuesto PRIMARY KEY CLUSTERED 
+	segMaquinaOrigen  		VARCHAR(25)			NOT NULL CONSTRAINT DEF_Solicitud_segMaquina	  DEFAULT (host_name()),
+	indEliminado      		BIT					NOT NULL CONSTRAINT DEF_Solicitud_indEliminado	  DEFAULT (0),
+   CONSTRAINT PK_Solicitud_codSolicitud PRIMARY KEY CLUSTERED 
 	(
-		codSolicitudPresupuesto ASC
+		codSolicitud ASC
 	)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) 
 	ON [DATABASE01]
 ) 
@@ -356,28 +360,28 @@ END
 GO
 
 /***************************************************************************************
-* CREACION DE LA TABLA : Presupuesto.Presupuesto
-* Tabla para almacenar los presupuestos por año
+* CREACION DE LA TABLA :select  * from  Presupuesto.SolicitudDeta
+* Tabla para almacenar los presupuestos por aÃ±o
 ****************************************************************************************/
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Presupuesto.SolicitudPresupuestoDeta') AND type in (N'U'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Presupuesto.SolicitudDeta') AND type in (N'U'))
 BEGIN
 -- Creating table 'SolicitudPresupuestoDeta'
-CREATE TABLE Presupuesto.SolicitudPresupuestoDeta (
-
-    codSolicitudPresupuestoDeta		int IDENTITY(1,1)	NOT NULL,
-    codSolicitudPresupuesto			int					NOT NULL,
+CREATE TABLE Presupuesto.SolicitudDeta 
+(
+    codSolicitudDeta				int IDENTITY(1,1)	NOT NULL,
+    codSolicitud					int					NOT NULL,
     codPlantillaDeta				int					NOT NULL,
     cntCantidad						DECIMAL(10,2)		NOT NULL,
     gloDescripcion					nvarchar(120)		NOT NULL,
-	segUsuarioCrea    				VARCHAR(25)			NOT NULL CONSTRAINT DEF_SolicitudPresupuestoDeta_segUsuarioCrea DEFAULT USER_NAME(),
+	segUsuarioCrea    				VARCHAR(25)			NOT NULL CONSTRAINT DEF_SolicitudDeta_segUsuarioCrea DEFAULT USER_NAME(),
 	segUsuarioEdita   				VARCHAR(25)			NULL,
-	segFechaCrea      				DATETIME			NOT NULL CONSTRAINT DEF_SolicitudPresupuestoDeta_segFechaCrea   DEFAULT GETDATE(),
+	segFechaCrea      				DATETIME			NOT NULL CONSTRAINT DEF_SolicitudDeta_segFechaCrea   DEFAULT GETDATE(),
 	segFechaEdita     				DATETIME			NULL,
-	segMaquinaOrigen  				VARCHAR(25)			NOT NULL CONSTRAINT DEF_SolicitudPresupuestoDeta_segMaquina	  DEFAULT (host_name()),
-	indEliminado      				BIT					NOT NULL CONSTRAINT DEF_SolicitudPresupuestoDeta_indEliminado	  DEFAULT (0),
-   CONSTRAINT PK_SolicitudPresupuestoDeta_codSolicitudPresupuestoDeta PRIMARY KEY CLUSTERED 
+	segMaquinaOrigen  				VARCHAR(25)			NOT NULL CONSTRAINT DEF_SolicitudDeta_segMaquina	 DEFAULT (host_name()),
+	indEliminado      				BIT					NOT NULL CONSTRAINT DEF_SolicitudDeta_indEliminado	 DEFAULT (0),
+   CONSTRAINT PK_SolicitudDeta_codSolicitudDeta PRIMARY KEY CLUSTERED 
 	(
-		codSolicitudPresupuestoDeta ASC
+		codSolicitudDeta ASC
 	)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) 
 	ON [DATABASE01]
 ) 

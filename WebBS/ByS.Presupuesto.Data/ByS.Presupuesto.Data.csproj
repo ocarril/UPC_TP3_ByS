@@ -60,6 +60,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SolicitudData.cs" />
+    <Compile Include="SolicitudDetaData.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="_DBMLPresupuesto.designer.cs">
       <AutoGen>True</AutoGen>
@@ -92,6 +94,10 @@
     <ProjectReference Include="..\ByS.Presupuesto.Entities\ByS.Presupuesto.Entities.csproj">
       <Project>{90e9a655-c490-4550-91f6-c5ede7396bc7}</Project>
       <Name>ByS.Presupuesto.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ByS.RHumanos.Entities\ByS.RHumanos.Entities.csproj">
+      <Project>{7d008652-de8b-4695-b762-2670e8e70b3a}</Project>
+      <Name>ByS.RHumanos.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

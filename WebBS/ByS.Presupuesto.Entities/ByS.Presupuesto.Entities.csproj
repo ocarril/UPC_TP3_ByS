@@ -58,11 +58,17 @@
     <Compile Include="Entities\PresupuestoAreaEntity.cs" />
     <Compile Include="Entities\PresupuestoEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\SolicitudPresupuestoDetaEntity.cs" />
-    <Compile Include="Entities\SolicitudPresupuestoEntity.cs" />
+    <Compile Include="Entities\SolicitudDetaEntity.cs" />
+    <Compile Include="Entities\SolicitudEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByS.RHumanos.Entities\ByS.RHumanos.Entities.csproj">
+      <Project>{7d008652-de8b-4695-b762-2670e8e70b3a}</Project>
+      <Name>ByS.RHumanos.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
