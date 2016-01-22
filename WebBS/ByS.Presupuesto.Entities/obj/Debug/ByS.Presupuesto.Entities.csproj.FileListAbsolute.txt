@@ -6,3 +6,11 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Ent
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\GitHubPushLib.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb

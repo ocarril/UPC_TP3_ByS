@@ -3,3 +3,8 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.En
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.csprojResolveAssemblyReference.cache
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.pdb

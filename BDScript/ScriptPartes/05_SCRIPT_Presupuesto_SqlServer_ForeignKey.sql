@@ -212,7 +212,6 @@ ALTER TABLE Presupuesto.Solicitud
 CHECK CONSTRAINT Solicitud_FK03_codEmpleadoAprueba
 GO
 
-<<<<<<< HEAD
 -- Creating foreign key on codSolicitud in table 'SolicitudDeta'
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'SolicitudDeta_FK02_codSolicitud') 
 	ALTER TABLE Presupuesto.SolicitudDeta
@@ -234,7 +233,6 @@ ALTER TABLE Presupuesto.SolicitudDeta
 CHECK CONSTRAINT SolicitudDeta_FK01_codPlantillaDeta
 GO
 
-=======
 /**********************************************************************************************************/
 /*************************************** Scripts de Trazabilidad ******************************************/
 /**********************************************************************************************************/
@@ -363,4 +361,4 @@ BEGIN
 	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_OrdenDeDespacho]
 END
 GO
->>>>>>> origin/master
+

@@ -2,3 +2,7 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.d
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.pdb

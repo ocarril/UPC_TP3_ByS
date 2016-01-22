@@ -4,3 +4,9 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb

@@ -8,3 +8,13 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.p
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
+C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
