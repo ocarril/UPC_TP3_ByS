@@ -1,16 +1,8 @@
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\GitHubPushLib.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\GitHubPushLib.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.Presupuesto.Entities.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\GitHubPushLib.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.csprojResolveAssemblyReference.cache
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Entities\obj\Debug\ByS.Presupuesto.Entities.pdb

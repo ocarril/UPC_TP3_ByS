@@ -1,18 +1,9 @@
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll.config
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\log4net.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.csprojResolveAssemblyReference.cache
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll.config
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\log4net.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.csprojResolveAssemblyReference.cache
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll.config
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\log4net.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.csprojResolveAssemblyReference.cache
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.pdb

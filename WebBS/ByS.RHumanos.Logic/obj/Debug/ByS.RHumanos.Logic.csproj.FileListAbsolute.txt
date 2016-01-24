@@ -1,26 +1,13 @@
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\GitHubPushLib.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\log4net.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.pdb
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.csprojResolveAssemblyReference.cache
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.dll
-H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\GitHubPushLib.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\log4net.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.pdb
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.csprojResolveAssemblyReference.cache
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.dll
-C:\HP\Training\EPE\TP3BYS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\GitHubPushLib.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\log4net.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.pdb
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.csprojResolveAssemblyReference.cache
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.dll
+E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.pdb
