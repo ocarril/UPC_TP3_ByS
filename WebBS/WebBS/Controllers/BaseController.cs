@@ -75,6 +75,32 @@ namespace WebBS.Controllers
             return lstParaCombos;
         }
 
+        protected SelectList ListarMeses()
+        {
+            EmpleadoLogic objEmpleadoLogic = new EmpleadoLogic();
+
+            List<SelectListItem> lstMeses = new List<SelectListItem>();
+            lstMeses.Insert(0,  new SelectListItem(){ Text = "seleccione", Value = "0" });
+            lstMeses.Insert(1, new SelectListItem() { Text = "Enero", Value = "1" });
+            lstMeses.Insert(2, new SelectListItem() { Text = "Febrero", Value = "2" });
+            lstMeses.Insert(3, new SelectListItem() { Text = "MArzo", Value = "3" });
+            lstMeses.Insert(4, new SelectListItem() { Text = "Abril", Value = "4" });
+            lstMeses.Insert(5, new SelectListItem() { Text = "Mayo", Value = "5" });
+            lstMeses.Insert(6, new SelectListItem() { Text = "Junio", Value = "6" });
+            lstMeses.Insert(7, new SelectListItem() { Text = "Julio", Value = "7" });
+            lstMeses.Insert(8, new SelectListItem() { Text = "Agosto", Value = "8" });
+            lstMeses.Insert(9, new SelectListItem() { Text = "Setiembre", Value = "9" });
+            lstMeses.Insert(10, new SelectListItem() { Text = "Octubre", Value = "10" });
+            lstMeses.Insert(11, new SelectListItem() { Text = "Noviembre", Value = "11" });
+            lstMeses.Insert(12, new SelectListItem() { Text = "Diciembre", Value = "12" });
+            SelectList lstParaCombos = new SelectList(lstMeses);
+
+            return lstParaCombos;
+        }
+
+
+
+
         #region Métodos relacionados con SEGURIDAD S.I.S.
 
         protected string GetIPAddress()

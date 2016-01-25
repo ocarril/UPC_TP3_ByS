@@ -131,6 +131,7 @@
     <Content Include="Content\js\ViewModel\NotaIngreso.js" />
     <Content Include="Content\js\ViewModel\Picking.js" />
     <Content Include="Content\js\ViewModel\PickingPedido.js" />
+    <Content Include="Content\js\ViewModel\Presupuesto\Informe.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\Solicitud.js" />
     <Content Include="Content\js\ViewModel\Producto.js" />
     <Content Include="Content\js\ViewModel\Trazabilidad.js" />
@@ -362,6 +363,7 @@
     <Content Include="Views\Trazabilidad\Index.cshtml" />
     <Content Include="Views\Trazabilidad\Trazabilidad.cshtml" />
     <Content Include="Views\Presupuesto\Solicitud.cshtml" />
+    <Content Include="Views\Presupuesto\Informe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

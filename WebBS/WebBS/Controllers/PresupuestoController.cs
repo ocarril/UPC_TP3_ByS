@@ -894,7 +894,41 @@ namespace WebBS.Controllers
         //    return Json(jsonResponse);
         //}
 
+        #endregion    
+
+
+        #region Generar informe
+
+        public ActionResult Informe()
+        {
+            try
+            {
+                objEmpleadoLogic = new EmpleadoLogic();
+                EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
+                ViewBag.codArea = objEmpleadoEntity != null ? objEmpleadoEntity.codArea.ToString() : "0";
+                ViewBag.numAnio = (DateTime.Now.Year) ;
+
+                ViewBag.cboMesIni = ListarMeses();
+
+                ViewBag.cboMesFin = ListarMeses();
+                //ViewBag.cboAreas = ListarAreasPresupuestales();
+                //ViewBag.fechaActual = DateTime.Now.ToShortDateString();
+            }
+            catch (Exception ex)
+            {
+                log.Error(String.Concat("Informe", " | ", ex.Message));
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View();
+        }
+
+       
+
+        
+       
+
+
         #endregion
-	
+
     }
 }
