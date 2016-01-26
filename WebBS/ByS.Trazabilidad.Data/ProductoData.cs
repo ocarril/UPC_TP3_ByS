@@ -22,7 +22,7 @@ namespace ByS.Trazabilidad.Data
      
 
 	   public List<ProductoDTO> Listar(Parametro pFiltro)
-		{
+	    {
             List<ProductoDTO> lstGastoEntityDTO = new List<ProductoDTO>();
             try
             {
@@ -49,8 +49,7 @@ namespace ByS.Trazabilidad.Data
                 log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-		return lstGastoEntityDTO;
-            }
-    
+		    return lstGastoEntityDTO;
+         }  
     }
 }
