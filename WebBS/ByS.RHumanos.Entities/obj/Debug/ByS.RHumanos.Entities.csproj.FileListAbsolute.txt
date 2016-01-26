@@ -10,3 +10,9 @@ D:\team\UPC\tp3\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
 D:\team\UPC\tp3\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
 D:\team\UPC\tp3\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
 D:\team\UPC\tp3\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb

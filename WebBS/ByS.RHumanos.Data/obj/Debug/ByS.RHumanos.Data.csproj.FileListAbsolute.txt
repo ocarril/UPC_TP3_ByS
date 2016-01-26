@@ -18,3 +18,13 @@ D:\team\UPC\tp3\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
 D:\team\UPC\tp3\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
 D:\team\UPC\tp3\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
 D:\team\UPC\tp3\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb

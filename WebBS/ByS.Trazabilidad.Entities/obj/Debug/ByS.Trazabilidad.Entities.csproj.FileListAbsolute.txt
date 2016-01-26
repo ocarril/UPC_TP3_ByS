@@ -8,3 +8,8 @@ D:\team\UPC\tp3\WebBS\ByS.Trazabilidad.Entities\bin\Debug\ByS.Trazabilidad.Entit
 D:\team\UPC\tp3\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.csprojResolveAssemblyReference.cache
 D:\team\UPC\tp3\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.dll
 D:\team\UPC\tp3\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Trazabilidad.Entities\bin\Debug\ByS.Trazabilidad.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Trazabilidad.Entities\bin\Debug\ByS.Trazabilidad.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.csprojResolveAssemblyReference.cache
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.pdb

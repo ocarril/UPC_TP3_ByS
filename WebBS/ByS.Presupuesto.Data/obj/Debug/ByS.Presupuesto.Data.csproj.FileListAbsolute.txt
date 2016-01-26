@@ -22,3 +22,15 @@ D:\team\UPC\tp3\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.RHumanos.Entities.pdb
 D:\team\UPC\tp3\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
 D:\team\UPC\tp3\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
 D:\team\UPC\tp3\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.RHumanos.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb

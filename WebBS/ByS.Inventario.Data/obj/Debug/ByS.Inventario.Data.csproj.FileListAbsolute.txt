@@ -6,3 +6,7 @@ D:\team\UPC\tp3\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.dll
 D:\team\UPC\tp3\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.pdb
 D:\team\UPC\tp3\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.dll
 D:\team\UPC\tp3\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.pdb

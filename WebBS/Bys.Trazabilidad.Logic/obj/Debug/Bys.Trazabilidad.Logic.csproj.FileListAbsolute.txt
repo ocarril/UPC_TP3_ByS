@@ -22,3 +22,15 @@ D:\team\UPC\tp3\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities
 D:\team\UPC\tp3\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.csprojResolveAssemblyReference.cache
 D:\team\UPC\tp3\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.dll
 D:\team\UPC\tp3\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\log4net.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.csprojResolveAssemblyReference.cache
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.pdb

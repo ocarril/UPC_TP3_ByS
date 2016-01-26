@@ -20,3 +20,14 @@ D:\team\UPC\tp3\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Tools.pdb
 D:\team\UPC\tp3\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.csprojResolveAssemblyReference.cache
 D:\team\UPC\tp3\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.dll
 D:\team\UPC\tp3\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Logic.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Logic.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Data.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Entities.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Tools.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Data.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Entities.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Tools.pdb
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.csprojResolveAssemblyReference.cache
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.dll
+D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.pdb
