@@ -41,6 +41,10 @@ namespace WebBS.Controllers
             return View();
         }
 
+        public ActionResult OrdenRetiroProducto() {
+            return View();
+        }
+
         public JsonResult FichaTecnicaFarmacia(string producto)
         {
 

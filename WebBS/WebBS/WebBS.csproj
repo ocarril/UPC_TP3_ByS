@@ -364,6 +364,7 @@
     <Content Include="Views\Trazabilidad\Trazabilidad.cshtml" />
     <Content Include="Views\Presupuesto\Solicitud.cshtml" />
     <Content Include="Views\Presupuesto\Informe.cshtml" />
+    <Content Include="Views\Trazabilidad\OrdenRetiroProducto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
