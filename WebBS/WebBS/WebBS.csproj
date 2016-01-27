@@ -129,6 +129,7 @@
     <Content Include="Content\js\app.js" />
     <Content Include="Content\js\util.js" />
     <Content Include="Content\js\ViewModel\NotaIngreso.js" />
+    <Content Include="Content\js\ViewModel\OrdenRetiro.js" />
     <Content Include="Content\js\ViewModel\Picking.js" />
     <Content Include="Content\js\ViewModel\PickingPedido.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\Informe.js" />

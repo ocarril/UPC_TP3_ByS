@@ -77,7 +77,7 @@
         var ajaxMessage = window.ajaxMessage;
         
         if (ajaxMessage != '')
-            $.blockUI({ message: '<div style="background-color:blue;"><table border="0" cellpadding="5" cellspacing="0" align="center" width="150px"><colgroup><col width="20%" /><col width="80%" /></colgroup><tr><td><img alt="loading" src="../Content/images/img_ajax.gif" /></td><td style="font-size: 11px; width: 80px; height: 30px; forecolor: green">' + ajaxMessage + '...' + '</td></tr></table></div>' });
+            $.blockUI({ message: '<div style="background-color:blue;"><table border="0" cellpadding="5" cellspacing="0" align="center" width="150px"><colgroup><col width="20%" /><col width="80%" /></colgroup><tr><td><img alt="loading" src="../Content/images/img_ajax.gif" /></td><td style="font-size: 11px; width: 80px; height: 30px; forecolor: green">' + (ajaxMessage || 'Procesando') + '...' + '</td></tr></table></div>' });
 
     });
 

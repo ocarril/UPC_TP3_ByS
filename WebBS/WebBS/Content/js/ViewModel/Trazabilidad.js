@@ -1,6 +1,6 @@
 ﻿function ViewModel() {
     var self = this;
-    debugger;
+   
     self.Filtro = {
         CodigoProducto: ko.observable(),
         NombreProducto: ko.observable(),
@@ -26,8 +26,7 @@
         }
 
         $.getJSON(urlPath + 'Trazabilidad/BuscarProductoTraza?producto=' + self.Filtro.NombreProducto())
-            .done(function (data) {
-                debugger;
+            .done(function (data) {                
                 if (data.length > 0) {
                     self.productos(data);
                     $('#modal-productos').modal('show');
@@ -90,7 +89,7 @@
                 self.OrdenesPedidoArray(data.OrdenesPedido);
                 self.RecetasArray(data.Recetas);
                 self.HojaMermaArray(data.HojaMerma);
-                toastr.success('Ha finalizado el análisis de trazabailidad');
+                toastr.success('Ha finalizado el análisis de trazabilidad');
             },
             error: function (dataError) {
                 console.log(dataError);
@@ -99,8 +98,7 @@
     }
 }
 var modelo;
-$(function () {
-    debugger;
+$(function () {    
     modelo = new ViewModel();
     ko.applyBindings(modelo);
    
