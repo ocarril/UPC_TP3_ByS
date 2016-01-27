@@ -909,7 +909,7 @@ namespace WebBS.Controllers
                 ViewBag.numAnio = (DateTime.Now.Year) ;
 
                 ViewBag.cboMesIni = ListarMeses();
-
+                ViewBag.cboEstado = ListarEstados();
                 ViewBag.cboMesFin = ListarMeses();
                 //ViewBag.cboAreas = ListarAreasPresupuestales();
                 //ViewBag.fechaActual = DateTime.Now.ToShortDateString();

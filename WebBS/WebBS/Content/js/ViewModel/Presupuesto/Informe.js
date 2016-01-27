@@ -23,11 +23,7 @@ $(document).ready(function () {
         $.f_reloadGrid('gridTabla');
     });
  
-    
-    $("#cboAreas").change(function () {
-
-        $.f_reloadGrid('gridPresupActual');
-    });
+  
 
    // $.fnu_cargarPlantilla();
     $.fnu_configuraGridEnEjecucion();

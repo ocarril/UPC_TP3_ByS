@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InformeData.cs" />
     <Compile Include="GastoData.cs" />
     <Compile Include="PartidaData.cs" />
     <Compile Include="PlantillaData.cs" />

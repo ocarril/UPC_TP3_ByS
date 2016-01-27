@@ -51,12 +51,21 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 col-sm-4 col-xs-12">Estado:</label>
                     <div class="col-md-8 col-sm-8 col-xs-12"> 
+                        @Html.DropDownList("cboEstado", null, new { @id = "cboEstado", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Mes Fin:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">  
                         @Html.DropDownList("cboMesFin", null, new { @id = "cboMesFin", @class = "form-control" })
                     </div>
                 </div>
             </div>
         </div>
-
 
         <div class="form-inline text-right">
             <div class="form-group">

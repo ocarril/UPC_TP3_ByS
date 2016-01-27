@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InformeLogic.cs" />
     <Compile Include="GastoLogic.cs" />
     <Compile Include="PartidaLogic.cs" />
     <Compile Include="PlantillaLogic.cs" />

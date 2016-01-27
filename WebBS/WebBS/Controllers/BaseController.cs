@@ -76,11 +76,9 @@ namespace WebBS.Controllers
         }
 
         protected SelectList ListarMeses()
-        {
-            EmpleadoLogic objEmpleadoLogic = new EmpleadoLogic();
-
-            List<SelectListItem> lstMeses = new List<SelectListItem>();
-            lstMeses.Insert(0,  new SelectListItem(){ Text = "seleccione", Value = "0" });
+        { 
+           List<SelectListItem> lstMeses = new List<SelectListItem>();
+            lstMeses.Insert(0,  new SelectListItem(){ Text = "--Seleccione--", Value = "0" });
             lstMeses.Insert(1, new SelectListItem() { Text = "Enero", Value = "1" });
             lstMeses.Insert(2, new SelectListItem() { Text = "Febrero", Value = "2" });
             lstMeses.Insert(3, new SelectListItem() { Text = "MArzo", Value = "3" });
@@ -93,11 +91,22 @@ namespace WebBS.Controllers
             lstMeses.Insert(10, new SelectListItem() { Text = "Octubre", Value = "10" });
             lstMeses.Insert(11, new SelectListItem() { Text = "Noviembre", Value = "11" });
             lstMeses.Insert(12, new SelectListItem() { Text = "Diciembre", Value = "12" });
-            SelectList lstParaCombos = new SelectList(lstMeses);
+            SelectList lstParaCombos = new SelectList(lstMeses, "Value", "Text");
 
             return lstParaCombos;
         }
 
+        protected SelectList ListarEstados()
+        {
+             
+            List<SelectListItem> lstEstados = new List<SelectListItem>();
+            lstEstados.Insert(0, new SelectListItem() { Text = "--Todos--", Value = "0" });
+            lstEstados.Insert(1, new SelectListItem() { Text = "Pendiente", Value = "1" });
+            lstEstados.Insert(2, new SelectListItem() { Text = "Cerrado", Value = "2" });
+            SelectList lstParaCombos = new SelectList(lstEstados, "Value", "Text");
+
+            return lstParaCombos;
+        }
 
 
 
