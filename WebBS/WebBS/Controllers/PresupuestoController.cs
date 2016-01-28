@@ -911,7 +911,7 @@ namespace WebBS.Controllers
                 ViewBag.cboMesIni = ListarMeses();
                 ViewBag.cboEstado = ListarEstados();
                 ViewBag.cboMesFin = ListarMeses();
-                //ViewBag.cboAreas = ListarAreasPresupuestales();
+                ViewBag.cboAreas = ListarAreasPresupuestales();
                 //ViewBag.fechaActual = DateTime.Now.ToShortDateString();
             }
             catch (Exception ex)
