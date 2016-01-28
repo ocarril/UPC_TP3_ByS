@@ -5,7 +5,6 @@ using System.Configuration;
 
 using ByS.Presupuesto.Data;
 using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
 using ByS.Tools;
 
 namespace ByS.Presupuesto.Logic
@@ -31,7 +30,7 @@ namespace ByS.Presupuesto.Logic
         /* Solicitud */
         public SolicitudEntity BuscarSolicitud(int pID)
         {
-            SolicitudEntity objSolicitudEntity = new SolicitudEntity();
+            SolicitudEntity objSolicitudEntity = null;
             try
             {
                 objSolicitudData = new SolicitudData();
@@ -78,19 +77,58 @@ namespace ByS.Presupuesto.Logic
             return lstSolicitudEntity;
         }
 
-        public ReturnValor RegistrarSolicitud(SolicitudEntity objPlantillaDetaEntity)
+        public ReturnValor RegistrarSolicitud(SolicitudEntity objSolicitud)
         {
             try
             {
                 //using (TransactionScope tx = new TransactionScope(TransactionScopeOption.Required))
                 //{
                 objSolicitudData = new SolicitudData();
-                objReturnValor.Exitosa = objSolicitudData.Registrar(objPlantillaDetaEntity);
-                    if (objReturnValor.Exitosa)
+                objReturnValor.Exitosa = objSolicitudData.Registrar(objSolicitud);
+                foreach (SolicitudDetaEntity solicitudDeta in objSolicitud.lstSolicitudDeta)
+                {
+                    solicitudDeta.codSolicitud = objSolicitud.Codigo;
+                    solicitudDeta.segMaquinaOrigen = objSolicitud.segMaquinaOrigen;
+                    solicitudDeta.segUsuarioCrea = objSolicitud.segUsuarioCrea;
+                    RegistrarSolicitudDeta(solicitudDeta);
+                }
+
+                if (objReturnValor.Exitosa)
+                {
+                    objReturnValor.Message = HelpMessages.Evento_NEW;
+
+                    objSolicitud = BuscarSolicitud(objSolicitud.Codigo);
+                    List<string> lstCorreos = new List<string>();
+                    List<HelpMailDatos> lstHelpMailDatos = new List<HelpMailDatos>();
+                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Presupuesto", descripcion = objSolicitud.fecSolicitada.Value.Year.ToString() });
+                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Area", descripcion = objSolicitud.objEmpleadoGenera.objArea.desNombre.ToString() });
+                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Responsable", descripcion = objSolicitud.objEmpleadoGenera.desNombre.ToString().ToUpper() });
+                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Descripcion", descripcion = objSolicitud.gloObservacion});
+                    decimal decTotal = 0;
+                    decimal cntCanti = 0;
+                    string strPartidas = string.Empty;
+                    foreach (SolicitudDetaEntity item in objSolicitud.lstSolicitudDeta)
                     {
-                        objReturnValor.Message = HelpMessages.Evento_NEW;
-                        //tx.Complete();
+                        decTotal = decTotal + item.objPlantillaDeta.monEstimado;
+                        cntCanti = cntCanti + item.objPlantillaDeta.cntCantidad;
+                        strPartidas = strPartidas + ", " + item.objPlantillaDeta.objPartida.desNombre.ToUpper();
                     }
+                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Partida", descripcion = strPartidas });
+                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Cantidad", descripcion = cntCanti.ToString() });
+                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Monto Referencial", descripcion = decTotal.ToString("N2") });
+                   
+                    String strCuerpoMensaje = HelpMail.CrearCuerpo("Solicitud de Ejecucion de Presupuesto",
+                                                                   lstHelpMailDatos,
+                                                                   "Ejecución de Presupuesto",
+                                                                   "BOTICAS & SALUD");
+
+                    lstCorreos.Add(ConfigurationManager.AppSettings["EMAIL_JefeFinanzas"]);
+                    lstCorreos.Add(ConfigurationManager.AppSettings["EMAIL_JefeAreas"]);
+                    HelpMail.Enviar("Solicitud de Ejecucion de Presupuesto", strCuerpoMensaje, lstCorreos, false);
+
+
+                    //tx.Complete();
+                }
                 //}
             }
             catch (Exception ex)
@@ -100,14 +138,14 @@ namespace ByS.Presupuesto.Logic
             return objReturnValor;
         }
 
-        public ReturnValor ActualizarSolicitud(SolicitudEntity objPlantillaDetaEntity)
+        public ReturnValor ActualizarSolicitud(SolicitudEntity objSolicitud)
         {
             try
             {
                 //using (TransactionScope tx = new TransactionScope(TransactionScopeOption.Required))
                 //{
                 objSolicitudData = new SolicitudData();
-                objReturnValor.Exitosa = objSolicitudData.Actualizar(objPlantillaDetaEntity);
+                objReturnValor.Exitosa = objSolicitudData.Actualizar(objSolicitud);
                 if (objReturnValor.Exitosa)
                 {
                     objReturnValor.Message =HelpMessages.Evento_EDIT;
@@ -191,14 +229,14 @@ namespace ByS.Presupuesto.Logic
             return lstSolicitudDetaEntity;
         }
 
-        public ReturnValor RegistrarSolicitudDeta(SolicitudDetaEntity objPlantillaDetaEntity)
+        public ReturnValor RegistrarSolicitudDeta(SolicitudDetaEntity objSolicitudDetaEntity)
         {
             try
             {
                 //using (TransactionScope tx = new TransactionScope(TransactionScopeOption.Required))
                 //{
                 objSolicitudDetaData = new SolicitudDetaData();
-                objReturnValor.Exitosa = objSolicitudDetaData.Registrar(objPlantillaDetaEntity);
+                objReturnValor.Exitosa = objSolicitudDetaData.Registrar(objSolicitudDetaEntity);
                 if (objReturnValor.Exitosa)
                 {
                     objReturnValor.Message = HelpMessages.Evento_NEW;
@@ -213,14 +251,14 @@ namespace ByS.Presupuesto.Logic
             return objReturnValor;
         }
 
-        public ReturnValor ActualizarSolicitudDeta(SolicitudDetaEntity objPlantillaDetaEntity)
+        public ReturnValor ActualizarSolicitudDeta(SolicitudDetaEntity objSolicitudDetaEntity)
         {
             try
             {
                 //using (TransactionScope tx = new TransactionScope(TransactionScopeOption.Required))
                 //{
                 objSolicitudDetaData = new SolicitudDetaData();
-                objReturnValor.Exitosa = objSolicitudDetaData.Actualizar(objPlantillaDetaEntity);
+                objReturnValor.Exitosa = objSolicitudDetaData.Actualizar(objSolicitudDetaEntity);
                 if (objReturnValor.Exitosa)
                 {
                     objReturnValor.Message = HelpMessages.Evento_EDIT;
@@ -256,6 +294,8 @@ namespace ByS.Presupuesto.Logic
             }
             return objReturnValor;
         }
+
+
 
     } 
 } 

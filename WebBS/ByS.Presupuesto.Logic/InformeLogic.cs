@@ -36,7 +36,7 @@ namespace ByS.Presupuesto.Logic
             try
             {
                 oPlantillaDetaData = new PlantillaDetaData();
-                lstPlantillaDetaEntityDTO = oPlantillaDetaData.Listar(pLista);
+                //lstPlantillaDetaEntityDTO = oPlantillaDetaData.Listar(pLista);
             }
             catch (Exception ex)
             {

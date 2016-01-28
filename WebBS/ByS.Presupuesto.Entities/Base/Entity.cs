@@ -47,5 +47,6 @@ namespace ByS.Presupuesto.Entities.Base
 
         public long ROW { get; set; }
         public int TOTALROWS { get; set; }
+        public string codRegEstadoNombre { get; set; }
     }
 }

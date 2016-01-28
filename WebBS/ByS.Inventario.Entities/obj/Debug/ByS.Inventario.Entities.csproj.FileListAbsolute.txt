@@ -13,3 +13,7 @@ D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventar
 D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.csprojResolveAssemblyReference.cache
 D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.dll
 D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.pdb

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using log4net;
 
 using ByS.Presupuesto.Entities;
+using ByS.Presupuesto.Entities.DTO;
 
 namespace ByS.Presupuesto.Data
 { 
@@ -14,22 +16,25 @@ namespace ByS.Presupuesto.Data
 	/// Archivo     : [Presupuesto.PresupuestoData.cs]
 	/// </summary>
 	public class PresupuestoData
-	{ 
-		private string conexion = string.Empty;
+	{
+        private static readonly ILog log = LogManager.GetLogger(typeof(PresupuestoData));
+        private string conexion = string.Empty;
+
 		public PresupuestoData()
 		{
             conexion = Util.ConexionBD();
 		}
-		#region /* Proceso de SELECT ALL */ 
+	
+        #region /* Proceso de SELECT ALL */ 
 
 		/// <summary>
 		/// Retorna un LISTA de registros de la Entidad Presupuesto.Presupuesto
 		/// En la BASE de DATO la Tabla : [Presupuesto.Presupuesto]
 		/// <summary>
 		/// <returns>List</returns>
-        public List<PresupuestoEntity> Listar(int? pID)
+        public List<PresupuestoEntityDTO> Listar(int? pID)
         {
-            List<PresupuestoEntity> lstPresupuestoEntity = new List<PresupuestoEntity>();
+            List<PresupuestoEntityDTO> lstPresupuestoEntityDTO = new List<PresupuestoEntityDTO>();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -37,78 +42,78 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_Presupuesto(pID);
                     foreach (var item in resul)
                     {
-                        lstPresupuestoEntity.Add(new PresupuestoEntity()
+                        lstPresupuestoEntityDTO.Add(new PresupuestoEntityDTO()
                         {
-                            Codigo = item.codPresupuesto,
+                            codPresupuesto = item.codPresupuesto,
                             desNombre = item.desNombre,
                             numAnio = item.numAnio,
-                            fecInicio = item.fecInicio,
-                            fecCierre = item.fecCierre,
+                            fecInicio = item.fecInicio.HasValue ? item.fecInicio.Value.ToShortDateString() : string.Empty,
+                            fecCierre = item.fecCierre.HasValue ? item.fecCierre.Value.ToShortDateString() : string.Empty,
                             codRegEstado = item.codRegEstado,
-                            segUsuarioCrea = item.segUsuarioCrea,
-                            segUsuarioEdita = item.segUsuarioEdita,
-                            segFechaCrea = item.segFechaCrea,
-                            segFechaEdita = item.segFechaEdita,
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-                            indEliminado = item.indEliminado,
-
+                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioEdita : item.segUsuarioCrea,
+                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
+                            monTotalGastado = item.monTotalGastado.HasValue?item.monTotalGastado.Value.ToString("N2"):"0.00",
+                            monTotalPresupuesto = item.monTotalPresupuesto.HasValue ? item.monTotalPresupuesto.Value.ToString("N2") : "0.00",
+                            monTotalSolicitado = item.monTotalSolicitado.HasValue ? item.monTotalSolicitado.Value.ToString("N2") : "0.00",
                         });
                     }
                 }
             }
             catch (Exception ex)
             {
+                log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return lstPresupuestoEntity;
+            return lstPresupuestoEntityDTO;
         }
 		#endregion 
 
-//        #region /* Proceso de SELECT BY ID CODE */ 
+        #region /* Proceso de SELECT BY ID CODE */
 
-//        /// <summary>
-//        /// Retorna una ENTIDAD de registro de la Entidad Presupuesto.Presupuesto
-//        /// En la BASE de DATO la Tabla : [Presupuesto.Presupuesto]
-//        /// <summary>
-//        /// <returns>Entidad</returns>
-//        public Presupuesto Find(int prm_codPresupuesto)
-//        {
-//            Presupuesto miEntidad = new Presupuesto();
-//            try
-//            {
-//            using (CROMDataContext SQLDC = new CROMDataContext(conexion))
-//            {
-//                var resul = SQLDC.omgc_mnt_GetByIdCodePresupuesto(prm_codPresupuesto            );
-//                foreach (var item in resul)
-//                {
-//                    miEntidad = new Presupuesto()
-//                    {
-//                    codPresupuesto = item.codPresupuesto,
-//                    desNombre = item.desNombre,
-//                    numAnio = item.numAnio,
-//                    fecInicio = item.fecInicio,
-//                    fecCierre = item.fecCierre,
-//                    codRegEstado = item.codRegEstado,
-//                    segUsuarioCrea = item.segUsuarioCrea,
-//                    segUsuarioEdita = item.segUsuarioEdita,
-//                    segFechaCrea = item.segFechaCrea,
-//                    segFechaEdita = item.segFechaEdita,
-//                    segMaquinaOrigen = item.segMaquinaOrigen,
-//                    indEliminado = item.indEliminado,
+        /// <summary>
+        /// Retorna una ENTIDAD de registro de la Entidad Presupuesto.Presupuesto
+        /// En la BASE de DATO la Tabla : [Presupuesto.Presupuesto]
+        /// <summary>
+        /// <returns>Entidad</returns>
+        public PresupuestoEntityDTO Buscar(int numAnio)
+        {
+            PresupuestoEntityDTO objPresupuestoEntityDTO = new PresupuestoEntityDTO();
+            try
+            {
+                using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
+                {
+                    var resul = SQLDC.pa_S_Presupuesto(numAnio);
+                    foreach (var item in resul)
+                    {
+                        objPresupuestoEntityDTO = new PresupuestoEntityDTO()
+                        {
+                            codPresupuesto = item.codPresupuesto,
+                            desNombre = item.desNombre,
+                            numAnio = item.numAnio,
+                            fecInicio = item.fecInicio.HasValue ? item.fecInicio.Value.ToShortDateString() : string.Empty,
+                            fecCierre = item.fecCierre.HasValue ? item.fecCierre.Value.ToShortDateString() : string.Empty,
+                            codRegEstado = item.codRegEstado,
+                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioEdita : item.segUsuarioCrea,
+                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
+                            monTotalGastado = item.monTotalGastado.HasValue ? item.monTotalGastado.Value.ToString("N2") : "0.00",
+                            monTotalPresupuesto = item.monTotalPresupuesto.HasValue ? item.monTotalPresupuesto.Value.ToString("N2") : "0.00",
+                            monTotalSolicitado = item.monTotalSolicitado.HasValue ? item.monTotalSolicitado.Value.ToString("N2") : "0.00",
+                       
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
+                throw ex;
+            }
+            return objPresupuestoEntityDTO;
+        }
 
-//                    };
-//                }
-//            }
-//        }
-//        catch (Exception ex)
-//        {
-//            throw ex;
-//        }
-//        return miEntidad;
-//}
-//        #endregion 
+        #endregion 
 
-//        #region /* Proceso de INSERT RECORD */ 
+        //        #region /* Proceso de INSERT RECORD */ 
 
 //        /// <summary>
 //        /// Almacena el registro de una ENTIDAD de registro de Tipo Presupuesto

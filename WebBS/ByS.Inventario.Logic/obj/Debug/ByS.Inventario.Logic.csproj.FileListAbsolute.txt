@@ -31,3 +31,14 @@ D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Tools.pdb
 D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.csprojResolveAssemblyReference.cache
 D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.dll
 D:\PROYECTO\TEAMPRIVATE\upc\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Logic.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Logic.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Data.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Entities.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Tools.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Data.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Inventario.Entities.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\bin\Debug\ByS.Tools.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.csprojResolveAssemblyReference.cache
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Logic\obj\Debug\ByS.Inventario.Logic.pdb

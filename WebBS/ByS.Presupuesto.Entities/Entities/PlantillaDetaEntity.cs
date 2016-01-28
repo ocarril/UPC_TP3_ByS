@@ -16,10 +16,13 @@ namespace ByS.Presupuesto.Entities
             objPlantilla = new PlantillaEntity();
             objPartida = new PartidaEntity();
             objEmpleadoAprueba = new EmpleadoEntity();
+            objEmpleadoRespon = new EmpleadoEntity();
         }
 
         public int codPlantilla { get; set; }
         public int codEmpleadoAprueba { get; set; }
+        public int codEmpleadoRespon { get; set; }
+        
         public string gloDescripcion{ get; set; }
         public decimal monEstimado{ get; set; }
         public decimal cntCantidad{ get; set; }
@@ -33,5 +36,6 @@ namespace ByS.Presupuesto.Entities
         public PlantillaEntity objPlantilla { get; set; }
         public PartidaEntity objPartida { get; set; }
         public EmpleadoEntity objEmpleadoAprueba { get; set; }
+        public EmpleadoEntity objEmpleadoRespon { get; set; }
     }
 }

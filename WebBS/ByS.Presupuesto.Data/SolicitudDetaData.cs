@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using log4net;
 
 using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
-using log4net;
 
 namespace ByS.Presupuesto.Data
 {
@@ -48,17 +47,27 @@ namespace ByS.Presupuesto.Data
                                                          pFiltro.codPresupuesto);
                     foreach (var item in resul)
                     {
-                        lstSolicitudDetaEntity.Add(new SolicitudDetaEntity()
-                        {
-                            Codigo = item.codSolicitudDeta,
-                            gloDescripcion = item.gloDescripcion,
-                            cntCantidad = item.cntCantidad,
-                            codPlantillaDeta = item.codPlantillaDeta,
-                            codSolicitud = item.codSolicitud,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita : item.segFechaCrea,
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-                        });
+                        SolicitudDetaEntity objSolicitudDetaEntity = new SolicitudDetaEntity();
+                        objSolicitudDetaEntity.Codigo = item.codSolicitudDeta;
+                        objSolicitudDetaEntity.gloDescripcion = item.gloDescripcion;
+                        objSolicitudDetaEntity.cntCantidad = item.cntCantidad;
+                        objSolicitudDetaEntity.codPlantillaDeta = item.codPlantillaDeta;
+                        objSolicitudDetaEntity.objPlantillaDeta.gloDescripcion = item.codPlantillaDetaDescri;
+                        objSolicitudDetaEntity.objPlantillaDeta.fecEjecucion = item.fecEjecucion;
+                        objSolicitudDetaEntity.objPlantillaDeta.monEstimado = item.monEstimado.HasValue ? item.monEstimado.Value : 0;
+                        objSolicitudDetaEntity.objPlantillaDeta.numPartida = item.numPartida;
+                        objSolicitudDetaEntity.objPlantillaDeta.codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0;
+                        objSolicitudDetaEntity.objPlantillaDeta.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
+                        objSolicitudDetaEntity.objPlantillaDeta.codPartida = item.codPartida.HasValue ? item.codPartida.Value : 0;
+                        objSolicitudDetaEntity.objPlantillaDeta.objPartida.desNombre = item.codPartidaNombre;
+                        objSolicitudDetaEntity.codSolicitud = item.codSolicitud;
+                        objSolicitudDetaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objSolicitudDetaEntity.segFechaCrea = item.segFechaCrea;
+                        objSolicitudDetaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objSolicitudDetaEntity.segFechaEdita = item.segFechaEdita;
+                        objSolicitudDetaEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+
+                        lstSolicitudDetaEntity.Add(objSolicitudDetaEntity);
                     }
                 }
             }
@@ -99,7 +108,8 @@ namespace ByS.Presupuesto.Data
                         objSolicitudDetaEntity.objPlantillaDeta.numPartida = item.numPartida;
                         objSolicitudDetaEntity.objPlantillaDeta.codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0;
                         objSolicitudDetaEntity.objPlantillaDeta.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
-
+                        objSolicitudDetaEntity.objPlantillaDeta.codPartida = item.codPartida;
+                        objSolicitudDetaEntity.objPlantillaDeta.objPartida.desNombre = item.codPartidaNombre;
                         objSolicitudDetaEntity.codSolicitud = item.codSolicitud;
                         objSolicitudDetaEntity.segUsuarioCrea = item.segUsuarioCrea;
                         objSolicitudDetaEntity.segFechaCrea = item.segFechaCrea;
@@ -133,7 +143,7 @@ namespace ByS.Presupuesto.Data
         /// <returns></returns>
         public SolicitudDetaEntity Buscar(int pcodSolicitudDeta)
         {
-            SolicitudDetaEntity objSolicitudDetaDetaEntityDTO = new SolicitudDetaEntity();
+            SolicitudDetaEntity objSolicitudDetaEntity = null;
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -141,17 +151,26 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_SolicitudDeta(pcodSolicitudDeta, null, null, null, null);
                     foreach (var item in resul)
                     {
-                        objSolicitudDetaDetaEntityDTO = new SolicitudDetaEntity()
-                        {
-                            Codigo = item.codSolicitudDeta,
-                            gloDescripcion = item.gloDescripcion,
-                            cntCantidad = item.cntCantidad,
-                            codPlantillaDeta = item.codPlantillaDeta,
-                            codSolicitud = item.codSolicitud,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita : item.segFechaCrea,
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-                        };
+                        objSolicitudDetaEntity = new SolicitudDetaEntity();
+
+                        objSolicitudDetaEntity.Codigo = item.codSolicitudDeta;
+                        objSolicitudDetaEntity.gloDescripcion = item.gloDescripcion;
+                        objSolicitudDetaEntity.cntCantidad = item.cntCantidad;
+                        objSolicitudDetaEntity.codPlantillaDeta = item.codPlantillaDeta;
+                        objSolicitudDetaEntity.objPlantillaDeta.gloDescripcion = item.codPlantillaDetaDescri;
+                        objSolicitudDetaEntity.objPlantillaDeta.fecEjecucion = item.fecEjecucion;
+                        objSolicitudDetaEntity.objPlantillaDeta.monEstimado = item.monEstimado.HasValue ? item.monEstimado.Value : 0;
+                        objSolicitudDetaEntity.objPlantillaDeta.numPartida = item.numPartida;
+                        objSolicitudDetaEntity.objPlantillaDeta.codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0;
+                        objSolicitudDetaEntity.objPlantillaDeta.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
+                        objSolicitudDetaEntity.objPlantillaDeta.codPartida = item.codPartida.HasValue ? item.codPartida.Value : 0;
+                        objSolicitudDetaEntity.objPlantillaDeta.objPartida.desNombre = item.codPartidaNombre;
+                        objSolicitudDetaEntity.codSolicitud = item.codSolicitud;
+                        objSolicitudDetaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objSolicitudDetaEntity.segFechaCrea = item.segFechaCrea;
+                        objSolicitudDetaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objSolicitudDetaEntity.segFechaEdita = item.segFechaEdita;
+                        objSolicitudDetaEntity.segMaquinaOrigen = item.segMaquinaOrigen;
                     }
                 }
             }
@@ -160,7 +179,7 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return objSolicitudDetaDetaEntityDTO;
+            return objSolicitudDetaEntity;
         }
         #endregion
 

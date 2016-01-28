@@ -382,7 +382,7 @@ Pantalla POPUP para editar registro de Tabla
         paramAjax["success"] = function (data) {
             var detalle = data.Data;
             var responsable = data.Empleados;
-            $('#hddcodGasto').val(detalle.codGasto);
+            $('#hddcodGasto').val(detalle.Codigo);
             $.f_loadComboFromArray(responsable, 'cbocodEmpleadoResp', true, detalle.codEmpleadoResp, false);
             $('#txtgloObservacion').val(detalle.gloObservacion);
             $('#txtcntCantidad').val(detalle.cntCantidad);

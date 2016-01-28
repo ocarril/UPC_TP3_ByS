@@ -10,13 +10,11 @@ using ByS.Presupuesto.Logic;
 using ByS.Presupuesto.Entities;
 using ByS.RHumanos.Logic;
 using ByS.RHumanos.Entities;
-using ByS.Presupuesto.Entities.DTO;
 
 namespace WebBS.Controllers
 {
     public abstract class BaseController : Controller
     {
-
 
         protected object ListarPartidas()
         {
@@ -32,11 +30,14 @@ namespace WebBS.Controllers
             return lstParaCombos;
         }
 
-        protected object ListarEmpleados()
+        protected object ListarEmpleados(bool indTexto = true, bool indSoloUno = false, int codEmpleado = 0)
         {
             EmpleadoLogic objEmpleadoLogic = new EmpleadoLogic();
-            IEnumerable<EmpleadoEntityDTO> lstEmpleados;
-            lstEmpleados = objEmpleadoLogic.ListarEmpleado(new ParametroRH { codEmpleado=0 });
+            List<EmpleadoEntityDTO> lstEmpleados;
+            lstEmpleados = objEmpleadoLogic.ListarEmpleado(new ParametroRH { codEmpleado = codEmpleado });
+            if (indTexto)
+                lstEmpleados.Insert(0, new EmpleadoEntityDTO { codEmpleado = 0, desNombre = "-- Seleccionar/Todos --" });
+
             object lstParaCombos = from item in lstEmpleados
                                    select new
                                    {
@@ -49,10 +50,10 @@ namespace WebBS.Controllers
         protected SelectList ListarPresupuestosAnios()
         {
             PlantillaLogic objPlantillaLogic = new PlantillaLogic();
-            List<PresupuestoEntityDTO> lstPresupuestoEntity = new List<PresupuestoEntityDTO>();
+            List<PresupuestoEntity> lstPresupuestoEntity = new List<PresupuestoEntity>();
             lstPresupuestoEntity = objPlantillaLogic.ListarPresupuesto(null);
-            List<PresupuestoEntityDTO> lstPresupuestoEntitySelec = new List<PresupuestoEntityDTO>();
-            foreach (PresupuestoEntityDTO item in lstPresupuestoEntity)
+            List<PresupuestoEntity> lstPresupuestoEntitySelec = new List<PresupuestoEntity>();
+            foreach (PresupuestoEntity item in lstPresupuestoEntity)
             {
                 if (item.numAnio <= (DateTime.Now.Year))
                     lstPresupuestoEntitySelec.Add(item);
@@ -74,41 +75,6 @@ namespace WebBS.Controllers
             SelectList lstParaCombos = new SelectList(lstAreaEntity, "Codigo", "desNombre");
             return lstParaCombos;
         }
-
-        protected SelectList ListarMeses()
-        { 
-           List<SelectListItem> lstMeses = new List<SelectListItem>();
-            lstMeses.Insert(0,  new SelectListItem(){ Text = "--Seleccione--", Value = "0" });
-            lstMeses.Insert(1, new SelectListItem() { Text = "Enero", Value = "1" });
-            lstMeses.Insert(2, new SelectListItem() { Text = "Febrero", Value = "2" });
-            lstMeses.Insert(3, new SelectListItem() { Text = "MArzo", Value = "3" });
-            lstMeses.Insert(4, new SelectListItem() { Text = "Abril", Value = "4" });
-            lstMeses.Insert(5, new SelectListItem() { Text = "Mayo", Value = "5" });
-            lstMeses.Insert(6, new SelectListItem() { Text = "Junio", Value = "6" });
-            lstMeses.Insert(7, new SelectListItem() { Text = "Julio", Value = "7" });
-            lstMeses.Insert(8, new SelectListItem() { Text = "Agosto", Value = "8" });
-            lstMeses.Insert(9, new SelectListItem() { Text = "Setiembre", Value = "9" });
-            lstMeses.Insert(10, new SelectListItem() { Text = "Octubre", Value = "10" });
-            lstMeses.Insert(11, new SelectListItem() { Text = "Noviembre", Value = "11" });
-            lstMeses.Insert(12, new SelectListItem() { Text = "Diciembre", Value = "12" });
-            SelectList lstParaCombos = new SelectList(lstMeses, "Value", "Text");
-
-            return lstParaCombos;
-        }
-
-        protected SelectList ListarEstados()
-        {
-             
-            List<SelectListItem> lstEstados = new List<SelectListItem>();
-            lstEstados.Insert(0, new SelectListItem() { Text = "--Todos--", Value = "0" });
-            lstEstados.Insert(1, new SelectListItem() { Text = "Pendiente", Value = "1" });
-            lstEstados.Insert(2, new SelectListItem() { Text = "Cerrado", Value = "2" });
-            SelectList lstParaCombos = new SelectList(lstEstados, "Value", "Text");
-
-            return lstParaCombos;
-        }
-
-
 
         #region Métodos relacionados con SEGURIDAD S.I.S.
 

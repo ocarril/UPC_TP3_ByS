@@ -53,6 +53,8 @@ namespace ByS.Tools
             }
             else if (TExcep == "ADMIN")
                 oReturn.Message = sb.ToString();
+            else
+                oReturn.Message = sb.ToString();
             return oReturn;
         }
 

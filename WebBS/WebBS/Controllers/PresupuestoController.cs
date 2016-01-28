@@ -20,6 +20,7 @@ namespace WebBS.Controllers
         private EmpleadoLogic objEmpleadoLogic = null;
         private GastoLogic objGastoLogic = null;
         private SolicitudLogic objSolicitudLogic = null;
+        private PresupuestoLogic objPresupuestoLogic = null;
         private ReturnValor returnValor = null;
 
         private static readonly ILog log = LogManager.GetLogger(typeof(PresupuestoController));
@@ -151,18 +152,87 @@ namespace WebBS.Controllers
                         from item in lista
                         select new
                         {
-                            ID = item.codPlantillaDeta,
+                            ID = item.Codigo,
                             Row = new string[] {"","",""
-                                              , item.codAreaNombre
-                                              , item.codPartidaNombre
+                                              , item.objPlantilla.objArea.desNombre
+                                              , item.objPartida.desNombre
                                               , item.gloDescripcion
                                               , item.cntCantidad.ToString("N2")
                                               , item.monEstimado.ToString("N2")
-                                              , item.fecEjecucion
+                                              , item.fecEjecucion.HasValue ? item.fecEjecucion.Value.ToShortDateString() : string.Empty
                                               , item.codRegEstadoNombre
-                                              , item.indPlantillaNombre
-                                              , item.segFechaEdita
-                                              , item.segUsuarioEdita
+                                              , item.indPlantilla
+                                              , item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString()
+                                              , item.segUsuarioEdita=string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita
+                            }
+                        }).ToArray()
+                };
+
+                tipoDevol = "C";
+                DataDevol = jsonGrid;
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("ListarPlantillaDetalle", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse);
+        }
+
+        [HttpPost]
+        public ActionResult ListarPlantillaDetallePorEjecutar(Parametro parametro)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+
+            object jsonResponse;
+            try
+            {
+                objPlantillaLogic = new PlantillaLogic();
+                var lista = objPlantillaLogic.ListarPlantillaDetallePorEjecutarPaginado(new Parametro
+                {
+                    p_NumPagina = parametro.p_NumPagina,
+                    p_TamPagina = parametro.p_TamPagina,
+                    p_OrdenPor = parametro.p_OrdenPor,
+                    p_OrdenTipo = parametro.p_OrdenTipo,
+
+                    numAnio = parametro.numAnio,
+                    codArea = parametro.codArea,
+                    codRegEstado = parametro.codRegEstado,
+                });
+                long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
+                int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
+
+                var jsonGrid = new
+                {
+                    PageCount = totalPages,
+                    CurrentPage = parametro.p_NumPagina,
+                    RecordCount = totalRecords,
+                    Items = (
+                        from item in lista
+                        select new
+                        {
+                            ID = item.Codigo,
+                            Row = new string[] {"","",""
+                                              , item.objPlantilla.objArea.desNombre
+                                              , item.objPartida.desNombre
+                                              , item.gloDescripcion
+                                              , item.cntCantidad.ToString("N2")
+                                              , item.monEstimado.ToString("N2")
+                                              , item.fecEjecucion.HasValue ? item.fecEjecucion.Value.ToShortDateString() : string.Empty
+                                              , item.codRegEstadoNombre
+                                              , item.indPlantilla
+                                              , item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString()
+                                              , item.segUsuarioEdita=string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita
                             }
                         }).ToArray()
                 };
@@ -219,18 +289,18 @@ namespace WebBS.Controllers
                         from item in lista
                         select new
                         {
-                            ID = item.codPlantillaDeta,
+                            ID = item.Codigo,
                             Row = new string[] {"","",""
-                                              , item.codAreaNombre
-                                              , item.codPartidaNombre
+                                              , item.objPlantilla.objArea.desNombre
+                                              , item.objPartida.desNombre
                                               , item.gloDescripcion
                                               , item.cntCantidad.ToString("N2")
                                               , item.monEstimado.ToString("N2")
-                                              , item.fecEjecucion
+                                              , item.fecEjecucion.HasValue ? item.fecEjecucion.Value.ToShortDateString() : string.Empty
                                               , item.codRegEstadoNombre
-                                              , item.indPlantillaNombre
-                                              , item.segFechaEdita
-                                              , item.segUsuarioEdita
+                                              , item.indPlantilla
+                                              , item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString()
+                                              , string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita
                             }
                         }).ToArray()
                 };
@@ -266,6 +336,8 @@ namespace WebBS.Controllers
             {
                 objPlantillaLogic = new PlantillaLogic();
                 var registro = objPlantillaLogic.BuscarPlantillaDetalle(pID);
+                if (registro == null)
+                    registro = InicializarPlantillaDeta(registro);
                 registro.indPlantilla = string.IsNullOrEmpty(registro.indPlantilla) ? "1" : registro.indPlantilla;
                 partidas = ListarPartidas();
 
@@ -288,6 +360,15 @@ namespace WebBS.Controllers
                 };
             }
             return Json(jsonResponse);
+        }
+
+        private PlantillaDetaEntity InicializarPlantillaDeta(PlantillaDetaEntity registro)
+        {
+            registro = new PlantillaDetaEntity();
+            registro.segUsuarioEdita = User.Identity.Name;
+            registro.segFechaEdita = DateTime.Now;
+            registro.indPlantilla = "1";
+            return registro;
         }
 
         [HttpPost]
@@ -526,21 +607,20 @@ namespace WebBS.Controllers
                         from item in lista
                         select new
                         {
-                            ID = item.codGasto,
+                            ID = item.Codigo,
                             Row = new string[] {"",""
                                               , item.numDocumento
-                                              , item.fecGasto
+                                              , item.fecGasto.ToLongTimeString()
                                               , item.cntCantidad.ToString("N2")
                                               , item.monTotal.ToString("N2")
-                                              , item.codEmpleadoRespNombre
+                                              , item.objEmpleadoResp.desNombre
                                               , item.gloObservacion
-                                              , item.segFechaEdita
-                                              , item.segUsuarioEdita
+                                              , item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString()
+                                              , string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioEdita : item.segUsuarioCrea
                             }
                         }).ToArray()
                 };
 
-                tipoDevol = "C";
                 DataDevol = jsonGrid;
             }
             catch (Exception ex)
@@ -605,7 +685,7 @@ namespace WebBS.Controllers
             object jsonResponse;
             try
             {
-                objPlantillaLogic = new  PlantillaLogic();
+                objPlantillaLogic = new PlantillaLogic();
                 var registro = objPlantillaLogic.BuscarPresupuesto(pID);
                 tipoDevol = "C";
                 DataDevol = registro;
@@ -636,8 +716,10 @@ namespace WebBS.Controllers
             {
                 objEmpleadoLogic = new EmpleadoLogic();
                 EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
+                ViewBag.codEmpleado = objEmpleadoEntity.Codigo;
+                ViewBag.nomEmpleado = objEmpleadoEntity.desApellido + ", " + objEmpleadoEntity.desNombre;
                 ViewBag.codArea = objEmpleadoEntity.codArea;
-                ViewBag.cboAreas = ListarAreasPresupuestales(false,true, objEmpleadoEntity.codArea);
+                ViewBag.cboAreas = ListarAreasPresupuestales(false, true, objEmpleadoEntity.codArea);
                 ViewBag.numAnio = (DateTime.Now.Year);
             }
             catch (Exception ex)
@@ -648,19 +730,52 @@ namespace WebBS.Controllers
             return View();
         }
 
+        public ActionResult SolicitudReg(int pID)
+        {
+            try
+            {
+                objEmpleadoLogic = new EmpleadoLogic();
+                EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
+                ViewBag.codEmpleado = objEmpleadoEntity.Codigo;
+                ViewBag.nomEmpleado = objEmpleadoEntity.desApellido + ", " + objEmpleadoEntity.desNombre;
+                ViewBag.codArea = objEmpleadoEntity.codArea;
+                ViewBag.cboAreas = ListarAreasPresupuestales(false, true, objEmpleadoEntity.codArea);
+                ViewBag.numAnio = (DateTime.Now.Year);
+                ViewBag.codSolicitud = pID;
+            }
+            catch (Exception ex)
+            {
+                log.Error(String.Concat("SolicitudReg", " | ", ex.Message));
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View();
+        }
+
         [HttpPost]
         public ActionResult BuscarSolicitud(int pID)
         {
             string tipoDevol = null;
             object DataDevol = null;
-            object empleados = null;
+            object empleadoGen = null;
+            object empleadoApr = null;
             object jsonResponse;
             try
             {
                 objSolicitudLogic = new SolicitudLogic();
                 var registro = objSolicitudLogic.BuscarSolicitud(pID);
-                empleados = ListarEmpleados();
-
+                if (registro == null)
+                {
+                    registro = InicializarSolicitud(registro);
+                    objEmpleadoLogic = new EmpleadoLogic();
+                    EmpleadoEntity emple = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
+                    empleadoGen = ListarEmpleados(false, true, emple.Codigo);
+                    empleadoApr = ListarEmpleados(true, true, -1);
+                }
+                else
+                {
+                    empleadoGen = ListarEmpleados(false, true, registro.codEmpleadoGenera);
+                    empleadoApr = ListarEmpleados(false, true, registro.codEmpleadoAprueba.HasValue ? registro.codEmpleadoAprueba.Value : -1);
+                }
                 tipoDevol = "C";
                 DataDevol = registro;
             }
@@ -675,7 +790,8 @@ namespace WebBS.Controllers
                 jsonResponse = new
                 {
                     Type = tipoDevol,
-                    Empleados = empleados,
+                    EmpleadoGen = empleadoGen,
+                    EmpleadoApr = empleadoApr,
                     Data = DataDevol,
                 };
             }
@@ -690,7 +806,7 @@ namespace WebBS.Controllers
             object jsonResponse;
             try
             {
-                objSolicitudLogic= new SolicitudLogic();
+                objSolicitudLogic = new SolicitudLogic();
                 pSolicitud.segUsuarioEdita = HttpContext.User.Identity.Name;
                 pSolicitud.segUsuarioCrea = HttpContext.User.Identity.Name;
                 pSolicitud.segMaquinaOrigen = GetIPAddress();
@@ -763,6 +879,7 @@ namespace WebBS.Controllers
                                               , item.fecLimite.HasValue?item.fecLimite.Value.ToShortDateString():string.Empty
                                               , item.objEmpleadoGenera.desNombre
                                               , item.objEmpleadoAprueba.desNombre
+                                              , item.codRegEstadoNombre
                                               , item.indTipo
                                               , item.codPresupuesto.HasValue?item.codPresupuesto.Value.ToString():string.Empty
                                               , item.segFechaEdita.HasValue?item.segFechaEdita.Value.ToString():item.segFechaCrea.ToString()
@@ -802,7 +919,7 @@ namespace WebBS.Controllers
                 objSolicitudLogic = new SolicitudLogic();
                 Parametro objParametro = new Parametro
                 {
-                    codGasto = pID,
+                    codSolicitud = pID,
                     segUsuElimina = User.Identity.Name,
                     segMaquinaPC = GetIPAddress()
                 };
@@ -828,76 +945,202 @@ namespace WebBS.Controllers
             return Json(jsonResponse, JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpPost]
-        //public ActionResult ListarSolicitudDeta(Parametro parametro)
-        //{
-        //    string tipoDevol = null;
-        //    object DataDevol = null;
+        [HttpPost]
+        public ActionResult ListarSolicitudDeta(Parametro parametro)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
 
-        //    object jsonResponse;
-        //    try
-        //    {
-        //        objSolicitudLogic = new SolicitudLogic();
-        //        var lista = objSolicitudLogic.ListarSolicitudDetaPaginado(new Parametro
-        //        {
-        //            p_NumPagina = parametro.p_NumPagina,
-        //            p_TamPagina = parametro.p_TamPagina,
-        //            p_OrdenPor = parametro.p_OrdenPor,
-        //            p_OrdenTipo = parametro.p_OrdenTipo,
+            object jsonResponse;
+            try
+            {
+                objSolicitudLogic = new SolicitudLogic();
+                var lista = objSolicitudLogic.ListarSolicitudDeta(new Parametro
+                {
+                    p_NumPagina = parametro.p_NumPagina,
+                    p_TamPagina = parametro.p_TamPagina,
+                    p_OrdenPor = parametro.p_OrdenPor,
+                    p_OrdenTipo = parametro.p_OrdenTipo,
 
-        //            codSolicitud = parametro.codSolicitud
-        //        });
-        //        long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
-        //        int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
+                    codSolicitud = parametro.codSolicitud
+                });
+                long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
+                int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
 
-        //        var jsonGrid = new
-        //        {
-        //            PageCount = totalPages,
-        //            CurrentPage = parametro.p_NumPagina,
-        //            RecordCount = totalRecords,
-        //            Items = (
-        //                from item in lista
-        //                select new
-        //                {
-        //                    ID = item.Codigo,
-        //                    Row = new string[] {"",""
-        //                                      , item 
-        //                                      , item.fecSolicitada.ToString()
-        //                                      , item.fecLimite.HasValue?item.fecLimite.Value.ToShortDateString():string.Empty
-        //                                      , item.objEmpleadoGenera.desNombre
-        //                                      , item.objEmpleadoAprueba.desNombre
-        //                                      , item.indTipo
-        //                                      , item.codPresupuesto.HasValue?item.codPresupuesto.Value.ToString():string.Empty
-        //                                      , item.segFechaEdita.HasValue?item.segFechaEdita.Value.ToString():item.segFechaCrea.ToString()
-        //                                      , string.IsNullOrEmpty(item.segUsuarioEdita)?item.segUsuarioCrea:item.segUsuarioEdita
-        //                    }
-        //                }).ToArray()
-        //        };
+                var jsonGrid = new
+                {
+                    PageCount = totalPages,
+                    CurrentPage = parametro.p_NumPagina,
+                    RecordCount = totalRecords,
+                    Items = (
+                        from item in lista
+                        select new
+                        {
+                            ID = item.Codigo,
+                            Row = new string[] {"",""
+                                              , item.gloDescripcion
+                                              , item.cntCantidad.ToString()
+                                              , item.objPlantillaDeta.monEstimado.ToString("N2")
+                                              , item.objPlantillaDeta.fecEjecucion.HasValue? item.objPlantillaDeta.fecEjecucion.Value.ToShortDateString():string.Empty
+                                              , item.objPlantillaDeta.objPartida.desNombre 
+                                              , item.objPlantillaDeta.gloDescripcion 
+                                              , item.objPlantillaDeta.objEmpleadoAprueba.desNombre 
+                                              , item.segFechaEdita.HasValue?item.segFechaEdita.Value.ToString():item.segFechaCrea.ToString()
+                                              , string.IsNullOrEmpty(item.segUsuarioEdita)?item.segUsuarioCrea:item.segUsuarioEdita
+                            }
+                        }).ToArray()
+                };
 
-        //        tipoDevol = "C";
-        //        DataDevol = jsonGrid;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        tipoDevol = "E";
-        //        log.Error(String.Concat("ListarSolicitud", " | ", ex.Message));
-        //        DataDevol = ex.Message;
-        //    }
-        //    finally
-        //    {
-        //        jsonResponse = new
-        //        {
-        //            Type = tipoDevol,
-        //            Data = DataDevol,
-        //        };
-        //    }
-        //    return Json(jsonResponse);
-        //}
-
-        #endregion    
+                tipoDevol = "C";
+                DataDevol = jsonGrid;
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("ListarSolicitudDeta", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse);
+        }
 
 
-        #region Generar informe
+        [HttpPost]
+        public ActionResult EliminarSolicitudDeta(int pID)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+            object jsonResponse;
+            try
+            {
+                objSolicitudLogic = new SolicitudLogic();
+                Parametro objParametro = new Parametro
+                {
+                    codSolicitudDeta = pID,
+                    segUsuElimina = User.Identity.Name,
+                    segMaquinaPC = GetIPAddress()
+                };
+                /*Borra el registro de la tabla*/
+                returnValor = objSolicitudLogic.EliminarSolicitudDeta(objParametro);
+                DataDevol = returnValor.Message;
+                tipoDevol = returnValor.Exitosa ? "C" : "I";
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("EliminarSolicitud", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult BuscarSolicitudDeta(int pID)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+            object jsonResponse;
+            try
+            {
+                objSolicitudLogic = new SolicitudLogic();
+                var registro = objSolicitudLogic.BuscarSolicitudDeta(pID);
+                if (registro == null)
+                    registro = InicializarSolicitudDeta(registro);
+                tipoDevol = "C";
+                DataDevol = registro;
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("BuscarSolicitudDeta", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse);
+        }
+
+        [HttpPost]
+        public ActionResult GuardarSolicitudDeta(SolicitudDetaEntity pSolicitudDeta)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+            object jsonResponse;
+            try
+            {
+                objSolicitudLogic = new SolicitudLogic();
+                pSolicitudDeta.segUsuarioEdita = HttpContext.User.Identity.Name;
+                pSolicitudDeta.segUsuarioCrea = HttpContext.User.Identity.Name;
+                pSolicitudDeta.segMaquinaOrigen = GetIPAddress();
+                if (pSolicitudDeta.Codigo != 0)
+                    returnValor = objSolicitudLogic.ActualizarSolicitudDeta(pSolicitudDeta);
+                else
+                    returnValor = objSolicitudLogic.RegistrarSolicitudDeta(pSolicitudDeta);
+
+                DataDevol = returnValor.Message;
+                tipoDevol = returnValor.Exitosa ? "C" : "I";
+
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("GuardarSolicitud", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
+        }
+
+
+        private SolicitudEntity InicializarSolicitud(SolicitudEntity registro)
+        {
+            registro = new SolicitudEntity();
+            registro.segUsuarioEdita = User.Identity.Name;
+            registro.segFechaEdita = DateTime.Now;
+            registro.indTipo = "E";
+            return registro;
+        }
+
+        private SolicitudDetaEntity InicializarSolicitudDeta(SolicitudDetaEntity registro)
+        {
+            registro = new SolicitudDetaEntity();
+            registro.segUsuarioEdita = User.Identity.Name;
+            registro.segFechaEdita = DateTime.Now;
+            registro.codRegEstadoNombre = "E";
+            return registro;
+        }
+      
+        #endregion
+
+		#region Generar informe
 
         public ActionResult Informe()
         {
@@ -908,9 +1151,9 @@ namespace WebBS.Controllers
                 ViewBag.codArea = objEmpleadoEntity != null ? objEmpleadoEntity.codArea.ToString() : "0";
                 ViewBag.numAnio = (DateTime.Now.Year) ;
 
-                ViewBag.cboMesIni = ListarMeses();
-                ViewBag.cboEstado = ListarEstados();
-                ViewBag.cboMesFin = ListarMeses();
+                //ViewBag.cboMesIni = ListarMeses();
+                //ViewBag.cboEstado = ListarEstados();
+                //ViewBag.cboMesFin = ListarMeses();
                 ViewBag.cboAreas = ListarAreasPresupuestales();
                 //ViewBag.fechaActual = DateTime.Now.ToShortDateString();
             }

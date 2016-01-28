@@ -12,18 +12,6 @@ Fecha/Hora : N/A
 $(document).ready(function () {
     'use strict';
 
-    //$('#btnLimpiar,#btnBuscar,#btnNuevo,#btnTerminar,#btnVerEnEjecucion,#btnAgregarMasivo').button({
-    //    disabled: false,
-    //    primary: "ui-icon-save",
-    //    secondary: "ui-icon-triangle-1-s"
-    //});
-
-    //var vMensajeError = $('#hddMensajeError').val();
-    //if (vMensajeError.length > 0) {
-    //    $.f_Mensaje(vMensajeError, false, true, 1);
-    //    return;
-    //}
-
     $('#btnNuevo').bind('click', function (event) {
 
         $.fnu_showDialogEditTabla('-1');

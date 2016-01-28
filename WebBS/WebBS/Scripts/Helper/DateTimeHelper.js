@@ -197,3 +197,24 @@
         return fechaFormato;
     }
 })(jQuery);
+
+(function ($) {
+    $.f_formatoFechaDDMMYYYY = function (vfecha, vLong) {
+
+        var fechaFormato = "";
+        if (vfecha == null)
+            return;
+        if (vLong == undefined)
+            vLong = false;
+        var fecha = new Date(parseInt(vfecha.slice(6, -2)));
+        var vDia = fecha.getDate() < 10 ? '0' + fecha.getDate().toString() : fecha.getDate().toString();
+        var vMes = (1 + fecha.getMonth()) < 10 ? '0' + (1 + fecha.getMonth()).toString() : (1 + fecha.getMonth()).toString();
+        var vAnio = fecha.getFullYear().toString();
+        var vHora = fecha.getHours() < 10 ? '0' + fecha.getHours().toString() : fecha.getHours().toString();
+        var vMinu =fecha.getMinutes() < 10 ? '0' + fecha.getMinutes().toString() : fecha.getMinutes().toString();
+        var vSegu = fecha.getSeconds() < 10 ? '0' + fecha.getSeconds().toString() : fecha.getSeconds().toString();
+        fechaFormato = vLong ? vDia + '/' + vMes + '/' + vAnio +' ' + vHora + ':' + vMinu + ':' + vSegu: vDia + '/' + vMes + '/' + vAnio;
+        return fechaFormato;
+    }
+})(jQuery);
+

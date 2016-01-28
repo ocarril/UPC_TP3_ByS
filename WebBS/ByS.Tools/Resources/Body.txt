@@ -1,0 +1,100 @@
+    <style type="text/css">
+        .cssTitulo
+        {
+           
+			font-size: 14.0pt;
+			font-family: Calibri,sans-serif;
+			font-weight: bold;
+			color: #FFFFFF;
+			background: #4F81BD;
+			height: 50px;
+			text-align: center;
+        }
+        .cssSistema
+        {
+            font-size: 8.0pt;
+            font-family: Calibri,sans-serif;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align: center;
+            background: #4F81BD;
+        }
+        .cssSubTitulo
+        {
+            color: #ffffff;
+            width: 160px;
+            background: #4F81BD;
+            font-size: 8.0pt;
+            font-family: Calibri,sans-serif;
+            text-align: right;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        .cssSubTituloDescri
+        {
+            width: 160px;
+            font-size: 8.0pt;
+            font-family: Calibri,sans-serif;
+            text-align: left;
+            font-weight: normal;
+            vertical-align: top;
+        }
+         .cssNotas
+        {
+            width: 160px;
+            font-size: 8.0pt;
+            font-family: Calibri,sans-serif;
+            text-align: left;
+            font-weight: normal;
+            vertical-align: top;
+        }
+       
+    </style>
+    <div align="center" style="font-size: 7.5pt; font-family: Calibri,sans-serif; 
+        color: #7F7F7F">
+        <table style="width: 550px; background:#FAFAFA;">
+            <tr>
+                <td colspan="3" class="cssTitulo">
+                    @titulo
+                </td>
+            </tr>
+            <tr class="cssSubTituloDescri">
+                <td colspan="3" align="right">
+                   @fecha
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <table border="0" cellpadding="3" cellspacing="0" style="width: 550px">
+                        
+                        <tbody class="cssSubTituloDescri">
+							@datos
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <hr />
+                </td>
+            </tr>
+            <tr class="cssNotas">
+                <td colspan="3">
+                    @nota
+                </td>
+            </tr>
+            
+            <tr class="cssSistema">
+                <td colspan="3" >
+                    ©  @anio version 1.0.0 <br />
+                     @empresa
+                </td>
+                
+            </tr>
+        </table>
+    </div>

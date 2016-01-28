@@ -15,6 +15,10 @@ namespace ByS.Presupuesto.Entities
         public Nullable<DateTime> fecInicio { get; set; }
         public Nullable<DateTime> fecCierre { get; set; }
         public int codRegEstado{ get; set; }
+
         
+        public decimal monTotalGastado { get; set; }
+        public decimal monTotalPresupuesto { get; set; }
+        public decimal monTotalSolicitado { get; set; }
     }
 }

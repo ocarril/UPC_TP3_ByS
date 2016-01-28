@@ -81,22 +81,22 @@ $(document).ready(function () {
         paramAjax["url"] = '/Presupuesto/BuscarPlantilla?pId=' + codArea;
         paramAjax["success"] = function (data) {
             var plantilla = data.Data;
-            $('#hddcodPlantilla').val(plantilla.codPlantilla);
-            $('#txtAnio').val(plantilla.numAnio);
-            $('#txtEstadoPlantilla').val(plantilla.codRegEstado);
+            $('#hddcodPlantilla').val(plantilla.Codigo);
+            $('#txtAnio').val(plantilla.objPresupuesto.numAnio);
+            $('#txtEstadoPlantilla').val(plantilla.codRegEstadoNombre);
             $('#txtnumPlantilla').val(plantilla.numPlantilla);
-            $('#txtDesArea').val(plantilla.codAreaNombre);
-            $('#txtResponsableActual').val(plantilla.desEmpleadoActual);
-            $('#txtPresupuesto').val(plantilla.desNombrePresupuesto);
-            $('#txtFechaCierre').val(plantilla.fecCierre);
+            $('#txtDesArea').val(plantilla.objArea.desNombre);
+            $('#txtResponsableActual').val(plantilla.objEmpleado.desNombre);
+            $('#txtPresupuesto').val(plantilla.objPresupuesto.desNombre);
+            $('#txtFechaCierre').val($.f_formatoFechaDDMMYYYY(plantilla.objPresupuesto.fecCierre));
             $('#txtFechaExtemporaneo').val(plantilla.fecCierreExtempor);
             $('#txtmonMaximo').val(plantilla.monMaximo);
             $('#txtmonEstimadoTotal').val(plantilla.monEstimadoTotal);
-
             var vEstadoPlantilla = $('#txtEstadoPlantilla').val();
             var fechaFinal = $.f_formatoFechaYYYYMMDD($('#txtFechaCierre').val());
             var fechaMaxima = $.f_formatoFechaYYYYMMDD($('#txtFechaExtemporaneo').val());
             var fechaActual = $.f_formatoFechaYYYYMMDD($('#hddfechaActual').val());
+
             if (fechaActual > fechaMaxima || vEstadoPlantilla.toUpperCase() != 'PENDIENTE') {
                 $('#btnNuevo').attr('class', 'capaOcultar');
                 $('#btnTerminar').attr('class', 'capaOcultar');
@@ -397,7 +397,7 @@ Pantalla POPUP para editar registro de Tabla
         paramAjax["success"] = function (data) {
             var detalle = data.Data;
             var partida = data.Partidas;
-            $('#hddcodPlantillaDeta').val(detalle.codPlantillaDeta);
+            $('#hddcodPlantillaDeta').val(detalle.Codigo);
             $.f_loadComboFromArray(partida, 'cbocodPartida', true, detalle.codPartida, false);
             $('#chkindPlantilla').attr('checked', detalle.indPlantilla == 1 ? true : false);
             $('#txtgloDescripcion').val(detalle.gloDescripcion);
@@ -405,8 +405,7 @@ Pantalla POPUP para editar registro de Tabla
             $('#txtmonEstimado').val(detalle.monEstimado);
             $('#txtfecEjecucion').val(detalle.fecEjecucion);
             $('#txtsegUsuarioEdita').val(detalle.segUsuarioEdita);
-            $('#txtsegFechaEdita').val(detalle.segFechaEdita);
-
+            $('#txtsegFechaEdita').val($.f_formatoFechaDDMMYYYY(detalle.segFechaEdita, true));
         }
         $.f_ajaxRespuesta(paramAjax);
     }
@@ -440,8 +439,9 @@ Pantalla POPUP para editar registro de Tabla
                     $.fnu_cargarPlantillaPorArea($('#hddcodArea').val());
                 }
             }
-            else
+            else {
                 $.f_Mensaje(response.responseText, true, true);
+            }
         }
         $.f_ajaxRespuesta(paramAjax);
     }
@@ -489,7 +489,6 @@ Pantalla POPUP para editar registro de Tabla
         if (vmonTotalPresup > vmonTotalMaximo)
             strValidado = strValidado + 'El monto acumulado a presupuestar supera al monto establecido.. <br/>';
 
-        
         var pobjTabla = {};
         pobjTabla["Codigo"] = vcodPlantillaDeta;
         pobjTabla["codPlantilla"] = vcodPlantilla;
@@ -499,6 +498,7 @@ Pantalla POPUP para editar registro de Tabla
         pobjTabla["fecEjecucion"] = vtxtfecEjecucion;
         pobjTabla["indPlantilla"] = vindPlantilla;
         pobjTabla["codPartida"] = vcodPartida;
+
         pobjTabla["Mensaje"]= strValidado;
         return pobjTabla;
     }

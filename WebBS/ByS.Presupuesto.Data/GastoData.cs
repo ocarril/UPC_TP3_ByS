@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using log4net;
 
 using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
-using log4net;
 
 namespace ByS.Presupuesto.Data
 { 
@@ -20,21 +19,23 @@ namespace ByS.Presupuesto.Data
 	{
         private static readonly ILog log = LogManager.GetLogger(typeof(GastoData));
 		private string conexion = string.Empty;
-		public GastoData()
+		
+        public GastoData()
 		{
             conexion = Util.ConexionBD();
 		}
 		
         #region /* Proceso de SELECT ALL */ 
 
-		/// <summary>
-		/// Retorna un LISTA de registros de la Entidad Presupuesto.Gasto
-		/// En la BASE de DATO la Tabla : [Presupuesto.Gasto]
-		/// <summary>
-		/// <returns>List</returns>
-        public List<GastoEntityDTO> Listar(Parametro pFiltro)
+        /// <summary>
+        /// Retorna un LISTA de registros de la Entidad Presupuesto.Gasto
+        /// En la BASE de DATO la Tabla : [Presupuesto.Gasto]
+        /// <summary>
+		/// <param name="pFiltro"></param>
+		/// <returns></returns>
+		public List<GastoEntity> Listar(Parametro pFiltro)
         {
-            List<GastoEntityDTO> lstGastoEntityDTO = new List<GastoEntityDTO>();
+            List<GastoEntity> lstGastoEntity = new List<GastoEntity>();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -42,21 +43,22 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_Gasto(pFiltro.codGasto, pFiltro.codPlantillaDeta);
                     foreach (var item in resul)
                     {
-                        lstGastoEntityDTO.Add(new GastoEntityDTO()
-                        {
-                            codGasto = item.codGasto,
-                            codPlantillaDeta = item.codPlantillaDeta,
-                            monTotal = item.monTotal,
-                            cntCantidad = item.cntCantidad,
-                            numDocumento = item.numDocumento,
-                            gloObservacion = item.gloObservacion,
-                            fecGasto = item.fecGasto.ToShortDateString(),
-                            codEmpleadoResp = item.codEmpleadoResp,
-                            codEmpleadoRespNombre = item.codEmpleadoRespNombre,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-                        });
+                        GastoEntity objGastoEntity = new GastoEntity();
+                        objGastoEntity.Codigo = item.codGasto;
+                        objGastoEntity.codPlantillaDeta = item.codPlantillaDeta;
+                        objGastoEntity.monTotal = item.monTotal;
+                        objGastoEntity.cntCantidad = item.cntCantidad;
+                        objGastoEntity.numDocumento = item.numDocumento;
+                        objGastoEntity.gloObservacion = item.gloObservacion;
+                        objGastoEntity.fecGasto = item.fecGasto;
+                        objGastoEntity.codEmpleadoResp = item.codEmpleadoResp;
+                        objGastoEntity.objEmpleadoResp.desNombre = item.codEmpleadoRespNombre;
+                        objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objGastoEntity.segFechaEdita = item.segFechaCrea;
+                        objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objGastoEntity.segFechaEdita = item.segFechaCrea;
+                        objGastoEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                        lstGastoEntity.Add(objGastoEntity);
                     }
                 }
             }
@@ -65,12 +67,12 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return lstGastoEntityDTO;
+            return lstGastoEntity;
         }
 
-        public List<GastoEntityDTO> ListarPaginado(Parametro pFiltro)
+        public List<GastoEntity> ListarPaginado(Parametro pFiltro)
         {
-            List<GastoEntityDTO> lstGastoEntityDTO = new List<GastoEntityDTO>();
+            List<GastoEntity> lstGastoEntity = new List<GastoEntity>();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -83,24 +85,25 @@ namespace ByS.Presupuesto.Data
                                                        pFiltro.codPlantillaDeta);
                     foreach (var item in resul)
                     {
-                        lstGastoEntityDTO.Add(new GastoEntityDTO()
-                        {
-                            codGasto = item.codGasto,
-                            codPlantillaDeta = item.codPlantillaDeta,
-                            monTotal = item.monTotal,
-                            cntCantidad = item.cntCantidad,
-                            numDocumento = item.numDocumento,
-                            gloObservacion = item.gloObservacion,
-                            fecGasto = item.fecGasto.ToShortDateString(),
-                            codEmpleadoResp = item.codEmpleadoResp,
-                            codEmpleadoRespNombre = item.codEmpleadoRespNombre,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-                            segMaquinaOrigen = item.segMaquinaOrigen,
+                        GastoEntity objGastoEntity = new GastoEntity();
+                        objGastoEntity.Codigo = item.codGasto;
+                        objGastoEntity.codPlantillaDeta = item.codPlantillaDeta;
+                        objGastoEntity.monTotal = item.monTotal;
+                        objGastoEntity.cntCantidad = item.cntCantidad;
+                        objGastoEntity.numDocumento = item.numDocumento;
+                        objGastoEntity.gloObservacion = item.gloObservacion;
+                        objGastoEntity.fecGasto = item.fecGasto;
+                        objGastoEntity.codEmpleadoResp = item.codEmpleadoResp;
+                        objGastoEntity.objEmpleadoResp.desNombre = item.codEmpleadoRespNombre;
+                        objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objGastoEntity.segFechaEdita = item.segFechaCrea;
+                        objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objGastoEntity.segFechaEdita = item.segFechaCrea;
+                        objGastoEntity.segMaquinaOrigen = item.segMaquinaOrigen;
 
-                            ROW = item.ROWNUM.HasValue ? item.ROWNUM.Value : 0,
-                            TOTALROWS = item.TOTALROWS.HasValue ? item.TOTALROWS.Value : 0
-                        });
+                        objGastoEntity.ROW = item.ROWNUM.HasValue ? item.ROWNUM.Value : 0;
+                        objGastoEntity.TOTALROWS = item.TOTALROWS.HasValue ? item.TOTALROWS.Value : 0;
+                        lstGastoEntity.Add(objGastoEntity);
                     }
                 }
             }
@@ -109,54 +112,56 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("ListarPaginado", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return lstGastoEntityDTO;
+            return lstGastoEntity;
         }
 		
         #endregion 
 
 		#region /* Proceso de SELECT BY ID CODE */ 
 
-		/// <summary>
-		/// Retorna una ENTIDAD de registro de la Entidad Presupuesto.Gasto
-		/// En la BASE de DATO la Tabla : [Presupuesto.Gasto]
-		/// <summary>
-		/// <returns>Entidad</returns>
-		public GastoEntityDTO Buscar(int pcodGasto)
+        /// <summary>
+        /// Retorna una ENTIDAD de registro de la Entidad Presupuesto.Gasto
+        /// En la BASE de DATO la Tabla : [Presupuesto.Gasto]
+        /// <summary>
+		/// <param name="pcodGasto"></param>
+		/// <returns></returns>
+		public GastoEntity Buscar(int pcodGasto)
 		{
-            GastoEntityDTO objGastoEntityDTO = new GastoEntityDTO();
-			try
-			{
-			using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
-			{
-				var resul = SQLDC.pa_S_Gasto(pcodGasto,null);
-				foreach (var item in resul)
-				{
-                    objGastoEntityDTO = new GastoEntityDTO()
-					{
-                        codGasto = item.codGasto,
-                        codPlantillaDeta = item.codPlantillaDeta,
-                        monTotal = item.monTotal,
-                        cntCantidad = item.cntCantidad,
-                        numDocumento = item.numDocumento,
-                        gloObservacion = item.gloObservacion,
-                        fecGasto = item.fecGasto.ToShortDateString(),
-                        codEmpleadoResp = item.codEmpleadoResp,
-                        codEmpleadoRespNombre = item.codEmpleadoRespNombre,
-                        segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                        segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-                        segMaquinaOrigen = item.segMaquinaOrigen,
-					};
-				}
-			}
-		}
-		catch (Exception ex)
-		{
-            log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
-            throw ex;
-		}
-		return objGastoEntityDTO;
+            GastoEntity objGastoEntity = null;
+            try
+            {
+                using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
+                {
+                    var resul = SQLDC.pa_S_Gasto(pcodGasto, null);
+                    foreach (var item in resul)
+                    {
+                        objGastoEntity = new GastoEntity();
+                        objGastoEntity.Codigo = item.codGasto;
+                        objGastoEntity.codPlantillaDeta = item.codPlantillaDeta;
+                        objGastoEntity.monTotal = item.monTotal;
+                        objGastoEntity.cntCantidad = item.cntCantidad;
+                        objGastoEntity.numDocumento = item.numDocumento;
+                        objGastoEntity.gloObservacion = item.gloObservacion;
+                        objGastoEntity.fecGasto = item.fecGasto;
+                        objGastoEntity.codEmpleadoResp = item.codEmpleadoResp;
+                        objGastoEntity.objEmpleadoResp.desNombre = item.codEmpleadoRespNombre;
+                        objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objGastoEntity.segFechaEdita = item.segFechaCrea;
+                        objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objGastoEntity.segFechaEdita = item.segFechaCrea;
+                        objGastoEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
+                throw ex;
+            }
+		return objGastoEntity;
 }
-		#endregion 
+	
+        #endregion 
 
 		#region /* Proceso de INSERT RECORD */ 
 

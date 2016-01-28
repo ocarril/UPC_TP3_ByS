@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using log4net;
 
 using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
-using log4net;
 
 namespace ByS.Presupuesto.Data
 { 
@@ -32,9 +31,9 @@ namespace ByS.Presupuesto.Data
 		/// En la BASE de DATO la Tabla : [Presupuesto.PlantillaDeta]
 		/// <summary>
 		/// <returns>List</returns>
-        public List<PlantillaDetaEntityDTO> Listar(Parametro pFiltro)
+        public List<PlantillaDetaEntity> Listar(Parametro pFiltro)
         {
-            List<PlantillaDetaEntityDTO> lstPlantillaDetaEntityDTO = new List<PlantillaDetaEntityDTO>();
+            List<PlantillaDetaEntity> lstPlantillaDetaEntity = new List<PlantillaDetaEntity>();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -45,34 +44,33 @@ namespace ByS.Presupuesto.Data
                                                          pFiltro.codRegEstado);
                     foreach (var item in resul)
                     {
-                        lstPlantillaDetaEntityDTO.Add(new PlantillaDetaEntityDTO()
-                        {
-                            codPlantillaDeta = item.codPlantillaDeta,
-                            codPlantilla = item.codPlantilla,
-                            codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0,
-                            gloDescripcion = item.gloDescripcion,
-                            monEstimado = Convert.ToDecimal(item.monEstimado),
-                            cntCantidad = Convert.ToDecimal(item.cntCantidad),
-                            codRegEstado = item.codRegEstado,
-                            fecEjecucion = item.fecEjecucion.HasValue ? item.fecEjecucion.Value.ToShortDateString() : string.Empty,
-                            indPlantilla = item.indPlantilla,
-                            codPartida = item.codPartida,
-                            numPartida = item.numPartida,
+                        PlantillaDetaEntity objPlantillaDetaEntity= new PlantillaDetaEntity();
+                        objPlantillaDetaEntity.Codigo = item.codPlantillaDeta;
+                        objPlantillaDetaEntity.codPlantilla = item.codPlantilla;
+                        objPlantillaDetaEntity.codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0;
+                        objPlantillaDetaEntity.gloDescripcion = item.gloDescripcion;
+                        objPlantillaDetaEntity.monEstimado = item.monEstimado;
+                        objPlantillaDetaEntity.cntCantidad = item.cntCantidad;
+                        objPlantillaDetaEntity.codRegEstado = item.codRegEstado;
+                        objPlantillaDetaEntity.fecEjecucion = item.fecEjecucion;
+                        objPlantillaDetaEntity.codPartida = item.codPartida;
+                        objPlantillaDetaEntity.numPartida = item.numPartida;
+                        objPlantillaDetaEntity.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
+                        objPlantillaDetaEntity.codEmpleadoRespon = item.codEmpleadoRespon.HasValue?item.codEmpleadoRespon.Value:0;
+                        objPlantillaDetaEntity.objPlantilla.Codigo = item.codEmpleadoRespon.HasValue?item.codEmpleadoRespon.Value:0;
+                        objPlantillaDetaEntity.objPlantilla.objEmpleado.desNombre = item.codEmpleadoResponRespon;
+                        objPlantillaDetaEntity.objPartida.desNombre = item.codPartidaNombre;
+                        objPlantillaDetaEntity.indPlantilla = item.indPlantillaTipo;
+                        objPlantillaDetaEntity.codRegEstadoNombre = item.codRegEstadoNombre;
+                        objPlantillaDetaEntity.objPlantilla.codArea = item.codArea;
+                        objPlantillaDetaEntity.objPlantilla.objArea.desNombre = item.codAreaNombre;
+                        objPlantillaDetaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objPlantillaDetaEntity.segFechaCrea = item.segFechaCrea;
+                        objPlantillaDetaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objPlantillaDetaEntity.segFechaEdita = item.segFechaEdita;
+                        objPlantillaDetaEntity.segMaquinaOrigen = item.segMaquinaOrigen;
 
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-
-                            codEmpleadoApruebaNombre = item.codEmpleadoApruebaNombre,
-                            codEmpleadoResponNombre = item.codEmpleadoResponRespon,
-                            codEmpleadoRespon = item.codEmpleadoRespon,
-                            codPartidaNombre = item.codPartidaNombre,
-                            indPlantillaNombre = item.indPlantillaTipo,
-                            codRegEstadoNombre = item.codRegEstadoNombre,
-                            codArea = item.codArea,
-                            codAreaNombre = item.codAreaNombre,
-
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-                        });
+                        lstPlantillaDetaEntity.Add(objPlantillaDetaEntity);
                     }
                 }
             }
@@ -81,12 +79,12 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return lstPlantillaDetaEntityDTO;
+            return lstPlantillaDetaEntity;
         }
 
-        public List<PlantillaDetaEntityDTO> ListarPaginado(Parametro pFiltro)
+        public List<PlantillaDetaEntity> ListarPaginado(Parametro pFiltro)
         {
-            List<PlantillaDetaEntityDTO> lstPlantillaDetaEntityDTO = new List<PlantillaDetaEntityDTO>();
+            List<PlantillaDetaEntity> lstPlantillaDetaEntity = new List<PlantillaDetaEntity>();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -100,37 +98,34 @@ namespace ByS.Presupuesto.Data
                                                                pFiltro.codRegEstado);
                     foreach (var item in resul)
                     {
-                        lstPlantillaDetaEntityDTO.Add(new PlantillaDetaEntityDTO()
-                        {
-                            codPlantillaDeta = item.codPlantillaDeta,
-                            codPlantilla = item.codPlantilla,
-                            codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0,
-                            gloDescripcion = item.gloDescripcion,
-                            monEstimado = Convert.ToDecimal(item.monEstimado),
-                            cntCantidad = Convert.ToDecimal(item.cntCantidad),
-                            codRegEstado = item.codRegEstado,
-                            fecEjecucion = item.fecEjecucion.HasValue ? item.fecEjecucion.Value.ToShortDateString() : string.Empty,
-                            indPlantilla = item.indPlantilla,
-                            codPartida = item.codPartida,
-                            numPartida = item.numPartida,
+                        PlantillaDetaEntity objPlantillaDetaEntity = new PlantillaDetaEntity();
+                        objPlantillaDetaEntity.Codigo = item.codPlantillaDeta;
+                        objPlantillaDetaEntity.codPlantilla = item.codPlantilla;
+                        objPlantillaDetaEntity.codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0;
+                        objPlantillaDetaEntity.gloDescripcion = item.gloDescripcion;
+                        objPlantillaDetaEntity.monEstimado = item.monEstimado;
+                        objPlantillaDetaEntity.cntCantidad = item.cntCantidad;
+                        objPlantillaDetaEntity.codRegEstado = item.codRegEstado;
+                        objPlantillaDetaEntity.fecEjecucion = item.fecEjecucion;
+                        objPlantillaDetaEntity.codPartida = item.codPartida;
+                        objPlantillaDetaEntity.numPartida = item.numPartida;
+                        objPlantillaDetaEntity.codEmpleadoRespon = item.codEmpleadoRespon.HasValue ? item.codEmpleadoRespon.Value : 0;
+                        objPlantillaDetaEntity.indPlantilla = item.indPlantillaTipo;
+                        objPlantillaDetaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objPlantillaDetaEntity.segFechaCrea = item.segFechaCrea;
+                        objPlantillaDetaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objPlantillaDetaEntity.segFechaEdita = item.segFechaEdita;
+                        objPlantillaDetaEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                        objPlantillaDetaEntity.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
+                        objPlantillaDetaEntity.objEmpleadoRespon.desNombre = item.codEmpleadoResponRespon;
+                        objPlantillaDetaEntity.objPlantilla.codArea = item.codArea;
+                        objPlantillaDetaEntity.objPlantilla.objArea.desNombre = item.codAreaNombre;
+                        objPlantillaDetaEntity.objPartida.desNombre = item.codPartidaNombre;
+                        objPlantillaDetaEntity.codRegEstadoNombre = item.codRegEstadoNombre;
+                        objPlantillaDetaEntity.ROW = item.ROWNUM.HasValue ? item.ROWNUM.Value : 0;
+                        objPlantillaDetaEntity.TOTALROWS = item.TOTALROWS.HasValue ? item.TOTALROWS.Value : 0;
 
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-
-                            codEmpleadoApruebaNombre = item.codEmpleadoResponNombre,
-                            codEmpleadoResponNombre = item.codEmpleadoResponRespon,
-                            codEmpleadoRespon = item.codEmpleadoRespon,
-                            codPartidaNombre = item.codPartidaNombre,
-                            indPlantillaNombre = item.indPlantillaTipo,
-                            codRegEstadoNombre = item.codRegEstadoNombre,
-                            codArea = item.codArea,
-                            codAreaNombre = item.codAreaNombre,
-
-                            ROW = item.ROWNUM.HasValue ? item.ROWNUM.Value : 0,
-                            TOTALROWS = item.TOTALROWS.HasValue ? item.TOTALROWS.Value : 0
-                        });
+                        lstPlantillaDetaEntity.Add(objPlantillaDetaEntity);
                     }
                 }
             }
@@ -139,7 +134,62 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("ListarPaginado", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return lstPlantillaDetaEntityDTO;
+            return lstPlantillaDetaEntity;
+        }
+
+        public List<PlantillaDetaEntity> ListarPorEjecutarPaginado(Parametro pFiltro)
+        {
+            List<PlantillaDetaEntity> lstPlantillaDetaEntity = new List<PlantillaDetaEntity>();
+            try
+            {
+                using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
+                {
+                    var resul = SQLDC.pa_S_PlantillaDetaPendPagina(pFiltro.p_NumPagina,
+                                                               pFiltro.p_TamPagina,
+                                                               pFiltro.p_OrdenPor,
+                                                               pFiltro.p_OrdenTipo,
+                                                               pFiltro.numAnio,
+                                                               pFiltro.codArea,
+                                                               pFiltro.codRegEstado);
+                    foreach (var item in resul)
+                    {
+                        PlantillaDetaEntity objPlantillaDetaEntity = new PlantillaDetaEntity();
+                        objPlantillaDetaEntity.Codigo = item.codPlantillaDeta;
+                        objPlantillaDetaEntity.codPlantilla = item.codPlantilla;
+                        objPlantillaDetaEntity.codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0;
+                        objPlantillaDetaEntity.gloDescripcion = item.gloDescripcion;
+                        objPlantillaDetaEntity.monEstimado = item.monEstimado;
+                        objPlantillaDetaEntity.cntCantidad = item.cntCantidad;
+                        objPlantillaDetaEntity.codRegEstado = item.codRegEstado;
+                        objPlantillaDetaEntity.fecEjecucion = item.fecEjecucion;
+                        objPlantillaDetaEntity.codPartida = item.codPartida;
+                        objPlantillaDetaEntity.numPartida = item.numPartida;
+                        objPlantillaDetaEntity.codEmpleadoRespon = item.codEmpleadoRespon.HasValue ? item.codEmpleadoRespon.Value : 0;
+                        objPlantillaDetaEntity.indPlantilla = item.indPlantillaTipo;
+                        objPlantillaDetaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objPlantillaDetaEntity.segFechaCrea = item.segFechaCrea;
+                        objPlantillaDetaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objPlantillaDetaEntity.segFechaEdita = item.segFechaEdita;
+                        objPlantillaDetaEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                        objPlantillaDetaEntity.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
+                        objPlantillaDetaEntity.objEmpleadoRespon.desNombre = item.codEmpleadoResponRespon;
+                        objPlantillaDetaEntity.objPlantilla.codArea = item.codArea;
+                        objPlantillaDetaEntity.objPlantilla.objArea.desNombre = item.codAreaNombre;
+                        objPlantillaDetaEntity.objPartida.desNombre = item.codPartidaNombre;
+                        objPlantillaDetaEntity.codRegEstadoNombre = item.codRegEstadoNombre;
+                        objPlantillaDetaEntity.ROW = item.ROWNUM.HasValue ? item.ROWNUM.Value : 0;
+                        objPlantillaDetaEntity.TOTALROWS = item.TOTALROWS.HasValue ? item.TOTALROWS.Value : 0;
+
+                        lstPlantillaDetaEntity.Add(objPlantillaDetaEntity);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(String.Concat("ListarPaginado", " | ", ex.Message.ToString()));
+                throw ex;
+            }
+            return lstPlantillaDetaEntity;
         }
        
         #endregion 
@@ -151,9 +201,9 @@ namespace ByS.Presupuesto.Data
 		/// En la BASE de DATO la Tabla : [Presupuesto.PlantillaDeta]
 		/// <summary>
 		/// <returns>Entidad</returns>
-        public PlantillaDetaEntityDTO Buscar(int pId)
+        public PlantillaDetaEntity Buscar(int pId)
 		{
-            PlantillaDetaEntityDTO objPlantillaDetaEntityDTO = new PlantillaDetaEntityDTO();
+            PlantillaDetaEntity objPlantillaDetaEntity = null;
 			try
 			{
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -161,32 +211,32 @@ namespace ByS.Presupuesto.Data
 				var resul = SQLDC.pa_S_PlantillaDeta(pId,null,null,null);
 				foreach (var item in resul)
 				{
-                    objPlantillaDetaEntityDTO = new PlantillaDetaEntityDTO()
-					{
-                        codPlantillaDeta = item.codPlantillaDeta,
-                        codPlantilla = item.codPlantilla,
-                        codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0,
-                        gloDescripcion = item.gloDescripcion,
-                        monEstimado = Convert.ToDecimal(item.monEstimado),
-                        cntCantidad = Convert.ToDecimal(item.cntCantidad),
-                        codRegEstado = item.codRegEstado,
-                        fecEjecucion = item.fecEjecucion.HasValue ? item.fecEjecucion.Value.ToString() : string.Empty,
-                        indPlantilla = item.indPlantilla,
-                        codPartida = item.codPartida,
-                        numPartida = item.numPartida,
-                        segUsuarioCrea = item.segUsuarioCrea,
-                        segUsuarioEdita = item.segUsuarioEdita,
-                        segFechaCrea = item.segFechaCrea.ToString(),
-                        segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : string.Empty,
-                        segMaquinaOrigen = item.segMaquinaOrigen,
+                    objPlantillaDetaEntity = new PlantillaDetaEntity();
+                    objPlantillaDetaEntity.Codigo = item.codPlantillaDeta;
+                    objPlantillaDetaEntity.codPlantilla = item.codPlantilla;
+                    objPlantillaDetaEntity.codEmpleadoAprueba = item.codEmpleadoAprueba.HasValue ? item.codEmpleadoAprueba.Value : 0;
+                    objPlantillaDetaEntity.gloDescripcion = item.gloDescripcion;
+                    objPlantillaDetaEntity.monEstimado = item.monEstimado;
+                    objPlantillaDetaEntity.cntCantidad = item.cntCantidad;
+                    objPlantillaDetaEntity.codRegEstado = item.codRegEstado;
+                    objPlantillaDetaEntity.fecEjecucion = item.fecEjecucion;
+                    objPlantillaDetaEntity.indPlantilla = item.indPlantilla;
+                    objPlantillaDetaEntity.codPartida = item.codPartida;
+                    objPlantillaDetaEntity.numPartida = item.numPartida;
+                    objPlantillaDetaEntity.codEmpleadoRespon = item.codEmpleadoRespon.HasValue ? item.codEmpleadoRespon.Value : 0;
+                    objPlantillaDetaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                    objPlantillaDetaEntity.segFechaCrea = item.segFechaCrea;
+                    objPlantillaDetaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                    objPlantillaDetaEntity.segFechaEdita = item.segFechaEdita;
+                    objPlantillaDetaEntity.segMaquinaOrigen = item.segMaquinaOrigen;
 
-                        codEmpleadoApruebaNombre = item.codEmpleadoApruebaNombre,
-                        codEmpleadoResponNombre = item.codEmpleadoResponRespon,
-                        codEmpleadoRespon = item.codEmpleadoRespon,
-                        codPartidaNombre = item.codPartidaNombre,
-                        indPlantillaNombre = item.indPlantillaTipo,
-                        codRegEstadoNombre = item.codRegEstadoNombre
-					};
+                    objPlantillaDetaEntity.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
+                    objPlantillaDetaEntity.objPlantilla.Codigo = item.codEmpleadoRespon.HasValue ? item.codEmpleadoRespon.Value : 0;
+                    objPlantillaDetaEntity.objPlantilla.objEmpleado.desNombre = item.codEmpleadoResponRespon;
+                    objPlantillaDetaEntity.objPlantilla.codArea = item.codArea;
+                    objPlantillaDetaEntity.objPlantilla.objArea.desNombre = item.codAreaNombre;
+                    objPlantillaDetaEntity.objPartida.desNombre = item.codPartidaNombre;
+                    objPlantillaDetaEntity.codRegEstadoNombre = item.codRegEstadoNombre;
 				}
 			}
 		}
@@ -195,7 +245,7 @@ namespace ByS.Presupuesto.Data
             log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
 			throw ex;
 		}
-		return objPlantillaDetaEntityDTO;
+		return objPlantillaDetaEntity;
 }
 		
         #endregion 

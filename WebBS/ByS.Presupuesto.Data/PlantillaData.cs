@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
 using log4net;
+
+using ByS.Presupuesto.Entities;
 
 namespace ByS.Presupuesto.Data
 {
@@ -34,9 +34,9 @@ namespace ByS.Presupuesto.Data
         /// En la BASE de DATO la Tabla : [Presupuesto.Plantilla]
         /// <summary>
         /// <returns>List</returns>
-        public List<PlantillaEntityDTO> Listar(Parametro pLista)
+        public List<PlantillaEntity> Listar(Parametro pLista)
         {
-            List<PlantillaEntityDTO> lstPlantillaEntityDTO = new List<PlantillaEntityDTO>();
+            List<PlantillaEntity> lstPlantillaEntity = new List<PlantillaEntity>();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -44,20 +44,23 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_Plantilla(null, pLista.numAnio, pLista.codArea);
                     foreach (var item in resul)
                     {
-                        lstPlantillaEntityDTO.Add(new PlantillaEntityDTO()
-                        {
-                            codPlantilla = item.codPlantilla,
-                            numPlantilla = item.numPlantilla,
-                            desNombrePresupuesto = item.nombrePresupuesto,
-                            numAnio = item.numAnio.ToString(),
-                            fecCierre = item.fecCierre.HasValue ? item.fecCierre.ToString() : string.Empty,
-                            codAreaNombre = item.codAreaNombre,
-                            desEmpleadoActual = item.desEmpleadoActual,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-                            monEstimadoTotal = item.monEstimadoTotalxArea.HasValue ? item.monEstimadoTotalxArea.Value.ToString("N2") : "0.00",
-                            numDiasExtemporaneo = item.numDiasExtemporaneo
-                        });
+                        PlantillaEntity objPlantillaEntity = new PlantillaEntity();
+                        objPlantillaEntity.Codigo = item.codPlantilla;
+                        objPlantillaEntity.numPlantilla = item.numPlantilla;
+                        objPlantillaEntity.objPresupuesto.desNombre = item.nombrePresupuesto;
+                        objPlantillaEntity.objPresupuesto.numAnio = item.numAnio;
+                        objPlantillaEntity.objPresupuesto.fecCierre = item.fecCierre;
+                        objPlantillaEntity.objArea.desNombre = item.codAreaNombre;
+                        objPlantillaEntity.objEmpleado.desNombre = item.desEmpleadoActual;
+                        objPlantillaEntity.codRegEstadoNombre = item.EstadoPlantilla;
+                        objPlantillaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objPlantillaEntity.segFechaCrea= item.segFechaCrea;
+                        objPlantillaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objPlantillaEntity.segFechaEdita = item.segFechaEdita;
+                        objPlantillaEntity.monEstimadoTotal = item.monEstimadoTotalxArea.HasValue ? item.monEstimadoTotalxArea.Value : 0;
+                        objPlantillaEntity.numDiasExtemporaneo = item.numDiasExtemporaneo;
+                        objPlantillaEntity.fecCierreExtempor = item.fecCierre.HasValue ? item.fecCierre.Value.AddDays(item.numDiasExtemporaneo).ToShortDateString() : string.Empty;
+                        lstPlantillaEntity.Add(objPlantillaEntity);
                     }
                 }
             }
@@ -66,7 +69,7 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return lstPlantillaEntityDTO;
+            return lstPlantillaEntity;
         }
 
         #endregion
@@ -78,9 +81,9 @@ namespace ByS.Presupuesto.Data
         /// En la BASE de DATO la Tabla : [Presupuesto.Plantilla]
         /// <summary>
         /// <returns>Entidad</returns>
-        public PlantillaEntityDTO Buscar(int? pAnio, int? pIdArea)
+        public PlantillaEntity Buscar(int? pAnio, int? pIdArea)
         {
-            PlantillaEntityDTO objPlantillaEntityDTO = new PlantillaEntityDTO();
+            PlantillaEntity objPlantillaEntity = null;
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -88,23 +91,23 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_Plantilla(null, pAnio, pIdArea);
                     foreach (var item in resul)
                     {
-                        objPlantillaEntityDTO = new PlantillaEntityDTO()
-                        {
-                            codPlantilla = item.codPlantilla,
-                            numPlantilla = item.numPlantilla,
-                            desNombrePresupuesto = item.nombrePresupuesto,
-                            numAnio = item.numAnio.ToString(),
-                            fecCierre = item.fecCierre.HasValue ? item.fecCierre.Value.ToShortDateString() : string.Empty,
-                            codAreaNombre = item.codAreaNombre,
-                            desEmpleadoActual = item.desEmpleadoActual,
-                            segUsuarioEdita = item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : string.Empty,
-                            codRegEstado = item.EstadoPlantilla,
-                            monMaximo = item.monMaximo.HasValue ? item.monMaximo.Value.ToString("N2") : "0.00",
-                            monEstimadoTotal = item.monEstimadoTotalxArea.HasValue ? item.monEstimadoTotalxArea.Value.ToString("N2") : "0.00",
-                            numDiasExtemporaneo = item.numDiasExtemporaneo,
-                            fecCierreExtempor = item.fecCierre.HasValue ? item.fecCierre.Value.AddDays(item.numDiasExtemporaneo).ToShortDateString() : string.Empty,
-                        };
+                        objPlantillaEntity = new PlantillaEntity();
+                        objPlantillaEntity.Codigo = item.codPlantilla;
+                        objPlantillaEntity.numPlantilla = item.numPlantilla;
+                        objPlantillaEntity.objPresupuesto.desNombre = item.nombrePresupuesto;
+                        objPlantillaEntity.objPresupuesto.numAnio = item.numAnio;
+                        objPlantillaEntity.objPresupuesto.fecCierre = item.fecCierre;
+                        objPlantillaEntity.objArea.desNombre = item.codAreaNombre;
+                        objPlantillaEntity.objEmpleado.desNombre = item.desEmpleadoActual;
+                        objPlantillaEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objPlantillaEntity.segFechaCrea = item.segFechaCrea;
+                        objPlantillaEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objPlantillaEntity.segFechaEdita = item.segFechaEdita;
+                        objPlantillaEntity.codRegEstadoNombre = item.EstadoPlantilla;
+                        objPlantillaEntity.monMaximo = item.monMaximo.HasValue ? item.monMaximo.Value : 0;
+                        objPlantillaEntity.monEstimadoTotal = item.monEstimadoTotalxArea.HasValue ? item.monEstimadoTotalxArea.Value : 0;
+                        objPlantillaEntity.numDiasExtemporaneo = item.numDiasExtemporaneo;
+                        objPlantillaEntity.fecCierreExtempor = item.fecCierre.HasValue ? item.fecCierre.Value.AddDays(item.numDiasExtemporaneo).ToShortDateString() : string.Empty;
                     }
                 }
             }
@@ -113,7 +116,7 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return objPlantillaEntityDTO;
+            return objPlantillaEntity;
         }
     
         #endregion

@@ -33,5 +33,13 @@ namespace ByS.Tools
             EN_EJECUCION = 4,
             EJECUTADA = 5
         }
+
+        public enum Solicitud
+        {
+            SOLICITADO = 1,
+            APROBADA = 2,
+            DESAPROBADA = 3,
+            EJECUTADA = 4
+        }
     }
 }

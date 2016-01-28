@@ -33,5 +33,11 @@ namespace ByS.Presupuesto.Entities
         public AreaEntity objArea { get; set; }
         public PresupuestoEntity objPresupuesto { get; set; }
         public SolicitudEntity objSolicitud { get; set; }
+
+        /*Columnas Logicas - Calculadas*/
+        public decimal monMaximo { get; set; }
+        public decimal monEstimadoTotal { get; set; }
+        public string fecCierreExtempor { get; set; }
+        public string codRegEstadoNombre { get; set; }
     }
 }

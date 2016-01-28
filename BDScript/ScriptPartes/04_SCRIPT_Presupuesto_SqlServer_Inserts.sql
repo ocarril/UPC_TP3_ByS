@@ -261,20 +261,20 @@ select * from recursoshumanos.empleado
 select * from Presupuesto.Solicitud
 */
 INSERT INTO Presupuesto.Solicitud
-(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
-('2012-01','Se solicita la elaboracion del presupuesto para 2013',cast('05/06/2012' as datetime),1,'E',cast('06/06/2013' as datetime),3,'ocarril',getdate());
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,codEmpleadoAprueba,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2012-01','Se solicita la elaboracion del presupuesto para 2013',cast('05/06/2012' as datetime),1,3,'E',cast('06/06/2013' as datetime),4,'ocarril',getdate());
 INSERT INTO Presupuesto.Solicitud
-(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
-('2013-01','Se solicita la elaboracion del presupuesto para 2014',cast('05/06/2013' as datetime),1,'E',cast('06/06/2013' as datetime),3,'ocarril',getdate());
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,codEmpleadoAprueba,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2013-01','Se solicita la elaboracion del presupuesto para 2014',cast('05/06/2013' as datetime),1,3,'E',cast('06/06/2013' as datetime),4,'ocarril',getdate());
 INSERT INTO Presupuesto.Solicitud
-(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
-('2014-01','Se solicita la elaboracion del presupuesto para 2015',cast('05/06/2014' as datetime),1,'E',cast('06/06/2014' as datetime),3,'ocarril',getdate());
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,codEmpleadoAprueba,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2014-01','Se solicita la elaboracion del presupuesto para 2015',cast('05/06/2014' as datetime),1,3,'E',cast('06/06/2014' as datetime),4,'ocarril',getdate());
 INSERT INTO Presupuesto.Solicitud
-(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
-('2015-01','Se solicita la elaboracion del presupuesto para 2016',cast('05/06/2015' as datetime),1,'E',cast('06/06/2015' as datetime),3,'ocarril',getdate());
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,codEmpleadoAprueba,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2015-01','Se solicita la elaboracion del presupuesto para 2016',cast('05/06/2015' as datetime),1,3,'E',cast('06/06/2015' as datetime),4,'ocarril',getdate());
 INSERT INTO Presupuesto.Solicitud
-(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
-('2016-01','Se solicita la elaboracion del presupuesto para 2017',cast('01/01/2016' as datetime),1,'E',cast('02/03/2015' as datetime),3,'ocarril',getdate());
+(numSolicitud,gloObservacion,fecSolicitada,codEmpleadoGenera,codEmpleadoAprueba,indTipo,fecLimite,codRegEstado,segUsuarioCrea,segFechaCrea) VALUES
+('2016-01','Se solicita la elaboracion del presupuesto para 2017',cast('01/01/2016' as datetime),1,3,'E',cast('02/03/2016' as datetime),4,'ocarril',getdate());
 GO
 
 /*PLANTILLAS DE AÑOS ANTERIORES: Presupuesto.Plantilla

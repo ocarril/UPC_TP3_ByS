@@ -4,9 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ByS.Presupuesto.Data;
+using ByS.Presupuesto.Entities;
+
 namespace ByS.Presupuesto.Logic
 {
-    class PresupuestoLogic
+    public class PresupuestoLogic
     {
+        private PresupuestoData objPresupuestoData = null;
+
+        #region /* Proceso de SELECT ALL */
+
+        /// <summary>
+        /// Retorna un LISTA de registros de la Entidad Presupuesto.Plantilla
+        /// En la BASE de DATO la Tabla : [Presupuesto.Plantilla]
+        /// <summary>
+       /// <param name="pnumAnio"></param>
+       /// <returns></returns>
+        public List<PresupuestoEntity> ListarPresupuesto(int? pnumAnio)
+        {
+            List<PresupuestoEntity> lstPresupuesto = new List<PresupuestoEntity>();
+            try
+            {
+                objPresupuestoData = new  PresupuestoData();
+                lstPresupuesto = objPresupuestoData.Listar(pnumAnio);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lstPresupuesto;
+        }
+
+        #endregion
+
+        public PresupuestoEntity BuscarPresupuesto(int pnumAnio)
+        {
+            PresupuestoEntity objPresupuesto = null;
+            try
+            {
+                objPresupuestoData = new PresupuestoData();
+                objPresupuesto = objPresupuestoData.Buscar(pnumAnio);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return objPresupuesto;
+        }
     }
 }

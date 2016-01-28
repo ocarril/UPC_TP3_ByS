@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using log4net;
 
 using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
-using log4net;
 
 namespace ByS.Presupuesto.Data
 {
@@ -44,23 +43,27 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_Solicitud(pFiltro.codSolicitud, pFiltro.numSolicitud, pFiltro.fecInicio, pFiltro.fecFinal, pFiltro.codRegEstado, pFiltro.codPresupuesto);
                     foreach (var item in resul)
                     {
-                        lstSolicitudEntity.Add(new SolicitudEntity()
-                        {
-                            Codigo = item.codSolicitud,
-                            gloObservacion = item.gloObservacion,
-                            //codEmpleadoGenera = item.codEmpleadoGeneraNombre,
-                            //codEmpleadoAprueba = item.codEmpleadoApruebaNombre,
-                            codPresupuesto = item.codPresupuesto,
-                            numSolicitud = item.numSolicitud,
+                        SolicitudEntity objSolicitud = new SolicitudEntity();
 
-                            codRegEstado = item.codRegEstado.HasValue ? item.codRegEstado.Value : 0,
-                            fecLimite = item.fecLimite,
-                            fecSolicitada = item.fecSolicitada,
-                            indTipo = item.indTipo,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value : item.segFechaCrea,
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-                        });
+                        objSolicitud.Codigo = item.codSolicitud;
+                        objSolicitud.gloObservacion = item.gloObservacion;
+                        objSolicitud.objEmpleadoGenera.desNombre = item.codEmpleadoGeneraNombre;
+                        objSolicitud.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
+
+                        objSolicitud.objEmpleadoGenera.codArea = item.codArea;
+                        objSolicitud.objEmpleadoGenera.objArea.desNombre = item.codAreaNombre;
+                        objSolicitud.codEmpleadoAprueba = item.codEmpleadoAprueba;
+                        objSolicitud.codPresupuesto = item.codPresupuesto;
+                        objSolicitud.numSolicitud = item.numSolicitud;
+                        objSolicitud.codRegEstado = item.codRegEstado.HasValue ? item.codRegEstado.Value : 0;
+                        objSolicitud.codRegEstadoNombre = item.codRegEstadoNombre;
+                        objSolicitud.fecLimite = item.fecLimite;
+                        objSolicitud.fecSolicitada = item.fecSolicitada;
+                        objSolicitud.indTipo = item.indTipo;
+                        objSolicitud.segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita;
+                        objSolicitud.segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value : item.segFechaCrea;
+                        objSolicitud.segMaquinaOrigen = item.segMaquinaOrigen;
+                        lstSolicitudEntity.Add(objSolicitud);
                     }
                 }
             }
@@ -98,11 +101,16 @@ namespace ByS.Presupuesto.Data
                         objSolicitud.codPresupuesto = item.codPresupuesto;
                         objSolicitud.numSolicitud = item.numSolicitud;
                         objSolicitud.codRegEstado = item.codRegEstado.HasValue ? item.codRegEstado.Value : 0;
+                        objSolicitud.codRegEstadoNombre = item.codRegEstadoNombre;
                         objSolicitud.fecLimite = item.fecLimite;
                         objSolicitud.fecSolicitada = item.fecSolicitada;
                         objSolicitud.indTipo = item.indTipo;
-                        objSolicitud.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
                         objSolicitud.objEmpleadoGenera.desNombre = item.codEmpleadoGeneraNombre;
+                        objSolicitud.codEmpleadoGenera = item.codEmpleadoGenera;
+                        objSolicitud.objEmpleadoGenera.codArea = item.codArea;
+                        objSolicitud.objEmpleadoGenera.objArea.desNombre = item.codAreaNombre;
+                        objSolicitud.codEmpleadoAprueba = item.codEmpleadoAprueba;
+                        objSolicitud.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
                         objSolicitud.segFechaCrea = item.segFechaCrea;
                         objSolicitud.segFechaEdita = item.segFechaEdita;
                         objSolicitud.segUsuarioCrea = item.segUsuarioCrea;
@@ -135,7 +143,7 @@ namespace ByS.Presupuesto.Data
         /// <returns></returns>
         public SolicitudEntity Buscar(int pcodSolicitud)
         {
-            SolicitudEntity objSolicitudEntity = new SolicitudEntity();
+            SolicitudEntity objSolicitud = new SolicitudEntity();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -143,22 +151,27 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_Solicitud(pcodSolicitud, null, null, null, null, null);
                     foreach (var item in resul)
                     {
-                        objSolicitudEntity = new SolicitudEntity()
-                        {
-                            Codigo = item.codSolicitud,
-                            gloObservacion = item.gloObservacion,
-                            //codEmpleadoGenera = item.codEmpleadoGeneraNombre,
-                            //codEmpleadoAprueba = item.codEmpleadoApruebaNombre,
-                            codPresupuesto = item.codPresupuesto,
-                            numSolicitud = item.numSolicitud,
-                            codRegEstado = item.codRegEstado.HasValue ? item.codRegEstado.Value : 0,
-                            fecLimite = item.fecLimite,
-                            fecSolicitada = item.fecSolicitada,
-                            indTipo = item.indTipo,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value : item.segFechaCrea,
-                            segMaquinaOrigen = item.segMaquinaOrigen,
-                        };
+                        objSolicitud = new SolicitudEntity();
+
+
+                        objSolicitud.Codigo = item.codSolicitud;
+                        objSolicitud.gloObservacion = item.gloObservacion;
+                        objSolicitud.codEmpleadoGenera = item.codEmpleadoGenera;
+                        objSolicitud.objEmpleadoGenera.codArea = item.codArea;
+                        objSolicitud.objEmpleadoGenera.objArea.desNombre = item.codAreaNombre;
+                        objSolicitud.codEmpleadoAprueba = item.codEmpleadoAprueba;
+
+                        objSolicitud.codPresupuesto = item.codPresupuesto;
+                        objSolicitud.numSolicitud = item.numSolicitud;
+                        objSolicitud.codRegEstado = item.codRegEstado.HasValue ? item.codRegEstado.Value : 0;
+                        objSolicitud.codRegEstadoNombre = item.codRegEstadoNombre;
+                        objSolicitud.fecLimite = item.fecLimite;
+                        objSolicitud.fecSolicitada = item.fecSolicitada;
+                        objSolicitud.indTipo = item.indTipo;
+                        objSolicitud.segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita;
+                        objSolicitud.segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value : item.segFechaCrea;
+                        objSolicitud.segMaquinaOrigen = item.segMaquinaOrigen;
+
                     }
                 }
             }
@@ -167,7 +180,7 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return objSolicitudEntity;
+            return objSolicitud;
         }
         #endregion
 
@@ -197,7 +210,7 @@ namespace ByS.Presupuesto.Data
                        pSolicitud.codRegEstado,
                        pSolicitud.segUsuarioCrea,
                        pSolicitud.segMaquinaOrigen);
-                    codigoRetorno = 0;
+                    pSolicitud.Codigo = codigoRetorno.HasValue ? codigoRetorno.Value : 0;
                 }
             }
             catch (Exception ex)

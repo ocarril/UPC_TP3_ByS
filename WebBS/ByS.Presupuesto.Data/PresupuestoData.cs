@@ -4,7 +4,6 @@ using System.Configuration;
 using log4net;
 
 using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
 
 namespace ByS.Presupuesto.Data
 { 
@@ -32,30 +31,33 @@ namespace ByS.Presupuesto.Data
 		/// En la BASE de DATO la Tabla : [Presupuesto.Presupuesto]
 		/// <summary>
 		/// <returns>List</returns>
-        public List<PresupuestoEntityDTO> Listar(int? pID)
+        public List<PresupuestoEntity> Listar(int? numAnio)
         {
-            List<PresupuestoEntityDTO> lstPresupuestoEntityDTO = new List<PresupuestoEntityDTO>();
+            List<PresupuestoEntity> lstPresupuestoEntity = new List<PresupuestoEntity>();
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
                 {
-                    var resul = SQLDC.pa_S_Presupuesto(pID);
+                    var resul = SQLDC.pa_S_Presupuesto(numAnio);
                     foreach (var item in resul)
                     {
-                        lstPresupuestoEntityDTO.Add(new PresupuestoEntityDTO()
-                        {
-                            codPresupuesto = item.codPresupuesto,
-                            desNombre = item.desNombre,
-                            numAnio = item.numAnio,
-                            fecInicio = item.fecInicio.HasValue ? item.fecInicio.Value.ToShortDateString() : string.Empty,
-                            fecCierre = item.fecCierre.HasValue ? item.fecCierre.Value.ToShortDateString() : string.Empty,
-                            codRegEstado = item.codRegEstado,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioEdita : item.segUsuarioCrea,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-                            monTotalGastado = item.monTotalGastado.HasValue?item.monTotalGastado.Value.ToString("N2"):"0.00",
-                            monTotalPresupuesto = item.monTotalPresupuesto.HasValue ? item.monTotalPresupuesto.Value.ToString("N2") : "0.00",
-                            monTotalSolicitado = item.monTotalSolicitado.HasValue ? item.monTotalSolicitado.Value.ToString("N2") : "0.00",
-                        });
+                        PresupuestoEntity objPresupuestoEntity = new PresupuestoEntity();
+                        objPresupuestoEntity.Codigo = item.codPresupuesto;
+                        objPresupuestoEntity.desNombre = item.desNombre;
+                        objPresupuestoEntity.numAnio = item.numAnio;
+                        objPresupuestoEntity.fecInicio = item.fecInicio;
+                        objPresupuestoEntity.fecCierre = item.fecCierre;
+                        objPresupuestoEntity.codRegEstado = item.codRegEstado;
+                        objPresupuestoEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objPresupuestoEntity.segFechaCrea = item.segFechaCrea;
+                        objPresupuestoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objPresupuestoEntity.segFechaEdita = item.segFechaEdita;
+                        objPresupuestoEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                        objPresupuestoEntity.monTotalGastado = item.monTotalGastado.HasValue ? item.monTotalGastado.Value : 0;
+                        objPresupuestoEntity.monTotalPresupuesto = item.monTotalPresupuesto.HasValue ? item.monTotalPresupuesto.Value : 0;
+                        objPresupuestoEntity.monTotalSolicitado = item.monTotalSolicitado.HasValue ? item.monTotalSolicitado.Value : 0;
+
+                        lstPresupuestoEntity.Add(objPresupuestoEntity);
                     }
                 }
             }
@@ -64,7 +66,7 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return lstPresupuestoEntityDTO;
+            return lstPresupuestoEntity;
         }
 		#endregion 
 
@@ -74,10 +76,11 @@ namespace ByS.Presupuesto.Data
         /// Retorna una ENTIDAD de registro de la Entidad Presupuesto.Presupuesto
         /// En la BASE de DATO la Tabla : [Presupuesto.Presupuesto]
         /// <summary>
-        /// <returns>Entidad</returns>
-        public PresupuestoEntityDTO Buscar(int numAnio)
+        /// <param name="numAnio"></param>
+        /// <returns></returns>
+        public PresupuestoEntity Buscar(int numAnio)
         {
-            PresupuestoEntityDTO objPresupuestoEntityDTO = new PresupuestoEntityDTO();
+            PresupuestoEntity objPresupuestoEntity = null;
             try
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
@@ -85,21 +88,21 @@ namespace ByS.Presupuesto.Data
                     var resul = SQLDC.pa_S_Presupuesto(numAnio);
                     foreach (var item in resul)
                     {
-                        objPresupuestoEntityDTO = new PresupuestoEntityDTO()
-                        {
-                            codPresupuesto = item.codPresupuesto,
-                            desNombre = item.desNombre,
-                            numAnio = item.numAnio,
-                            fecInicio = item.fecInicio.HasValue ? item.fecInicio.Value.ToShortDateString() : string.Empty,
-                            fecCierre = item.fecCierre.HasValue ? item.fecCierre.Value.ToShortDateString() : string.Empty,
-                            codRegEstado = item.codRegEstado,
-                            segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioEdita : item.segUsuarioCrea,
-                            segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString(),
-                            monTotalGastado = item.monTotalGastado.HasValue ? item.monTotalGastado.Value.ToString("N2") : "0.00",
-                            monTotalPresupuesto = item.monTotalPresupuesto.HasValue ? item.monTotalPresupuesto.Value.ToString("N2") : "0.00",
-                            monTotalSolicitado = item.monTotalSolicitado.HasValue ? item.monTotalSolicitado.Value.ToString("N2") : "0.00",
-                       
-                        };
+                        objPresupuestoEntity = new PresupuestoEntity();
+                        objPresupuestoEntity.Codigo = item.codPresupuesto;
+                        objPresupuestoEntity.desNombre = item.desNombre;
+                        objPresupuestoEntity.numAnio = item.numAnio;
+                        objPresupuestoEntity.fecInicio = item.fecInicio;
+                        objPresupuestoEntity.fecCierre = item.fecCierre;
+                        objPresupuestoEntity.codRegEstado = item.codRegEstado;
+                        objPresupuestoEntity.segUsuarioCrea = item.segUsuarioCrea;
+                        objPresupuestoEntity.segFechaCrea = item.segFechaCrea;
+                        objPresupuestoEntity.segUsuarioEdita = item.segUsuarioEdita;
+                        objPresupuestoEntity.segFechaEdita = item.segFechaEdita;
+                        objPresupuestoEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                        objPresupuestoEntity.monTotalGastado = item.monTotalGastado.HasValue ? item.monTotalGastado.Value : 0;
+                        objPresupuestoEntity.monTotalPresupuesto = item.monTotalPresupuesto.HasValue ? item.monTotalPresupuesto.Value : 0;
+                        objPresupuestoEntity.monTotalSolicitado = item.monTotalSolicitado.HasValue ? item.monTotalSolicitado.Value : 0;
                     }
                 }
             }
@@ -108,7 +111,7 @@ namespace ByS.Presupuesto.Data
                 log.Error(String.Concat("Buscar", " | ", ex.Message.ToString()));
                 throw ex;
             }
-            return objPresupuestoEntityDTO;
+            return objPresupuestoEntity;
         }
 
         #endregion 

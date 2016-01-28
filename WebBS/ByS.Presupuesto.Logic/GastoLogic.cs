@@ -5,73 +5,72 @@ using System.Configuration;
 
 using ByS.Presupuesto.Data;
 using ByS.Presupuesto.Entities;
-using ByS.Presupuesto.Entities.DTO;
 using ByS.Tools;
 
 namespace ByS.Presupuesto.Logic
-{ 
-	/// <summary>
-	/// Proyecto    :  Modulo de Mantenimiento de : 
-	/// Creacion    : CROM - Orlando Carril Ramírez
-	/// Fecha       : 26/11/2015-12:29:08 a.m.
-	/// Descripcion : Capa de Lógica 
-	/// Archivo     : [Presupuesto.PlantillaLogic.cs]
-	/// </summary>
-	public class GastoLogic
-	{
+{
+    /// <summary>
+    /// Proyecto    :  Modulo de Mantenimiento de : 
+    /// Creacion    : CROM - Orlando Carril Ramírez
+    /// Fecha       : 26/11/2015-12:29:08 a.m.
+    /// Descripcion : Capa de Lógica 
+    /// Archivo     : [Presupuesto.PlantillaLogic.cs]
+    /// </summary>
+    public class GastoLogic
+    {
         private GastoData oGastoData = null;
         private ReturnValor oReturnValor = null;
 
         public GastoLogic()
-		{
-			oReturnValor = new ReturnValor();
-		}
-	
+        {
+            oReturnValor = new ReturnValor();
+        }
+
         /* Gastos */
-        public GastoEntityDTO BuscarGasto(int pID)
+        public GastoEntity BuscarGasto(int pID)
         {
-            GastoEntityDTO objGastoEntityDTO = new GastoEntityDTO();
+            GastoEntity objGastoEntity = null;
             try
             {
-                oGastoData = new  GastoData();
+                oGastoData = new GastoData();
                 if (pID > 0)
-                    objGastoEntityDTO = oGastoData.Buscar(pID);
+                    objGastoEntity = oGastoData.Buscar(pID);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return objGastoEntityDTO;
+            return objGastoEntity;
         }
 
-        public List<GastoEntityDTO> ListarGasto(Parametro pLista)
+        public List<GastoEntity> ListarGasto(Parametro pLista)
         {
-            List<GastoEntityDTO> lstGastoEntityDTO = new List<GastoEntityDTO>();
+            List<GastoEntity> lstGastoEntity = new List<GastoEntity>();
             try
             {
                 oGastoData = new GastoData();
-                lstGastoEntityDTO = oGastoData.Listar(pLista);
+                lstGastoEntity = oGastoData.Listar(pLista);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return lstGastoEntityDTO;
+            return lstGastoEntity;
         }
 
-        public List<GastoEntityDTO> ListarGastoPaginado(Parametro pLista)
+        public List<GastoEntity> ListarGastoPaginado(Parametro pLista)
         {
-            List<GastoEntityDTO> lstGastoEntityDTO = new List<GastoEntityDTO>();
+            List<GastoEntity> lstGastoEntity = new List<GastoEntity>();
             try
             {
                 oGastoData = new GastoData();
-                lstGastoEntityDTO = oGastoData.ListarPaginado(pLista);
+                lstGastoEntity = oGastoData.ListarPaginado(pLista);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return lstGastoEntityDTO;
+            return lstGastoEntity;
         }
 
         public ReturnValor RegistrarGasto(GastoEntity objPlantillaDetaEntity)
@@ -82,11 +81,11 @@ namespace ByS.Presupuesto.Logic
                 //{
                 oGastoData = new GastoData();
                 oReturnValor.Exitosa = oGastoData.Registrar(objPlantillaDetaEntity);
-                    if (oReturnValor.Exitosa)
-                    {
-                        oReturnValor.Message = HelpMessages.Evento_NEW;
-                        //tx.Complete();
-                    }
+                if (oReturnValor.Exitosa)
+                {
+                    oReturnValor.Message = HelpMessages.Evento_NEW;
+                    //tx.Complete();
+                }
                 //}
             }
             catch (Exception ex)
@@ -106,7 +105,7 @@ namespace ByS.Presupuesto.Logic
                 oReturnValor.Exitosa = oGastoData.Actualizar(objPlantillaDetaEntity);
                 if (oReturnValor.Exitosa)
                 {
-                    oReturnValor.Message =HelpMessages.Evento_EDIT;
+                    oReturnValor.Message = HelpMessages.Evento_EDIT;
                     //tx.Complete();
                 }
                 //}
@@ -139,6 +138,6 @@ namespace ByS.Presupuesto.Logic
             }
             return oReturnValor;
         }
-	
-    } 
+
+    }
 } 
