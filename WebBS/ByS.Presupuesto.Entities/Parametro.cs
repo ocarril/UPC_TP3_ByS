@@ -28,6 +28,7 @@ namespace ByS.Presupuesto.Entities
         public int p_TamPagina{ get; set; }
         public string p_OrdenPor	{ get; set; }
         public string p_OrdenTipo{ get; set; }
+        public string indTipo { get; set; }
         public int p_anio { get; set; }
 
         public string segUsuElimina { get; set; }

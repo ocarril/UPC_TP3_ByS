@@ -40,16 +40,21 @@ namespace ByS.Presupuesto.Data
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
                 {
-                    var resul = SQLDC.pa_S_Solicitud(pFiltro.codSolicitud, pFiltro.numSolicitud, pFiltro.fecInicio, pFiltro.fecFinal, pFiltro.codRegEstado, pFiltro.codPresupuesto);
+                    var resul = SQLDC.pa_S_Solicitud(pFiltro.codSolicitud, 
+                                                     pFiltro.numSolicitud, 
+                                                     pFiltro.fecInicio, 
+                                                     pFiltro.fecFinal, 
+                                                     pFiltro.codRegEstado, 
+                                                     pFiltro.codPresupuesto,
+                                                     pFiltro.codArea,
+                                                     pFiltro.indTipo);
                     foreach (var item in resul)
                     {
                         SolicitudEntity objSolicitud = new SolicitudEntity();
-
                         objSolicitud.Codigo = item.codSolicitud;
                         objSolicitud.gloObservacion = item.gloObservacion;
                         objSolicitud.objEmpleadoGenera.desNombre = item.codEmpleadoGeneraNombre;
                         objSolicitud.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
-
                         objSolicitud.objEmpleadoGenera.codArea = item.codArea;
                         objSolicitud.objEmpleadoGenera.objArea.desNombre = item.codAreaNombre;
                         objSolicitud.codEmpleadoAprueba = item.codEmpleadoAprueba;
@@ -92,7 +97,8 @@ namespace ByS.Presupuesto.Data
                                                        pFiltro.fecFinal,
                                                        pFiltro.codRegEstado,
                                                        pFiltro.codPresupuesto,
-                                                       pFiltro.codArea);
+                                                       pFiltro.codArea,
+                                                       pFiltro.indTipo);
                     foreach (var item in resul)
                     {
                         SolicitudEntity objSolicitud = new SolicitudEntity();
@@ -148,19 +154,19 @@ namespace ByS.Presupuesto.Data
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
                 {
-                    var resul = SQLDC.pa_S_Solicitud(pcodSolicitud, null, null, null, null, null);
+                    var resul = SQLDC.pa_S_Solicitud(pcodSolicitud, null, null, null, null, null, null, null);
                     foreach (var item in resul)
                     {
                         objSolicitud = new SolicitudEntity();
 
-
                         objSolicitud.Codigo = item.codSolicitud;
                         objSolicitud.gloObservacion = item.gloObservacion;
                         objSolicitud.codEmpleadoGenera = item.codEmpleadoGenera;
+                        objSolicitud.objEmpleadoGenera.desNombre = item.codEmpleadoGeneraNombre;
                         objSolicitud.objEmpleadoGenera.codArea = item.codArea;
                         objSolicitud.objEmpleadoGenera.objArea.desNombre = item.codAreaNombre;
                         objSolicitud.codEmpleadoAprueba = item.codEmpleadoAprueba;
-
+                        objSolicitud.objEmpleadoAprueba.desNombre = item.codEmpleadoApruebaNombre;
                         objSolicitud.codPresupuesto = item.codPresupuesto;
                         objSolicitud.numSolicitud = item.numSolicitud;
                         objSolicitud.codRegEstado = item.codRegEstado.HasValue ? item.codRegEstado.Value : 0;
@@ -171,7 +177,6 @@ namespace ByS.Presupuesto.Data
                         objSolicitud.segUsuarioEdita = string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita;
                         objSolicitud.segFechaEdita = item.segFechaEdita.HasValue ? item.segFechaEdita.Value : item.segFechaCrea;
                         objSolicitud.segMaquinaOrigen = item.segMaquinaOrigen;
-
                     }
                 }
             }

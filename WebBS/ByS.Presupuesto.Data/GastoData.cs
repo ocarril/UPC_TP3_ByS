@@ -40,7 +40,10 @@ namespace ByS.Presupuesto.Data
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
                 {
-                    var resul = SQLDC.pa_S_Gasto(pFiltro.codGasto, pFiltro.codPlantillaDeta);
+                    var resul = SQLDC.pa_S_Gasto(pFiltro.codGasto, 
+                                                 pFiltro.codPlantillaDeta,
+                                                 pFiltro.codArea, 
+                                                 pFiltro.numAnio);
                     foreach (var item in resul)
                     {
                         GastoEntity objGastoEntity = new GastoEntity();
@@ -58,6 +61,11 @@ namespace ByS.Presupuesto.Data
                         objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
                         objGastoEntity.segFechaEdita = item.segFechaCrea;
                         objGastoEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                        objGastoEntity.objEmpleadoResp.codArea = item.codArea.HasValue ? item.codArea.Value : 0;
+                        objGastoEntity.objEmpleadoResp.objArea.desNombre = item.codAreaNombre;
+                        objGastoEntity.objPlantillaDeta.objPlantilla.codPresupuesto = item.codPresupuesto.HasValue ? item.codPresupuesto.Value : 0;
+                        objGastoEntity.objPlantillaDeta.objPlantilla.objPresupuesto.desNombre = item.codPresupuestoNombre;
+
                         lstGastoEntity.Add(objGastoEntity);
                     }
                 }
@@ -81,8 +89,10 @@ namespace ByS.Presupuesto.Data
                                                        pFiltro.p_TamPagina, 
                                                        pFiltro.p_OrdenPor, 
                                                        pFiltro.p_OrdenTipo, 
-                                                       pFiltro.codGasto, 
-                                                       pFiltro.codPlantillaDeta);
+                                                       pFiltro.codGasto,
+                                                       pFiltro.codPlantillaDeta,
+                                                       pFiltro.codArea, 
+                                                       pFiltro.numAnio);
                     foreach (var item in resul)
                     {
                         GastoEntity objGastoEntity = new GastoEntity();
@@ -100,6 +110,10 @@ namespace ByS.Presupuesto.Data
                         objGastoEntity.segUsuarioEdita = item.segUsuarioEdita;
                         objGastoEntity.segFechaEdita = item.segFechaCrea;
                         objGastoEntity.segMaquinaOrigen = item.segMaquinaOrigen;
+                        objGastoEntity.objEmpleadoResp.codArea = item.codArea.HasValue ? item.codArea.Value : 0;
+                        objGastoEntity.objEmpleadoResp.objArea.desNombre = item.codAreaNombre;
+                        objGastoEntity.objPlantillaDeta.objPlantilla.codPresupuesto = item.codPresupuesto.HasValue?item.codPresupuesto.Value:0;
+                        objGastoEntity.objPlantillaDeta.objPlantilla.objPresupuesto.desNombre = item.codPresupuestoNombre;
 
                         objGastoEntity.ROW = item.ROWNUM.HasValue ? item.ROWNUM.Value : 0;
                         objGastoEntity.TOTALROWS = item.TOTALROWS.HasValue ? item.TOTALROWS.Value : 0;
@@ -132,7 +146,7 @@ namespace ByS.Presupuesto.Data
             {
                 using (_DBMLPresupuestoDataContext SQLDC = new _DBMLPresupuestoDataContext(conexion))
                 {
-                    var resul = SQLDC.pa_S_Gasto(pcodGasto, null);
+                    var resul = SQLDC.pa_S_Gasto(pcodGasto, null, null, null);
                     foreach (var item in resul)
                     {
                         objGastoEntity = new GastoEntity();

@@ -186,7 +186,7 @@ Funcion: Configuración de grilla
                     { name: 'numDocumento', index: 'numDocumento', editable: true, width: 130, align: 'left' },
                     { name: 'fecGasto', index: 'fecGasto', editable: true, width: 100, align: 'left'},
                     { name: 'cntCantidad', index: 'cntCantidad', editable: true, width: 80, align: 'left'},
-                    { name: 'monTotal', index: 'monTotal', editable: true, width: 90, align: 'left'},
+                    { name: 'monTotal', index: 'monTotal', editable: true, width: 90, align: 'left', formatter: 'currency', prefix: 'S/.' },
                     { name: 'codEmpResponsable', index: 'codEmpResponsable', editable: true, width: 180, align: 'left' },
                     { name: 'gloObservacion', index: 'gloObservacion', editable: true, width: 250, align: 'left' },
                     { name: 'segFechaEdita', index: 'segFechaEdita', editable: true, width: 150, align: 'left', search: false },
@@ -388,9 +388,9 @@ Pantalla POPUP para editar registro de Tabla
             $('#txtcntCantidad').val(detalle.cntCantidad);
             $('#txtmonTotal').val(detalle.monTotal);
             $('#txtnumDocumento').val(detalle.numDocumento);
-            $('#txtfecGasto').val(detalle.fecGasto);
+            $('#txtfecGasto').val($.f_formatoFechaDDMMYYYY(detalle.fecGasto));
             $('#txtsegUsuarioEdita').val(detalle.segUsuarioEdita);
-            $('#txtsegFechaEdita').val(detalle.segFechaEdita);
+            $('#txtsegFechaEdita').val($.f_formatoFechaDDMMYYYY(detalle.segFechaEdita,true));
 
         }
         $.f_ajaxRespuesta(paramAjax);
@@ -606,7 +606,7 @@ Funcion: Configuración de grilla de Gastos
                 id: "ID"
             },
             mtype: 'POST',
-            colNames: ['', '', 'Nro Documento', 'Fecha Gasto', 'Cantidad', 'Monto Gastado', 'Responsable', 'Observaciones', 'Editado el ', 'Editado por'],
+            colNames: ['', '', 'Nro Documento', 'Fecha Gasto', 'Cantidad', 'Monto Gastado', 'Responsable', 'Observaciones','Area','Presupuesto', 'Editado el ', 'Editado por'],
             colModel: [
                     { name: 'Editar', index: 'Editar', width: 35, align: 'center', editable: false, formatter: $.formatEditarReg, sortable: false },
                     { name: 'Eliminar', index: 'Eliminar', width: 35, align: 'center', editable: false, formatter: $.formatEliminarReg, sortable: false },
@@ -616,6 +616,8 @@ Funcion: Configuración de grilla de Gastos
                     { name: 'monTotal', index: 'monTotal', editable: true, width: 90, align: 'right' },
                     { name: 'codEmpResponsable', index: 'codEmpResponsable', editable: true, width: 180, align: 'left' },
                     { name: 'gloObservacion', index: 'gloObservacion', editable: true, width: 250, align: 'left' },
+                    { name: 'codAreaNombre', index: 'codAreaNombre', editable: true, width: 200, align: 'left' },
+                    { name: 'codPresupuestoNombre', index: 'codPresupuestoNombre', editable: true, width: 200, align: 'left' },
                     { name: 'segFechaEdita', index: 'segFechaEdita', editable: true, width: 150, align: 'left', search: false },
                     { name: 'segUsuarioEdita', index: 'segUsuarioEdita', editable: true, width: 70, align: 'left', search: false }
             ],
@@ -659,7 +661,9 @@ Funcion: Configuración de grilla de Gastos
         parametros["p_OrdenPor"] = postData.sidx;
         parametros["p_OrdenTipo"] = postData.sord;
         parametros["codPlantillaDeta"] = null;
-        
+        parametros["numAnio"] = vnumAnio;
+        parametros["codArea"] = vcodArea;
+
         var paramAjax = Object();
         paramAjax["ajaxMessage"] = 'Listando gastos de las plantillas presuestales...';
         paramAjax["url"] = "/Presupuesto/ListarGasto";

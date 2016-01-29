@@ -1,0 +1,260 @@
+﻿@************************************************************************
+     Archivo    : SolicitudReg.cshtml
+     Propósito  : Vista para el registro de solicitud de ejecución
+     Se asume   : N/A
+     Efectos    : N/A
+     Notas      : N/A
+     Autor      : (OCR) Orlando Carril Ramirez.
+     Fecha/Hora de Creación : 25/01/2016- 10:33hr
+     Fecha/Hora Modificado  :
+    ************************************************************************@
+@{
+    ViewBag.Title = "Detalle de solcitud de ejecución";
+    Layout = @Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+
+<script src="@Url.Content("~/Content/js/ViewModel/Presupuesto/SolicitudReg.js")" type="text/javascript"></script>
+<style type="text/css">
+    .table .row-select {background-color: #ebebeb;}
+    .table .row-atendido {color: #0090D7;}
+</style>
+<div class="panel panel-info" id="dataForm">
+    <h4 class="panel-heading">Registro de solicitudes</h4>
+    <div class="panel-body">
+
+        <div class="form-inline text-right">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-primary form-control" id="btnGuardar" title="Guarda Solicitar de ejecución de presupuesto">Guardar</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-primary form-control" id="btnRegresar" title="Regresar al listado de solicitudes">Regresar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtnumSolicitud">N° de Solicitud:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtnumSolicitud" name="txtnumSolicitud" placeholder="Número de Solicitud:" disabled />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtgloObservacion">Observación:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtgloObservacion" name="txtgloObservacion" placeholder="Observación" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtfecSolicitada">Fecha de solicitado:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtfecSolicitada" name="txtfecSolicitada" placeholder="dd/mm/aaaa" />
+                        @*<div class="input-group-addon"><i class="fa fa-calendar"></i></div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtfecLimite">Fecha de límite:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtfecLimite" name="txtfecLimite" placeholder="Fecha de límite" />
+                        @* <div class="input-group-addon"><i class="fa fa-calendar"></i></div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cbocodEmpleadoGenera">Generado por:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <select id="cbocodEmpleadoGenera" name="cbocodEmpleadoGenera" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cbocodEmpleadoAprueba">Aprobado por:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <select id="cbocodEmpleadoAprueba" name="cbocodEmpleadoAprueba" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cbocodPresupuesto">Presupuesto:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <label class="form-control">@ViewBag.numAnio</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Estado:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtcodRegEstado" name="txtcodRegEstado" placeholder="Estado" disabled /> @*onkeypress="return $.f_validaInput(1, event, true ,' ')"*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtsegUsuarioEdita">Usuario:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtsegUsuarioEdita" name="txtsegUsuarioEdita" placeholder="Actualizado por" disabled />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtsegFechaEdita">Fecha Actualización:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtsegFechaEdita" name="txtsegFechaEdita" placeholder="Ultima actualización" disabled />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-inline text-right">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-primary form-control" id="btnAgregarMasivo">Agregar detalle de partida</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <h4 class="col-xs-12 text-left">
+                        Resultados de la búsqueda de Partidas presupuestales a solicitar
+                    </h4>
+                    <br />
+                </div>
+                <div class="form-group">
+                    <table id="gridTabla"></table> @*detalles de la solicitud de ejecución*@
+                    <div id="pagerTabla">
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="divAgregarVarios" class="form-group" hidden> @*partida aprobada para solicitar su ejecución*@
+    <h4 class="panel-heading">Partidas presupuestales aprobadas - Por ejecutar</h4>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Presupuesto del año:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <label class="form-control">@ViewBag.numAnio</label> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" id="divListaAgregaVario">
+            <table id="gridAgregaVario"></table>
+            <div id="pagerAgregaVario">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="divRegistro" class="form-group" hidden>
+    <h4 class="panel-heading">Registro de Detalle de Solicitud</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="hidden" id="hddcodSolicitudDeta" name="hddcodSolicitudDeta" />
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtcodPartidaNombre">Grupo Partida:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtcodPartidaNombre" name="txtcodPartidaNombre" disabled />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtgloDescripcion">Descripción:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <textarea type="text" class="form-control" id="txtgloDescripcion" name="txtgloDescripcion" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtfecEjecucion">Fecha Ejecución:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtfecEjecucion" name="txtfecEjecucion" disabled />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtcntCantidad">Cantidad:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtcntCantidad" name="txtcntCantidad" placeholder="Cantidad" onkeypress="return $.f_validaInput(1, event, true ,' ')" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonEstimado">Monto estimado:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtmonEstimado" name="txtmonEstimado" placeholder="Monto Estimado" onkeypress="return $.f_validaInput(1, event, true ,' ')" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtsegUsuarioEditaDet">Usuario:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtsegUsuarioEditaDet" name="txtsegUsuarioEditaDet" placeholder="Actualizado por" disabled />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtsegFechaEditaDet">Fecha Actualización:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" id="txtsegFechaEditaDet" name="txtsegFechaEditaDet" placeholder="Ultima actualización" disabled />
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div>
+    <input type="hidden" id="hddMensajeError" name="hddMensajeError" value="@ViewBag.MensajeError" />
+    <input type="hidden" id="hddnumAnio" name="hddnumAnio" value="@ViewBag.numAnio" />
+    <input type="hidden" id="hddcodArea" name="hddcodArea" value="@ViewBag.codArea" />
+    <input type="hidden" id="hddcodEmpleado" name="hddcodEmpleado" value="@ViewBag.codEmpleado" />
+    <input type="hidden" id="hddcodSolicitud" name="hddcodSolicitud" value="@ViewBag.codSolicitud" />
+</div>
+

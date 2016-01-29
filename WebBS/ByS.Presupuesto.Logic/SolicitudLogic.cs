@@ -93,40 +93,47 @@ namespace ByS.Presupuesto.Logic
                     RegistrarSolicitudDeta(solicitudDeta);
                 }
 
+                objReturnValor.Message = HelpMessages.Evento_NEW;
+
                 if (objReturnValor.Exitosa)
                 {
-                    objReturnValor.Message = HelpMessages.Evento_NEW;
-
-                    objSolicitud = BuscarSolicitud(objSolicitud.Codigo);
-                    List<string> lstCorreos = new List<string>();
-                    List<HelpMailDatos> lstHelpMailDatos = new List<HelpMailDatos>();
-                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Presupuesto", descripcion = objSolicitud.fecSolicitada.Value.Year.ToString() });
-                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Area", descripcion = objSolicitud.objEmpleadoGenera.objArea.desNombre.ToString() });
-                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Responsable", descripcion = objSolicitud.objEmpleadoGenera.desNombre.ToString().ToUpper() });
-                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Descripcion", descripcion = objSolicitud.gloObservacion});
-                    decimal decTotal = 0;
-                    decimal cntCanti = 0;
-                    string strPartidas = string.Empty;
-                    foreach (SolicitudDetaEntity item in objSolicitud.lstSolicitudDeta)
+                    try
                     {
-                        decTotal = decTotal + item.objPlantillaDeta.monEstimado;
-                        cntCanti = cntCanti + item.objPlantillaDeta.cntCantidad;
-                        strPartidas = strPartidas + ", " + item.objPlantillaDeta.objPartida.desNombre.ToUpper();
+                        objSolicitud = BuscarSolicitud(objSolicitud.Codigo);
+                        List<string> lstCorreos = new List<string>();
+                        List<HelpMailDatos> lstHelpMailDatos = new List<HelpMailDatos>();
+                        lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Presupuesto", descripcion = objSolicitud.fecSolicitada.Value.Year.ToString() });
+                        lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Area", descripcion = objSolicitud.objEmpleadoGenera.objArea.desNombre.ToString() });
+                        lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Responsable", descripcion = objSolicitud.objEmpleadoGenera.desNombre.ToString().ToUpper() });
+                        lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Descripcion", descripcion = objSolicitud.gloObservacion });
+                        decimal decTotal = 0;
+                        decimal cntCanti = 0;
+                        string strPartidas = string.Empty;
+                        foreach (SolicitudDetaEntity item in objSolicitud.lstSolicitudDeta)
+                        {
+                            decTotal = decTotal + item.objPlantillaDeta.monEstimado;
+                            cntCanti = cntCanti + item.objPlantillaDeta.cntCantidad;
+                            strPartidas = strPartidas + ", " + item.objPlantillaDeta.objPartida.desNombre.ToUpper();
+                        }
+                        lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Partida", descripcion = strPartidas });
+                        lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Cantidad", descripcion = cntCanti.ToString() });
+                        lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Monto Referencial", descripcion = decTotal.ToString("N2") });
+
+                        String strCuerpoMensaje = HelpMail.CrearCuerpo("Solicitud de Ejecucion de Presupuesto",
+                                                                       lstHelpMailDatos,
+                                                                       "Ejecución de Presupuesto",
+                                                                       "BOTICAS & SALUD");
+
+                        lstCorreos.Add(ConfigurationManager.AppSettings["EMAIL_JefeFinanzas"]);
+                        lstCorreos.Add(ConfigurationManager.AppSettings["EMAIL_JefeAreas"]);
+                        HelpMail.Enviar("Solicitud de Ejecucion de Presupuesto", strCuerpoMensaje, lstCorreos, false);
+
                     }
-                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Partida", descripcion = strPartidas });
-                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Cantidad", descripcion = cntCanti.ToString() });
-                    lstHelpMailDatos.Add(new HelpMailDatos { titulo = "Monto Referencial", descripcion = decTotal.ToString("N2") });
-                   
-                    String strCuerpoMensaje = HelpMail.CrearCuerpo("Solicitud de Ejecucion de Presupuesto",
-                                                                   lstHelpMailDatos,
-                                                                   "Ejecución de Presupuesto",
-                                                                   "BOTICAS & SALUD");
+                    catch (Exception exc)
+                    {
 
-                    lstCorreos.Add(ConfigurationManager.AppSettings["EMAIL_JefeFinanzas"]);
-                    lstCorreos.Add(ConfigurationManager.AppSettings["EMAIL_JefeAreas"]);
-                    HelpMail.Enviar("Solicitud de Ejecucion de Presupuesto", strCuerpoMensaje, lstCorreos, false);
-
-
+                        objReturnValor.Message = objReturnValor.Message + "\n No se ha podido enviar Correo Electronico." + exc.Message;
+                    }
                     //tx.Complete();
                 }
                 //}

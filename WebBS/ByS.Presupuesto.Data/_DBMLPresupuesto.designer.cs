@@ -33,7 +33,7 @@ namespace ByS.Presupuesto.Data
     #endregion
 		
 		public _DBMLPresupuestoDataContext() : 
-				base(global::ByS.Presupuesto.Data.Properties.Settings.Default.BD_BySConnectionString2, mappingSource)
+				base(global::ByS.Presupuesto.Data.Properties.Settings.Default.BD_BySConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -62,10 +62,10 @@ namespace ByS.Presupuesto.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_D_PlantillaDeta")]
-		public int pa_D_PlantillaDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioEdita, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_D_Gasto")]
+		public int pa_D_Gasto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioElimina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codPlantillaDeta, p_segUsuarioEdita, p_segMaquinaOrigen);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codGasto, p_segUsuarioElimina, p_segMaquinaOrigen);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -73,6 +73,13 @@ namespace ByS.Presupuesto.Data
 		public int pa_U_SolicitudDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitudDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(10,2)")] System.Nullable<decimal> p_cntCantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(120)")] string p_gloDescripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioEdita, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitudDeta, p_codSolicitud, p_codPlantillaDeta, p_cntCantidad, p_gloDescripcion, p_segUsuarioEdita, p_segMaquinaOrigen);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_D_PlantillaDeta")]
+		public int pa_D_PlantillaDeta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioEdita, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codPlantillaDeta, p_segUsuarioEdita, p_segMaquinaOrigen);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -131,16 +138,16 @@ namespace ByS.Presupuesto.Data
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_Gasto")]
-		public ISingleResult<pa_S_GastoResult> pa_S_Gasto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta)
+		public ISingleResult<pa_S_GastoResult> pa_S_Gasto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codArea, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_anio)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codGasto, p_codPlantillaDeta);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codGasto, p_codPlantillaDeta, p_codArea, p_anio);
 			return ((ISingleResult<pa_S_GastoResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_GastoPagina")]
-		public ISingleResult<pa_S_GastoPaginaResult> pa_S_GastoPagina([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_NumPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_TamPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_OrdenPor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4)")] string p_OrdenTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta)
+		public ISingleResult<pa_S_GastoPaginaResult> pa_S_GastoPagina([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_NumPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_TamPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_OrdenPor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4)")] string p_OrdenTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPlantillaDeta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codArea, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_anio)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_NumPagina, p_TamPagina, p_OrdenPor, p_OrdenTipo, p_codGasto, p_codPlantillaDeta);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_NumPagina, p_TamPagina, p_OrdenPor, p_OrdenTipo, p_codGasto, p_codPlantillaDeta, p_codArea, p_anio);
 			return ((ISingleResult<pa_S_GastoPaginaResult>)(result.ReturnValue));
 		}
 		
@@ -187,9 +194,9 @@ namespace ByS.Presupuesto.Data
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_Solicitud")]
-		public ISingleResult<pa_S_SolicitudResult> pa_S_Solicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_numSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto)
+		public ISingleResult<pa_S_SolicitudResult> pa_S_Solicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_numSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codArea, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string p_indTipo)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitud, p_numSolicitud, p_fecSolicitadaIni, p_fecSolicitadaFin, p_codRegEstado, p_codPresupuesto);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitud, p_numSolicitud, p_fecSolicitadaIni, p_fecSolicitadaFin, p_codRegEstado, p_codPresupuesto, p_codArea, p_indTipo);
 			return ((ISingleResult<pa_S_SolicitudResult>)(result.ReturnValue));
 		}
 		
@@ -208,9 +215,9 @@ namespace ByS.Presupuesto.Data
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_S_SolicitudPagina")]
-		public ISingleResult<pa_S_SolicitudPaginaResult> pa_S_SolicitudPagina([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_NumPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_TamPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_OrdenPor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4)")] string p_OrdenTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_numSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codArea)
+		public ISingleResult<pa_S_SolicitudPaginaResult> pa_S_SolicitudPagina([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_NumPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_TamPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(30)")] string p_OrdenPor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(4)")] string p_OrdenTipo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_numSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaIni, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_fecSolicitadaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codRegEstado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codPresupuesto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codArea, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string p_indTipo)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_NumPagina, p_TamPagina, p_OrdenPor, p_OrdenTipo, p_codSolicitud, p_numSolicitud, p_fecSolicitadaIni, p_fecSolicitadaFin, p_codRegEstado, p_codPresupuesto, p_codArea);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_NumPagina, p_TamPagina, p_OrdenPor, p_OrdenTipo, p_codSolicitud, p_numSolicitud, p_fecSolicitadaIni, p_fecSolicitadaFin, p_codRegEstado, p_codPresupuesto, p_codArea, p_indTipo);
 			return ((ISingleResult<pa_S_SolicitudPaginaResult>)(result.ReturnValue));
 		}
 		
@@ -248,13 +255,6 @@ namespace ByS.Presupuesto.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codSolicitud, p_gloObservacion, p_fecSolicitada, p_indTipo, p_fecLimite, p_codEmpleadoGenera, p_codPresupuesto, p_codRegEstado, p_segUsuarioEdita, p_segMaquinaOrigen);
 			return ((int)(result.ReturnValue));
 		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Presupuesto.pa_D_Gasto")]
-		public int pa_D_Gasto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> p_codGasto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segUsuarioElimina, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(25)")] string p_segMaquinaOrigen)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codGasto, p_segUsuarioElimina, p_segMaquinaOrigen);
-			return ((int)(result.ReturnValue));
-		}
 	}
 	
 	public partial class pa_S_GastoResult
@@ -287,6 +287,14 @@ namespace ByS.Presupuesto.Data
 		private System.Nullable<System.DateTime> _segFechaEdita;
 		
 		private string _segMaquinaOrigen;
+		
+		private System.Nullable<int> _codArea;
+		
+		private string _codAreaNombre;
+		
+		private System.Nullable<int> _codPresupuesto;
+		
+		private string _codPresupuestoNombre;
 		
 		public pa_S_GastoResult()
 		{
@@ -515,6 +523,70 @@ namespace ByS.Presupuesto.Data
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codArea", DbType="Int")]
+		public System.Nullable<int> codArea
+		{
+			get
+			{
+				return this._codArea;
+			}
+			set
+			{
+				if ((this._codArea != value))
+				{
+					this._codArea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codAreaNombre", DbType="VarChar(40)")]
+		public string codAreaNombre
+		{
+			get
+			{
+				return this._codAreaNombre;
+			}
+			set
+			{
+				if ((this._codAreaNombre != value))
+				{
+					this._codAreaNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuesto", DbType="Int")]
+		public System.Nullable<int> codPresupuesto
+		{
+			get
+			{
+				return this._codPresupuesto;
+			}
+			set
+			{
+				if ((this._codPresupuesto != value))
+				{
+					this._codPresupuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuestoNombre", DbType="NVarChar(100)")]
+		public string codPresupuestoNombre
+		{
+			get
+			{
+				return this._codPresupuestoNombre;
+			}
+			set
+			{
+				if ((this._codPresupuestoNombre != value))
+				{
+					this._codPresupuestoNombre = value;
+				}
+			}
+		}
 	}
 	
 	public partial class pa_S_GastoPaginaResult
@@ -547,6 +619,14 @@ namespace ByS.Presupuesto.Data
 		private System.Nullable<System.DateTime> _segFechaEdita;
 		
 		private string _segMaquinaOrigen;
+		
+		private System.Nullable<int> _codArea;
+		
+		private string _codAreaNombre;
+		
+		private System.Nullable<int> _codPresupuesto;
+		
+		private string _codPresupuestoNombre;
 		
 		private System.Nullable<int> _TOTALROWS;
 		
@@ -776,6 +856,70 @@ namespace ByS.Presupuesto.Data
 				if ((this._segMaquinaOrigen != value))
 				{
 					this._segMaquinaOrigen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codArea", DbType="Int")]
+		public System.Nullable<int> codArea
+		{
+			get
+			{
+				return this._codArea;
+			}
+			set
+			{
+				if ((this._codArea != value))
+				{
+					this._codArea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codAreaNombre", DbType="VarChar(40)")]
+		public string codAreaNombre
+		{
+			get
+			{
+				return this._codAreaNombre;
+			}
+			set
+			{
+				if ((this._codAreaNombre != value))
+				{
+					this._codAreaNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuesto", DbType="Int")]
+		public System.Nullable<int> codPresupuesto
+		{
+			get
+			{
+				return this._codPresupuesto;
+			}
+			set
+			{
+				if ((this._codPresupuesto != value))
+				{
+					this._codPresupuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codPresupuestoNombre", DbType="NVarChar(100)")]
+		public string codPresupuestoNombre
+		{
+			get
+			{
+				return this._codPresupuestoNombre;
+			}
+			set
+			{
+				if ((this._codPresupuestoNombre != value))
+				{
+					this._codPresupuestoNombre = value;
 				}
 			}
 		}

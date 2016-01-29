@@ -146,7 +146,7 @@ Funcion: Configuración de grilla
                 id: "ID"
             },
             mtype: 'POST',
-            colNames: ['', '', '','Area', 'Partida', 'Descripcion', 'Cantidad', 'Estimado Total', 'Fecha Ejecución', 'Estado', 'Tipo', 'Editado el ', 'Editado por'],
+            colNames: ['', '', '','Area', 'Partida', 'Descripcion', 'Cantidad', 'S/. Estimado Total', 'Fecha Ejecución', 'Estado', 'Tipo', 'Editado el ', 'Editado por'],
             colModel: [
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatNuevo, sortable: false , hidden:true},
                 { name: 'btnEdita', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false },
@@ -155,7 +155,7 @@ Funcion: Configuración de grilla
                 { name: 'codPartidaNombre', index: 'codPartidaNombre', editable: true, width: 140, align: 'left' },
                 { name: 'gloDescripcion', index: 'gloDescripcion', editable: false, width: 210, align: 'left' },
                 { name: 'cntCantidad', index: 'cntCantidad', editable: false, width: 80, align: 'right' },
-                { name: 'monEstimado', index: 'monEstimado', editable: false, width: 90, align: 'right' },
+                { name: 'monEstimado', index: 'monEstimado', editable: false, width: 120, align: 'right' },
                 { name: 'fecEjecucion', index: 'fecEjecucion', editable: false, width: 100, align: 'center' },
                 { name: 'codRegEstadoNombre', index: 'codRegEstadoNombre', editable: false, width: 120, align: 'left' },
                 { name: 'indPlantillaNombre', index: 'indPlantillaNombre', editable: false, width: 100, align: 'left' },
@@ -617,7 +617,7 @@ Funcion: Configuración de grilla
                 id: "ID"
             },
             mtype: 'POST',
-            colNames: ['', '','','Area', 'Partida', 'Descripcion', 'Cantidad', 'Estimado Total', 'Fecha Ejecución'],
+            colNames: ['', '','','Area', 'Partida', 'Descripcion', 'Cantidad', '(S/.)Estimado Total', 'Fecha Ejecución'],
             colModel: [
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatNuevo, sortable: false , hidden:true},
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false, hidden: true },
@@ -626,7 +626,7 @@ Funcion: Configuración de grilla
                 { name: 'codPartidaNombre', index: 'codPartidaNombre', editable: true, width: 140, align: 'left' },
                 { name: 'gloDescripcion', index: 'gloDescripcion', editable: false, width: 210, align: 'left' },
                 { name: 'cntCantidad', index: 'cntCantidad', editable: false, width: 80, align: 'right' },
-                { name: 'monEstimado', index: 'monEstimado', editable: false, width: 90, align: 'right' },
+                { name: 'monEstimado', index: 'monEstimado', editable: false, width: 130, align: 'right' },
                 { name: 'fecEjecucion', index: 'fecEjecucion', editable: false, width: 100, align: 'center' }
             ],
             pager: 'pagerAgregaVario',
@@ -732,7 +732,7 @@ Pantalla POPUP para visualizar el presupuesto en ejecución
 
         var divID = 'divPresupuestoActual';
         var modal = true;
-        var title = 'Presupuesto actual';
+        var title = ''; //'Presupuesto actual';
         var width = 'auto';
         var height = null;
         var draggable = true;
@@ -778,7 +778,7 @@ Funcion: Configuración de grilla para el presupuesto en ejecucion
                 id: "ID"
             },
             mtype: 'POST',
-            colNames: ['', '', '', 'Area', 'Partida', 'Descripcion', 'Cantidad', 'Estimado Total', 'Fecha Ejecución', 'Estado', 'Tipo', 'Editado el ', 'Editado por'],
+            colNames: ['', '', '', 'Area', 'Partida', 'Descripcion', 'Cantidad', '(S/.) Estimado Total', 'Fecha Ejecución', 'Estado', 'Tipo', 'Editado el ', 'Editado por'],
             colModel: [
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatNuevo, sortable: false, hidden: true },
                 { name: 'btnEdita', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false, hidden: true },
@@ -787,7 +787,7 @@ Funcion: Configuración de grilla para el presupuesto en ejecucion
                 { name: 'codPartidaNombre', index: 'codPartidaNombre', editable: true, width: 140, align: 'left' },
                 { name: 'gloDescripcion', index: 'gloDescripcion', editable: false, width: 210, align: 'left' },
                 { name: 'cntCantidad', index: 'cntCantidad', editable: false, width: 80, align: 'right' },
-                { name: 'monEstimado', index: 'monEstimado', editable: false, width: 90, align: 'right' },
+                { name: 'monEstimado', index: 'monEstimado', editable: false, width: 130, align: 'right' },
                 { name: 'fecEjecucion', index: 'fecEjecucion', editable: false, width: 100, align: 'center' },
                 { name: 'codRegEstadoNombre', index: 'codRegEstadoNombre', editable: false, width: 120, align: 'left' },
                 { name: 'indPlantillaNombre', index: 'indPlantillaNombre', editable: false, width: 100, align: 'left' },

@@ -117,6 +117,7 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\ui.jqgrid.css" />
+    <Content Include="Content\images\Annulled.png" />
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\Calender.png" />
     <Content Include="Content\images\icoCalendar.gif" />
@@ -125,6 +126,7 @@
     <Content Include="Content\images\img_ajax.gif" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\New.png" />
+    <Content Include="Content\images\Ok.png" />
     <Content Include="Content\images\Pagos.png" />
     <Content Include="Content\js\app.js" />
     <Content Include="Content\js\util.js" />
@@ -134,6 +136,7 @@
     <Content Include="Content\js\ViewModel\PickingPedido.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\Informe.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\Solicitud.js" />
+    <Content Include="Content\js\ViewModel\Presupuesto\SolicitudActualizar.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\SolicitudReg.js" />
     <Content Include="Content\js\ViewModel\Producto.js" />
     <Content Include="Content\js\ViewModel\Trazabilidad.js" />
@@ -368,6 +371,7 @@
     <Content Include="Views\Presupuesto\Informe.cshtml" />
     <Content Include="Views\Trazabilidad\OrdenRetiroProducto.cshtml" />
     <Content Include="Views\Presupuesto\SolicitudReg.cshtml" />
+    <Content Include="Views\Presupuesto\SolicitudActualizar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

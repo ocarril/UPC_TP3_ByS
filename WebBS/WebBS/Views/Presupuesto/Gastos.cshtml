@@ -43,9 +43,9 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Ver gastos:</label>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
-                        <input type="checkbox" class="form-control" id="chkVerGasto" name="chkVerGasto"/>
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Ver gastos / Partidas en ejecución:</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12" style="text-align:left">
+                        <input type="checkbox" class="form-control" id="chkVerGasto" name="chkVerGasto" />
                     </div>
                 </div>
             </div>
@@ -59,9 +59,10 @@
         </div>
         
         <div class="form-group">
-            <h4 class="col-xs-12 text-center">
+            <h4 class="col-xs-12 text-left">
                 Resultados de la búsqueda
             </h4>
+            <br />
         </div>
 
         <div class="form-group" id="divLista" hidden>
@@ -84,7 +85,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotalPresupuesto">Monto total Presupuesto:</label>
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotalPresupuesto">Monto total Presupuesto: (S/.)</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <input type="text" class="form-control" id="txtmonTotalPresupuesto" name="txtmonTotalPresupuesto" placeholder="Monto total de presuppuesto" />
                     </div>
@@ -95,7 +96,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotalSolicitado">Monto total Solicitado:</label>
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotalSolicitado">Monto total Solicitado  (S/.)</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <input type="text" class="form-control" id="txtmonTotalSolicitado" name="txtmonTotalSolicitado" placeholder="Monto total de solicitado" />
                     </div>
@@ -106,7 +107,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotalGastado">Monto total Solicitado:</label>
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotalGastado">Monto total Solicitado: (S/.)</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <input type="text" class="form-control" id="txtmonTotalGastado" name="txtmonTotalGastado" placeholder="Monto total de gastado/ejeutado" />
                     </div>
@@ -122,7 +123,7 @@
         <legend></legend>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotal">Monto total:</label>
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtmonTotal">Monto total: (S/.):</label>
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <input type="hidden" id="hddcodPlantillaDeta" name="hddcodPlantillaDeta" />
                         <input type="hidden" id="hddcodGasto" name="hddcodGasto" />
@@ -152,7 +153,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtgloDescripcion">Observación:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input type="text" class="form-control" id="txtgloDescripcion" @*style="width: 200px;"*@ name="txtgloDescripcion" placeholder="Observación" />
+                    <input type="text" class="form-control" id="txtgloObservacion" name="txtgloObservacion" placeholder="Observación" />
                 </div>
             </div>
 
@@ -169,7 +170,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cbocodEmpleadoResp">Responsable:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <select id="cbocodEmpleadoResp" @*style="width: 200px;"*@ name="cbocodEmpleadoResp" class="form-control"></select>
+                    <select id="cbocodEmpleadoResp" name="cbocodEmpleadoResp" class="form-control"></select>
                 </div>
             </div>
         </div>
@@ -178,7 +179,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtsegUsuarioEdita">Usuario:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input type="text" id="txtsegUsuarioEdita" @*style="width: 120px;"*@ name="txtsegUsuarioEdita" placeholder="Actualizado por" />
+                    <input type="text" id="txtsegUsuarioEdita" name="txtsegUsuarioEdita" placeholder="Actualizado por" />
                 </div>
             </div>
         </div>
@@ -186,7 +187,7 @@
             <div class="form-group">
                 <label class="control-label col-md-4 col-sm-4 col-xs-12" for="txtsegFechaEdita">Fecha Actualización:</label>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <input type="text" id="txtsegFechaEdita" @*style="width: 120px;"*@ name="txtsegFechaEdita" class="form-control" placeholder="Ultima actualización" />
+                    <input type="text" id="txtsegFechaEdita" name="txtsegFechaEdita" class="form-control" placeholder="Ultima actualización" />
                 </div>
             </div>
         </div>

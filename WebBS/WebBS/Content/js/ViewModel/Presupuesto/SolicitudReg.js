@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     $('#btnGuardar').bind('click', function (event) {
 
-        alert('Falta IMPLEMENTAR EL GUARDADO......');
+        $.fnc_guardarSolicitudCabe();
     });
 
 
@@ -36,6 +36,8 @@ $(document).ready(function () {
     $.fnu_configuraGridTabla();
     $.f_formatoFechas("txtfecSolicitada");
     $.f_formatoFechas("txtfecLimite");
+    if (vcodSolicitud < 1)
+        $('#btnGuardar').attr('class', 'capaOcultar');
 });
 
 /**********************************************************************
@@ -312,11 +314,11 @@ Funcion: Configuración de grilla
             $('#txtgloObservacion').val(detalle.gloObservacion);
             $('#txtcntCantidad').val(detalle.cntCantidad);
             $('#txtnumSolicitud').val(detalle.numSolicitud);
-            $('#txtfecSolicitada').val(detalle.fecSolicitada);
-            $('#txtfecLimite').val(detalle.fecLimite);
+            $('#txtfecSolicitada').val($.f_formatoFechaDDMMYYYY(detalle.fecSolicitada));
+            $('#txtfecLimite').val($.f_formatoFechaDDMMYYYY(detalle.fecLimite));
             $('#txtcodRegEstado').val(detalle.codRegEstadoNombre);
             $('#txtsegUsuarioEdita').val(detalle.segUsuarioEdita);
-            $('#txtsegFechaEdita').val(detalle.segFechaEdita);
+            $('#txtsegFechaEdita').val($.f_formatoFechaDDMMYYYY(detalle.segFechaEdita));
         }
         $.f_ajaxRespuesta(paramAjax);
     }
@@ -343,10 +345,7 @@ Pantalla POPUP para agregar de forma masiva Partidas de otros años
                 $(this).dialog('close');
             },
             'Guardar': function () {
-
                 $.fnc_guardarSolicitud();
-                //$.f_reloadGrid('gridAgregaVario');
-                //$.f_reloadGrid('gridTabla');
             }
         };
         $.f_dialog_open_noButtons(divID, modal, title, width, height, draggable, resizable).dialog({ buttons: buttons })
@@ -357,6 +356,50 @@ Pantalla POPUP para agregar de forma masiva Partidas de otros años
         });
         $.f_dialogCssApply(divID);
     };
+})(jQuery);
+
+/**********************************************************************
+ Nombre: $.fnc_guardarSolicitud
+ Funcion: Función que guarda las partidas seleccionadas
+**********************************************************************/
+(function ($) {
+    $.fnc_guardarSolicitudCabe = function () {
+        'use strict'
+
+        var strValidado = '';
+        var vcodSolicitud = $('#hddcodSolicitud').val();
+        var vgloObservacion = $('#txtgloObservacion').val();
+        var vfecSolicitada = $('#txtfecSolicitada').val();
+        var vfecLimite = $('#txtfecLimite').val();
+        var vcodEmpleadoGenera = $('#cbocodEmpleadoGenera').val();
+        if (vgloObservacion == '')
+            strValidado = strValidado + 'Ingresar observación de la solicitud.<br/>';
+        if (vfecSolicitada == '')
+            strValidado = strValidado + 'Seleccionar fecha solicitud pqara la solicitud de ejecucion.<br/>';
+        if (vcodEmpleadoGenera == '')
+            strValidado = strValidado + 'Seleccionar empleado quien genera la solicitud.<br/>';
+
+        if (strValidado.length > 0) {
+            $.f_Mensaje(strValidado, false, true);
+            return;
+        }
+
+        var pobjSolicitud = {};
+        pobjSolicitud["Codigo"] = vcodSolicitud;
+        pobjSolicitud["gloObservacion"] = vgloObservacion;
+        pobjSolicitud["fecSolicitada"] = vfecSolicitada;
+        pobjSolicitud["fecLimite"] = vfecLimite;
+        pobjSolicitud["codEmpleadoGenera"] = vcodEmpleadoGenera;
+        pobjSolicitud["indTipo"] = "J";
+        pobjSolicitud["codRegEstado"] = 1;
+
+        var parametro = {};
+        parametro['url'] = '/Presupuesto/GuardarSolicitud';
+        parametro['data'] = JSON.stringify(pobjSolicitud);
+        parametro['ajaxMessage'] = 'Guardando solicitud de ejecución...';
+        parametro['success'] = $.fnc_guardarSolicitudSuccess; /*Función callback*/
+        $.f_ajaxRespuesta(parametro);
+    }
 })(jQuery);
 
 /**********************************************************************
@@ -390,23 +433,62 @@ Pantalla POPUP para agregar de forma masiva Partidas de otros años
             $.f_Mensaje(strValidado, false, true);
             return;
         }
+        
+        if (vcodSolicitud > 0) {
+            var parametro = {};
+            parametro['url'] = '/Presupuesto/GuardarSolicitudDeta';
+            parametro['data'] = JSON.stringify(lstSolicitudDetaIDs);
+            parametro['ajaxMessage'] = 'Guardando detalles de solicitud de ejecución...';
+            parametro['success'] = $.fnc_guardarSolicitudDetaSuccess; /*Función callback*/
+            $.f_ajaxRespuesta(parametro);
+        }
+        else {
+            var pobjSolicitud = {};
+            pobjSolicitud["Codigo"] = vcodSolicitud;
+            pobjSolicitud["gloObservacion"] = vgloObservacion;
+            pobjSolicitud["fecSolicitada"] = vfecSolicitada;
+            pobjSolicitud["fecLimite"] = vfecLimite;
+            pobjSolicitud["codEmpleadoGenera"] = vcodEmpleadoGenera;
+            pobjSolicitud["indTipo"] = "J";
+            pobjSolicitud["codRegEstado"] = 1;
+            pobjSolicitud["lstSolicitudDeta"] = lstSolicitudDetaIDs;
 
-        var pobjSolicitud = {};
-        pobjSolicitud["Codigo"] = vcodSolicitud;
-        pobjSolicitud["gloObservacion"] = vgloObservacion;
-        pobjSolicitud["fecSolicitada"] = vfecSolicitada;
-        pobjSolicitud["fecLimite"] = vfecLimite;
-        pobjSolicitud["codEmpleadoGenera"] = vcodEmpleadoGenera;
-        pobjSolicitud["indTipo"] = "J";
-        pobjSolicitud["codRegEstado"] = 1;
-        pobjSolicitud["lstSolicitudDeta"] = lstSolicitudDetaIDs;
+            var parametro = {};
+            parametro['url'] = '/Presupuesto/GuardarSolicitud';
+            parametro['data'] = JSON.stringify(pobjSolicitud);
+            parametro['ajaxMessage'] = 'Guardando solicitud de ejecución...';
+            parametro['success'] = $.fnc_guardarSolicitudSuccess; /*Función callback*/
+            $.f_ajaxRespuesta(parametro);
+        }
+    }
+})(jQuery);
 
-        var parametro = {};
-        parametro['url'] = '/Presupuesto/GuardarSolicitud';
-        parametro['data'] = JSON.stringify(pobjSolicitud);
-        parametro['ajaxMessage'] = 'Guardando solicitud de ejecución...';
-        parametro['success'] = $.fnc_guardarSolicitudSuccess; /*Función callback*/
-        $.f_ajaxRespuesta(parametro);
+/**********************************************************************
+Nombre: $.fnc_guardarSolicitudDetaSuccess
+Funcion: Invocada por el controlador de evento click del botón Guardar
+**********************************************************************/
+(function ($) {
+    $.fnc_guardarSolicitudDetaSuccess = function (response, status) {
+        'use strict'
+
+        if (status == 'success') {
+            var tipo = response.Type;
+            var mensaje = response.Data;
+            if (tipo == "E")
+                $.f_Mensaje(mensaje, false, true, 1);
+            else if (tipo == "I")
+                $.f_Mensaje(mensaje, false, true);
+            else if (tipo == "C") {
+                $.f_Mensaje(mensaje, true, true, 3);
+                $.f_reloadGrid('gridTabla');
+                $.f_reloadGrid('gridAgregaVario');
+                var vcodSolicitud = $('#hddcodSolicitud').val();
+                var url = '/Presupuesto/SolicitudReg?pID=' + vcodSolicitud;
+                window.location.href = url;
+            }
+        }
+        else
+            $.f_Mensaje(status, false, true);
     }
 })(jQuery);
 
@@ -549,7 +631,7 @@ Funcion: Formatea columna de eliminación de la grilla de Detalle de Solicitud
 
 
 /*******************************************************
-Pantalla POPUP para editar registro de Tabla
+Pantalla POPUP para editar registro de Detalle de solicitud
 ********************************************************/
 (function ($) {
     $.fnu_showDialogEditTabla = function (pID) {

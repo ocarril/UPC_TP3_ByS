@@ -96,7 +96,12 @@
                                 </li>
                                 <li>
                                     <a href="~/Presupuesto/Gastos">
-                                        <i class="glyphicon glyphicon-plus"></i> <span>Ejecucion - Gastos realizados</span>
+                                        <i class="glyphicon glyphicon-plus"></i> <span>Ejecución - Gastos realizados</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/Presupuesto/Solicitud">
+                                        <i class="glyphicon glyphicon-plus"></i> <span>Ejecución - Solicitar Ejecución</span>
                                     </a>
                                 </li>
                             </ul>
@@ -114,15 +119,25 @@
                                         <i class="glyphicon glyphicon-plus"></i> <span>Consulta de Trazabilidad</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="~/Trazabilidad/OrdenRetiroProducto">
+                                        <i class="glyphicon glyphicon-plus"></i> <span>Orden de retiro de producto</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/Presupuesto/Informe">
+                                        <i class="glyphicon glyphicon-plus"></i> <span>Presupuesto - Generar Informe de seguimiento</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>                        
                     </ul>
-                    <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+                    @*<ul class="list-unstyled hidden-xs" id="sidebar-footer">
                         <li>
                             <a href="#"><h3>Boticas y Salud</h3></a> 
                             <span>Dedicados a cuidate</span>
                         </li>
-                    </ul>
+                    </ul>*@
                     <!-- tiny only nav-->
                     <ul class="nav visible-xs" id="xs-menu">
                         <li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
@@ -144,7 +159,7 @@
                             </button>
                             @*<a href="/" class="navbar-brand logo">b</a>*@
                             <a href="~/Picking/SeleccionarPedido" class="navbar-brand logo">
-                                <img src="~/Content/images/logo.png" class="img-responsive" />
+                                <img src="~/Content/images/logo-aaaaaaa.png" class="img-responsive" />
                             </a>
                         </div>
                         <nav class="collapse navbar-collapse" role="navigation">
@@ -200,7 +215,7 @@
                             </div>*@
                             <hr>
                             <h4 class="text-center">
-                                <a href="#" target="ext">Sistema Integrado de Farmacia</a>
+                                <a href="#" target="ext">Sistema Integrado</a>
                             </h4>
                             <hr>
                         </div><!-- /col-9 -->

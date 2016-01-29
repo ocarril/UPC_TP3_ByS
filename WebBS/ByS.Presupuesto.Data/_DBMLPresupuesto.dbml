@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_ByS" Class="_DBMLPresupuestoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=MUAKS-PC\CROMSYSTEM;Initial Catalog=BD_ByS;User ID=SA" SettingsObjectName="ByS.Presupuesto.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString2" Provider="System.Data.SqlClient" />
-  <Function Name="Presupuesto.pa_D_PlantillaDeta" Method="pa_D_PlantillaDeta">
-    <Parameter Name="p_codPlantillaDeta" Type="System.Int32" DbType="Int" />
-    <Parameter Name="p_segUsuarioEdita" Type="System.String" DbType="VarChar(25)" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MUAKS-PC\CROMSYSTEM;Initial Catalog=BD_ByS;User ID=SA" SettingsObjectName="ByS.Presupuesto.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString3" Provider="System.Data.SqlClient" />
+  <Function Name="Presupuesto.pa_D_Gasto" Method="pa_D_Gasto">
+    <Parameter Name="p_codGasto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_segUsuarioElimina" Type="System.String" DbType="VarChar(25)" />
     <Parameter Name="p_segMaquinaOrigen" Type="System.String" DbType="VarChar(25)" />
     <Return Type="System.Int32" />
   </Function>
@@ -12,6 +12,12 @@
     <Parameter Name="p_codPlantillaDeta" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_cntCantidad" Type="System.Decimal" DbType="Decimal(10,2)" />
     <Parameter Name="p_gloDescripcion" Type="System.String" DbType="VarChar(120)" />
+    <Parameter Name="p_segUsuarioEdita" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="p_segMaquinaOrigen" Type="System.String" DbType="VarChar(25)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Presupuesto.pa_D_PlantillaDeta" Method="pa_D_PlantillaDeta">
+    <Parameter Name="p_codPlantillaDeta" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_segUsuarioEdita" Type="System.String" DbType="VarChar(25)" />
     <Parameter Name="p_segMaquinaOrigen" Type="System.String" DbType="VarChar(25)" />
     <Return Type="System.Int32" />
@@ -88,6 +94,8 @@
   <Function Name="Presupuesto.pa_S_Gasto" Method="pa_S_Gasto">
     <Parameter Name="p_codGasto" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_codPlantillaDeta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_codArea" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_anio" Type="System.Int32" DbType="Int" />
     <ElementType Name="pa_S_GastoResult">
       <Column Name="codGasto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="codPlantillaDeta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -103,6 +111,10 @@
       <Column Name="segFechaCrea" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="segFechaEdita" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="segMaquinaOrigen" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="codArea" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="codAreaNombre" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="codPresupuesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="codPresupuestoNombre" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="Presupuesto.pa_S_GastoPagina" Method="pa_S_GastoPagina">
@@ -112,6 +124,8 @@
     <Parameter Name="p_OrdenTipo" Type="System.String" DbType="VarChar(4)" />
     <Parameter Name="p_codGasto" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_codPlantillaDeta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_codArea" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_anio" Type="System.Int32" DbType="Int" />
     <ElementType Name="pa_S_GastoPaginaResult">
       <Column Name="codGasto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="codPlantillaDeta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -127,6 +141,10 @@
       <Column Name="segFechaCrea" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="segFechaEdita" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="segMaquinaOrigen" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="codArea" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="codAreaNombre" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="codPresupuesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="codPresupuestoNombre" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="TOTALROWS" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ROWNUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
@@ -297,6 +315,8 @@
     <Parameter Name="p_fecSolicitadaFin" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="p_codRegEstado" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_codPresupuesto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_codArea" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_indTipo" Type="System.String" DbType="VarChar(1)" />
     <ElementType Name="pa_S_SolicitudResult">
       <Column Name="codSolicitud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="numSolicitud" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
@@ -397,6 +417,7 @@
     <Parameter Name="p_codRegEstado" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_codPresupuesto" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_codArea" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_indTipo" Type="System.String" DbType="VarChar(1)" />
     <ElementType Name="pa_S_SolicitudPaginaResult">
       <Column Name="codSolicitud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="numSolicitud" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
@@ -470,12 +491,6 @@
     <Parameter Name="p_codPresupuesto" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_codRegEstado" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_segUsuarioEdita" Type="System.String" DbType="VarChar(25)" />
-    <Parameter Name="p_segMaquinaOrigen" Type="System.String" DbType="VarChar(25)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="Presupuesto.pa_D_Gasto" Method="pa_D_Gasto">
-    <Parameter Name="p_codGasto" Type="System.Int32" DbType="Int" />
-    <Parameter Name="p_segUsuarioElimina" Type="System.String" DbType="VarChar(25)" />
     <Parameter Name="p_segMaquinaOrigen" Type="System.String" DbType="VarChar(25)" />
     <Return Type="System.Int32" />
   </Function>

@@ -21,6 +21,8 @@ namespace WebBS.Controllers
         private GastoLogic objGastoLogic = null;
         private SolicitudLogic objSolicitudLogic = null;
         private PresupuestoLogic objPresupuestoLogic = null;
+        private InformeLogic objInformeLogic = null;
+
         private ReturnValor returnValor = null;
 
         private static readonly ILog log = LogManager.GetLogger(typeof(PresupuestoController));
@@ -515,6 +517,8 @@ namespace WebBS.Controllers
             {
                 objGastoLogic = new GastoLogic();
                 var registro = objGastoLogic.BuscarGasto(pID);
+                if (registro == null)
+                    registro = InicializarGasto(registro);
                 empleados = ListarEmpleados();
 
                 tipoDevol = "C";
@@ -593,6 +597,8 @@ namespace WebBS.Controllers
                     p_OrdenPor = parametro.p_OrdenPor,
                     p_OrdenTipo = parametro.p_OrdenTipo,
 
+                    numAnio = parametro.numAnio,
+                    codArea=parametro.codArea,
                     codPlantillaDeta = parametro.codPlantillaDeta
                 });
                 long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
@@ -610,11 +616,13 @@ namespace WebBS.Controllers
                             ID = item.Codigo,
                             Row = new string[] {"",""
                                               , item.numDocumento
-                                              , item.fecGasto.ToLongTimeString()
+                                              , item.fecGasto.ToShortDateString()
                                               , item.cntCantidad.ToString("N2")
                                               , item.monTotal.ToString("N2")
                                               , item.objEmpleadoResp.desNombre
                                               , item.gloObservacion
+                                              , item.objEmpleadoResp.objArea.desNombre 
+                                              , item.objPlantillaDeta.objPlantilla.objPresupuesto.desNombre
                                               , item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString()
                                               , string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioEdita : item.segUsuarioCrea
                             }
@@ -622,6 +630,7 @@ namespace WebBS.Controllers
                 };
 
                 DataDevol = jsonGrid;
+                tipoDevol = "C";
             }
             catch (Exception ex)
             {
@@ -719,7 +728,7 @@ namespace WebBS.Controllers
                 ViewBag.codEmpleado = objEmpleadoEntity.Codigo;
                 ViewBag.nomEmpleado = objEmpleadoEntity.desApellido + ", " + objEmpleadoEntity.desNombre;
                 ViewBag.codArea = objEmpleadoEntity.codArea;
-                ViewBag.cboAreas = ListarAreasPresupuestales(false, true, objEmpleadoEntity.codArea);
+                ViewBag.cboAreas = ListarAreasPresupuestales(true, false, objEmpleadoEntity.codArea);
                 ViewBag.numAnio = (DateTime.Now.Year);
             }
             catch (Exception ex)
@@ -746,6 +755,26 @@ namespace WebBS.Controllers
             catch (Exception ex)
             {
                 log.Error(String.Concat("SolicitudReg", " | ", ex.Message));
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View();
+        }
+
+        public ActionResult SolicitudActualizar()
+        {
+            try
+            {
+                objEmpleadoLogic = new EmpleadoLogic();
+                EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
+                ViewBag.codEmpleado = objEmpleadoEntity.Codigo;
+                ViewBag.nomEmpleado = objEmpleadoEntity.desApellido + ", " + objEmpleadoEntity.desNombre;
+                ViewBag.codArea = objEmpleadoEntity.codArea;
+                ViewBag.cboAreas = ListarAreasPresupuestales();
+                ViewBag.numAnio = (DateTime.Now.Year);
+            }
+            catch (Exception ex)
+            {
+                log.Error(String.Concat("SolicitudActualizar", " | ", ex.Message));
                 ModelState.AddModelError("", ex.Message);
             }
             return View();
@@ -807,6 +836,9 @@ namespace WebBS.Controllers
             try
             {
                 objSolicitudLogic = new SolicitudLogic();
+                objPresupuestoLogic = new PresupuestoLogic();
+                PresupuestoEntity objPresupuesto = objPresupuestoLogic.BuscarPresupuesto(DateTime.Now.Year);
+                pSolicitud.codPresupuesto = objPresupuesto.Codigo;
                 pSolicitud.segUsuarioEdita = HttpContext.User.Identity.Name;
                 pSolicitud.segUsuarioCrea = HttpContext.User.Identity.Name;
                 pSolicitud.segMaquinaOrigen = GetIPAddress();
@@ -858,7 +890,8 @@ namespace WebBS.Controllers
                     codRegEstado = parametro.codRegEstado,
                     numSolicitud = parametro.numSolicitud,
                     fecInicio = parametro.fecInicio,
-                    fecFinal = parametro.fecFinal
+                    fecFinal = parametro.fecFinal,
+                    indTipo = parametro.indTipo
                 });
                 long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
                 int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
@@ -1082,7 +1115,7 @@ namespace WebBS.Controllers
         }
 
         [HttpPost]
-        public ActionResult GuardarSolicitudDeta(SolicitudDetaEntity pSolicitudDeta)
+        public ActionResult GuardarSolicitudDeta(List<SolicitudDetaEntity> plstSolicitudDeta)
         {
             string tipoDevol = null;
             object DataDevol = null;
@@ -1090,14 +1123,17 @@ namespace WebBS.Controllers
             try
             {
                 objSolicitudLogic = new SolicitudLogic();
-                pSolicitudDeta.segUsuarioEdita = HttpContext.User.Identity.Name;
-                pSolicitudDeta.segUsuarioCrea = HttpContext.User.Identity.Name;
-                pSolicitudDeta.segMaquinaOrigen = GetIPAddress();
-                if (pSolicitudDeta.Codigo != 0)
-                    returnValor = objSolicitudLogic.ActualizarSolicitudDeta(pSolicitudDeta);
-                else
-                    returnValor = objSolicitudLogic.RegistrarSolicitudDeta(pSolicitudDeta);
-
+                foreach (SolicitudDetaEntity objSolicitudDeta in plstSolicitudDeta)
+                {
+                    objSolicitudDeta.segUsuarioEdita = HttpContext.User.Identity.Name;
+                    objSolicitudDeta.segUsuarioCrea = HttpContext.User.Identity.Name;
+                    objSolicitudDeta.segMaquinaOrigen = GetIPAddress();
+                    if (objSolicitudDeta.Codigo != 0)
+                        returnValor = objSolicitudLogic.ActualizarSolicitudDeta(objSolicitudDeta);
+                    else
+                        returnValor = objSolicitudLogic.RegistrarSolicitudDeta(objSolicitudDeta);
+                }
+                 
                 DataDevol = returnValor.Message;
                 tipoDevol = returnValor.Exitosa ? "C" : "I";
 
@@ -1123,6 +1159,7 @@ namespace WebBS.Controllers
         private SolicitudEntity InicializarSolicitud(SolicitudEntity registro)
         {
             registro = new SolicitudEntity();
+            registro.fecSolicitada = DateTime.Now;
             registro.segUsuarioEdita = User.Identity.Name;
             registro.segFechaEdita = DateTime.Now;
             registro.indTipo = "E";
@@ -1137,7 +1174,15 @@ namespace WebBS.Controllers
             registro.codRegEstadoNombre = "E";
             return registro;
         }
-      
+
+        private GastoEntity InicializarGasto(GastoEntity registro)
+        {
+            registro = new GastoEntity();
+            registro.segUsuarioEdita = User.Identity.Name;
+            registro.segFechaEdita = DateTime.Now;
+            return registro;
+        }
+
         #endregion
 
 		#region Generar informe
@@ -1151,9 +1196,9 @@ namespace WebBS.Controllers
                 ViewBag.codArea = objEmpleadoEntity != null ? objEmpleadoEntity.codArea.ToString() : "0";
                 ViewBag.numAnio = (DateTime.Now.Year) ;
 
-                //ViewBag.cboMesIni = ListarMeses();
-                //ViewBag.cboEstado = ListarEstados();
-                //ViewBag.cboMesFin = ListarMeses();
+                ViewBag.cboMesIni = ListarMeses();
+                ViewBag.cboEstado = ListarEstados();
+                ViewBag.cboMesFin = ListarMeses();
                 ViewBag.cboAreas = ListarAreasPresupuestales();
                 //ViewBag.fechaActual = DateTime.Now.ToShortDateString();
             }
