@@ -1194,13 +1194,12 @@ namespace WebBS.Controllers
                 objEmpleadoLogic = new EmpleadoLogic();
                 EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
                 ViewBag.codArea = objEmpleadoEntity != null ? objEmpleadoEntity.codArea.ToString() : "0";
-                ViewBag.numAnio = (DateTime.Now.Year) ;
+                ViewBag.numAnio = (DateTime.Now.Year);
 
                 ViewBag.cboMesIni = ListarMeses();
                 ViewBag.cboEstado = ListarEstados();
                 ViewBag.cboMesFin = ListarMeses();
-                ViewBag.cboAreas = ListarAreasPresupuestales();
-                //ViewBag.fechaActual = DateTime.Now.ToShortDateString();
+                ViewBag.cboAreas = ListarAreasPresupuestales(); 
             }
             catch (Exception ex)
             {
@@ -1210,8 +1209,144 @@ namespace WebBS.Controllers
             return View();
         }
 
-       
+        [HttpPost]
+        public ActionResult ListarSeguimientoPresupuesto(Parametro parametro)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
 
+            object jsonResponse;
+            try
+            {
+                objInformeLogic = new InformeLogic();
+                var lista = objInformeLogic.ListarSeguimientoPresupuesto(new Parametro
+                {
+                    p_NumPagina = parametro.p_NumPagina,
+                    p_TamPagina = parametro.p_TamPagina,
+                    p_OrdenPor = parametro.p_OrdenPor,
+                    p_OrdenTipo = parametro.p_OrdenTipo,
+
+                    numAnio = parametro.numAnio,
+                    codArea = parametro.codArea,
+                    codRegEstado = parametro.codRegEstado,
+                    mesIni=parametro.mesIni,
+                    mesFin=parametro.mesFin
+                });
+                long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
+                int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
+
+                var jsonGrid = new
+                {
+                    PageCount = totalPages,
+                    CurrentPage = parametro.p_NumPagina,
+                    RecordCount = totalRecords,
+                    Items = (
+                        from item in lista
+                        select new
+                        {
+                            ID = item.Codigo,
+                            Row = new string[] {item.objPlantilla.objArea.desNombre
+                                              , item.objPartida.desNombre
+                                              , item.gloDescripcion
+                                              , item.cntCantidad.ToString("N2")
+                                              , item.monEstimado.ToString("N2")
+                                              , item.fecEjecucion.HasValue ? item.fecEjecucion.Value.ToShortDateString() : string.Empty
+                                              , item.codRegEstadoNombre
+                                              , item.indPlantilla
+                                              , item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString()
+                                              , item.segUsuarioEdita=string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioCrea : item.segUsuarioEdita
+                            }
+                        }).ToArray()
+                };
+
+                tipoDevol = "C";
+                DataDevol = jsonGrid;
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("ListarSeguimientoPresupuesto", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse);
+        }
+
+        [HttpPost]
+        public ActionResult ListarSeguimientoPresupuestoDetalle(Parametro parametro)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+
+            object jsonResponse;
+            try
+            {
+                objInformeLogic = new InformeLogic();
+                var lista = objInformeLogic.ListarDetallePaginado(new Parametro
+                {
+                    p_NumPagina = parametro.p_NumPagina,
+                    p_TamPagina = parametro.p_TamPagina,
+                    p_OrdenPor = parametro.p_OrdenPor,
+                    p_OrdenTipo = parametro.p_OrdenTipo,
+
+                    numAnio = parametro.numAnio,
+                    codArea = parametro.codArea,
+                    codPlantillaDeta = parametro.codPlantillaDeta
+                });
+                long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
+                int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
+
+                var jsonGrid = new
+                {
+                    PageCount = totalPages,
+                    CurrentPage = parametro.p_NumPagina,
+                    RecordCount = totalRecords,
+                    Items = (
+                        from item in lista
+                        select new
+                        {
+                            ID = item.Codigo,
+                            Row = new string[] {"",""
+                                              , item.numDocumento
+                                              , item.fecGasto.ToShortDateString()
+                                              , item.cntCantidad.ToString("N2")
+                                              , item.monTotal.ToString()
+                                              , item.objEmpleadoResp.desNombre
+                                              , item.gloObservacion
+                                              , item.objEmpleadoResp.objArea.desNombre 
+                                              , item.objPlantillaDeta.objPlantilla.objPresupuesto.desNombre
+                                              , item.segFechaEdita.HasValue ? item.segFechaEdita.Value.ToString() : item.segFechaCrea.ToString()
+                                              , string.IsNullOrEmpty(item.segUsuarioEdita) ? item.segUsuarioEdita : item.segUsuarioCrea
+                            }
+                        }).ToArray()
+                };
+
+                DataDevol = jsonGrid;
+                tipoDevol = "C";
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("ListarGasto", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse);
+        }
         
        
 

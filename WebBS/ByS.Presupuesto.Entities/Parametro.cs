@@ -33,5 +33,8 @@ namespace ByS.Presupuesto.Entities
 
         public string segUsuElimina { get; set; }
         public string segMaquinaPC { get; set; }
+
+        public int mesIni { get; set; }
+        public int mesFin { get; set; }
     }
 }

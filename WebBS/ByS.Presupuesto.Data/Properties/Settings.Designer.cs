@@ -63,5 +63,15 @@ namespace ByS.Presupuesto.Data.Properties {
                 return ((string)(this["BD_BySConnectionString3"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WALTER-PC\\AAAAAAAA;Initial Catalog=BD_ByS;Integrated Security=True")]
+        public string BD_BySConnectionString4 {
+            get {
+                return ((string)(this["BD_BySConnectionString4"]));
+            }
+        }
     }
 }

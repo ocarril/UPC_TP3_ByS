@@ -135,6 +135,8 @@
     <Content Include="Content\js\ViewModel\Picking.js" />
     <Content Include="Content\js\ViewModel\PickingPedido.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\Informe.js" />
+    <Content Include="Content\js\ViewModel\Presupuesto\jqgridExcelExportClientSide-libs.js" />
+    <Content Include="Content\js\ViewModel\Presupuesto\jqgridExcelExportClientSide.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\Solicitud.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\SolicitudActualizar.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\SolicitudReg.js" />

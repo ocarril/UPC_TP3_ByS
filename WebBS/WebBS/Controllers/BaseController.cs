@@ -102,8 +102,11 @@ namespace WebBS.Controllers
 
             List<SelectListItem> lstEstados = new List<SelectListItem>();
             lstEstados.Insert(0, new SelectListItem() { Text = "--Todos--", Value = "0" });
-            lstEstados.Insert(1, new SelectListItem() { Text = "Pendiente", Value = "1" });
-            lstEstados.Insert(2, new SelectListItem() { Text = "Cerrado", Value = "2" });
+            lstEstados.Insert(1, new SelectListItem() { Text = "PENDIENTE", Value = "1" });
+            lstEstados.Insert(2, new SelectListItem() { Text = "APROBADO", Value = "2" });
+            lstEstados.Insert(3, new SelectListItem() { Text = "DESAPROBADO", Value = "3" });
+            lstEstados.Insert(4, new SelectListItem() { Text = "EN EJECUCION", Value = "4" });
+            lstEstados.Insert(5, new SelectListItem() { Text = "EJECUTADO", Value = "5" });
             SelectList lstParaCombos = new SelectList(lstEstados, "Value", "Text");
 
             return lstParaCombos;

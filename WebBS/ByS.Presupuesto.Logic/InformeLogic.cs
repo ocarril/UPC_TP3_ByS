@@ -19,10 +19,8 @@ namespace ByS.Presupuesto.Logic
 	/// </summary>
     public class InformeLogic
     {
-        private PlantillaData oPlantillaData = null;
-        private PlantillaDetaData oPlantillaDetaData = null;
-        private PartidaData objPartidaData = null;
-        private PresupuestoData objPresupuestoData = null;
+
+         private InformeData objInformeData = null;
         private ReturnValor oReturnValor = null;
 
         public InformeLogic()
@@ -30,21 +28,39 @@ namespace ByS.Presupuesto.Logic
             oReturnValor = new ReturnValor();
         }
         #region /* Proceso de SELECT ALL */
-        public List<PlantillaDetaEntityDTO> ListarPlantillaDetalle(Parametro pLista)
+
+
+
+        public List<InformeEntity> ListarSeguimientoPresupuesto(Parametro pLista)
         {
-            List<PlantillaDetaEntityDTO> lstPlantillaDetaEntityDTO = new List<PlantillaDetaEntityDTO>();
+            List<InformeEntity> lstPlantillaDetaEntity = new List<InformeEntity>();
             try
             {
-                oPlantillaDetaData = new PlantillaDetaData();
-                //lstPlantillaDetaEntityDTO = oPlantillaDetaData.Listar(pLista);
+                objInformeData = new InformeData();
+                lstPlantillaDetaEntity = objInformeData.ListarPaginado(pLista);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return lstPlantillaDetaEntityDTO;
+            return lstPlantillaDetaEntity;
         }
 
+
+        public List<GastoEntity> ListarDetallePaginado(Parametro pLista)
+        {
+            List<GastoEntity> lstGastoEntity = new List<GastoEntity>();
+            try
+            {
+                objInformeData = new InformeData();
+                lstGastoEntity = objInformeData.ListarDetalladoPaginado(pLista);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lstGastoEntity;
+        }
         #endregion
     }
 } 
