@@ -4457,3 +4457,108 @@ REFERENCES [Inventario].[NotaSalida] ([NumeroSalida])
 GO
 ALTER TABLE [Inventario].[DetalleNotaSalida] CHECK CONSTRAINT [FK_DetalleNotaSalida_NotaSalida]
 GO
+
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Presupuesto].[pa_S_InformeSeguimiento]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [Presupuesto].[pa_S_InformeSeguimiento]
+GO
+
+USE [BD_ByS]
+GO
+
+/****** Object:  StoredProcedure [Presupuesto].[pa_S_InformeSeguimiento]    Script Date: 01/31/2016 13:02:57 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [Presupuesto].[pa_S_InformeSeguimiento] 
+(
+	 @p_NumPagina			int
+	,@p_TamPagina			int
+	,@p_OrdenPor			varchar(30)=null
+	,@p_OrdenTipo			varchar(4)=null
+	,@p_anio       			INT=null
+	,@p_codArea        		INT=null
+	,@p_codRegEstado		INT=null
+	,@p_mesini		INT=null
+	,@p_mesfin		INT=null
+)
+AS
+BEGIN
+SET NOCOUNT ON
+	SELECT
+	*
+	
+	FROM
+	(	
+	select
+	 pd.codPlantillaDeta
+	,pd.codPlantilla
+	,pd.codEmpleadoAprueba
+	,ema.desNombre +', '+ema.desApellido [codEmpleadoResponNombre]
+	,pd.gloDescripcion
+	,pd.monEstimado
+	,pd.cntCantidad
+	,pd.codRegEstado
+	,CASE WHEN pd.codRegEstado = 1 THEN 'PENDIENxAPROB'
+		  WHEN pd.codRegEstado = 2 THEN 'APROBADO'
+		  WHEN pd.codRegEstado = 3 THEN 'DESAPROBADO'
+		  WHEN pd.codRegEstado = 4 THEN 'EN EJECUCION'
+		  WHEN pd.codRegEstado = 5 THEN 'EJECUTADO'
+	 END codRegEstadoNombre
+	,pd.fecEjecucion
+	,pd.codEmpleadoRespon
+	,emr.desNombre +', '+emr.desApellido [codEmpleadoResponRespon]
+	,pd.indPlantilla
+	,CASE WHEN pd.indPlantilla = 'N' THEN 'NORMAL'
+		  ELSE 'ADICIONAL'
+	 END [indPlantillaTipo]
+	,pd.codPartida
+	,pd.numPartida
+	,pd.segUsuarioCrea
+	,pd.segUsuarioEdita
+	,pd.segFechaCrea
+	,pd.segFechaEdita
+	,pd.segMaquinaOrigen
+	,par.desNombre codPartidaNombre
+	,par.codNumero
+	,pl.codArea
+	,are.desNombre codAreaNombre
+	,COUNT(*) OVER() AS [TOTALROWS]
+	    ,ROW_NUMBER() OVER (ORDER BY CASE WHEN @p_OrdenPor = 'numPartida'  and @p_OrdenTipo = 'ASC' 
+										   THEN pd.[numPartida]
+									 END ASC,
+									 CASE WHEN @p_OrdenPor = 'numPartida'  and @p_OrdenTipo = 'DESC' 
+										   THEN pd.[numPartida]
+									 END DESC,	  	   
+									 CASE WHEN @p_OrdenPor = 'monEstimado'  and @p_OrdenTipo = 'ASC'  THEN
+										pd.[monEstimado]  
+									 END ASC,
+									 CASE WHEN @p_OrdenPor = 'monEstimado'  and @p_OrdenTipo = 'DESC'  THEN
+										pd.[monEstimado]  
+									 END DESC  
+									 ) AS [ROWNUM]	
+	from	Presupuesto.PlantillaDeta pd
+	inner join Presupuesto.Plantilla pl on pl.codPlantilla = pd.codPlantilla
+	inner join Presupuesto.Presupuesto pr on pl.codPresupuesto = pr.codPresupuesto 
+	inner join RecursosHumanos.Area are on pl.codArea = are.codArea
+	left join RecursosHumanos.Empleado ema on pd.codEmpleadoAprueba = ema.codEmpleado
+	left join RecursosHumanos.Empleado emr on pd.codEmpleadoRespon = emr.codEmpleado
+	inner join Presupuesto.Partida par on pd.codPartida = par.codPartida
+	WHERE
+	ISNULL(pr.numAnio,'')	=	(CASE WHEN ISNULL(@p_anio,'')	<>''	THEN  ISNULL(@p_anio,'')   	ELSE ISNULL(pr.numAnio,'')	END) AND
+	ISNULL(pl.codArea,'')	=	(CASE WHEN ISNULL(@p_codArea,'')<>''	THEN  ISNULL(@p_codArea,'') ELSE ISNULL(pl.codArea,'')	END) AND
+	ISNULL(pd.codRegEstado,'')=	(CASE WHEN ISNULL(@p_codRegEstado,'')<>''THEN  ISNULL(@p_codRegEstado,'') ELSE ISNULL(pd.codRegEstado,'')	END) AND
+	MONTH(pd.fecEjecucion)  between @p_mesini and @p_mesfin and 
+	pd.indEliminado = 0
+)
+	AS Tabla
+	WHERE ROWNUM BETWEEN (@p_NumPagina*@p_TamPagina) - @p_TamPagina + 1 
+					 AND (@p_NumPagina*@p_TamPagina)
+					 
+	SET NOCOUNT OFF
+END
+
+GO
