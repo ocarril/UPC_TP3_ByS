@@ -25,6 +25,8 @@ namespace WebBS.Controllers
         private ProductoLogic objProductoLogic = null;
         private Parametro filtro = null;
         private FichaTecnicaProductoFarmaciaLogic fichaTecnicaProductoFarmacia = null;
+        private OrdenRetiroLogic objOrdenRetiroLogic = null;
+
         public TrazabilidadController()
         {
 
@@ -43,6 +45,13 @@ namespace WebBS.Controllers
 
         public ActionResult OrdenRetiroProducto() {
             return View();
+        }
+
+        public JsonResult GuardarOrdenRetiro(OrdenRetiroEntity parametro)
+        {
+            objOrdenRetiroLogic = new OrdenRetiroLogic();
+            bool retorno = objOrdenRetiroLogic.RetirarProducto(parametro);
+            return Json(new { Valor = retorno }, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult FichaTecnicaFarmacia(string producto)
