@@ -3,7 +3,7 @@
     ViewBag.Title = "Orden de Retiro de Producto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="~/Scripts/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 <div class="panel panel-info">
     <h4 class="panel-heading">Orden de Retiro de Producto</h4>
     <div class="panel-body">
@@ -14,9 +14,9 @@
                         <label class="control-label col-md-4 col-sm-4 col-xs-12">Buscar Código Producto:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
                             <div class="input-group input-group-sm">
-                                <input type="text" class="form-control" data-bind="" />
+                                <input type="text" class="form-control" data-bind="value: ProductoBusqueda" />
                                 <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default">
+                                    <button type="button" class="btn btn-default" data-bind="click: BuscarProducto">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>
@@ -31,7 +31,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-2 col-sm-4 col-xs-12">Nombre:</label>
                         <div class="col-md-10 col-sm-8 col-xs-12">
-                            <div class="form-control" data-bind=""></div>
+                            <div class="form-control" data-bind="text: producto.nombreProducto"></div>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-2 col-sm-4 col-xs-12">Descripción:</label>
                         <div class="col-md-10 col-sm-8 col-xs-12">
-                            <div class="form-control" data-bind=""></div>
+                            <div class="form-control" data-bind="text: producto.descripcion"></div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-2 col-sm-4 col-xs-12">Presentación:</label>
                         <div class="col-md-10 col-sm-8 col-xs-12">
-                            <div class="form-control" data-bind=""></div>
+                            <div class="form-control" data-bind="text: producto.presentacion"></div>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo de producto:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="form-control" data-bind=""></div>
+                            <div class="form-control" data-bind="text: producto.tipoProducto"></div>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-4 col-sm-4 col-xs-12">Peso del producto:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="form-control" data-bind=""></div>
+                            <div class="form-control" data-bind="text: producto.pesoProducto"></div>
                         </div>
                     </div>
                 </div>
@@ -80,11 +80,9 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="input-group">
+                            <div class="input-group" data-bind="dateTimePicker: orden.fecha, dateTimePickerOptions: { format: 'L', showClear: true }">
                                 <input type="text" class="form-control" />
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                             </div>                            
                         </div>
                     </div>
@@ -95,7 +93,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-2 col-sm-4 col-xs-12">Autorizado:</label>
                         <div class="col-md-10 col-sm-8 col-xs-12">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" data-bind="value: orden.autorizado" />
                         </div>
                     </div>
                 </div>
@@ -105,7 +103,7 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-2 col-sm-4 col-xs-12">Motivo:</label>
                         <div class="col-md-10 col-sm-8 col-xs-12">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" data-bind="value: orden.motivo" />
                         </div>
                     </div>
                 </div>
@@ -115,53 +113,35 @@
                     <div class="form-group form-group-sm">
                         <label class="control-label col-md-2 col-sm-4 col-xs-12">Riesgo:</label>
                         <div class="col-md-10 col-sm-8 col-xs-12">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" data-bind="value: orden.riesgo" />
                         </div>
                     </div>
                 </div>
-            </div>
-            @*<div class="row">
-                <div class="col-xs-12">
-                    <div class="form-group form-group-sm">
-                        <label class="control-label col-md-2 col-sm-4 col-xs-12">Orden de retiro:</label>
-                        <div class="col-md-10 col-sm-8 col-xs-12">
-                            <div class="checkbox ">
-                                <label>
-                                    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="..."> Orden 1
-                                </label>
-                            </div>
-                            <div class="checkbox ">
-                                <label>
-                                    <input type="checkbox" id="blankCheckbox" value="option2" aria-label="..."> Orden 2
-                                </label>
-                            </div> 
-                            <div class="checkbox ">
-                                <label>
-                                    <input type="checkbox" id="blankCheckbox" value="option3" aria-label="..."> Orden 3
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>*@
+            </div>            
             <div class="form-inline text-right">
+                <!--ko if: Trazabilidad.codigoProducto-->
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <button type="button" class="btn btn-primary form-control" data-bind="">Imprimir</button>
+                        <button type="button" class="btn btn-primary form-control" data-bind="click: $root.Imprimir">Imprimir</button>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <button type="button" class="btn btn-primary form-control" data-bind="">Guardar</button>
+                        <button type="button" class="btn btn-primary form-control" data-bind="click: $root.Guardar">Guardar</button>
                     </div>
                 </div>
+                <!--/ko-->
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <button type="button" class="btn btn-primary form-control" data-bind="">Cancelar</button>
+                        <button type="button" class="btn btn-primary form-control" data-bind="click: $root.Nuevo">Cancelar</button>
                     </div>
                 </div>                
             </div>
         </div>
     </div>
 </div>
+<script src="~/Scripts/moment/moment.min.js"></script>
+<script src="~/Scripts/moment/es.js"></script>
+<script src="~/Scripts/datepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="~/Scripts/datepicker/datetimepicker-knockout.js"></script>
 <script src="~/Content/js/ViewModel/OrdenRetiro.js"></script>
