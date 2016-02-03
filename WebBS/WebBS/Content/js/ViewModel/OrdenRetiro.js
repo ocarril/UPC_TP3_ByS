@@ -6,6 +6,8 @@
     this.tipoProducto = ko.observable(data.tipoProducto);
     this.presentacion = ko.observable(data.presentacion);
     this.pesoProducto = ko.observable(data.pesoProducto);
+    
+    
 }
 
 function OrdenRetiro(data) {
@@ -42,7 +44,7 @@ function ViewModel() {
                     self.producto.descripcion(prod.descripcion);
                     self.producto.tipoProducto(prod.tipoProducto);
                     self.producto.presentacion(prod.presentacion);
-                    self.producto.pesoProducto(prod.pesoProducto);
+                    self.producto.pesoProducto(prod.pesoProducto);                    
 
                     //self.productos(data);
                     //$('#modal-productos').modal('show');
@@ -92,7 +94,7 @@ function ViewModel() {
         self.producto.descripcion(undefined);
         self.producto.tipoProducto(undefined);
         self.producto.presentacion(undefined);
-        self.producto.pesoProducto(undefined);
+        self.producto.pesoProducto(undefined);        
     }
 }
 

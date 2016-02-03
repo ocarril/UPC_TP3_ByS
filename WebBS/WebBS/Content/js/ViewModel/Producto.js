@@ -12,7 +12,7 @@
     self.quimicoFarmaceutico = ko.observable(data.quimicoFarmaceutico);
     self.aprobar = ko.observable(data.aprobar);
     self.codigoProcedimiento = ko.observable(data.codigoProcedimiento);
-    self.codigoFichaTecProveedor = ko.observable(data.codigoFichaTecProveedor);
+    self.codigoFichaTecProveedor = ko.observable(data.codigoFichaTecProveedor);    
 }
 
 function ViewModel() {
