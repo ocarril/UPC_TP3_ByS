@@ -63,6 +63,7 @@
     <Compile Include="Entities\ProcedimientoEntity.cs" />
     <Compile Include="Entities\ProductoEntity.cs" />
     <Compile Include="Entities\TrazabilidadEntity.cs" />
+    <Compile Include="OrdenRetiroEntity.cs" />
     <Compile Include="Parametro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

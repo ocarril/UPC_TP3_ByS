@@ -48,6 +48,7 @@
     <Compile Include="LibroRecetaLogic.cs" />
     <Compile Include="OrdenDeCompraLogic.cs" />
     <Compile Include="OrdendeDespachoLogic.cs" />
+    <Compile Include="OrdenRetiroLogic.cs" />
     <Compile Include="ProductoLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
