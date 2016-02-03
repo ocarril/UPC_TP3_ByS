@@ -53,6 +53,7 @@
     <Compile Include="LibroRecetaData.cs" />
     <Compile Include="OrdenDeCompraData.cs" />
     <Compile Include="OrdendeDespachoData.cs" />
+    <Compile Include="OrdenRetiroData.cs" />
     <Compile Include="ProcedimientoData.cs" />
     <Compile Include="ProductoData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
