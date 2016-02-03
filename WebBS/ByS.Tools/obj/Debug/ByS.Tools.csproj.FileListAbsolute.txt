@@ -31,3 +31,12 @@ F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
 E:\Nueva carpeta\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.ResourceIconos.resources
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.ResourceIconos.resources
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
+H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
