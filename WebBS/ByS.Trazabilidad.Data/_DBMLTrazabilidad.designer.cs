@@ -104,13 +104,6 @@ namespace ByS.Trazabilidad.Data
 			return ((ISingleResult<pa_S_InformeVentaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Trazabilidad.pa_S_Producto")]
-		public ISingleResult<pa_S_ProductoResult> pa_S_Producto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_codProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string p_nomProducto)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codProducto, p_nomProducto);
-			return ((ISingleResult<pa_S_ProductoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Trazabilidad.pa_S_FichaTecnicaProductoFarmacia")]
 		public ISingleResult<pa_S_FichaTecnicaProductoFarmaciaResult> pa_S_FichaTecnicaProductoFarmacia([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_codProducto)
 		{
@@ -130,6 +123,13 @@ namespace ByS.Trazabilidad.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), codigoProducto, fecha, autorizado, motivo, riesgo);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Trazabilidad.pa_S_Producto")]
+		public ISingleResult<pa_S_ProductoResult> pa_S_Producto([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string p_codProducto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string p_nomProducto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_codProducto, p_nomProducto);
+			return ((ISingleResult<pa_S_ProductoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -829,122 +829,6 @@ namespace ByS.Trazabilidad.Data
 		}
 	}
 	
-	public partial class pa_S_ProductoResult
-	{
-		
-		private string _codigoProducto;
-		
-		private string _descripcion;
-		
-		private string _nombreProducto;
-		
-		private string _pesoProducto;
-		
-		private string _presentacion;
-		
-		private string _tipoProducto;
-		
-		public pa_S_ProductoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigoProducto", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string codigoProducto
-		{
-			get
-			{
-				return this._codigoProducto;
-			}
-			set
-			{
-				if ((this._codigoProducto != value))
-				{
-					this._codigoProducto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreProducto", DbType="VarChar(50)")]
-		public string nombreProducto
-		{
-			get
-			{
-				return this._nombreProducto;
-			}
-			set
-			{
-				if ((this._nombreProducto != value))
-				{
-					this._nombreProducto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pesoProducto", DbType="VarChar(10)")]
-		public string pesoProducto
-		{
-			get
-			{
-				return this._pesoProducto;
-			}
-			set
-			{
-				if ((this._pesoProducto != value))
-				{
-					this._pesoProducto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_presentacion", DbType="VarChar(10)")]
-		public string presentacion
-		{
-			get
-			{
-				return this._presentacion;
-			}
-			set
-			{
-				if ((this._presentacion != value))
-				{
-					this._presentacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoProducto", DbType="VarChar(50)")]
-		public string tipoProducto
-		{
-			get
-			{
-				return this._tipoProducto;
-			}
-			set
-			{
-				if ((this._tipoProducto != value))
-				{
-					this._tipoProducto = value;
-				}
-			}
-		}
-	}
-	
 	public partial class pa_S_FichaTecnicaProductoFarmaciaResult
 	{
 		
@@ -1164,6 +1048,194 @@ namespace ByS.Trazabilidad.Data
 				if ((this._quimicoFarmaceutico != value))
 				{
 					this._quimicoFarmaceutico = value;
+				}
+			}
+		}
+	}
+	
+	public partial class pa_S_ProductoResult
+	{
+		
+		private string _codigoProducto;
+		
+		private string _descripcion;
+		
+		private string _nombreProducto;
+		
+		private string _pesoProducto;
+		
+		private string _presentacion;
+		
+		private string _tipoProducto;
+		
+		private System.DateTime _fecha;
+		
+		private string _autorizado;
+		
+		private string _motivo;
+		
+		private string _riesgo;
+		
+		public pa_S_ProductoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigoProducto", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string codigoProducto
+		{
+			get
+			{
+				return this._codigoProducto;
+			}
+			set
+			{
+				if ((this._codigoProducto != value))
+				{
+					this._codigoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreProducto", DbType="VarChar(50)")]
+		public string nombreProducto
+		{
+			get
+			{
+				return this._nombreProducto;
+			}
+			set
+			{
+				if ((this._nombreProducto != value))
+				{
+					this._nombreProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pesoProducto", DbType="VarChar(10)")]
+		public string pesoProducto
+		{
+			get
+			{
+				return this._pesoProducto;
+			}
+			set
+			{
+				if ((this._pesoProducto != value))
+				{
+					this._pesoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_presentacion", DbType="VarChar(10)")]
+		public string presentacion
+		{
+			get
+			{
+				return this._presentacion;
+			}
+			set
+			{
+				if ((this._presentacion != value))
+				{
+					this._presentacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoProducto", DbType="VarChar(50)")]
+		public string tipoProducto
+		{
+			get
+			{
+				return this._tipoProducto;
+			}
+			set
+			{
+				if ((this._tipoProducto != value))
+				{
+					this._tipoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date NOT NULL")]
+		public System.DateTime fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this._fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_autorizado", DbType="NVarChar(50)")]
+		public string autorizado
+		{
+			get
+			{
+				return this._autorizado;
+			}
+			set
+			{
+				if ((this._autorizado != value))
+				{
+					this._autorizado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_motivo", DbType="NVarChar(100)")]
+		public string motivo
+		{
+			get
+			{
+				return this._motivo;
+			}
+			set
+			{
+				if ((this._motivo != value))
+				{
+					this._motivo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_riesgo", DbType="NVarChar(100)")]
+		public string riesgo
+		{
+			get
+			{
+				return this._riesgo;
+			}
+			set
+			{
+				if ((this._riesgo != value))
+				{
+					this._riesgo = value;
 				}
 			}
 		}

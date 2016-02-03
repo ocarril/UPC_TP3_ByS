@@ -39,7 +39,13 @@ namespace ByS.Trazabilidad.Data
                             descripcion = item.descripcion,
                             pesoProducto = item.pesoProducto,
                             tipoProducto = item.tipoProducto,
-                            presentacion = item.presentacion                        
+                            presentacion = item.presentacion,
+                     
+                            fecha = item.fecha,
+                            autorizado = item.autorizado,
+                            motivo = item.motivo,
+                            riesgo = item.riesgo
+                            
                         });
                     }
                 }

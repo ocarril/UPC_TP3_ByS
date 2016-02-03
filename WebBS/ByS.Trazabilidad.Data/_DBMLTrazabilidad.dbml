@@ -78,18 +78,6 @@
       <Column Name="nombreCliente" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Trazabilidad.pa_S_Producto" Method="pa_S_Producto">
-    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="p_nomProducto" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="pa_S_ProductoResult">
-      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="nombreProducto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="pesoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="presentacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="tipoProducto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Trazabilidad.pa_S_FichaTecnicaProductoFarmacia" Method="pa_S_FichaTecnicaProductoFarmacia">
     <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="pa_S_FichaTecnicaProductoFarmaciaResult">
@@ -127,5 +115,21 @@
     <Parameter Name="motivo" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="riesgo" Type="System.String" DbType="NVarChar(100)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Trazabilidad.pa_S_Producto" Method="pa_S_Producto">
+    <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_nomProducto" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="pa_S_ProductoResult">
+      <Column Name="codigoProducto" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombreProducto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pesoProducto" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="presentacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="tipoProducto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="autorizado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="motivo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="riesgo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
