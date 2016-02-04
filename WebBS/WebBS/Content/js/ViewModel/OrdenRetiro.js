@@ -6,36 +6,67 @@
     this.tipoProducto = ko.observable(data.tipoProducto);
     this.presentacion = ko.observable(data.presentacion);
     this.pesoProducto = ko.observable(data.pesoProducto);
-    
-    
-}
-
-function OrdenRetiro(data) {
-    if (!data) data = {};
-    this.codigoProducto = ko.observable(data.codigoProducto);
     this.fecha = ko.observable(data.fecha);
     this.autorizado = ko.observable(data.autorizado);
     this.motivo = ko.observable(data.motivo);
     this.riesgo = ko.observable(data.riesgo);
 }
 
+function OrdenRetiro(data) {
+    if (!data) data = {};
+    this.codigoProducto = ko.observable(data.codigoProducto);
+    //this.fecha = ko.observable(data.fecha);
+    //this.autorizado = ko.observable(data.autorizado);
+    //this.motivo = ko.observable(data.motivo);
+    //this.riesgo = ko.observable(data.riesgo);
+}
+
 function ViewModel() {
     var self = this;
-
-    self.ProductoBusqueda = ko.observable();
+    //$("#retiroimprimir").hide();
+    //self.ProductoBusqueda = ko.observable();
     self.producto = new Producto();
     self.orden = new OrdenRetiro();
 
-    self.BuscarProducto = function () {
-        if (self.ProductoBusqueda()) {
-            /*self.producto.codigoProducto(1);
-            self.producto.nombreProducto('PANADOL');
-            self.producto.descripcion('');
-            self.producto.tipoProducto('Pastillas');
-            self.producto.presentacion('Tabletas');
-            self.producto.pesoProducto('500 mg');*/
+    self.Filtro = {
+        CodigoProducto: ko.observable(),
+        NombreProducto: ko.observable()
+    }
+    self.productos = ko.observableArray();
 
-            $.getJSON(urlPath + 'Trazabilidad/BuscarProductoTraza?producto=' + self.ProductoBusqueda())
+    self.BuscarProducto = function () {
+        if (!self.Filtro.NombreProducto()) {
+            toastr.warning('Ingrese un nombre de producto para buscar');
+            return;
+        }
+
+        $.getJSON(urlPath + 'Trazabilidad/BuscarProductoTraza?producto=' + self.Filtro.NombreProducto())
+            .done(function (data) {
+                if (data.length > 0) {
+                    self.productos(data);
+                    $('#modal-productos').modal('show');
+                } else if (data.length == 0) {
+                    toastr.warning('No hay resultados de la búsqueda');
+                    //self.LimpiarPantalla();
+                }
+            }).fail(function () {
+                toastr.error('El código no está asociado a ningun producto registrado');
+            });
+    }
+
+    self.SeleccionarProducto = function (data) {
+        self.Filtro.CodigoProducto(data.codigoProducto);
+        self.Filtro.NombreProducto(data.nombreProducto);
+        //self.NombreProducto(data.nombreProducto);
+        $('#modal-productos').modal('hide');
+    }
+
+
+
+    self.ConsultarOrden = function () {
+        if (self.Filtro.CodigoProducto()) {
+
+            $.getJSON(urlPath + 'Trazabilidad/BuscarProductoTraza?producto=' + self.Filtro.CodigoProducto())
             .done(function (data) {
                 if (data.length > 0) {
                     var prod = data[0];
@@ -48,7 +79,7 @@ function ViewModel() {
 
                     //self.productos(data);
                     //$('#modal-productos').modal('show');
-                } else if (data.length == 0) {
+                } else  {
                     toastr.warning('No hay resultados de la búsqueda');
                 }
             }).fail(function () {
@@ -61,23 +92,26 @@ function ViewModel() {
     }
 
     self.Imprimir = function () {
-
+        
+        $("#seccionimprimir").printThis();
+        
     }
 
     self.Guardar = function () {
-        self.orden.codigoProducto(self.producto.codigoProducto());
+        //self.orden.codigoProducto(self.producto.codigoProducto());
+        debugger;
         $.ajax({
             type: 'POST',
             url: urlPath + 'Trazabilidad/GuardarOrdenRetiro',
-            data: ko.toJSON({ parametro: self.orden }),
+            data: ko.toJSON({ parametro: self.producto }),
             dataType: 'json',
             contentType: 'application/json',
             success: function (data) {
                 if (data.Valor) {
-                    toastr.info('Se ha retirado el producto ' + self.producto.Nombre(), 'Procesado');
+                    toastr.success('Se ha retirado el producto ' + self.producto.nombreProducto(), 'Procesado');                    
                 }
                 else {
-                    toastr.warning('No se pudo completar la orden de retiro.', 'Proceso no completado');
+                    toastr.error('No se pudo completar la orden de retiro. El producto ya fue retirado.', 'Proceso no completado');
                 }
             },
             error: function (xhr) {
@@ -87,19 +121,24 @@ function ViewModel() {
 
     }
 
-    self.Nuevo = function () {
-        self.ProductoBusqueda(undefined);
+    self.Nuevo = function () {        
         self.producto.codigoProducto(undefined);
         self.producto.nombreProducto(undefined);
         self.producto.descripcion(undefined);
         self.producto.tipoProducto(undefined);
         self.producto.presentacion(undefined);
-        self.producto.pesoProducto(undefined);        
+        self.producto.pesoProducto(undefined);
+        self.producto.fecha(undefined);
+        self.producto.autorizado(undefined);
+        self.producto.motivo(undefined);
+        self.producto.riesgo(undefined);
     }
 }
 
+
+var modelo
 $(function () {
-    var modelo = new ViewModel();
+     modelo = new ViewModel();
     ko.applyBindings(modelo);
 });
 

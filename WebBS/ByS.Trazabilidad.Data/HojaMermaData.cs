@@ -49,5 +49,38 @@ namespace ByS.Trazabilidad.Data
             }
             return lista;
             }
+
+
+       public List<HojaMermaDTO> ListarMermaTrazabilidad(Parametro pFiltro)
+       {
+           List<HojaMermaDTO> lista = new List<HojaMermaDTO>();
+           try
+           {
+               using (_DBMLTrazabilidadDataContext SQLDC = new _DBMLTrazabilidadDataContext(conexion))
+               {
+                   var resul = SQLDC.pa_S_HojaMermaTrazabilidad(pFiltro.codProducto, pFiltro.p_codigoTraza);
+                   
+                   foreach (var item in resul)
+                   {
+                       lista.Add(new HojaMermaDTO()
+                       {
+                           codigoProducto = item.codigoProducto,
+                           fecha = item.fecha,
+                           cantidadInsumo = item.cantidadInsumo,
+                           motivo = item.motivo,
+                           numeroHojaMerma = item.numeroHojaMerma
+                       });
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
+               throw ex;
+           }
+           return lista;
+       }
+
+
     }
 }

@@ -8,7 +8,7 @@ namespace ByS.Trazabilidad.Entities.DTO
 {
    public class LibroRecetaDTO
     {
-        public string nombreProducto { get; set; }
+       public string codigolibroreceta { get; set; }
         public Nullable<System.DateTime> fechaProducto { get; set; }
         public string quimicoLaboratorista { get; set; }
         public string codigoProducto { get; set; }

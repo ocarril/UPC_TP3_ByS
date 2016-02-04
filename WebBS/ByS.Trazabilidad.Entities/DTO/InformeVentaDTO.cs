@@ -14,6 +14,7 @@ namespace ByS.Trazabilidad.Entities.DTO
         public string cantidad { get; set; }
         public string nombreCliente { get; set; }
         public string precio { get; set; }
+        
         public string codigoProducto { get; set; }
 
     }

@@ -14,7 +14,9 @@ namespace ByS.Trazabilidad.Entities.Entities
         public string detalleAnalisis { get; set; }
         public string anexo { get; set; }
         public string codigoTraza { get; set; }
-
+        public string estado { get; set; }
+        public string comentario { get; set; }
         public virtual TrazabilidadEntity Trazabilidad { get; set; }
+        
     }
 }

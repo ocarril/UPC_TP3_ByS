@@ -28,5 +28,22 @@ namespace Bys.Trazabilidad.Logic
           return lstGastoEntityDTO;
       }
 
+
+      public List<InformeVentaDTO> ListarInformeVentaTrazabilidad(Parametro pLista)
+      {
+          List<InformeVentaDTO> lstGastoEntityDTO = new List<InformeVentaDTO>();
+          try
+          {
+              oVentaData = new InformeVentaData();
+              lstGastoEntityDTO = oVentaData.ListarVentaTrazabilidad(pLista);
+          }
+          catch (Exception ex)
+          {
+              throw ex;
+          }
+          return lstGastoEntityDTO;
+      }
+
+
     }
 }

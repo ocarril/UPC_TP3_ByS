@@ -50,6 +50,7 @@
     <Compile Include="DTO\OrdendeDespachoDTO.cs" />
     <Compile Include="DTO\ProcedimientoDTO.cs" />
     <Compile Include="DTO\ProductoDTO.cs" />
+    <Compile Include="DTO\TrazabilidadDetalleDTO.cs" />
     <Compile Include="DTO\TrazabilidadDTO.cs" />
     <Compile Include="Entities\FichaTecnicaProductoFarmaciaEntity.cs" />
     <Compile Include="Entities\FichaTecnicaProductoProveedorEntity.cs" />
@@ -60,10 +61,11 @@
     <Compile Include="Entities\LibroRecetaEntity.cs" />
     <Compile Include="Entities\OrdenDeCompraEntity.cs" />
     <Compile Include="Entities\OrdendeDespachoEntity.cs" />
+    <Compile Include="Entities\OrdenRetiroEntity.cs" />
     <Compile Include="Entities\ProcedimientoEntity.cs" />
     <Compile Include="Entities\ProductoEntity.cs" />
+    <Compile Include="Entities\TrazabilidadDetalleEntity.cs" />
     <Compile Include="Entities\TrazabilidadEntity.cs" />
-    <Compile Include="OrdenRetiroEntity.cs" />
     <Compile Include="Parametro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

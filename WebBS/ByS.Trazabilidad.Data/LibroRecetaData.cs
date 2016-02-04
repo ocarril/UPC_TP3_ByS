@@ -35,7 +35,7 @@ namespace ByS.Trazabilidad.Data
                         {
                             codigoProducto = item.codigoProducto,
                             fechaProducto = item.fechaProducto,
-                            nombreProducto = item.nombreProducto,
+                            codigolibroreceta = item.codigolibroreceta,
                             quimicoLaboratorista = item.quimicoLaboratorista                        
                         });
                     }
@@ -47,6 +47,37 @@ namespace ByS.Trazabilidad.Data
                 throw ex;
             }
             return lista;
-            }
+     }
+
+       public List<LibroRecetaDTO> ListarRecetaTrazabilidad(Parametro pFiltro)
+       {
+           List<LibroRecetaDTO> lista = new List<LibroRecetaDTO>();
+           try
+           {
+               using (_DBMLTrazabilidadDataContext SQLDC = new _DBMLTrazabilidadDataContext(conexion))
+               {
+                   var resul = SQLDC.pa_S_LibroRecetaTrazabilidad(pFiltro.codProducto, pFiltro.p_codigoTraza);
+
+                   foreach (var item in resul)
+                   {
+                       lista.Add(new LibroRecetaDTO()
+                       {
+                           codigoProducto = item.codigoProducto,
+                           fechaProducto = item.fechaProducto,
+                           codigolibroreceta = item.codigolibroreceta,
+                           quimicoLaboratorista = item.quimicoLaboratorista
+                       });
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
+               throw ex;
+           }
+           return lista;
+       }
+
+
     }
 }

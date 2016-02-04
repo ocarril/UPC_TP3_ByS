@@ -12,12 +12,18 @@ namespace ByS.Trazabilidad.Entities.DTO
         public Nullable<System.DateTime> fechaTraza { get; set; }
         public string producto { get; set; }
         public string descripcion { get; set; }
-        public string codigoVenta { get; set; }
-        public string numeroKardex { get; set; }
-        public string codigoCompra { get; set; }
-        public string numeroOrden { get; set; }
-        public string numeroHojaMerma { get; set; }
+        public string estado { get; set; }
+        public string comentario { get; set; }
+        public List<TrazabilidadDetalleDTO> detalle { get; set; }
+        public string estadoinformetrazabilidad { get; set; }
+
+      //Actualizar
+        public Nullable<System.DateTime> fechatraza { get; set; }	
         public string nombreProducto { get; set; }
-        public string codigoFichaTecProducto { get; set; }
+        
+        
+        
+        
+        
     }
 }

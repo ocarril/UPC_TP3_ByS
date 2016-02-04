@@ -69,32 +69,57 @@
                 return;
             }
         }
-
+        var siinregistro = [];
         $.ajax({
             type: 'POST',
             url: urlPath + 'Trazabilidad/ConsultarTrazabilidad',
             data: ko.toJSON({
                 Codigo: self.Filtro.CodigoProducto(),
                 FechaInicio: self.Filtro.FechaInicio(),
-                FechaFin: self.Filtro.FechaFin()
+                FechaFin: self.Filtro.FechaFin(),
+                NombreProducto: self.Filtro.NombreProducto()
             }),
             dataType: 'json',
             contentType: 'application/json',
             success: function (data) {
                 console.log(data);
+                debugger;
                 //self.NombreProducto(data.Producto);
-                self.VentasArray(data.InformeVenta);
-                self.KardexArray(data.Kardex);
-                self.OrdenesCompraArray(data.OrdenesCompra);
-                self.OrdenesPedidoArray(data.OrdenesPedido);
-                self.RecetasArray(data.Recetas);
-                self.HojaMermaArray(data.HojaMerma);
-                toastr.success('Ha finalizado el análisis de trazabilidad');
+                if (data.InformeVenta.length>0) {
+                    self.VentasArray(data.InformeVenta);
+                    self.KardexArray(data.Kardex);
+                    self.OrdenesCompraArray(data.OrdenesCompra);
+                    self.OrdenesPedidoArray(data.OrdenesPedido);
+                    self.RecetasArray(data.Recetas);
+                    self.HojaMermaArray(data.HojaMerma);
+                    toastr.success('Ha finalizado el análisis de trazabilidad');
+                } else {
+                    toastr.warning('No se encontro información para el producto');
+                    self.VentasArray(siinregistro);
+                    self.KardexArray(siinregistro);
+                    self.OrdenesCompraArray(siinregistro);
+                    self.OrdenesPedidoArray(siinregistro);
+                    self.RecetasArray(siinregistro);
+                    self.HojaMermaArray(siinregistro);
+
+                }
             },
             error: function (dataError) {
                 console.log(dataError);
             }
         });
+    }
+
+    self.Aceptar = function () {           
+        $.post(urlPath + 'Trazabilidad/GuardarTrazabilidad', { listakardex: self.KardexArray(), listaOrdenCompra: self.OrdenesCompraArray(), listaventa: self.VentasArray(), listamerma: self.HojaMermaArray(), listadespacho: self.OrdenesPedidoArray(), listareceta: self.RecetasArray(), CodigoProducto: self.Filtro.CodigoProducto() })
+          .done(function (codigo) {
+              //console.log(codigo);             
+              toastr.success('Se guardaron cambios.', 'Trazabilidad');
+             
+          }).fail(function (dataError) {
+              console.log(dataError);
+              toastr.error('No se pudo registrar la trazabilidad consultada. ');
+          });
     }
 }
 var modelo;
@@ -103,3 +128,4 @@ $(function () {
     ko.applyBindings(modelo);
    
 });
+

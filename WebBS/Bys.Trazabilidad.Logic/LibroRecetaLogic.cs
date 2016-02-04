@@ -14,7 +14,7 @@ namespace Bys.Trazabilidad.Logic
     {
        private LibroRecetaData oData = null;
         private ReturnValor oReturnValor = null;
-        public List<LibroRecetaDTO> Listar(Parametro pLista)
+        public List<LibroRecetaDTO>  Listar(Parametro pLista)
         {
             List<LibroRecetaDTO> lista = new List<LibroRecetaDTO>();
             try
@@ -28,5 +28,22 @@ namespace Bys.Trazabilidad.Logic
             }
             return lista;
         }
+
+
+        public List<LibroRecetaDTO> ListarRecetaTrazabilidad(Parametro pLista)
+        {
+            List<LibroRecetaDTO> lista = new List<LibroRecetaDTO>();
+            try
+            {
+                oData = new LibroRecetaData();
+                lista = oData.ListarRecetaTrazabilidad(pLista);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+        }
+
     }
 }

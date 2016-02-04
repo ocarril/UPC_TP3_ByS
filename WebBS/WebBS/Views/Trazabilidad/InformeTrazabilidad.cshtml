@@ -1,0 +1,341 @@
+﻿@{
+    ViewBag.Title = "Informe Trazabilidad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<style type="text/css">
+    .tab-pane {
+        background: #fff;
+        padding: 20px 15px 10px 15px;
+        border: 1px solid #ddd;
+        border-top: 0;
+    }
+</style>
+<div class="panel panel-info">
+    <h4 class="panel-heading">
+        Informe Trazabilidad
+    </h4>
+    <div class="panel-body">
+        <div class="row" id="busquedadeproducto">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">Buscar producto:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" data-bind="value: Filtro.NombreProducto" placeholder="Ingrese un texto..." />
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" data-bind="click: $root.BuscarProducto">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>                
+            @*<div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label><br />
+                    <button type="button" class="btn btn-primary" data-bind="click: ConsultarInformeTrazabilidad">Consultar</button>
+                </div>
+            </div>*@
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <br />
+                    <button type="button" class="btn btn-primary" data-bind="click: ConsultarInformeTrazabilidad">Consultar</button>
+                    <button type="button" class="btn btn-primary" data-bind="click: GenerarInformeTraza">Generar Informe de Traza</button>
+                    <button type="button" class="btn btn-primary" data-bind="click: CancelarInformeTraza">Cancelar</button>
+                </div>
+            </div>
+         @*<div class="col-sm-3">
+            <div class="form-group">
+            <label class="control-label">&nbsp;</label><br />
+            <button type="button" class="btn btn-primary" data-bind="click: CancelarInformeTrazabilidad">Cancelar</button>
+            </div>
+        </div>*@
+        </div>
+        <div class="form-horizontal" >       
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">Codigo Trazabilidad:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" data-bind="value: Trazabilidad.codigoTraza"  disabled />
+                            </div>
+                        </div>
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha Trazabilidad:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input type="text" class="form-control" data-bind="value: Trazabilidad.fechaTraza" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+              
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre de Producto:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: Trazabilidad.nombreProducto" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Estado Trazabilidad:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: Trazabilidad.estado" disabled />
+                        </div>
+                    </div>
+                </div>
+            </div> 
+ 
+            <div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#InformeVenta" aria-controls="InformeVenta" role="tab" data-toggle="tab">Informe de venta</a></li>
+                    <li role="presentation"><a href="#Kardex" aria-controls="Kardex" role="tab" data-toggle="tab">Kardex</a></li>
+                    <li role="presentation"><a href="#OrdenCompra" aria-controls="OrdenCompra" role="tab" data-toggle="tab">Orden de compra</a></li>
+                    <li role="presentation"><a href="#OrdenPedido" aria-controls="OrdenPedido" role="tab" data-toggle="tab">Orden de pedido</a></li>
+                    <li role="presentation"><a href="#LibroReceta" aria-controls="LibroReceta" role="tab" data-toggle="tab">Libro Receta</a></li>
+                    <li role="presentation"><a href="#HojaMerma" aria-controls="HojaMerma" role="tab" data-toggle="tab">Hoja Merma</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="InformeVenta">
+                        <div class="table-responsive" data-bind="visible: VentasArray().length > 0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-2">Fecha</th>
+                                        <th>Cliente</th>
+                                        <th class="col-xs-2">Cantidad</th>
+                                        <th class="col-xs-2">Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: VentasArray">
+                                    <tr>
+                                        <td data-bind="text: util.date.format($data.fechaVenta, 'dd/MM/yyyy')"></td>
+                                        <td data-bind="text: $data.nombreCliente"></td>
+                                        <td>
+                                            <span data-bind="text: $data.cantidad"></span>
+                                            <span data-bind="text: 'UND'"></span>
+                                        </td>
+                                        <td>
+                                            <span data-bind="text: 'S/.'"></span>
+                                            <span data-bind="text: $data.precio"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-danger" data-bind="visible: VentasArray().length == 0">No hay datos para mostrar</h4>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="Kardex">
+                        <div class="table-responsive" data-bind="visible: KardexArray().length > 0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Ingresos</th>
+                                        <th>Salidas</th>
+                                        <th>Saldos</th>
+                                        <th>Observaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: KardexArray">
+                                    <tr>
+                                        <td data-bind="text: util.date.format($data.fecha, 'dd/MM/yyyy')"></td>
+                                        <td data-bind="text: $data.ingreso"></td>
+                                        <td data-bind="text: $data.salidas"></td>
+                                        <td data-bind="text: $data.saldos"></td>
+                                        <td data-bind="text: $data.observaciones"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-danger" data-bind="visible: KardexArray().length == 0">No hay datos para mostrar</h4>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="OrdenCompra">
+                        <div class="table-responsive" data-bind="visible: OrdenesCompraArray().length> 0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Proveedor</th>
+                                        <th>Cantidad</th>
+                                        <th>Costo</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: OrdenesCompraArray">
+                                    <tr>
+                                        <td data-bind="text: util.date.format($data.fechaCompra, 'dd/MM/yyyy')"></td>
+                                        <td data-bind="text: $data.nombreProveedor"></td>
+                                        <td data-bind="text: $data.cantidad"></td>
+                                        <td data-bind="text: $data.costo"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-danger" data-bind="visible: OrdenesCompraArray().length == 0">No hay datos para mostrar</h4>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="OrdenPedido">
+                        <div class="table-responsive" data-bind="visible: OrdenesPedidoArray().length > 0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Número pedido</th>
+                                        <th>Total pedidos</th>
+                                        <th>Peso</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: OrdenesPedidoArray">
+                                    <tr>
+                                        <td data-bind="text: util.date.format($data.fecha, 'dd/MM/yyyy')"></td>
+                                        <td data-bind="text: $data.numeroOrden"></td>
+                                        <td data-bind="text: $data.totalPedidos"></td>
+                                        <td data-bind="text: $data.pesoTotal"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-danger" data-bind="visible: OrdenesPedidoArray().length == 0">No hay datos para mostrar</h4>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="LibroReceta">
+                        <div class="table-responsive" data-bind="visible: RecetasArray().length > 0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Laboratorista</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: RecetasArray">
+                                    <tr>
+                                        <td data-bind="text: util.date.format($data.fechaProducto, 'dd/MM/yyyy')"></td>
+                                        <td data-bind="text: $data.quimicoLaboratorista"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-danger" data-bind="visible: RecetasArray().length == 0">No hay datos para mostrar</h4>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="HojaMerma">
+                        <div class="table-responsive" data-bind="visible: HojaMermaArray().length > 0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Motivo</th>
+                                        <th>Cantidad</th>
+                                        <th>Número</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: HojaMermaArray">
+                                    <tr>
+                                        <td data-bind="text: util.date.format($data.fecha, 'dd/MM/yyyy')"></td>
+                                        <td data-bind="text: $data.motivo"></td>
+                                        <td data-bind="text: $data.cantidadInsumo"></td>
+                                        <td data-bind="text: $data.numeroHojaMerma"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="text-danger" data-bind="visible: HojaMermaArray().length == 0">No hay datos para mostrar</h4>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="seccioncomentario"> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">Analisis/Comentarios:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <textarea class="form-control" data-bind="value: Trazabilidad.detalleAnalisis"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12">Adjuntar:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <textarea class="form-control" data-bind="value: Trazabilidad.anexo"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                <button type="button" class="btn btn-primary" data-bind="click: GenerarInformeTrazabilidad">Aceptar</button>
+                <button type="button" class="btn btn-primary" data-bind="click: CancelarEditarInforme">Cancelar</button>
+            </div>
+                </div>
+       
+      </div>   
+    </div>
+
+<div id="modal-productos" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Lista de productos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <table class="table table-bordered"
+                           data-bind="dataTable: {                            
+                                dataSource: productos,
+                                rowTemplate: 'tmpl-producto',
+                                columns: [
+                                    { 'name': 'codigoProducto' },
+                                    { 'name': 'nombreProducto' }
+                                ], options: { aaSorting: [[0, 'asc']], aoColumnDefs: [{ 'mData': null, 'aTargets': [2] }] }
+                            }">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-1">Código</th>
+                                <th>Detalle</th>
+                                <th class="text-center col-xs-1">#</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <script id="tmpl-producto" type="text/html">
+                        <td data-bind="text: $data.codigoProducto"></td>
+                        <td data-bind="text: $data.nombreProducto"></td>
+                        <td class="text-center">
+                            <i class="fa fa-check-circle fa-lg" data-bind="click: modelo.SeleccionarProducto"></i>
+                        </td>
+                    </script>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <label class="control-label">&nbsp;</label><br />                              
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-confirmar" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document" style="height:220px;width:220px; top:220px;">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Ya existe un Informe de Trazabilidad, desea generar un nuevo informe </p>
+                <button type="button" class="btn btn-primary" data-bind="click: AceptarConfirmar">Aceptar</button>
+                <button type="button" class="btn btn-primary" data-bind="click: CancelarConfirmar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="~/Scripts/moment/moment.min.js"></script>
+    <script src="~/Scripts/moment/es.js"></script>
+    <script src="~/Scripts/datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Scripts/datepicker/datetimepicker-knockout.js"></script>
+    <link href="~/Scripts/datatables/plugins/bootstrap/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/datatables/plugins/bootstrap/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/datatables/media/js/knockout-datatables.js"></script>
+    <script src="~/Content/js/ViewModel/InformeTrazabilidad.js"></script>

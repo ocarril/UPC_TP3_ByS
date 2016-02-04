@@ -1,0 +1,281 @@
+﻿@{
+    ViewBag.Title = "Trazabilidad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<style type="text/css">
+    .tab-pane {
+        background: #fff;
+        padding: 20px 15px 10px 15px;
+        border: 1px solid #ddd;
+        border-top: 0;
+    }
+</style>
+<div class="panel panel-info">
+    <h4 class="panel-heading">
+        Modificar Procedimiento
+    </h4>
+    <div class="panel-body">
+
+        <div class="row" id="busquedadeproducto">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">Buscar producto:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" data-bind="value: Filtro.NombreProducto" placeholder="Ingrese un texto..." />
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" data-bind="click: $root.BuscarProducto">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label><br />
+                    <button type="button" class="btn btn-primary" data-bind="click: ConsultarInformeTrazabilidad">Consultar</button>
+                </div>
+            </div>*@
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label><br />
+                    <button type="button" class="btn btn-primary" data-bind="click: BuscarProcedimiento">Consultar</button>
+                </div>
+            </div>
+            @*<div class="col-sm-3">
+                <div class="form-group">
+                <label class="control-label">&nbsp;</label><br />
+                <button type="button" class="btn btn-primary" data-bind="click: CancelarInformeTrazabilidad">Cancelar</button>
+                </div>
+            </div>*@
+        </div>
+
+
+
+
+    </div>
+</div>
+<div>
+
+    <div id="InformeProcedimiento">
+        <div class="table-responsive" data-bind="visible: ProcedimientoArray().length > 0">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="col-xs-2">Codigo Procedimiento</th>
+                        <th class="col-xs-2">Version</th>
+                        <th class="col-xs-2">Fecha Ini Vigencia</th>
+                        <th class="col-xs-2">Fecha Fin Vigencia</th>
+                        <th class="col-xs-2">Responsable</th>
+                        <th class="col-xs-2">Unidad Plazo</th>
+                        <th class="col-xs-2">Observaciones</th>
+                        <th class="col-xs-2">Nombre Producto</th>
+                        <th class="col-xs-2">Editar</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: ProcedimientoArray">
+                    <tr>
+                        <td data-bind="text: $data.codigoProcedimiento"></td>
+                        <td data-bind="text: $data.version"></td>                        
+                        <td data-bind="text: util.date.format($data.fechIniVigencia, 'dd/MM/yyyy')"></td>
+                        <td data-bind="text: util.date.format($data.fechFinVigencia, 'dd/MM/yyyy')"></td>
+                        <td data-bind="text: $data.responsable"></td>
+                        <td data-bind="text: $data.unidadPlazo"></td>
+                        <td data-bind="text: $data.observaciones"></td>
+                        <td data-bind="text: $data.nombreProducto"></td>
+                        <td class="text-center">
+                            <i class="fa fa-check-circle fa-lg" data-bind="click: modelo.SeleccionarProcedimiento($data.codigoProcedimiento)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4 class="text-danger" data-bind="visible: ProcedimientoArray().length == 0">No hay datos para mostrar</h4>
+    </div>
+
+</div>
+
+
+
+
+<div id="divRegistroProce" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document" >
+        <div class="modal-content" style="height:500px">
+            <h4 class="panel-heading">Edicion de Procedimiento</h4>
+
+            <div class="row" id="procedimientoficha">
+
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Codigo:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: Procedimientos.codigoProcedimiento, text: Procedimientos.codigoProcedimiento" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre version:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: Procedimientos.version, text:Procedimientos.version" />
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">Fecha Inicio:</label>
+                    <div class="input-group" data-bind="dateTimePicker: Filtro.FechaInicio, dateTimePickerOptions: { format: 'L', showClear: true }">
+                        <input type="text" class="form-control" placeholder="dd/mm/aaaa" />
+                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>*@
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha de Inicio:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="input-group" data-bind="dateTimePicker:  Procedimientos.fechIniVigencia, dateTimePickerOptions: { format: 'L', showClear: true }">
+                                <input type="text" class="form-control" placeholder="dd/mm/aaaa" />
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Fecha de Fin:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="input-group" data-bind="dateTimePicker:  Procedimientos.fechFinVigencia, dateTimePickerOptions: { format: 'L', showClear: true }">
+                                <input type="text" class="form-control" placeholder="dd/mm/aaaa" />
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Responsable:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: Procedimientos.responsable" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Actividad Procedimiento:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <textarea class="form-control" data-bind="value: Procedimientos.actividadProcedimiento"></textarea>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Plazo de actividad:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <textarea class="form-control" data-bind="value: Procedimientos.plazoActividad"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Observacion:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <textarea class="form-control" data-bind="value: Procedimientos.observaciones"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Unidad Plazo:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" class="form-control" data-bind="value: Procedimientos.unidadPlazo" />
+                        </div>
+                    </div>
+                </div>           
+
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label><br />
+                    <button type="button" class="btn btn-primary" data-bind="click: $root.ActualizarProcedimiento">Aceptar</button>
+                    <button type="button" class="btn btn-primary" data-bind="click: $root.CerrarProcedimiento">Cerrar</button>
+                    <button type="button" class="btn btn-primary" style="display:none" data-bind="click: $root.ImprimirProcedimiento" hidden>Imprimir</button>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+
+   
+</div>
+
+
+<div id="modal-productos" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Lista de productos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <table class="table table-bordered"
+                           data-bind="dataTable: {
+                                dataSource: productos,
+                                rowTemplate: 'tmpl-producto',
+                                columns: [
+                                    { 'name': 'codigoProducto' },
+                                    { 'name': 'nombreProducto' }
+                                ], options: { aaSorting: [[0, 'asc']], aoColumnDefs: [{ 'mData': null, 'aTargets': [2] }] }
+                            }">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-1">Código</th>
+                                <th>Detalle</th>
+                                <th class="text-center col-xs-1">#</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <script id="tmpl-producto" type="text/html">
+                        <td data-bind="text: $data.codigoProducto"></td>
+                        <td data-bind="text: $data.nombreProducto"></td>
+                        <td class="text-center">
+                            <i class="fa fa-check-circle fa-lg" data-bind="click: modelo.SeleccionarProducto"></i>
+                        </td>
+                    </script>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <label class="control-label">&nbsp;</label><br />
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        <script src="~/Scripts/moment/moment.min.js"></script>
+        <script src="~/Scripts/moment/es.js"></script>
+        <script src="~/Scripts/datepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="~/Scripts/datepicker/datetimepicker-knockout.js"></script>
+        <link href="~/Scripts/datatables/plugins/bootstrap/dataTables.bootstrap.min.css" rel="stylesheet" />
+        <script src="~/Scripts/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script src="~/Scripts/datatables/plugins/bootstrap/dataTables.bootstrap.min.js"></script>
+        <script src="~/Scripts/datatables/media/js/knockout-datatables.js"></script>
+        <script src="~/Content/js/ViewModel/Procedimiento.js"></script>
+        <script src="~/Scripts/jquery-print.js"></script>

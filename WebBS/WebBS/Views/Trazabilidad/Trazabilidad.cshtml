@@ -198,6 +198,7 @@
                             <th>Fecha</th>
                             <th>Motivo</th>
                             <th>Cantidad</th>
+                            <th>Número</th>
                         </tr>
                     </thead>
                     <tbody data-bind="foreach: HojaMermaArray">
@@ -205,11 +206,25 @@
                             <td data-bind="text: util.date.format($data.fecha, 'dd/MM/yyyy')"></td>
                             <td data-bind="text: $data.motivo"></td>
                             <td data-bind="text: $data.cantidadInsumo"></td>
+                            <td data-bind="text: $data.numeroHojaMerma"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <h4 class="text-danger" data-bind="visible: HojaMermaArray().length == 0">No hay datos para mostrar</h4>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="row">
+        <div class="form-group form-group-sm">
+            <div class="col-md-10 col-sm-8">
+                <br />
+                @*<button type="button" class="btn btn-primary" data-bind="click: AbrirModalActualizar">Actualizar ficha</button>*@
+                <button type="button" class="btn btn-primary" data-bind="click: Aceptar">Aceptar</button>
+                
+            </div>
         </div>
     </div>
 </div>

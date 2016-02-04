@@ -29,5 +29,22 @@ namespace Bys.Trazabilidad.Logic
             }
             return lista;
         }
+       
+        public List<OrdenDeCompraDTO> ListarOrdenDeCompraTrazabilidad(Parametro pLista)
+        {
+            List<OrdenDeCompraDTO> lista = new List<OrdenDeCompraDTO>();
+            try
+            {
+                oData = new OrdenDeCompraData();
+                lista = oData.ListarOrdenDeCompraTrazabilidad(pLista);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+        }
+
+
     }
 }

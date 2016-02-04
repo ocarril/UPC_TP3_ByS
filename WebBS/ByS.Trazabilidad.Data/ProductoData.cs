@@ -18,9 +18,7 @@ namespace ByS.Trazabilidad.Data
 		{
             conexion = Util.ConexionBD();
 		}
-		
-     
-
+	
 	   public List<ProductoDTO> Listar(Parametro pFiltro)
 	    {
             List<ProductoDTO> lstGastoEntityDTO = new List<ProductoDTO>();
@@ -39,13 +37,7 @@ namespace ByS.Trazabilidad.Data
                             descripcion = item.descripcion,
                             pesoProducto = item.pesoProducto,
                             tipoProducto = item.tipoProducto,
-                            presentacion = item.presentacion,
-                     
-                            fecha = item.fecha,
-                            autorizado = item.autorizado,
-                            motivo = item.motivo,
-                            riesgo = item.riesgo
-                            
+                            presentacion = item.presentacion                        
                         });
                     }
                 }

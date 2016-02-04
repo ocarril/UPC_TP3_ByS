@@ -28,5 +28,22 @@ namespace Bys.Trazabilidad.Logic
             }
             return lista;
         }
+
+
+        public List<KardexDTO> ListarKardexTrazabilidad(Parametro pLista)
+        {
+            List<KardexDTO> lista = new List<KardexDTO>();
+            try
+            {
+                oVentaData = new KardexData();
+                lista = oVentaData.ListarKardexTrazabilidad(pLista);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+        }
+
     }
 }

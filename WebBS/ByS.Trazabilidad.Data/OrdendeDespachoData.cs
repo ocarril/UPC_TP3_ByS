@@ -18,9 +18,7 @@ namespace ByS.Trazabilidad.Data
             conexion = Util.ConexionBD();
 		}
 		
-     
-
-	   public List<OrdendeDespachoDTO> Listar(Parametro pFiltro)
+   	   public List<OrdendeDespachoDTO> Listar(Parametro pFiltro)
 		{
             List<OrdendeDespachoDTO> lista = new List<OrdendeDespachoDTO>();
             try
@@ -50,5 +48,38 @@ namespace ByS.Trazabilidad.Data
             }
             return lista;
             }
+
+       public List<OrdendeDespachoDTO> ListarOrdenDeDespachoTrazabilidad(Parametro pFiltro)
+       {
+           List<OrdendeDespachoDTO> lista = new List<OrdendeDespachoDTO>();
+           try
+           {
+               using (_DBMLTrazabilidadDataContext SQLDC = new _DBMLTrazabilidadDataContext(conexion))
+               {
+                   var resul = SQLDC.pa_S_OrdenDeDespachoTrazabilidad(pFiltro.codProducto, pFiltro.p_codigoTraza);
+
+                   foreach (var item in resul)
+                   {
+                       lista.Add(new OrdendeDespachoDTO()
+                       {
+                           codigoProducto = item.codigoProducto,
+                           fecha = item.fecha,
+                           numeroOrden = item.numeroOrden,
+                           observaciones = item.observaciones,
+                           pesoTotal = item.pesoTotal,
+                           totalPedidos = item.totalPedidos
+                       });
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
+               throw ex;
+           }
+           return lista;
+       }
+
+
     }
 }

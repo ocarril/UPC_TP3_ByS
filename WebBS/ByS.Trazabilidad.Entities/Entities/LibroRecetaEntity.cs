@@ -13,8 +13,8 @@ namespace ByS.Trazabilidad.Entities.Entities
         {
             this.Trazabilidad = new HashSet<TrazabilidadEntity>();
         }
-    
-        public string nombreProducto { get; set; }
+
+        public string codigolibroreceta { get; set; }
         public Nullable<System.DateTime> fechaProducto { get; set; }
         public string quimicoLaboratorista { get; set; }
         public string codigoProducto { get; set; }

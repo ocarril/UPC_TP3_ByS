@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmpleadoData.cs" />
     <Compile Include="FichaTecnicaProductoFarmaciaData.cs" />
     <Compile Include="FichaTecnicaProductoProveedorData.cs" />
     <Compile Include="HojaMermaData.cs" />
@@ -63,7 +64,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="TrazabilidadData.cs" />
+    <Compile Include="TrazabilidadDetalleData.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="_DBMLTrazabilidad.cs">
+      <DependentUpon>_DBMLTrazabilidad.dbml</DependentUpon>
+    </Compile>
     <Compile Include="_DBMLTrazabilidad.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

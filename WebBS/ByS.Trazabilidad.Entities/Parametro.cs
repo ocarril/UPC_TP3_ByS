@@ -24,5 +24,13 @@ namespace ByS.Trazabilidad.Entities
 
         public string segUsuElimina { get; set; }
         public string segMaquinaPC { get; set; }
+        //Trazabilidad
+        public int p_codArea { get; set; }
+        public int p_codCargo { get; set; }
+        public string P_codigoProcedimiento { get; set; }
+        public string p_codigoTraza { get; set; }
+        public string codigoInformeTrazabilidad { get; set; }
+
+
     }
 }

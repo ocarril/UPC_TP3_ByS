@@ -10,10 +10,13 @@ namespace ByS.Trazabilidad.Entities.DTO
     {
         public string codigoProcedimiento { get; set; }
         public string version { get; set; }
-        public DateTime fechIniVigencia { get; set; }
-        public DateTime fechFinVigencia { get; set; }
+        public DateTime? fechIniVigencia { get; set; }
+        public DateTime? fechFinVigencia { get; set; }
         public string responsable { get; set; }
         public string unidadPlazo { get; set; }
         public string observaciones { get; set; }
+        public string nombreProducto { get; set; }
+        public string actividadProcedimiento { get; set; }
+        public string plazoActividad { get; set; } 
     }
 }

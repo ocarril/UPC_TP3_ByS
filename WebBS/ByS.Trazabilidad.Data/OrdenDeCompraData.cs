@@ -52,5 +52,40 @@ namespace ByS.Trazabilidad.Data
             }
             return lista;
             }
+
+
+       public List<OrdenDeCompraDTO> ListarOrdenDeCompraTrazabilidad(Parametro pFiltro)
+       {
+           List<OrdenDeCompraDTO> lista = new List<OrdenDeCompraDTO>();
+           try
+           {
+               using (_DBMLTrazabilidadDataContext SQLDC = new _DBMLTrazabilidadDataContext(conexion))
+               {
+                   var resul = SQLDC.pa_S_OrdendeCompraTrazabilidad(pFiltro.codProducto, pFiltro.p_codigoTraza);
+
+                   foreach (var item in resul)
+                   {
+                       lista.Add(new OrdenDeCompraDTO()
+                       {
+                           codigoProducto = item.codigoProducto,
+                           cantidad = item.cantidad,
+                           codigoCompra = item.codigoCompra,
+                           costo = item.costo,
+                           fechaCompra = item.fechaCompra,
+                           nombreProducto = item.nombreProducto,
+                           nombreProveedor = item.nombreProveedor
+
+                       });
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               log.Error(String.Concat("Listar", " | ", ex.Message.ToString()));
+               throw ex;
+           }
+           return lista;
+       }
+
     }
 }

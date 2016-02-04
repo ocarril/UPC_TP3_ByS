@@ -28,5 +28,22 @@ namespace Bys.Trazabilidad.Logic
             }
             return lista;
         }
+
+        public List<HojaMermaDTO> ListarMermaTrazabilidad(Parametro pLista)
+        {
+            List<HojaMermaDTO> lista = new List<HojaMermaDTO>();
+            try
+            {
+                oData = new HojaMermaData();
+                lista = oData.ListarMermaTrazabilidad(pLista);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+        
+        }
+
     }
 }

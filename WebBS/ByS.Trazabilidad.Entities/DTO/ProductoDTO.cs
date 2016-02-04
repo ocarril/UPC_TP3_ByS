@@ -14,10 +14,5 @@ namespace ByS.Trazabilidad.Entities.DTO
         public string tipoProducto { get; set; }
         public string presentacion { get; set; }
         public string pesoProducto { get; set; }
-
-        public DateTime fecha { get; set; }
-        public String autorizado { get; set; }
-        public String motivo { get; set; }
-        public String riesgo { get; set; }
     }
 }

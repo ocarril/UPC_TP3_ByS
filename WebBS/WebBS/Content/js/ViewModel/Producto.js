@@ -12,25 +12,59 @@
     self.quimicoFarmaceutico = ko.observable(data.quimicoFarmaceutico);
     self.aprobar = ko.observable(data.aprobar);
     self.codigoProcedimiento = ko.observable(data.codigoProcedimiento);
-    self.codigoFichaTecProveedor = ko.observable(data.codigoFichaTecProveedor);    
+    self.codigoFichaTecProveedor = ko.observable(data.codigoFichaTecProveedor);
 }
 
 function ViewModel() {
     var self = this;
 
-    self.productos = ko.observableArray();
+    
     self.FichaProducto = new Producto();
     self.FichaEditar = new Producto();
 
-    self.ProductoConsultar = ko.observable();
+  
+
+    self.Filtro = {
+        CodigoProducto: ko.observable(),
+        NombreProducto: ko.observable()
+    }
+  
+    self.productos = ko.observableArray();
 
     self.BuscarProducto = function () {
-        if (!self.ProductoConsultar()) {
+        if (!self.Filtro.NombreProducto()) {
+            toastr.warning('Ingrese un nombre de producto para buscar');
+            return;
+        }
+
+        $.getJSON(urlPath + 'Trazabilidad/BuscarProductoTraza?producto=' + self.Filtro.NombreProducto())
+            .done(function (data) {
+                if (data.length > 0) {
+                    self.productos(data);
+                    $('#modal-productos').modal('show');
+                } else if (data.length == 0) {
+                    toastr.warning('No hay resultados de la búsqueda');
+                    //self.LimpiarPantalla();
+                }
+            }).fail(function () {
+                toastr.error('El código no está asociado a ningun producto registrado');
+            });
+    }
+
+    self.SeleccionarProducto = function (data) {
+        self.Filtro.CodigoProducto(data.codigoProducto);
+        self.Filtro.NombreProducto(data.nombreProducto);
+        //self.NombreProducto(data.nombreProducto);
+        $('#modal-productos').modal('hide');
+    }
+
+    self.ConsultarFicha = function () {
+        if (!self.Filtro.CodigoProducto()) {
             toastr.warning('Ingrese un producto para buscar');
             return;
         }
 
-        $.getJSON(urlPath + 'Trazabilidad/FichaTecnicaFarmacia?producto=' + self.ProductoConsultar())
+        $.getJSON(urlPath + 'Trazabilidad/FichaTecnicaFarmacia?producto=' + self.Filtro.CodigoProducto())
             .done(function (data) {                
                 if (data.length == 1) {
                     self.FichaProducto.nombre(data[0].nombre);
@@ -46,8 +80,8 @@ function ViewModel() {
                     self.FichaProducto.codigoFichaTecProveedor(data[0].codigoFichaTecProveedor);
                     toastr.info('Se encontró "' + data[0].nombre + '"');
                 } else if (data.length > 1) {
-                    self.productos(data);
-                    $('#modal-productos').modal('show');
+                    //self.productos(data);
+                    //$('#modal-productos').modal('show');
                 } else if (data.length == 0) {
                     toastr.warning('No hay resultados de la búsqueda');
                     self.LimpiarPantalla();
@@ -57,20 +91,20 @@ function ViewModel() {
             });
     }
 
-    self.SeleccionarProducto = function (data) {
-        self.FichaProducto.nombre(data.nombre);
-        self.FichaProducto.descripcion(data.descripcion);
-        self.FichaProducto.etiquetado(data.etiquetado);
-        self.FichaProducto.procedimientoAlmacen(data.procedimientoAlmacen);
-        self.FichaProducto.procedimientoVenta(data.procedimientoVenta);
-        self.FichaProducto.procedimiemtoDistribucion(data.procedimiemtoDistribucion);
-        self.FichaProducto.posologia(data.posologia);
-        self.FichaProducto.quimicoFarmaceutico(data.quimicoFarmaceutico);
-        self.FichaProducto.aprobar(data.aprobar);
-        self.FichaProducto.codigoProcedimiento(data.codigoProcedimiento);
-        self.FichaProducto.codigoFichaTecProveedor(data.codigoFichaTecProveedor);
-        $('#modal-productos').modal('hide');
-    }
+    //self.SeleccionarProducto = function (data) {
+    //    self.FichaProducto.nombre(data.nombre);
+    //    self.FichaProducto.descripcion(data.descripcion);
+    //    self.FichaProducto.etiquetado(data.etiquetado);
+    //    self.FichaProducto.procedimientoAlmacen(data.procedimientoAlmacen);
+    //    self.FichaProducto.procedimientoVenta(data.procedimientoVenta);
+    //    self.FichaProducto.procedimiemtoDistribucion(data.procedimiemtoDistribucion);
+    //    self.FichaProducto.posologia(data.posologia);
+    //    self.FichaProducto.quimicoFarmaceutico(data.quimicoFarmaceutico);
+    //    self.FichaProducto.aprobar(data.aprobar);
+    //    self.FichaProducto.codigoProcedimiento(data.codigoProcedimiento);
+    //    self.FichaProducto.codigoFichaTecProveedor(data.codigoFichaTecProveedor);
+    //    $('#modal-productos').modal('hide');
+    //}
 
     self.AbrirModalActualizar = function () {
         var data = ko.toJS(self.FichaProducto);
@@ -134,8 +168,9 @@ function ViewModel() {
         self.FichaProducto.codigoFichaTecProveedor(undefined);
     }
 }
-
+var modelo;
 $(function () {
-    var modelo = new ViewModel();
+     modelo = new ViewModel();
     ko.applyBindings(modelo);
 });
+

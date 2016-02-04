@@ -18,7 +18,6 @@ namespace ByS.Trazabilidad.Data
             conexion = Util.ConexionBD();
 		}
 		
-     
 
 	   public List<InformeVentaDTO> Listar(Parametro pFiltro)
 		{
@@ -51,5 +50,40 @@ namespace ByS.Trazabilidad.Data
             }
 		return lstGastoEntityDTO;
             }
+
+
+
+       public List<InformeVentaDTO> ListarVentaTrazabilidad(Parametro pFiltro)
+       {
+           List<InformeVentaDTO> lstGastoEntityDTO = new List<InformeVentaDTO>();
+           try
+           {
+               using (_DBMLTrazabilidadDataContext SQLDC = new _DBMLTrazabilidadDataContext(conexion))
+               {
+                   var resul = SQLDC.pa_S_InformeVentaTrazabilidad(pFiltro.codProducto,pFiltro.p_codigoTraza);
+
+                   foreach (var item in resul)
+                   {
+                       lstGastoEntityDTO.Add(new InformeVentaDTO()
+                       {
+                           codigoProducto = item.codigoProducto,
+                           cantidad = item.cantidad,
+                           codigoVenta = item.codigoVenta,
+                           fechaVenta = item.fechaVenta.GetValueOrDefault(),
+                           nombreCliente = item.nombreCliente,
+                           nombreProducto = item.nombreProducto,
+                           precio = item.precio
+                       });
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               log.Error(String.Concat("ListarVentaTrazabilidad", " | ", ex.Message.ToString()));
+               throw ex;
+           }
+           return lstGastoEntityDTO;
+       }
+
     }
 }
