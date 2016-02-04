@@ -27,3 +27,8 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb

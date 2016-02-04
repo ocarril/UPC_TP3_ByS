@@ -48,3 +48,13 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.p
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll.config
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Data.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\GitHubPushLib.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\log4net.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.csprojResolveAssemblyReference.cache
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Data\obj\Debug\ByS.RHumanos.Data.pdb

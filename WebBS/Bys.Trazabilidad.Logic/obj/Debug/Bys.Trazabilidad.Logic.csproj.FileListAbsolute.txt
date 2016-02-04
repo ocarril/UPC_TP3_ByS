@@ -58,3 +58,15 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\log4net.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\Bys.Trazabilidad.Logic.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\log4net.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Tools.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Data.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\bin\Debug\ByS.Trazabilidad.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.csprojResolveAssemblyReference.cache
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\Bys.Trazabilidad.Logic\obj\Debug\Bys.Trazabilidad.Logic.pdb

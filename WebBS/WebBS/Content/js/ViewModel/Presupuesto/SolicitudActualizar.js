@@ -57,10 +57,10 @@ Funcion: Configuración de grilla
                 id: "ID"
             },
             mtype: 'POST',
-            colNames: ['', '','N° Solicitud', 'Fecha Solicitada', 'Fecha Límite', 'Generado por', 'Aprobado por','Estado', 'Tipo','Presupuesto', 'Editado el ', 'Editado por'],
+            colNames: ['', '', 'N° Solicitud', 'Fecha Solicitada', 'Fecha Límite', 'Generado por', 'Aprobado por', 'Estado', 'Tipo', 'Presupuesto', 'Editado el ', 'Editado por', 'Codigo Solicitud'],
             colModel: [
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false, hidden: true },
-                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false , hidden:true},
+                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false, hidden: true },
                 { name: 'numSolicitud', index: 'numSolicitud', editable: true, width: 100, align: 'left' },
                 { name: 'fecSolicitada', index: 'fecSolicitada', editable: true, width: 160, align: 'left' },
                 { name: 'fecLimite', index: 'fecLimite', editable: false, width: 140, align: 'center' },
@@ -70,8 +70,9 @@ Funcion: Configuración de grilla
                 { name: 'indTipo', index: 'indTipo', editable: false, width: 80, align: 'center' },
                 { name: 'codPresupuesto', index: 'codPresupuesto', editable: false, width: 110, align: 'left' },
                 { name: 'segFechaEdita', index: 'segFechaEdita', editable: true, width: 155, align: 'left' },
-                { name: 'segUsuarioEdita', index: 'segUsuarioEdita', editable: true, width: 140, align: 'left' }
-                ],
+                { name: 'segUsuarioEdita', index: 'segUsuarioEdita', editable: true, width: 140, align: 'left' },
+                { name: 'codSolicitud', index: 'codSolicitud', editable: true, width: 140, align: 'left' }
+            ],
             pager: 'pagerTabla',
             pagerpos: "center",
             loadtext: 'Cargando datos',
@@ -107,7 +108,7 @@ Funcion: Configuración de grilla
 
 //**********************************************************************
 // Nombre: configuraGrillaDetalle
-// Funcion: Configuración grilla de Registros de Gastos
+// Funcion: 
 //**********************************************************************
 (function ($) {
     $.configuraGrillaDetalle = function (subGridID, pagerSubGridID, rowID) {
@@ -152,10 +153,10 @@ Funcion: Configuración de grilla
             colNames: ['', '', 'Descripcion', 'Cantidad', 'S/.Estimado', 'Ejecutar el', 'Partida', 'Se Presupuesto', 'Aprobado por', 'Editado el ', 'Editado por'],
             colModel: [
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false },
-                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false , hidden:true},
+                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false, hidden: true },
                 { name: 'gloDescripcion', index: 'gloDescripcion', editable: true, width: 200, align: 'left' },
-                { name: 'cntCantidad', index: 'cntCantidad', editable: true, width: 70, align: 'right' },
-                { name: 'monEstimado', index: 'monEstimado', editable: true, width: 90, align: 'right' },
+                { name: 'cntCantidad', index: 'cntCantidad', editable: false, width: 70, align: 'right' },
+                { name: 'monEstimado', index: 'monEstimado', editable: false, width: 90, align: 'right' },
                 { name: 'fecEjecucion', index: 'fecEjecucion', editable: false, width: 90, align: 'center' },
                 { name: 'numPartida', index: 'numPartida', editable: false, width: 150, align: 'left' },
                 { name: 'gloDescripcionEla', index: 'gloDescripcionEla', editable: false, width: 140, align: 'center' },
@@ -226,12 +227,13 @@ Funcion: Configuración de grilla
         var vcodArea = $('#cboAreas').val();
         var vcodRegEstado = 1;
         var vnumSolicitud = $('#hddnumAnio').val();
+        //var vcodSolicitud = $('#hddcodSolicitud').val();
         var parametros = Object();
         parametros["p_TamPagina"] = postData.rows;
         parametros["p_NumPagina"] = postData.page;
         parametros["p_OrdenPor"] = postData.sidx;
         parametros["p_OrdenTipo"] = postData.sord;
-        parametros["numAnio"] = vnumAnio; 
+        parametros["numAnio"] = vnumAnio;
         parametros["codArea"] = vcodArea;
         parametros["codRegEstado"] = vcodRegEstado;
         parametros["indTipo"] = 'J';
@@ -285,14 +287,133 @@ Funcion: Configuración de grilla
 Nombre: $.formatDetalle (OCR)
 Funcion: Formatea columna de Detalle de la grilla de DOCUMENTO
 ************************************************************************/
+//(function ($) {
+//    $.formatEditar = function (cellvalue, options, rowObject) {
+//        'use strict';
+
+//        var srcImage = '../Content/Images/ok.png';
+//        var image;
+//        image = "<a href='#' onclick=\"$.fnu_showDialogActualizarReg('" + options.rowId + "', 0);\"><img title='Actualizar detalle de la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
+//        return image;
+//    }
+//})(jQuery);
+
 (function ($) {
     $.formatEditar = function (cellvalue, options, rowObject) {
         'use strict';
 
         var srcImage = '../Content/Images/ok.png';
         var image;
-        image = "<a href='#' onclick=\"$.fnu_showDialogActualizarReg('" + options.rowId + "', 0);\"><img title='Actualizar detalle se la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
+        image = "<a href='#' onclick=\"$.fnu_showDialogEditTabla('" + options.rowId + "', 0);\"><img title='Actualizar detalle de la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
         return image;
+    }
+})(jQuery);
+
+
+/*******************************************************
+Pantalla POPUP para editar registro de Detalle de solicitud
+********************************************************/
+(function ($) {
+    $.fnu_showDialogEditTabla = function (codReg) {
+        'use strict';
+
+        var divID = 'divRegistro';
+        var modal = true;
+        var title = '';
+        var width = 'auto';
+        var height = null;
+        var draggable = true;
+        var resizable = false;
+        var buttons = {
+            'Cerrar': function (event) {
+                $(this).dialog('close');
+            },
+            'Guardar': function () {
+                $.fnu_GuardarSolicitudDeta(codReg);
+            },
+
+            'Aprobar Ejecucion': function () {
+                $.fnu_showDialogActualizarReg(codReg);
+            },
+        };
+        $.f_dialog_open_noButtons(divID, modal, title, width, height, draggable, resizable).dialog({ buttons: buttons })
+        .dialog({
+            beforeClose: function (event, ui) {
+                $('#divRegistro').find(':text, select').val('');  // Limpiar campos del popup
+            }
+        });
+        $.f_dialogCssApply(divID);
+        if (codReg.length > 0) {
+            $.fnu_MostrarRegistroSolicitudDeta(codReg);
+        }
+    };
+})(jQuery);
+
+(function ($) {
+    $.fnu_GuardarSolicitudDeta = function (codReg) {
+        'use strict';
+        var vcodSolicitud = $('#hddcodSolicitud').val();
+        var vcodSolicitudDeta = $('#hddcodSolicitudDeta').val();
+        var vgloDescripcion = $('#txtgloDescripcion').val();
+        var vcntCantidad = $('#txtcntCantidad').val();
+
+        var pobjTabla = {};
+        pobjTabla["Codigo"] = vcodSolicitudDeta;
+        pobjTabla["codSolicitud"] = vcodSolicitud;
+        pobjTabla["gloDescripcion"] = vgloDescripcion;
+        pobjTabla["cntCantidad"] = vcntCantidad;
+
+        //var objTabla = $.fnu_ValidarTabla();
+        //if (objTabla.Mensaje.length > 0) {
+        //    $.f_Mensaje(objTabla.Mensaje, false, true);
+        //    return;
+        //}
+        var paramAjax = {};
+        paramAjax["ajaxMessage"] = 'Guardando detalle de solicitud...';
+        paramAjax["url"] = '/Presupuesto/ActualizarSolicitudDeta';
+        paramAjax["data"] = JSON.stringify(pobjTabla);
+        paramAjax["error"] = $.f_ajaxRequestFailed;
+        paramAjax["success"] = function (response, status) {
+            if (status == 'success') {
+                var tipo = response.Type;
+                var mensaje = response.Data;
+                if (tipo == "E")
+                    $.f_Mensaje(mensaje, false, true, 1);
+                else if (tipo == "I")
+                    $.f_Mensaje(mensaje, false, true);
+                else if (tipo == "C") {
+                    $.f_Mensaje(mensaje, true, true, 3);
+                    $.f_reloadGrid('gridTabla');
+                    //$(context).dialog('close');
+                }
+            }
+            else {
+                $.f_Mensaje(response.responseText, true, true);
+            }
+        }
+        $.f_ajaxRespuesta(paramAjax);
+    }
+})(jQuery);
+
+(function ($) {
+    $.fnu_MostrarRegistroSolicitudDeta = function (codReg) {
+        'use strict';
+
+        var paramAjax = {};
+        paramAjax["ajaxMessage"] = 'Cargando registro de detalle de solicitud...';
+        paramAjax["url"] = '/Presupuesto/BuscarSolicitudDeta' + '?pId=' + codReg;
+        paramAjax["success"] = function (data) {
+            var detalle = data.Data;
+            $('#hddcodSolicitudDeta').val(detalle.Codigo);
+            $('#txtcodPartidaNombre').val(detalle.objPlantillaDeta.objPartida.desNombre);
+            $('#txtgloDescripcion').val(detalle.gloDescripcion);
+            $('#txtfecEjecucion').val($.f_formatoFechaDDMMYYYY(detalle.objPlantillaDeta.fecEjecucion));
+            $('#txtmonEstimado').val(detalle.objPlantillaDeta.monEstimado);
+            $('#txtcntCantidad').val(detalle.cntCantidad);
+            $('#txtsegUsuarioEditaDet').val(detalle.segUsuarioEdita);
+            $('#txtsegFechaEditaDet').val($.f_formatoFechaDDMMYYYY(detalle.segFechaEdita, true));
+        }
+        $.f_ajaxRespuesta(paramAjax);
     }
 })(jQuery);
 
@@ -305,12 +426,14 @@ Funcion: Formatea columna de Detalle de la grilla de DOCUMENTO
             tipo: 4,
             botones: [
                     {
-                        Etiqueta: "Aceptar",
-                        Click: function () { $.fnu_actualizarRegistro(codReg); }
+                        Etiqueta: "Aprobar",
+                        Click: function () { $.fnu_actualizarRegistro(codReg) }
                     },
                     {
-                        Etiqueta: "Cancelar"
-                    }]
+                        Etiqueta: "Desaprobar",
+                        Click: function () { $.fnu_RechazarRegistro(codReg); }
+                    }
+            ]
         });
         mensajeOK.Mostrar();
     }
@@ -320,9 +443,51 @@ Funcion: Formatea columna de Detalle de la grilla de DOCUMENTO
     $.fnu_actualizarRegistro = function (codReg) {
         'use strict';
 
+        var pobjTabla = {};
+        var codempleadoAprueba = $('#hddcodEmpleado').val();
+        pobjTabla["indTipo"] = 'A';
+        pobjTabla["codRegEstado"] = 2;
+        pobjTabla["codSolicitud"] = codReg;
+        pobjTabla["codEmpleadoAprueba"] = codempleadoAprueba;
+
         var paramAjax = {};
         paramAjax["ajaxMessage"] = 'Actualizando solicitud de ejecución ...';
-        paramAjax["url"] = '/Presupuesto/ActualizarSolicitud' + '?pId=' + codReg
+        paramAjax["url"] = '/Presupuesto/ActualizarSolicitudEjecucion';
+        paramAjax["data"] = JSON.stringify(pobjTabla);
+        paramAjax["error"] = $.f_ajaxRequestFailed;
+        paramAjax["success"] = function (response, status) {
+            if (status == 'success') {
+                var tipo = response.Type;
+                var mensaje = response.Data;
+                if (tipo == "E")
+                    $.f_Mensaje(mensaje, false, true, 1);
+                else if (tipo == "I")
+                    $.f_Mensaje(mensaje, false, true);
+                else if (tipo == "C") {
+                    $.f_Mensaje(mensaje, true, true, 3);
+                    $.f_reloadGrid('gridTabla');
+                }
+            }
+            else
+                $.f_Mensaje(response.responseText, true, true);
+        }
+        $.f_ajaxRespuesta(paramAjax);
+    }
+})(jQuery);
+
+(function ($) {
+    $.fnu_RechazarRegistro = function (codReg) {
+        'use strict';
+
+        var pobjTabla = {};
+        pobjTabla["indTipo"] = 'D';
+        pobjTabla["codRegEstado"] = 3;
+        pobjTabla["codSolicitud"] = codReg;
+
+        var paramAjax = {};
+        paramAjax["ajaxMessage"] = 'Actualizando solicitud de ejecución ...';
+        paramAjax["url"] = '/Presupuesto/ActualizarSolicitudEjecucion';
+        paramAjax["data"] = JSON.stringify(pobjTabla);
         paramAjax["error"] = $.f_ajaxRequestFailed;
         paramAjax["success"] = function (response, status) {
             if (status == 'success') {

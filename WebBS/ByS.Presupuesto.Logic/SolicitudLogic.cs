@@ -20,6 +20,7 @@ namespace ByS.Presupuesto.Logic
 	{
         private SolicitudData objSolicitudData = null;
         private SolicitudDetaData objSolicitudDetaData = null;
+        private SolicitudEjecucionData objSolicitudEjecucionData = null;
         private ReturnValor objReturnValor = null;
 
         public SolicitudLogic()
@@ -291,6 +292,30 @@ namespace ByS.Presupuesto.Logic
                 if (objReturnValor.Exitosa)
                 {
                     objReturnValor.Message = HelpMessages.Evento_DELETE;
+                    //tx.Complete();
+                }
+                //}
+            }
+            catch (Exception ex)
+            {
+                objReturnValor = HelpException.mTraerMensaje(ex);
+            }
+            return objReturnValor;
+        }
+
+        public ReturnValor ActualizarSolicitudEjecucion(SolicitudEntity objSolicitudEntity)
+        {
+            try
+            {
+                //using (TransactionScope tx = new TransactionScope(TransactionScopeOption.Required))
+                //{
+
+
+                objSolicitudEjecucionData = new SolicitudEjecucionData();
+                objReturnValor.Exitosa = objSolicitudEjecucionData.ActualizarSolicitudEjecucion(objSolicitudEntity);
+                if (objReturnValor.Exitosa)
+                {
+                    objReturnValor.Message = HelpMessages.Evento_EDIT;
                     //tx.Complete();
                 }
                 //}

@@ -27,6 +27,7 @@ namespace ByS.Presupuesto.Entities
         public int? codEmpleadoAprueba { get; set; }
         public int? codPresupuesto { get; set; }
         public int codRegEstado { get; set; }
+        public int codSolicitud { get; set; }
 
         public List<SolicitudDetaEntity> lstSolicitudDeta { get; set; }
         public EmpleadoEntity objEmpleadoGenera { get; set; }

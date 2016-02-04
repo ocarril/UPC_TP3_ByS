@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="SolicitudData.cs" />
     <Compile Include="SolicitudDetaData.cs" />
+    <Compile Include="SolicitudEjecucionData.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="_DBMLPresupuesto.designer.cs">
       <AutoGen>True</AutoGen>

@@ -598,7 +598,7 @@ namespace WebBS.Controllers
                     p_OrdenTipo = parametro.p_OrdenTipo,
 
                     numAnio = parametro.numAnio,
-                    codArea=parametro.codArea,
+                    codArea = parametro.codArea,
                     codPlantillaDeta = parametro.codPlantillaDeta
                 });
                 long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
@@ -1133,7 +1133,7 @@ namespace WebBS.Controllers
                     else
                         returnValor = objSolicitudLogic.RegistrarSolicitudDeta(objSolicitudDeta);
                 }
-                 
+
                 DataDevol = returnValor.Message;
                 tipoDevol = returnValor.Exitosa ? "C" : "I";
 
@@ -1185,7 +1185,7 @@ namespace WebBS.Controllers
 
         #endregion
 
-		#region Generar informe
+        #region Generar informe
 
         public ActionResult Informe()
         {
@@ -1199,7 +1199,7 @@ namespace WebBS.Controllers
                 ViewBag.cboMesIni = ListarMeses();
                 ViewBag.cboEstado = ListarEstados();
                 ViewBag.cboMesFin = ListarMeses();
-                ViewBag.cboAreas = ListarAreasPresupuestales(); 
+                ViewBag.cboAreas = ListarAreasPresupuestales();
             }
             catch (Exception ex)
             {
@@ -1229,8 +1229,8 @@ namespace WebBS.Controllers
                     numAnio = parametro.numAnio,
                     codArea = parametro.codArea,
                     codRegEstado = parametro.codRegEstado,
-                    mesIni=parametro.mesIni,
-                    mesFin=parametro.mesFin
+                    mesIni = parametro.mesIni,
+                    mesFin = parametro.mesFin
                 });
                 long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
                 int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
@@ -1347,11 +1347,97 @@ namespace WebBS.Controllers
             }
             return Json(jsonResponse);
         }
-        
-       
+
+
 
 
         #endregion
 
+        #region Aprobar ejecucion de Presupuesto
+        [HttpPost]
+        public ActionResult ActualizarSolicitudEjecucion(SolicitudEntity pSolicitud)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+            object jsonResponse;
+            try
+            {
+                objSolicitudLogic = new SolicitudLogic();
+                objEmpleadoLogic = new EmpleadoLogic();
+                EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
+                {
+                    pSolicitud.segUsuarioEdita = HttpContext.User.Identity.Name;
+                    pSolicitud.segUsuarioCrea = HttpContext.User.Identity.Name;
+                    pSolicitud.segMaquinaOrigen = GetIPAddress();
+
+                };
+                returnValor = objSolicitudLogic.ActualizarSolicitudEjecucion(pSolicitud);
+
+                DataDevol = returnValor.Message;
+                tipoDevol = returnValor.Exitosa ? "C" : "I";
+
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("ActualizarSolicitudEjecucion", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult ActualizarSolicitudDeta(SolicitudDetaEntity plstSolicitudDeta)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+            object jsonResponse;
+            try
+            {
+                objSolicitudLogic = new SolicitudLogic();
+                {
+                    plstSolicitudDeta.segUsuarioEdita = HttpContext.User.Identity.Name;
+                    plstSolicitudDeta.segUsuarioCrea = HttpContext.User.Identity.Name;
+                    plstSolicitudDeta.segMaquinaOrigen = GetIPAddress();
+                    //if (objSolicitudDeta.Codigo != 0)
+                    returnValor = objSolicitudLogic.ActualizarSolicitudDeta(plstSolicitudDeta);
+                    //else
+                    //  returnValor = objSolicitudLogic.RegistrarSolicitudDeta(objSolicitudDeta);
+                }
+
+                DataDevol = returnValor.Message;
+                tipoDevol = returnValor.Exitosa ? "C" : "I";
+
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("ActualizarSolicitudDeta", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
     }
+
+
+
 }

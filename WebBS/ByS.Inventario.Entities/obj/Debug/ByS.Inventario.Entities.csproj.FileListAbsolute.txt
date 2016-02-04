@@ -22,3 +22,7 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.En
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.csprojResolveAssemblyReference.cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\bin\Debug\ByS.Inventario.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Inventario.Entities\obj\Debug\ByS.Inventario.Entities.pdb

@@ -43,3 +43,12 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.En
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\log4net.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.pdb
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll.config
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\log4net.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.csprojResolveAssemblyReference.cache
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.pdb

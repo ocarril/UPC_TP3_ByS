@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_ByS" Class="_DBMLPresupuestoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=WALTER-PC\AAAAAAAA;Initial Catalog=BD_ByS;Integrated Security=True" SettingsObjectName="ByS.Presupuesto.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DCOLLAZOS-PC\SQL2008R2;Initial Catalog=BD_ByS;Integrated Security=True" SettingsObjectName="ByS.Presupuesto.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString5" Provider="System.Data.SqlClient" />
   <Function Name="Presupuesto.pa_D_Gasto" Method="pa_D_Gasto">
     <Parameter Name="p_codGasto" Type="System.Int32" DbType="Int" />
     <Parameter Name="p_segUsuarioElimina" Type="System.String" DbType="VarChar(25)" />
@@ -533,5 +533,13 @@
       <Column Name="TOTALROWS" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ROWNUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="Presupuesto.pa_U_SolicitudEjecucion" Method="pa_U_SolicitudEjecucion">
+    <Parameter Name="p_codSolicitud" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_indTipo" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_codRegEstado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_segUsuarioEdita" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="p_segMaquinaOrigen" Type="System.String" DbType="VarChar(25)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -40,3 +40,11 @@ H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.ResourceIconos.resour
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
 H:\UPC_TP3\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.ResourceIconos.resources
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.dll
+D:\Documentos\Daniel\UPC\Ciclo 10\Modulo I\TP3\Proy_ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb

@@ -2048,3 +2048,50 @@ SET NOCOUNT ON
 END
 
 GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Presupuesto].[pa_U_SolicitudEjecucion]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [Presupuesto].[pa_U_SolicitudEjecucion]
+GO
+USE [BD_ByS]
+GO
+/****** Object:  StoredProcedure [Presupuesto].[pa_U_SolicitudEjecucion]    Script Date: 01/30/2016 13:02:57 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE  PROCEDURE [Presupuesto].[pa_U_SolicitudEjecucion]
+(
+ @p_codSolicitud				int
+,@p_indTipo                 	varchar(1)
+,@p_codRegEstado				int
+--,@p_codEmpleadoAprueba         int
+,@p_segUsuarioEdita           	varchar(25)
+,@p_segMaquinaOrigen         	varchar(25)
+
+)
+AS
+BEGIN
+	UPDATE 
+	[Presupuesto].[Solicitud] 
+	SET    
+	indTipo                     = 	@p_indTipo     		
+	,codRegEstado               = 	@p_codRegEstado     
+	,segUsuarioEdita            = 	@p_segUsuarioEdita
+	,segMaquinaOrigen           = 	@p_segMaquinaOrigen
+	,segFechaEdita			    =	getdate()
+	WHERE exists (select codSolicitud 
+	             from Presupuesto.SolicitudDeta sold 
+				 where sold.codSolicitudDeta = @p_codSolicitud
+				 and   [Presupuesto].[Solicitud].codSolicitud = sold.codSolicitud );
+
+
+   UPDATE 
+	[Presupuesto].SolicitudDeta
+	SET    
+    segUsuarioEdita            = 	@p_segUsuarioEdita
+	,segMaquinaOrigen           = 	@p_segMaquinaOrigen
+	,segFechaEdita			    =	getdate()
+	WHERE codSolicitudDeta = @p_codSolicitud;
+
+END
+GO
