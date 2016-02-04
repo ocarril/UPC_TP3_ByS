@@ -108,7 +108,7 @@ function ViewModel() {
             contentType: 'application/json',
             success: function (data) {
                 if (data.Valor) {
-                    toastr.success('Se ha retirado el producto ' + self.producto.nombreProducto(), 'Procesado');                    
+                    toastr.success('Se ha registrado la orden del retiro del producto ' + self.producto.nombreProducto(), 'Procesado');                    
                 }
                 else {
                     toastr.error('No se pudo completar la orden de retiro. El producto ya fue retirado.', 'Proceso no completado');

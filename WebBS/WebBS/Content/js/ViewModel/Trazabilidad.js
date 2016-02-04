@@ -1,6 +1,6 @@
 ﻿function ViewModel() {
     var self = this;
-   
+    $("#seccionAceptar").hide();
     self.Filtro = {
         CodigoProducto: ko.observable(),
         NombreProducto: ko.observable(),
@@ -32,6 +32,7 @@
                     $('#modal-productos').modal('show');
                 } else if (data.length == 0) {
                     toastr.warning('No hay resultados de la búsqueda');
+                   
                     //self.LimpiarPantalla();
                 }
             }).fail(function () {
@@ -93,6 +94,7 @@
                     self.RecetasArray(data.Recetas);
                     self.HojaMermaArray(data.HojaMerma);
                     toastr.success('Ha finalizado el análisis de trazabilidad');
+                    $("#seccionAceptar").show();
                 } else {
                     toastr.warning('No se encontro información para el producto');
                     self.VentasArray(siinregistro);
@@ -101,7 +103,7 @@
                     self.OrdenesPedidoArray(siinregistro);
                     self.RecetasArray(siinregistro);
                     self.HojaMermaArray(siinregistro);
-
+                    $("#seccionAceptar").hide();
                 }
             },
             error: function (dataError) {

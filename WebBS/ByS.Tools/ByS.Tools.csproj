@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Email\Email.cs" />
     <Compile Include="HelpException.cs" />
     <Compile Include="HelpMail.cs" />
     <Compile Include="HelpMessages.Designer.cs">
