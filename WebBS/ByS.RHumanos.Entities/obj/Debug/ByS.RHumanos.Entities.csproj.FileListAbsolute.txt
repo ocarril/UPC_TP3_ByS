@@ -1,0 +1,5 @@
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\ByS.RHumanos.Entities.pdb
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\bin\Debug\GitHubPushLib.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.dll
+F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Entities\obj\Debug\ByS.RHumanos.Entities.pdb

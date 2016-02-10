@@ -1948,17 +1948,6 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Presupuesto].[pa_S_InformeSeguimiento]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [Presupuesto].[pa_S_InformeSeguimiento]
 GO
-
-USE [BD_ByS]
-GO
-
-/****** Object:  StoredProcedure [Presupuesto].[pa_S_InformeSeguimiento]    Script Date: 01/31/2016 13:02:57 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
 CREATE PROCEDURE [Presupuesto].[pa_S_InformeSeguimiento] 
 (
 	 @p_NumPagina			int
@@ -2034,10 +2023,10 @@ SET NOCOUNT ON
 	left join RecursosHumanos.Empleado emr on pd.codEmpleadoRespon = emr.codEmpleado
 	inner join Presupuesto.Partida par on pd.codPartida = par.codPartida
 	WHERE
-	ISNULL(pr.numAnio,'')	=	(CASE WHEN ISNULL(@p_anio,'')	<>''	THEN  ISNULL(@p_anio,'')   	ELSE ISNULL(pr.numAnio,'')	END) AND
-	ISNULL(pl.codArea,'')	=	(CASE WHEN ISNULL(@p_codArea,'')<>''	THEN  ISNULL(@p_codArea,'') ELSE ISNULL(pl.codArea,'')	END) AND
-	ISNULL(pd.codRegEstado,'')=	(CASE WHEN ISNULL(@p_codRegEstado,'')<>''THEN  ISNULL(@p_codRegEstado,'') ELSE ISNULL(pd.codRegEstado,'')	END) AND
-	MONTH(pd.fecEjecucion)  between @p_mesini and @p_mesfin and 
+	ISNULL(pr.numAnio,0)	=	(CASE WHEN ISNULL(@p_anio,0)	<>0	THEN  ISNULL(@p_anio,0)   	ELSE ISNULL(pr.numAnio,0)	END) AND
+	ISNULL(pl.codArea,0)	=	(CASE WHEN ISNULL(@p_codArea,0)<>0	THEN  ISNULL(@p_codArea,0) ELSE ISNULL(pl.codArea,0)	END) AND
+	ISNULL(pd.codRegEstado,0)=	(CASE WHEN ISNULL(@p_codRegEstado,0)<>0THEN  ISNULL(@p_codRegEstado,0) ELSE ISNULL(pd.codRegEstado,0)	END) AND
+	ISNULL(MONTH(pd.fecEjecucion),0)  between ISNULL(@p_mesini,0) and ISNULL(@p_mesfin,0) and 
 	pd.indEliminado = 0
 )
 	AS Tabla
@@ -2046,8 +2035,8 @@ SET NOCOUNT ON
 					 
 	SET NOCOUNT OFF
 END
-
 GO
+
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[Presupuesto].[pa_U_SolicitudEjecucion]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [Presupuesto].[pa_U_SolicitudEjecucion]
 GO
@@ -2062,9 +2051,8 @@ GO
 CREATE  PROCEDURE [Presupuesto].[pa_U_SolicitudEjecucion]
 (
  @p_codSolicitud				int
-,@p_indTipo                 	varchar(1)
 ,@p_codRegEstado				int
---,@p_codEmpleadoAprueba         int
+,@p_codEmpleadoAprueba          int
 ,@p_segUsuarioEdita           	varchar(25)
 ,@p_segMaquinaOrigen         	varchar(25)
 
@@ -2074,14 +2062,14 @@ BEGIN
 	UPDATE 
 	[Presupuesto].[Solicitud] 
 	SET    
-	indTipo                     = 	@p_indTipo     		
-	,codRegEstado               = 	@p_codRegEstado     
+	 codRegEstado               = 	@p_codRegEstado     
 	,segUsuarioEdita            = 	@p_segUsuarioEdita
 	,segMaquinaOrigen           = 	@p_segMaquinaOrigen
 	,segFechaEdita			    =	getdate()
+	,codEmpleadoAprueba			=  @p_codEmpleadoAprueba
 	WHERE exists (select codSolicitud 
 	             from Presupuesto.SolicitudDeta sold 
-				 where sold.codSolicitudDeta = @p_codSolicitud
+				 where sold.codSolicitud = @p_codSolicitud
 				 and   [Presupuesto].[Solicitud].codSolicitud = sold.codSolicitud );
 
 
@@ -2091,7 +2079,7 @@ BEGIN
     segUsuarioEdita            = 	@p_segUsuarioEdita
 	,segMaquinaOrigen           = 	@p_segMaquinaOrigen
 	,segFechaEdita			    =	getdate()
-	WHERE codSolicitudDeta = @p_codSolicitud;
+	WHERE codSolicitud = @p_codSolicitud;
 
 END
 GO
