@@ -24,17 +24,11 @@ $(document).ready(function () {
     });
 
     $.fnu_configuraGridTabla();
-    
     $('#hddcodArea').val();
     $('#txtAnio').val($('#hddnumAnio').val());
     $('#txtsegUsuarioEdita').attr('Disabled', true);
     $('#txtsegFechaEdita').attr('Disabled', true);
     $('#txtAnio').attr('Disabled', true);
-    //$('#txtmonTotalPresupuesto').attr('Disabled', true);
-    //$('#txtmonTotalSolicitado').attr('Disabled', true);
-    //$('#txtmonTotalGastado').attr('Disabled', true);
-   // $.f_formatoFechas("txtfecGasto");
-    //$.fnu_MostrarTotalesPresupuesto();
 });
 
 /**********************************************************************
@@ -93,129 +87,9 @@ Funcion: Configuración de grilla
             height: 'auto',
             rownumbers: true,
             altRows: true,
-            subGrid: true,
-            subGridOptions: {
-                expandOnLoad: false,
-                selectOnExpand: false,
-                reloadOnExpand: false
-            },
-            subGridRowExpanded: function (idSubgrid, rowID) {
-                var pIdSubGrid = idSubgrid + "_t";
-                var pIdSubPager = "p_" + pIdSubGrid;
-                $("#" + idSubgrid).html("<table id='" + pIdSubGrid + "'></table><div id='" + pIdSubPager + "'></div>");
-                $.configuraGrillaDetalle(pIdSubGrid, pIdSubPager, rowID);
-            }
         });
 
         $(".ui-jqgrid-titlebar").hide();
-    }
-})(jQuery);
-
-//**********************************************************************
-// Nombre: configuraGrillaDetalle
-// Funcion: Configuración grilla de Registros de Gastos
-//**********************************************************************
-(function ($) {
-    $.configuraGrillaDetalle = function (subGridID, pagerSubGridID, rowID) {
-        'use strict';
-
-        var widthGrid = window.screen.width * 0.9 - 90;
-
-        $('#' + subGridID).jqGrid({
-            width: widthGrid,
-            shrinkToFit: false,
-
-            datatype: function (postData) {
-
-                window.sessionStorage.setItem('idSubGrid', subGridID);
-
-                var parametro = Object();
-                parametro["p_TamPagina"] = postData.rows;
-                parametro["p_NumPagina"] = postData.page;
-                parametro["p_OrdenPor"] = postData.sidx;
-                parametro["p_OrdenTipo"] = postData.sord;
-                parametro['codPlantillaDeta'] = rowID;
-
-                var paramAjax = Object();
-                paramAjax['ajaxMessage'] = 'Cargando detalle de la solicitud...';
-                paramAjax['url'] = '/Presupuesto/ListarSolicitudDeta';
-                paramAjax['data'] = JSON.stringify(parametro);
-                paramAjax['error'] = $.f_ajaxRequestFailed;
-                paramAjax['success'] = $.getDataDetalleSuccess;
-
-                $.f_ajaxRespuesta(paramAjax);
-            },
-
-            jsonReader: //Set the jsonReader to the JQGridJSonResponse squema to bind the data.
-            {
-                root: "Items",
-                page: "CurrentPage",
-                total: "PageCount",
-                records: "RecordCount",
-                repeatitems: true,
-                cell: "Row",
-                id: "ID" //index of the column with the PK in it    
-            },
-            mtype: 'POST',
-            colNames: ['', '', 'Nro Documento', 'Fecha Gasto', 'Cantidad', 'Monto Gastado','Responsable','Observaciones', 'Editado el ', 'Editado por'],
-            colModel: [
-                    { name: 'Editar', index: 'Editar', width: 35, align: 'center', editable: false, formatter: $.formatEditarReg, sortable: false, hidden:true },
-                    { name: 'Eliminar', index: 'Eliminar', width: 35, align: 'center', editable: false, formatter: $.formatEliminarReg, sortable: false, hidden: true },
-                    { name: 'numDocumento', index: 'numDocumento', editable: true, width: 130, align: 'left' },
-                    { name: 'fecGasto', index: 'fecGasto', editable: true, width: 100, align: 'left'},
-                    { name: 'cntCantidad', index: 'cntCantidad', editable: true, width: 80, align: 'left'},
-                    { name: 'monTotal', index: 'monTotal', editable: true, width: 90, align: 'left'},
-                    { name: 'codEmpResponsable', index: 'codEmpResponsable', editable: true, width: 180, align: 'left' },
-                    { name: 'gloObservacion', index: 'gloObservacion', editable: true, width: 250, align: 'left' },
-                    { name: 'segFechaEdita', index: 'segFechaEdita', editable: true, width: 150, align: 'left', search: false },
-                    { name: 'segUsuarioEdita', index: 'segUsuarioEdita', editable: true, width: 70, align: 'left', search: false }
-            ],
-
-            pager: pagerSubGridID,
-            pagerpos: "left",
-            loadtext: 'Cargando datos...',
-            recordtext: "{0} - {1} de {2}",
-            emptyrecords: 'vacío',
-            pgtext: 'Pág: {0} de {1}',
-            rowNum: 5,
-            rowList: [5, 10, 20, 40, 80],
-            sortname: 'fecGasto',
-            sortorder: "asc",
-            viewrecords: true,
-            caption: 'Listado',
-            height: 'auto',
-            altRows: false
-        }).jqGrid(); //'filterToolbar', { stringResult: true, searchOnEnter: true }
-
-        $.f_cssGridApply(false, 1);
-    }
-})(jQuery);
-
-//**********************************************************************
-// Nombre: $.getDataDetalleSuccess
-// Funcion: Función callback luego de solicitar data para el jQGrid de detalle
-//**********************************************************************
-(function ($) {
-    $.getDataDetalleSuccess = function (response, status) {
-        'use strict';
-
-        if (status == 'success') {
-            var tipo = response.Type;
-            var mensaje = response.Data;
-
-            if (tipo == 'E')
-                $.f_Mensaje(mensaje, true, true);
-            else if (tipo == 'I')
-                $.f_Mensaje(mensaje, true, true);
-            else if (tipo == 'C') {
-                var data = mensaje;
-                var idSubGrid = window.sessionStorage.getItem('idSubGrid');
-                var grid = $("#" + idSubGrid)[0];
-                grid.addJSONData(data);
-            }
-        }
-        else
-            $.f_Mensaje(response.responseText, true, true, 1);
     }
 })(jQuery);
 
@@ -238,11 +112,9 @@ Funcion: Configuración de grilla
         parametros["p_NumPagina"] = postData.page;
         parametros["p_OrdenPor"] = postData.sidx;
         parametros["p_OrdenTipo"] = postData.sord;
-
-        parametros["numAnio"] = vnumAnio; //null;
-        //parametros["codArea"] = vcodArea;
+        parametros["numAnio"] = vnumAnio;
+        parametros["codArea"] = vcodArea;
         parametros["codRegEstado"] = vcodRegEstado;
-        //parametros["numSolicitud"] = vnumSolicitud;
         
         var paramAjax = Object();
         paramAjax["ajaxMessage"] = 'Listando detalle de plantillas presuestales...';

@@ -13,6 +13,7 @@ $(document).ready(function () {
     'use strict';
 
     var vcodSolicitud = $('#hddcodSolicitud').val();
+    var vindModo = $('#hddindModo').val();
 
     $('#btnRegresar').bind('click', function (event) {
 
@@ -38,6 +39,11 @@ $(document).ready(function () {
     $.f_formatoFechas("txtfecLimite");
     if (vcodSolicitud < 1)
         $('#btnGuardar').attr('class', 'capaOcultar');
+
+    if (vindModo == 1) {
+        $('#btnGuardar').attr('class', 'capaOcultar');
+        $('#btnAgregarMasivo').attr('class', 'capaOcultar');
+    }
 });
 
 /**********************************************************************
@@ -49,6 +55,7 @@ Funcion: Configuración de grilla
     $.fnu_configuraGridTabla = function () {
         'use strict';
 
+        var vindModo = $('#hddindModo').val();
         var gridWidth = window.screen.width * 0.9 - 55;
         $('[id*=gridTabla]').jqGrid({
             width: gridWidth,
@@ -68,8 +75,8 @@ Funcion: Configuración de grilla
             mtype: 'POST',
             colNames: ['', '', 'Descripcion', 'Cantidad', 'S/.Estimado', 'Ejecutar el', 'Partida', 'Se Presupuesto', 'Aprobado por', 'Editado el ', 'Editado por'],
             colModel: [
-                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false },
-                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false },
+                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false},
+                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false, hidden: vindModo == 1 ? true : false },
                 { name: 'gloDescripcion', index: 'gloDescripcion', editable: true, width: 200, align: 'left' },
                 { name: 'cntCantidad', index: 'cntCantidad', editable: true, width: 70, align: 'right' },
                 { name: 'monEstimado', index: 'monEstimado', editable: true, width: 90, align: 'right' },
@@ -79,7 +86,7 @@ Funcion: Configuración de grilla
                 { name: 'codEmpleadoAprueba', index: 'codEmpleadoAprueba', editable: false, width: 130, align: 'left' },
                 { name: 'segFechaEdita', index: 'segFechaEdita', editable: true, width: 155, align: 'left' },
                 { name: 'segUsuarioEdita', index: 'segUsuarioEdita', editable: true, width: 140, align: 'left' }
-                ],
+            ],
             pager: 'pagerTabla',
             pagerpos: "center",
             loadtext: 'Cargando datos',
@@ -556,7 +563,8 @@ Funcion: Formatea columna de edición de la grilla de Detalle de Solicitud
     $.formatEditar = function (cellvalue, options, rowObject) {
         'use strict';
 
-        var srcImage = '../Content/Images/icoEditar.png';
+        var vindModo = $('#hddindModo').val();
+        var srcImage = vindModo == 0 ? '../Content/Images/icoEditar.png' : '../Content/Images/View.png';
         var image;
         image = "<a href='#' onclick=\"$.fnu_showDialogEditTabla('" + options.rowId + "');\"><img title='Editar detale de solicitud' src='" + srcImage + "' border='0' id='imgEditarTabla' /></a>";
         return image;
@@ -572,7 +580,7 @@ Funcion: Formatea columna de eliminación de la grilla de Detalle de Solicitud
     $.formatEliminar = function (cellvalue, options, rowObject) {
         'use strict';
 
-        var srcImage = '../Content/Images/icoEliminar.png';
+        var srcImage = '../Content/Images/icoEliminar.png'; 
         var image;
         image = "<a href='#' onclick=\"$.fnu_showDialogElimina('" + options.rowId + "');\"><img title='Eliminar registro del detalle de solicitud' src='" + srcImage + "' border='0' id='imgEliminarRegistro' /></a>";
         return image;
@@ -637,6 +645,7 @@ Pantalla POPUP para editar registro de Detalle de solicitud
     $.fnu_showDialogEditTabla = function (pID) {
         'use strict';
 
+        var vindModo = $('#hddindModo').val();
         var divID = 'divRegistro';
         var modal = true;
         var title = ''; //'Datos de la partida presupuestal';
@@ -644,13 +653,18 @@ Pantalla POPUP para editar registro de Detalle de solicitud
         var height = null;
         var draggable = true;
         var resizable = false;
-        var buttons = {
+        var buttons = vindModo == 0 ? {
             'Cerrar': function (event) {
                 $(this).dialog('close');
             },
             'Guardar': function () {
                 $.fnu_GuardarSolicitudDeta(this);
             }
+        } : {
+            'Cerrar': function (event) {
+                $(this).dialog('close');
+            }
+
         };
         $.f_dialog_open_noButtons(divID, modal, title, width, height, draggable, resizable).dialog({ buttons: buttons })
         .dialog({

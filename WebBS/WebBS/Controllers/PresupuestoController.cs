@@ -739,7 +739,7 @@ namespace WebBS.Controllers
             return View();
         }
 
-        public ActionResult SolicitudReg(int pID)
+        public ActionResult SolicitudReg(int pID, int? pInd)
         {
             try
             {
@@ -751,6 +751,7 @@ namespace WebBS.Controllers
                 ViewBag.cboAreas = ListarAreasPresupuestales(false, true, objEmpleadoEntity.codArea);
                 ViewBag.numAnio = (DateTime.Now.Year);
                 ViewBag.codSolicitud = pID;
+                ViewBag.indModo = pInd.HasValue ? pInd.Value : 0;
             }
             catch (Exception ex)
             {
@@ -1229,8 +1230,8 @@ namespace WebBS.Controllers
                     numAnio = parametro.numAnio,
                     codArea = parametro.codArea,
                     codRegEstado = parametro.codRegEstado,
-                    mesIni = parametro.mesIni,
-                    mesFin = parametro.mesFin
+                    mesIni = parametro.mesIni == 0 ? 1 : parametro.mesIni,
+                    mesFin = parametro.mesFin == 0 ? 12 : parametro.mesFin
                 });
                 long totalRecords = lista.Select(x => x.TOTALROWS).FirstOrDefault();
                 int totalPages = (int)Math.Ceiling((float)totalRecords / (float)parametro.p_TamPagina);
@@ -1365,17 +1366,13 @@ namespace WebBS.Controllers
                 objSolicitudLogic = new SolicitudLogic();
                 objEmpleadoLogic = new EmpleadoLogic();
                 EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
-                {
-                    pSolicitud.segUsuarioEdita = HttpContext.User.Identity.Name;
-                    pSolicitud.segUsuarioCrea = HttpContext.User.Identity.Name;
-                    pSolicitud.segMaquinaOrigen = GetIPAddress();
-
-                };
+                pSolicitud.codEmpleadoAprueba = objEmpleadoEntity.Codigo;
+                pSolicitud.segUsuarioEdita = HttpContext.User.Identity.Name;
+                pSolicitud.segUsuarioCrea = HttpContext.User.Identity.Name;
+                pSolicitud.segMaquinaOrigen = GetIPAddress();
                 returnValor = objSolicitudLogic.ActualizarSolicitudEjecucion(pSolicitud);
-
                 DataDevol = returnValor.Message;
                 tipoDevol = returnValor.Exitosa ? "C" : "I";
-
             }
             catch (Exception ex)
             {

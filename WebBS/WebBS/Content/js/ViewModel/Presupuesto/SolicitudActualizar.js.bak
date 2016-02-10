@@ -59,7 +59,7 @@ Funcion: Configuración de grilla
             mtype: 'POST',
             colNames: ['', '', 'N° Solicitud', 'Fecha Solicitada', 'Fecha Límite', 'Generado por', 'Aprobado por', 'Estado', 'Tipo', 'Presupuesto', 'Editado el ', 'Editado por', 'Codigo Solicitud'],
             colModel: [
-                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false},
+                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false, hidden: true },
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false, hidden: true },
                 { name: 'numSolicitud', index: 'numSolicitud', editable: true, width: 100, align: 'left' },
                 { name: 'fecSolicitada', index: 'fecSolicitada', editable: true, width: 160, align: 'left' },
@@ -152,7 +152,7 @@ Funcion: Configuración de grilla
             mtype: 'POST',
             colNames: ['', '', 'Descripcion', 'Cantidad', 'S/.Estimado', 'Ejecutar el', 'Partida', 'Se Presupuesto', 'Aprobado por', 'Editado el ', 'Editado por'],
             colModel: [
-                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditarReg, sortable: false, hidden: false },
+                { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false },
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false, hidden: true },
                 { name: 'gloDescripcion', index: 'gloDescripcion', editable: true, width: 200, align: 'left' },
                 { name: 'cntCantidad', index: 'cntCantidad', editable: false, width: 70, align: 'right' },
@@ -287,24 +287,22 @@ Funcion: Configuración de grilla
 Nombre: $.formatDetalle (OCR)
 Funcion: Formatea columna de Detalle de la grilla de DOCUMENTO
 ************************************************************************/
+//(function ($) {
+//    $.formatEditar = function (cellvalue, options, rowObject) {
+//        'use strict';
+
+//        var srcImage = '../Content/Images/ok.png';
+//        var image;
+//        image = "<a href='#' onclick=\"$.fnu_showDialogActualizarReg('" + options.rowId + "', 0);\"><img title='Actualizar detalle de la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
+//        return image;
+//    }
+//})(jQuery);
+
 (function ($) {
     $.formatEditar = function (cellvalue, options, rowObject) {
         'use strict';
 
-        var strEstado = rowObject[7];
-        var srcImage = strEstado == 'DESAPROBADO' ? '../Content/Images/OK.png' : strEstado == 'APROBADA' ? '../Content/Images/New.png' : '../Content/Images/Annulled.png';
-        var image;
-        image = (strEstado == 'DESAPROBADO' ||strEstado == 'SOLICITADO') ?"<a href='#' onclick=\"$.fnu_showDialogActualizarReg('" + options.rowId + "', 0);\"><img title='Actualizar xxdetalle de la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>":
-             "<a href='#' \"><img title='Solicitud ya aprobada' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
-        return image;
-    }
-})(jQuery);
-
-(function ($) {
-    $.formatEditarReg = function (cellvalue, options, rowObject) {
-        'use strict';
-
-        var srcImage = '../Content/Images/icoEditar.png';
+        var srcImage = '../Content/Images/ok.png';
         var image;
         image = "<a href='#' onclick=\"$.fnu_showDialogEditTabla('" + options.rowId + "', 0);\"><img title='Actualizar detalle de la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
         return image;
@@ -334,9 +332,9 @@ Pantalla POPUP para editar registro de Detalle de solicitud
                 $.fnu_GuardarSolicitudDeta(codReg);
             },
 
-            /*'Aprobar Ejecucion': function () {
+            'Aprobar Ejecucion': function () {
                 $.fnu_showDialogActualizarReg(codReg);
-            },*/
+            },
         };
         $.f_dialog_open_noButtons(divID, modal, title, width, height, draggable, resizable).dialog({ buttons: buttons })
         .dialog({
@@ -424,7 +422,7 @@ Pantalla POPUP para editar registro de Detalle de solicitud
         'use strict';
 
         var mensajeOK = new CROMMessageBox({
-            contenido: '¿Confirma la actualización de ESTADO de la solicitud de ejecución de la partida presupuestal:?',
+            contenido: '¿Confirma la actualización de la solicitud de ejecución de la partida presupuestal:?',
             tipo: 4,
             botones: [
                     {

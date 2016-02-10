@@ -15,11 +15,11 @@ $(document).ready(function () {
    
     $('#btnBuscar').bind('click', function (event) {
         
-        $.fnu_buscar();
+        $.f_reloadGrid('gridTabla');
     });
 
-
     $('#txtAnio').val($('#hddnumAnio').val());
+    $.fnu_buscar();
 });
 
 /**********************************************************************
@@ -68,7 +68,7 @@ Funcion: Configuración de grilla para el presupuesto en ejecucion
             emptyrecords: 'vacío',
             pgtext: 'Pág: {0} de {1}',
             rowNum: 10,
-            rowList: [10, 20, 40, 80],
+            rowList: [10, 20, 40, 80, 500],
             sortname: 'codPartidaNombre',
             sortorder: "asc",
             viewrecords: true,
@@ -127,8 +127,13 @@ Funcion: Configuración de grilla para el presupuesto en ejecucion
         var vnumAnio = $('#txtAnio').val();
         var vcodArea = $('#cboAreas').val();
         var vcodEstado = $('#cboEstado').val();
-        var vmesIni = $('#cboMesIni').val();
-        var vmesFin = $('#cboMesFin').val();
+        var vmesIni = parseInt($('#cboMesIni').val());
+        var vmesFin = parseInt($('#cboMesFin').val());
+        if (vmesFin < vmesIni)
+        {
+            $.f_Mensaje('La seleccion de meses es incorrecta..', false, true, 1);
+            return;
+        }
         var parametros = Object();
         parametros["p_TamPagina"] = postData.rows;
         parametros["p_NumPagina"] = postData.page;
@@ -137,9 +142,9 @@ Funcion: Configuración de grilla para el presupuesto en ejecucion
         parametros["numAnio"] = vnumAnio;
         parametros["codArea"] = vcodArea;
         parametros["codRegEstado"] = vcodEstado;
-        parametros["mesIni"] = vmesIni;
-        parametros["mesFin"] = vmesFin;
-
+        parametros["mesIni"] = parseInt(vmesIni);
+        parametros["mesFin"] = parseInt(vmesFin);
+        
         var paramAjax = Object();
         paramAjax["ajaxMessage"] = 'Listando detalle de plantillas presuestales del año actual...';
         paramAjax["url"] = "/Presupuesto/ListarSeguimientoPresupuesto";
@@ -333,7 +338,7 @@ Funcion: Configuración de grilla para el presupuesto en ejecucion
                 }
                 hojaExcel.push(dataFilaArchivo);
             }
-            return window.location = xlsx(archivoExporta).href();
+            return window.location = xlsx(archivoExporta,"nombreFile").href();
         },
         exportarTextoCliente: function (o) {
             var arrayCabeceras = new Array();

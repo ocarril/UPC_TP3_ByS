@@ -57,7 +57,7 @@ Funcion: Configuración de grilla
                 id: "ID"
             },
             mtype: 'POST',
-            colNames: ['', '','N° Solicitud', 'Fecha Solicitada', 'Fecha Límite', 'Generado por', 'Aprobado por','Estado', 'Tipo','Presupuesto', 'Editado el ', 'Editado por'],
+            colNames: ['', '','N° Solicitud', 'Fecha Solicitada', 'Fecha Límite', 'Generado por', 'Aprobado/Desaprobado por','Estado', 'Tipo','Presupuesto', 'Editado el ', 'Editado por'],
             colModel: [
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEditar, sortable: false },
                 { name: '', index: '', width: 35, align: 'center', editable: false, formatter: $.formatEliminar, sortable: false },
@@ -65,7 +65,7 @@ Funcion: Configuración de grilla
                 { name: 'fecSolicitada', index: 'fecSolicitada', editable: true, width: 160, align: 'left' },
                 { name: 'fecLimite', index: 'fecLimite', editable: false, width: 140, align: 'center' },
                 { name: 'codEmpleadoGenera', index: 'codEmpleadoGenera', editable: false, width: 150, align: 'left' },
-                { name: 'codEmpleadoAprueba', index: 'codEmpleadoAprueba', editable: false, width: 150, align: 'left' },
+                { name: 'codEmpleadoAprueba', index: 'codEmpleadoAprueba', editable: false, width: 200, align: 'left' },
                 { name: 'codRegEstadoNombre', index: 'codRegEstadoNombre', editable: false, width: 100, align: 'left' },
                 { name: 'indTipo', index: 'indTipo', editable: false, width: 80, align: 'center' },
                 { name: 'codPresupuesto', index: 'codPresupuesto', editable: false, width: 110, align: 'left' },
@@ -171,9 +171,12 @@ Funcion: Formatea columna de Detalle de la grilla de DOCUMENTO
     $.formatEditar = function (cellvalue, options, rowObject) {
         'use strict';
 
-        var srcImage = '../Content/Images/icoEditar.png';
+        var strEstado = rowObject[7];
+        var srcImage = strEstado == 'APROBADA' ? '../Content/Images/OKChecked.png' : strEstado != 'DESAPROBADO' ? '../Content/Images/icoEditar.png' : '../Content/Images/Annulled.png';
         var image;
-        image = "<a href='#' onclick=\"$.fnu_showDialogEditSolicitud('" + options.rowId + "', 0);\"><img title='Detalle se la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
+        image = strEstado == 'APROBADA' ?    "<a href='#' onclick=\"$.fnu_showDialogEditSolicitud('" + options.rowId + "', 1);\"><img title='Solicitud ya fue aprobada' src='" + srcImage + "' border='0' id='imgRegistroAprobado' /></a>":
+                strEstado == 'DESAPROBADO' ? "<a href='#' onclick=\"$.fnu_showDialogEditSolicitud('" + options.rowId + "', 0);\"><img title='Solicitud fue Desaprobada, Realizar observaciones' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>" :
+                                             "<a href='#' onclick=\"$.fnu_showDialogEditSolicitud('" + options.rowId + "', 0);\"><img title='Detalle se la solicitud de ejecución' src='" + srcImage + "' border='0' id='imgEditarRegistro' /></a>";
         return image;
     }
 })(jQuery);
@@ -183,12 +186,11 @@ Funcion: Formatea columna de Detalle de la grilla de DOCUMENTO
 Pantalla POPUP para editar registro de Tabla
 ********************************************************/
 (function ($) {
-    $.fnu_showDialogEditSolicitud= function (pID) {
+    $.fnu_showDialogEditSolicitud= function (pID, pInd) {
         'use strict';
 
-        var url = '/Presupuesto/SolicitudReg?pID=' + pID;
+        var url = '/Presupuesto/SolicitudReg?pID=' + pID + '&pInd=' + pInd;
         window.location.href = url;
-
     };
 })(jQuery);
 
@@ -200,9 +202,11 @@ Funcion: Formatea columna de eliminación de la grilla de Solicitud
     $.formatEliminar = function (cellvalue, options, rowObject) {
         'use strict';
 
-        var srcImage = '../Content/Images/icoEliminar.png';
+        var strEstado = rowObject[7];
+        var srcImage = strEstado != 'SOLICITADO' ? '../Content/Images/icoEliminaGris.png' : '../Content/Images/icoEliminar.png';
         var image;
-        image = "<a href='#' onclick=\"$.fnu_showDialogEliminaReg('" + options.rowId + "');\"><img title='Eliminar registro de la solicitud' src='" + srcImage + "' border='0' id='imgEliminarRegistro' /></a>";
+        image = strEstado != 'SOLICITADO' ? "<a href='#'><img title='Solicitud no se puede eliminar' src='" + srcImage + "' border='0' id='imgEliminarRegistro' /></a>":
+            "<a href='#' onclick=\"$.fnu_showDialogEliminaReg('" + options.rowId + "');\"><img title='Eliminar registro de la solicitud' src='" + srcImage + "' border='0' id='imgEliminarRegistro' /></a>";
         return image;
     }
 })(jQuery);

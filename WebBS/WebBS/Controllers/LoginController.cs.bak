@@ -49,9 +49,6 @@ namespace WebBS.Controllers
                         case "ass":
                             model.Nombre = "Aaron Sarmiento";
                             break;
-                        case "hcc":
-                            model.Nombre = "Hector Caiguaraico";
-                            break;
                     }
                     Session["Usuario"] = model;
                     FormsAuthentication.SetAuthCookie(plogin, true);

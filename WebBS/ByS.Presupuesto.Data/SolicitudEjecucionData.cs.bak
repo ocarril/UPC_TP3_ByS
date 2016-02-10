@@ -46,13 +46,12 @@ namespace ByS.Presupuesto.Data
                         objSolicitud.codSolicitud,
                         //objSolicitud.gloObservacion,
                         //objSolicitud.fecSolicitada,
-                        //objSolicitud.indTipo,
+                        objSolicitud.indTipo,
                         //objSolicitud.fecLimite,
                         // objSolicitud.codEmpleadoGenera,
                         // objSolicitud.codEmpleadoAprueba,
                         //objSolicitud.codPresupuesto,
                         objSolicitud.codRegEstado,
-                        objSolicitud.codEmpleadoAprueba,
                         objSolicitud.segUsuarioEdita,
                         objSolicitud.segMaquinaOrigen);
 
