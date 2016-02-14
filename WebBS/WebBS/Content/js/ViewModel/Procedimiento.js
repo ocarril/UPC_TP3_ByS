@@ -221,13 +221,23 @@
             toastr.warning(cadena);
             return;k
         }
-        
+        var tiposeleccionado;
+        var dato = $("#selectTipo option:selected").text();
+        if (dato == "Venta")
+            tiposeleccionado = 3;
+        else {
+            if (dato == "Almacen")
+                tiposeleccionado = 2;
+            else
+                tiposeleccionado = 1;
+        }
+      
         $.ajax({
             type: 'POST',
             url: urlPath + 'Trazabilidad/ActualizarProcedimiento',
             data: ko.toJSON({
                 entity: self.Procedimientos,
-                tipo: self.selectedCountry().countryPopulation
+                tipo: tiposeleccionado// self.selectedCountry().countryPopulation
             }),
             dataType: 'json',
             contentType: 'application/json',

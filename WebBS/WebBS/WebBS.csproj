@@ -131,6 +131,7 @@
     <Content Include="Content\images\Pagos.png" />
     <Content Include="Content\js\app.js" />
     <Content Include="Content\js\util.js" />
+    <Content Include="Content\js\ViewModel\InformeTrazabilidad.js" />
     <Content Include="Content\js\ViewModel\NotaIngreso.js" />
     <Content Include="Content\js\ViewModel\OrdenRetiro.js" />
     <Content Include="Content\js\ViewModel\Picking.js" />
@@ -141,6 +142,7 @@
     <Content Include="Content\js\ViewModel\Presupuesto\Solicitud.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\SolicitudActualizar.js" />
     <Content Include="Content\js\ViewModel\Presupuesto\SolicitudReg.js" />
+    <Content Include="Content\js\ViewModel\Procedimiento.js" />
     <Content Include="Content\js\ViewModel\Producto.js" />
     <Content Include="Content\js\ViewModel\Trazabilidad.js" />
     <Content Include="fonts\font-awesome-4.3.0\css\font-awesome.css" />
@@ -225,6 +227,17 @@
     <Content Include="Scripts\Helper\Validator.js" />
     <Content Include="Scripts\Jqgrid\harvest.sig" />
     <Content Include="Scripts\Helper\harvest.sig" />
+    <Content Include="Reporte\Reporte.xsc">
+      <DependentUpon>Reporte.xsd</DependentUpon>
+    </Content>
+    <None Include="Reporte\Reporte.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Reporte.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reporte\Reporte.xss">
+      <DependentUpon>Reporte.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Jqgrid\grid.locale-en.js" />
@@ -353,6 +366,11 @@
       <DependentUpon>BDBoticas.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporte\Reporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -375,6 +393,8 @@
     <Content Include="Views\Trazabilidad\OrdenRetiroProducto.cshtml" />
     <Content Include="Views\Presupuesto\SolicitudReg.cshtml" />
     <Content Include="Views\Presupuesto\SolicitudActualizar.cshtml" />
+    <Content Include="Views\Trazabilidad\InformeTrazabilidad.cshtml" />
+    <Content Include="Views\Trazabilidad\Procedimiento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -427,6 +447,9 @@
       <Project>{a04f2e06-d9be-41ff-b632-46d540946d3f}</Project>
       <Name>Bys.Trazabilidad.Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reporte\Reporte.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
