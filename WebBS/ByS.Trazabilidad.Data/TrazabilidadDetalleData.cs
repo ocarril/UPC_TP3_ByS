@@ -49,8 +49,26 @@ namespace ByS.Trazabilidad.Data
            return codigoRetorno == string.Empty ? false : true;
        }
 
-   
 
+       public bool Eliminar(string codigotraza)
+       {
+           string codigoRetorno = string.Empty;
+           try
+           {
+
+               using (_DBMLTrazabilidadDataContext SQLDC = new _DBMLTrazabilidadDataContext(conexion))
+               {
+                   SQLDC.pa_D_TrazabilidadDetalle(codigotraza);
+                   
+               }
+           }
+           catch (Exception ex)
+           {
+               log.Error(String.Concat("Eliminar", " | ", ex.Message.ToString()));
+               throw ex;
+           }
+           return codigoRetorno == string.Empty ? false : true;
+       }
 
     }
 }

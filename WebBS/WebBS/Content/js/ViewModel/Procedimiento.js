@@ -6,6 +6,18 @@
         NombreProducto: ko.observable()        
     }
 
+    var Country = function (name, population) {
+        this.countryName = name;
+        this.countryPopulation = population;
+    };
+
+    self.availableCountries= ko.observableArray([
+          new Country("Distribucion", 1),
+          new Country("Almacen", 2),
+          new Country("Venta", 3)
+    ]);
+    self.selectedCountry= ko.observable();
+
     self.NombreProducto = ko.observable();
     self.Procedimientos = {
         version: ko.observable(),
@@ -29,6 +41,13 @@
 
     //self.productos = ko.observableArray();
 
+    $("#jmombreproducto").change(function (e) {
+        var txt = $(this).val();
+        if (txt.trim() == "") {
+            self.Filtro.CodigoProducto(undefined);
+            self.Filtro.NombreProducto(undefined);
+        }
+    });
 
 
     self.BuscarProducto = function () {
@@ -140,6 +159,11 @@
                         self.Procedimientos.observaciones(data.observaciones);                    
                         self.Procedimientos.actividadProcedimiento(data.actividadProcedimiento);
                         self.Procedimientos.plazoActividad(data.plazoActividad);
+                        //var data {"Distribucion", 1};
+                        //self.selectedCountry(data.tipo);
+                        //$("#selectTipo").val(data.tipo);
+                        $('#selectTipo option:eq(' + data.tipo + ')').prop('selected', true);
+                        //self.selectedCountry().countryPopulation(data.tipo);
                         toastr.success('Se ha consultado correctamente el Informe de trazabilidad');
                     },
                     error: function (dataError) {
@@ -202,7 +226,8 @@
             type: 'POST',
             url: urlPath + 'Trazabilidad/ActualizarProcedimiento',
             data: ko.toJSON({
-                entity: self.Procedimientos
+                entity: self.Procedimientos,
+                tipo: self.selectedCountry().countryPopulation
             }),
             dataType: 'json',
             contentType: 'application/json',

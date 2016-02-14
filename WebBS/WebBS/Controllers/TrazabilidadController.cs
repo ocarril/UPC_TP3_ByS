@@ -188,8 +188,8 @@ namespace WebBS.Controllers
                 unidadPlazo = objProcedimientoDto.unidadPlazo,
                 version = objProcedimientoDto.version,
                 actividadProcedimiento = objProcedimientoDto.actividadProcedimiento,
-                plazoActividad = objProcedimientoDto.plazoActividad
-
+                plazoActividad = objProcedimientoDto.plazoActividad,
+                tipo=objProcedimientoDto.Tipo
             }, JsonRequestBehavior.AllowGet);
         }
         protected SelectList ListarProducto()
@@ -225,7 +225,7 @@ namespace WebBS.Controllers
             var recetas = objRecetaLogic.Listar(filtro);
             var hoja_merma = objMermaLogic.Listar(filtro);
 
-            if (ventas.Count == 0)
+            if (ventas.Count == 0 && kardex.Count == 0 && ordenes_compra.Count == 0 && ordenes_pedido.Count == 0 && recetas.Count == 0 && hoja_merma.Count==0)
             {
                 objEmpleadoLogic = new EmpleadoLogic();
                 filtro = new Parametro();
@@ -338,7 +338,7 @@ namespace WebBS.Controllers
 
 
         [HttpPost]
-        public ActionResult ActualizarProcedimiento(ProcedimientoDTO entity)
+        public ActionResult ActualizarProcedimiento(ProcedimientoDTO entity, string tipo)
         {        
             object jsonResponse;
             string tipoDevol = null;
@@ -346,6 +346,7 @@ namespace WebBS.Controllers
             try
             {
                 objProcedimientoLogic = new ProcedimientoLogic();
+                entity.Tipo = tipo;
                 bool valor = objProcedimientoLogic.Update(entity);
                 DataDevol = "Se proceso con èxito el procedimiento.";
                 tipoDevol = valor ? "C" : "I";
@@ -486,7 +487,7 @@ namespace WebBS.Controllers
              objCompraLogic = new OrdenDeCompraLogic();
              objDespachoLogic = new OrdendeDespachoLogic();
              objMermaLogic = new HojaMermaLogic();
-
+             objRecetaLogic = new LibroRecetaLogic();
             filtro.codigoInformeTrazabilidad=codigoInformTrazabilidad;
             filtro.codProducto = codigoproducto;
             filtro.p_codigoTraza = codigotraza;
@@ -498,18 +499,18 @@ namespace WebBS.Controllers
             List<OrdenDeCompraDTO> ordendecompra = objCompraLogic.ListarOrdenDeCompraTrazabilidad(filtro);
             List<OrdendeDespachoDTO> pedido = objDespachoLogic.ListarOrdenDeDespachoTrazabilidad(filtro);
             List<HojaMermaDTO> merma = objMermaLogic.ListarMermaTrazabilidad(filtro);
-
+            List<LibroRecetaDTO> libroreceta = objRecetaLogic.ListarRecetaTrazabilidad(filtro);
             List<InformeTrazabilidadDTOReporte> milista = new List<InformeTrazabilidadDTOReporte>();
 
             milista.Add(InformeTrazabilidad);
            
             //lista.  (InformeTrazabilidad);
-             RenderReportImpresion("Reporte", "InformeTrazabilidad", milista,"Venta",venta,"Kardex", kardex, "Compra",ordendecompra,"Pedido", pedido , "Merma",merma, "PDF", "11in");
+            RenderReportImpresion("Reporte", "InformeTrazabilidad", milista, "Venta", venta, "Kardex", kardex, "Compra", ordendecompra, "Pedido", pedido, "Merma", merma, "Libro", libroreceta, "PDF", "11in");
         }
 
 
         private void RenderReportImpresion(string report, string ds, object data, string ds1, object data1, string ds2, object data2,
-            string ds3, object data3, string ds4, object data4, string ds5, object data5, string formato, string orientacion = "")
+            string ds3, object data3, string ds4, object data4, string ds5, object data5,string ds6 ,object data6, string formato, string orientacion = "")
         {
             string ruta = string.Empty;
             string reportPath = Server.MapPath(string.Format("~/Reporte/{0}.rdlc", report));
@@ -520,6 +521,7 @@ namespace WebBS.Controllers
             ReportDataSource reportDataSource3 = new ReportDataSource(ds3, data3);
             ReportDataSource reportDataSource4 = new ReportDataSource(ds4, data4);
             ReportDataSource reportDataSource5 = new ReportDataSource(ds5, data5);
+            ReportDataSource reportDataSource6 = new ReportDataSource(ds6, data6);
 
             localReport.DataSources.Add(reportDataSource);
             localReport.DataSources.Add(reportDataSource1);
@@ -527,6 +529,8 @@ namespace WebBS.Controllers
             localReport.DataSources.Add(reportDataSource3);
             localReport.DataSources.Add(reportDataSource4);
             localReport.DataSources.Add(reportDataSource5);
+            localReport.DataSources.Add(reportDataSource6);
+
             string reportType = string.Empty;
             string deviceInfo = string.Empty;
 

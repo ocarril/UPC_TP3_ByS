@@ -26,9 +26,20 @@
     self.HojaMermaArray = ko.observableArray();
 
     self.productos = ko.observableArray();
+
+    $("#jmombreproducto").change(function (e) {
+        var txt = $(this).val();
+        if (txt.trim() == "") {
+            self.Filtro.CodigoProducto(undefined);
+            self.Filtro.NombreProducto(undefined);
+        }
+    });
+
+
     self.BuscarProducto = function () {
         if (!self.Filtro.NombreProducto()) {
             toastr.warning('Ingrese un nombre de producto para buscar');
+            self.Limpiar();
             return;
         }
 
@@ -56,6 +67,7 @@
     self.ConsultarInformeTrazabilidad = function () {
         if (!self.Filtro.CodigoProducto()) {
             toastr.warning('Ingrese un producto para buscar');
+            self.Limpiar();
             return;
         }
 
@@ -77,6 +89,7 @@
                 else
                 {
                     toastr.warning('No se encontro trazabilidad para el producto.');
+                    self.Limpiar();
                     
                 }
             },

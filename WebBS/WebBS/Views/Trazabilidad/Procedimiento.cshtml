@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label class="control-label">Buscar producto:</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" data-bind="value: Filtro.NombreProducto" placeholder="Ingrese un texto..." />
+                        <input type="text" class="form-control" data-bind="value: Filtro.NombreProducto" placeholder="Ingrese un texto..." id="jmombreproducto" />
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default" data-bind="click: $root.BuscarProducto">
                                 <i class="fa fa-search"></i>
@@ -182,6 +182,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Tipo Procedimiento:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <select data-bind="options: availableCountries,
+                                optionsText: 'countryName',
+                                value: selectedCountry,
+                                optionsCaption: 'Seleccionar'" id="selectTipo" style="height: 28px;width: 260px;"></select>
+                            
+                        </div>
+                        <div data-bind="visible: selectedCountry" hidden>
+                            <!-- Appears when you select something -->                           
+                            <span data-bind="text: selectedCountry() ? selectedCountry().countryPopulation : 'unknown'"></span>.
+                        </div>
+
+                    </div>
+                </div>
+
 
                 <div class="col-md-6">
                     <div class="form-group">

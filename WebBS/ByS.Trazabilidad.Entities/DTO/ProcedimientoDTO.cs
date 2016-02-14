@@ -17,6 +17,9 @@ namespace ByS.Trazabilidad.Entities.DTO
         public string observaciones { get; set; }
         public string nombreProducto { get; set; }
         public string actividadProcedimiento { get; set; }
-        public string plazoActividad { get; set; } 
+        public string plazoActividad { get; set; }
+        public string Tipo { get; set; }
+        public string IdTipo { get; set; }
+
     }
 }

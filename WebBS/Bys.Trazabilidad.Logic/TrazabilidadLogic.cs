@@ -43,6 +43,7 @@ namespace Bys.Trazabilidad.Logic
                    oDataDetalle = new TrazabilidadDetalleData();
                    oReturnValor = new ReturnValor();
                    oReturnValor.Exitosa = oData.Insertar(entity);
+                   oDataDetalle.Eliminar(entity.codigoTraza);
                    foreach (TrazabilidadDetalleEntity detalle in entity.lstTrazabilidadDeta)
                    {
                        detalle.codigoTraza = entity.codigoTraza;

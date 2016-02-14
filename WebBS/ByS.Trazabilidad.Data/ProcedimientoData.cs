@@ -71,7 +71,8 @@ namespace ByS.Trazabilidad.Data
                             unidadPlazo = item.unidadPlazo,
                             version = item.version,
                             actividadProcedimiento=item.actividadProcedimiento,
-                            plazoActividad=item.plazoActividad
+                            plazoActividad=item.plazoActividad,
+                            Tipo=item.tipo
                         });
                     }
                 }
@@ -101,7 +102,7 @@ namespace ByS.Trazabilidad.Data
                         objEntity.unidadPlazo,
                         objEntity.observaciones,
                         objEntity.actividadProcedimiento,
-                        objEntity.plazoActividad
+                        objEntity.plazoActividad,objEntity.Tipo
                         );
                     codigoRetorno = objEntity.codigoProcedimiento;                    
                 }

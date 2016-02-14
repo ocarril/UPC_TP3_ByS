@@ -31,6 +31,15 @@ function ViewModel() {
   
     self.productos = ko.observableArray();
 
+    $("#jmombreproducto").change(function (e) {
+        var txt = $(this).val();
+        if (txt.trim() == "") {           
+                self.Filtro.CodigoProducto(undefined);
+                self.Filtro.NombreProducto(undefined);           
+              }
+    });
+
+
     self.BuscarProducto = function () {
         if (!self.Filtro.NombreProducto()) {
             toastr.warning('Ingrese un nombre de producto para buscar');
@@ -61,6 +70,7 @@ function ViewModel() {
     self.ConsultarFicha = function () {
         if (!self.Filtro.CodigoProducto()) {
             toastr.warning('Ingrese un producto para buscar');
+            self.LimpiarPantalla();
             return;
         }
 

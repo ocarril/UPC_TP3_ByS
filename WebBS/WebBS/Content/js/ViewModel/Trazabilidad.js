@@ -19,8 +19,18 @@
 
     self.productos = ko.observableArray();
 
+    $("#jmombreproducto").change(function (e) {
+        var txt = $(this).val();
+        if (txt.trim() == "") {
+            self.Filtro.CodigoProducto(undefined);
+            self.Filtro.NombreProducto(undefined);
+        }
+    });
+
+
     self.BuscarProducto = function () {
         if (!self.Filtro.NombreProducto()) {
+            self.Limpiar();
             toastr.warning('Ingrese un nombre de producto para buscar');
             return;
         }
@@ -50,6 +60,7 @@
     self.ConsultarTrazabilidad = function () {
         if (!self.Filtro.CodigoProducto()) {
             toastr.warning('Ingrese un producto para buscar');
+            self.Limpiar();
             return;
         }
 
@@ -57,6 +68,7 @@
             fec_fin = self.Filtro.FechaFin();
 
         if (fec_ini && !fec_fin || !fec_ini && fec_fin) {
+            self.Limpiar();
             toastr.warning('Ingrese fecha de inicio y fecha final');
             return;
         }
@@ -67,6 +79,7 @@
 
             if (fec_fin.getTime() - fec_ini.getTime() < 0) {
                 toastr.info('La Fecha Final debe ser mayor que la Fecha Inicio, no se puede procesar.');
+                self.Limpiar();
                 return;
             }
         }
@@ -86,7 +99,7 @@
                 console.log(data);
                 debugger;
                 //self.NombreProducto(data.Producto);
-                if (data.InformeVenta.length>0) {
+                if (data.InformeVenta.length > 0 || data.Kardex.length > 0 || data.Recetas.length > 0 || data.HojaMerma.length>0) {
                     self.VentasArray(data.InformeVenta);
                     self.KardexArray(data.Kardex);
                     self.OrdenesCompraArray(data.OrdenesCompra);
@@ -122,6 +135,17 @@
               console.log(dataError);
               toastr.error('No se pudo registrar la trazabilidad consultada. ');
           });
+    }
+
+    self.Limpiar = function () {
+        var siinregistro = [];
+        self.VentasArray(siinregistro);
+        self.KardexArray(siinregistro);
+        self.OrdenesCompraArray(siinregistro);
+        self.OrdenesPedidoArray(siinregistro);
+        self.RecetasArray(siinregistro);
+        self.HojaMermaArray(siinregistro);
+        $("#seccionAceptar").hide();
     }
 }
 var modelo;

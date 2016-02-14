@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_ByS" Class="_DBMLTrazabilidadDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=BD_ByS;Integrated Security=True" SettingsObjectName="ByS.Trazabilidad.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.,28660;Initial Catalog=BD_ByS;Integrated Security=True" SettingsObjectName="ByS.Trazabilidad.Data.Properties.Settings" SettingsPropertyName="BD_BySConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="Trazabilidad.pa_S_Kardex" Method="pa_S_Kardex">
     <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="p_fechaIni" Type="System.DateTime" DbType="DateTime" />
@@ -149,32 +149,6 @@
     <Parameter Name="p_codigoTraza" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="Trazabilidad.pa_U_Procedimiento" Method="pa_U_Procedimiento">
-    <Parameter Name="p_codigoProcedimiento" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="p_version" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="p_fechIniVigencia" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="p_fechFinVigencia" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="p_responsable" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="p_unidadPlazo" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="p_observaciones" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="p_actividadProcedimiento" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="p_plazoActividad" Type="System.String" DbType="VarChar(250)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="Trazabilidad.pa_S_ProcedimientoById" Method="pa_S_ProcedimientoById">
-    <Parameter Name="p_codProcedimiento" Type="System.String" DbType="VarChar(10)" />
-    <ElementType Name="pa_S_ProcedimientoByIdResult">
-      <Column Name="codigoProcedimiento" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="version" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="fechIniVigencia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="fechFinVigencia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="responsable" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="unidadPlazo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="observaciones" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="actividadProcedimiento" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="plazoActividad" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Trazabilidad.pa_S_Procedimiento" Method="pa_S_Procedimiento">
     <Parameter Name="p_codProducto" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="pa_S_ProcedimientoResult">
@@ -301,5 +275,37 @@
       <Column Name="precio" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="nombreCliente" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_U_Procedimiento" Method="pa_U_Procedimiento">
+    <Parameter Name="p_codigoProcedimiento" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_version" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_fechIniVigencia" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_fechFinVigencia" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_responsable" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_unidadPlazo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="p_observaciones" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="p_actividadProcedimiento" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="p_plazoActividad" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="tipo" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Trazabilidad.pa_S_ProcedimientoById" Method="pa_S_ProcedimientoById">
+    <Parameter Name="p_codProcedimiento" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="pa_S_ProcedimientoByIdResult">
+      <Column Name="codigoProcedimiento" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="version" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fechIniVigencia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="fechFinVigencia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="responsable" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="unidadPlazo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="actividadProcedimiento" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="plazoActividad" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="tipo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Trazabilidad.pa_D_TrazabilidadDetalle" Method="pa_D_TrazabilidadDetalle">
+    <Parameter Name="p_codigoTraza" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>
