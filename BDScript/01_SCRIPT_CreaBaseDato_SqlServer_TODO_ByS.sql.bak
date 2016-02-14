@@ -2364,7 +2364,7 @@ BEGIN
 	SELECT 
 	 lr.codigoProducto 
 	,lr.fechaProducto
-	,lr.nombreProducto
+	,lr.codigolibroreceta
 	,lr.quimicoLaboratorista	
 	from Trazabilidad.LibroReceta lr
 	WHERE 
@@ -4318,42 +4318,46 @@ GO
 /**********************************************************************************************************/
 /*************************************** Scripts de Trazabilidad ******************************************/
 /**********************************************************************************************************/
-INSERT INTO [Trazabilidad].[FichaTecnicaProductoProveedor] 
-([codigoFichaTecProveedor], [nombre], [nomTecnico], [modoUso], [contraIndicacion], [condicionesUso], [condicionesAlmacen], [condicionesComercial], [temperaturaMinima], [temperaturaMaxima], [laboratorioOrigen]) 
-VALUES (N'1', N'FICHA LG', N'LG', N'USO', NULL, NULL, NULL, NULL, NULL, N'10', NULL)
-INSERT INTO [Trazabilidad].[Procedimiento] 
-([codigoProcedimiento], [version], [fechIniVigencia], [fechFinVigencia], [responsable], [unidadPlazo], [observaciones]) 
-VALUES (N'1', N'1', CAST(0xDB3A0B00 AS Date), CAST(0x2E3E0B00 AS Date), N'ROSA ', N'UN', N'OBS')
-INSERT INTO [Trazabilidad].[FichaTecnicaProductoFarmacia] 
-([codigoFichaTecProducto], [nombre], [descripcion], [etiquetado], [procedimientoAlmacen], [procedimientoVenta], [procedimiemtoDistribucion], [posologia], [quimicoFarmaceutico], [aprobar], [codigoProcedimiento], [codigoFichaTecProveedor]) 
-VALUES (N'1', N'FICHA', N'FICHAC', N'etiq2', N'PROC', N'PROC', N'PROC', N'', N'', N'A', N'1', N'1')
-INSERT INTO [Trazabilidad].[Producto] 
-([codigoProducto], [nombreProducto], [descripcion], [tipoProducto], [presentacion], [pesoProducto]) 
-VALUES (N'1', N'CELULAR', N'S6', N'CELULARES', N'S6 GALAXY', N'10')
-INSERT INTO [Trazabilidad].[HojaMerma] 
-([numeroHojaMerma], [cantidadInsumo], [fecha], [motivo], [codigoProducto]) 
-VALUES (N'1', N'3', CAST(0xDB3A0B00 AS Date), N'COMPRA', N'1')
-INSERT INTO [Trazabilidad].[InformeVenta] 
-([codigoVenta], [fechaVenta], [nombreProducto], [cantidad], [nombreCliente], [precio], [codigoProducto]) 
-VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'CELULAR', N'3', N'JUAN PEREZ', N'10', N'1')
-INSERT INTO [Trazabilidad].[Kardex] 
-([numeroKardex], [fecha], [ingreso], [salidas], [saldos], [observaciones], [codigoProducto]) 
-VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'0', N'3', N'100', NULL, N'1')
-INSERT INTO [Trazabilidad].[LibroReceta] 
-([nombreProducto], [fechaProducto], [quimicoLaboratorista], [codigoProducto]) 
-VALUES (N'CELULAR', CAST(0xDB3A0B00 AS Date), N'Q', N'1')
-INSERT INTO [Trazabilidad].[OrdenDeCompra] 
-([codigoCompra], [fechaCompra], [nombreProducto], [cantidad], [nombreProveedor], [costo], [codigoProducto]) 
-VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'CELULAR', N'50', N'LG', N'1000', N'1')
-INSERT INTO [Trazabilidad].[OrdenDeDespacho] 
-([numeroOrden], [fecha], [totalPedidos], [pesoTotal], [observaciones], [codigoProducto]) 
-VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'5', N'300', NULL, N'1')
-INSERT INTO [Trazabilidad].[Trazabilidad] 
-([codigoTraza], [fechaTraza], [producto], [descripcion], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) 
-VALUES (N'1', CAST(0xDB3A0B00 AS Date), N'1', N'CELULAR', N'1', N'1', N'1', N'1', N'1', N'CELULAR', N'1')
-INSERT INTO [Trazabilidad].[InformeTrazabilidad] 
-([codigoInformeTrazabilidad], [producto], [detalleAnalisis], [anexo], [codigoTraza]) 
-VALUES (N'1', N'1', N'PRUEBA', N'155', N'1')
+/****** Object:  Table [Trazabilidad].[FichaTecnicaProductoProveedor]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[FichaTecnicaProductoProveedor] ([codigoFichaTecProveedor], [nombre], [nomTecnico], [modoUso], [contraIndicacion], [condicionesUso], [condicionesAlmacen], [condicionesComercial], [temperaturaMinima], [temperaturaMaxima], [laboratorioOrigen]) VALUES (N'1', N'APR LAB', N'LG', N'USO', NULL, NULL, NULL, NULL, NULL, N'10', NULL)
+/****** Object:  Table [Trazabilidad].[LibroReceta]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[LibroReceta] ([codigolibroreceta], [fechaProducto], [quimicoLaboratorista], [codigoProducto]) VALUES (N'LR001', CAST(0xDB3A0B00 AS Date), N'RAUL CASTILLO', N'1')
+/****** Object:  Table [Trazabilidad].[Kardex]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[Kardex] ([numeroKardex], [fecha], [ingreso], [salidas], [saldos], [observaciones], [codigoProducto]) VALUES (N'K001', CAST(0xDB3A0B00 AS Date), N'50', N'8', N'100', N'', N'1')
+/****** Object:  Table [Trazabilidad].[InformeVenta]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[InformeVenta] ([codigoVenta], [fechaVenta], [nombreProducto], [cantidad], [nombreCliente], [precio], [codigoProducto]) VALUES (N'V001', CAST(0xDB3A0B00 AS Date), N'APRONAX', N'3', N'JUAN PEREZ', N'10', N'1')
+/****** Object:  Table [Trazabilidad].[Trazabilidad]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[Trazabilidad] ([codigoTraza], [fechaTraza], [producto], [descripcion], [estado], [comentario]) VALUES (N'1', CAST(0x023B0B00 AS Date), N'1', NULL, N'ACTUALIZADO', NULL)
+/****** Object:  Table [Trazabilidad].[RetiroProducto]    Script Date: 02/09/2016 17:43:00 ******/
+/****** Object:  Table [Trazabilidad].[Producto]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[Producto] ([codigoProducto], [nombreProducto], [descripcion], [tipoProducto], [presentacion], [pesoProducto]) VALUES (N'1', N'APRONAX', N'APRONAX', N'ANTIBIOTICO', N'A', N'10')
+INSERT [Trazabilidad].[Producto] ([codigoProducto], [nombreProducto], [descripcion], [tipoProducto], [presentacion], [pesoProducto]) VALUES (N'2', N'PANADOL', N'PANADOL ', N'ANTIBIOTICO', N'S', N'10')
+INSERT [Trazabilidad].[Producto] ([codigoProducto], [nombreProducto], [descripcion], [tipoProducto], [presentacion], [pesoProducto]) VALUES (N'3', N'ANALGINA', N'ANALGINA', N'ANTIBIOTICO', N'S', N'15')
+INSERT [Trazabilidad].[Producto] ([codigoProducto], [nombreProducto], [descripcion], [tipoProducto], [presentacion], [pesoProducto]) VALUES (N'4', N'AMOXICILINA', N'AMOXICILINA', N'ANTIBIOTICO', N'A', N'20')
+INSERT [Trazabilidad].[Producto] ([codigoProducto], [nombreProducto], [descripcion], [tipoProducto], [presentacion], [pesoProducto]) VALUES (N'5', N'DICLOXICILINA', N'DICLOXICILINA', N'ANTIBIOTICO', N'EEE', N'25')
+/****** Object:  Table [Trazabilidad].[Procedimiento]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[Procedimiento] ([codigoProcedimiento], [version], [fechIniVigencia], [fechFinVigencia], [responsable], [unidadPlazo], [observaciones], [actividadProcedimiento], [plazoActividad], [estado], [tipoProcedimiento]) VALUES (N'1', N'2.0', CAST(0x833B0B00 AS Date), CAST(0x4C3E0B00 AS Date), N'fffff', N'UN', N'dfds', N'ALMACEN 10 MESES', N'10 meses', N'ACTUALIZADO', N'2')
+INSERT [Trazabilidad].[Procedimiento] ([codigoProcedimiento], [version], [fechIniVigencia], [fechFinVigencia], [responsable], [unidadPlazo], [observaciones], [actividadProcedimiento], [plazoActividad], [estado], [tipoProcedimiento]) VALUES (N'2', N'1.0', CAST(0x833B0B00 AS Date), CAST(0x683E0B00 AS Date), N'Rosa Rodriguez', N'UN', N'OBS', N'VENTA 8 MESES', N'8 meses', N'ACTUALIZADO', N'3')
+INSERT [Trazabilidad].[Procedimiento] ([codigoProcedimiento], [version], [fechIniVigencia], [fechFinVigencia], [responsable], [unidadPlazo], [observaciones], [actividadProcedimiento], [plazoActividad], [estado], [tipoProcedimiento]) VALUES (N'3', N'2.0', CAST(0x813B0B00 AS Date), CAST(0x2E3E0B00 AS Date), N'Pedro Ramos', N'UN', N'OBS2', N'DISTRIBUCION 6 MESES', N'6meses', N'ACTUALIZADO', N'1')
+/****** Object:  Table [Trazabilidad].[OrdenDeDespacho]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[OrdenDeDespacho] ([numeroOrden], [fecha], [totalPedidos], [pesoTotal], [observaciones], [codigoProducto]) VALUES (N'OD001', CAST(0xDB3A0B00 AS Date), N'5', N'300', NULL, N'1')
+INSERT [Trazabilidad].[OrdenDeDespacho] ([numeroOrden], [fecha], [totalPedidos], [pesoTotal], [observaciones], [codigoProducto]) VALUES (N'OD002', CAST(0xDF3A0B00 AS Date), N'8', N'500', NULL, N'1')
+/****** Object:  Table [Trazabilidad].[OrdenDeCompra]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[OrdenDeCompra] ([codigoCompra], [fechaCompra], [nombreProducto], [cantidad], [nombreProveedor], [costo], [codigoProducto]) VALUES (N'OC001', CAST(0xDB3A0B00 AS Date), N'APRONAX', N'50', N'LAB. ALFA', N'1000', N'1')
+/****** Object:  Table [Trazabilidad].[InformeTrazabilidad]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[InformeTrazabilidad] ([codigoInformeTrazabilidad], [producto], [detalleAnalisis], [anexo], [codigoTraza], [estado]) VALUES (N'120160209', NULL, N'DSADSD', NULL, N'1', N'CREADO')
+/****** Object:  Table [Trazabilidad].[HojaMerma]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[HojaMerma] ([numeroHojaMerma], [cantidadInsumo], [fecha], [motivo], [codigoProducto]) VALUES (N'M001', N'3', CAST(0xDB3A0B00 AS Date), N'EXPIRO', N'1')
+/****** Object:  Table [Trazabilidad].[FichaTecnicaProductoFarmacia]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[FichaTecnicaProductoFarmacia] ([codigoFichaTecProducto], [nombre], [descripcion], [etiquetado], [procedimientoAlmacen], [procedimientoVenta], [procedimiemtoDistribucion], [posologia], [quimicoFarmaceutico], [aprobar], [codigoProcedimiento], [codigoFichaTecProveedor], [codigoProducto]) VALUES (N'1', N'APRONAX', N'APRONAX', N'NO', N'1', N'2', N'3', N'ANA PEREZ', N'MARIO', N'NO', N'1', N'1', N'1')
+/****** Object:  Table [Trazabilidad].[TrazabilidadDetalle]    Script Date: 02/09/2016 17:43:00 ******/
+INSERT [Trazabilidad].[TrazabilidadDetalle] ([codigoTraza], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) VALUES (N'1', NULL, N'K001', NULL, NULL, NULL, NULL, NULL)
+INSERT [Trazabilidad].[TrazabilidadDetalle] ([codigoTraza], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) VALUES (N'1', NULL, NULL, N'OC001', NULL, NULL, NULL, NULL)
+INSERT [Trazabilidad].[TrazabilidadDetalle] ([codigoTraza], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) VALUES (N'1', N'V001', NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [Trazabilidad].[TrazabilidadDetalle] ([codigoTraza], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) VALUES (N'1', NULL, NULL, NULL, NULL, N'M001', NULL, NULL)
+INSERT [Trazabilidad].[TrazabilidadDetalle] ([codigoTraza], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) VALUES (N'1', NULL, NULL, NULL, NULL, NULL, N'LR001', NULL)
+INSERT [Trazabilidad].[TrazabilidadDetalle] ([codigoTraza], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) VALUES (N'1', NULL, NULL, NULL, N'OD001', NULL, NULL, NULL)
+INSERT [Trazabilidad].[TrazabilidadDetalle] ([codigoTraza], [codigoVenta], [numeroKardex], [codigoCompra], [numeroOrden], [numeroHojaMerma], [nombreProducto], [codigoFichaTecProducto]) VALUES (N'1', NULL, NULL, NULL, N'OD002', NULL, NULL, NULL)
 GO
 
 /*
@@ -4732,7 +4736,7 @@ BEGIN
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_FichaTecnicaProductoFarmacia') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_OrdenDeDespacho') 
 BEGIN
 	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_OrdenDeDespacho] FOREIGN KEY([numeroOrden])
 	REFERENCES [Trazabilidad].[OrdenDeDespacho] ([numeroOrden])
@@ -4743,10 +4747,10 @@ GO
 
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_Trazabilidad') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_Trazabilidd] FOREIGN KEY([codigoTraza])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_Trazabilidad] FOREIGN KEY([codigoTraza])
 	REFERENCES [Trazabilidad].[Trazabilidad] ([codigoTraza])
-
-	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_Trazabilidd]
+	
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_Trazabilidad]
 END
 GO
 
@@ -4777,66 +4781,66 @@ BEGIN
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_FichaTecnicaProductoFarmacia') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_FichaTecnicaProductoFarmacia') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_FichaTecnicaProductoFarmacia] FOREIGN KEY([codigoFichaTecProducto])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_FichaTecnicaProductoFarmacia] FOREIGN KEY([codigoFichaTecProducto])
 	REFERENCES [Trazabilidad].[FichaTecnicaProductoFarmacia] ([codigoFichaTecProducto])
 
-	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_FichaTecnicaProductoFarmacia]
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_FichaTecnicaProductoFarmacia]
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_HojaMerma') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_HojaMerma') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_HojaMerma] FOREIGN KEY([numeroHojaMerma])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_HojaMerma] FOREIGN KEY([numeroHojaMerma])
 	REFERENCES [Trazabilidad].[HojaMerma] ([numeroHojaMerma])
 
-	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_HojaMerma]
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_HojaMerma]
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_InformeVenta') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_InformeVenta') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_InformeVenta] FOREIGN KEY([codigoVenta])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_InformeVenta] FOREIGN KEY([codigoVenta])
 	REFERENCES [Trazabilidad].[InformeVenta] ([codigoVenta])
 
-	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_InformeVenta]
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_InformeVenta]
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_Kardex') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_Kardex') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_Kardex] FOREIGN KEY([numeroKardex])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_Kardex] FOREIGN KEY([numeroKardex])
 	REFERENCES [Trazabilidad].[Kardex] ([numeroKardex])
-
-	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_Kardex]
+	
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_Kardex]
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_LibroReceta') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_LibroReceta') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_LibroReceta] FOREIGN KEY([nombreProducto])
-	REFERENCES [Trazabilidad].[LibroReceta] ([nombreProducto])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_LibroReceta] FOREIGN KEY([nombreProducto])
+	REFERENCES [Trazabilidad].[LibroReceta] ([codigolibroreceta])
 
-	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_LibroReceta]
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_LibroReceta]
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_OrdenDeCompra') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_OrdenDeCompra') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_OrdenDeCompra] FOREIGN KEY([codigoCompra])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_OrdenDeCompra] FOREIGN KEY([codigoCompra])
 	REFERENCES [Trazabilidad].[OrdenDeCompra] ([codigoCompra])
 
-	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_OrdenDeCompra]
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_OrdenDeCompra]
 END
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_Trazabilidad_OrdenDeDespacho') 
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE NAME = 'FK_TrazabilidadDetalle_OrdenDeDespacho') 
 BEGIN
-	ALTER TABLE [Trazabilidad].[Trazabilidad]  WITH CHECK ADD  CONSTRAINT [FK_Trazabilidad_OrdenDeDespacho] FOREIGN KEY([numeroOrden])
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle]  WITH CHECK ADD  CONSTRAINT [FK_TrazabilidadDetalle_OrdenDeDespacho] FOREIGN KEY([numeroOrden])
 	REFERENCES [Trazabilidad].[OrdenDeDespacho] ([numeroOrden])
-
-	ALTER TABLE [Trazabilidad].[Trazabilidad] CHECK CONSTRAINT [FK_Trazabilidad_OrdenDeDespacho]
+	
+	ALTER TABLE [Trazabilidad].[TrazabilidadDetalle] CHECK CONSTRAINT [FK_TrazabilidadDetalle_OrdenDeDespacho]
 END
 GO
 
