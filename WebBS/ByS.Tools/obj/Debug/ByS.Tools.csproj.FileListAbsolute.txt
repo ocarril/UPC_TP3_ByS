@@ -9,7 +9,6 @@ F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.pdb
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.dll
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\ByS.Tools.pdb
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Tools\bin\Debug\GitHubPushLib.dll
-D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csprojResolveAssemblyReference.cache
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.HelpMessages.resources
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.ResourceIconos.resources
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Tools\obj\Debug\ByS.Tools.csproj.GenerateResource.Cache

@@ -1156,6 +1156,46 @@ namespace WebBS.Controllers
             return Json(jsonResponse, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public ActionResult GuardarSolicitudDetaUno(SolicitudDetaEntity objSolicitudDeta)
+        {
+            string tipoDevol = null;
+            object DataDevol = null;
+            object jsonResponse;
+            try
+            {
+                objSolicitudLogic = new SolicitudLogic();
+
+                objSolicitudDeta.segUsuarioEdita = HttpContext.User.Identity.Name;
+                objSolicitudDeta.segUsuarioCrea = HttpContext.User.Identity.Name;
+                objSolicitudDeta.segMaquinaOrigen = GetIPAddress();
+                if (objSolicitudDeta.Codigo != 0)
+                    returnValor = objSolicitudLogic.ActualizarSolicitudDeta(objSolicitudDeta);
+                else
+                    returnValor = objSolicitudLogic.RegistrarSolicitudDeta(objSolicitudDeta);
+
+
+                DataDevol = returnValor.Message;
+                tipoDevol = returnValor.Exitosa ? "C" : "I";
+
+            }
+            catch (Exception ex)
+            {
+                tipoDevol = "E";
+                log.Error(String.Concat("GuardarSolicitud", " | ", ex.Message));
+                DataDevol = ex.Message;
+            }
+            finally
+            {
+                jsonResponse = new
+                {
+                    Type = tipoDevol,
+                    Data = DataDevol,
+                };
+            }
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
+        }
+
 
         private SolicitudEntity InicializarSolicitud(SolicitudEntity registro)
         {
@@ -1180,6 +1220,7 @@ namespace WebBS.Controllers
         {
             registro = new GastoEntity();
             registro.segUsuarioEdita = User.Identity.Name;
+            registro.fecGasto = DateTime.Now;
             registro.segFechaEdita = DateTime.Now;
             return registro;
         }

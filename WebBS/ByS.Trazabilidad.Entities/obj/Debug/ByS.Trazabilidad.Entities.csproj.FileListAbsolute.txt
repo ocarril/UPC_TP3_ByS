@@ -6,4 +6,3 @@ D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\bin\Debug\ByS.Tr
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\bin\Debug\ByS.Trazabilidad.Entities.pdb
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.dll
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.pdb
-D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Entities\obj\Debug\ByS.Trazabilidad.Entities.csprojResolveAssemblyReference.cache

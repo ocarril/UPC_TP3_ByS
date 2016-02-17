@@ -695,6 +695,8 @@ Pantalla POPUP para editar registro de Detalle de solicitud
         paramAjax["success"] = function (data) {
             var detalle = data.Data;
             $('#hddcodSolicitudDeta').val(detalle.Codigo);
+            $('#hddcodSolicitud').val(detalle.codSolicitud);
+            $('#hddcodPlantillaDeta').val(detalle.codPlantillaDeta);
             $('#txtcodPartidaNombre').val(detalle.objPlantillaDeta.objPartida.desNombre);
             $('#txtgloDescripcion').val(detalle.gloDescripcion);
             $('#txtfecEjecucion').val($.f_formatoFechaDDMMYYYY(detalle.objPlantillaDeta.fecEjecucion));
@@ -718,7 +720,7 @@ Pantalla POPUP para editar registro de Detalle de solicitud
         }
         var paramAjax = {};
         paramAjax["ajaxMessage"] = 'Guardando detalle de solicitud...';
-        paramAjax["url"] = '/Presupuesto/GuardarSolicitudDeta';
+        paramAjax["url"] = '/Presupuesto/GuardarSolicitudDetaUno';
         paramAjax["data"] = JSON.stringify(objTabla);
         paramAjax["success"] = function (response, status) {
             if (status == 'success') {
@@ -754,6 +756,7 @@ Pantalla POPUP para editar registro de Detalle de solicitud
         var vfecEjecucion= $('#txtfecEjecucion').val();
         var vmonEstimado= $('#txtmonEstimado').val();
         var vcntCantidad= $('#txtcntCantidad').val();
+        var vcodPlantillaDeta=$('#hddcodPlantillaDeta').val();
 
         if (vgloDescripcion == '')
             strValidado = strValidado + 'Ingresar descripcion de partida <br/>';
@@ -775,6 +778,7 @@ Pantalla POPUP para editar registro de Detalle de solicitud
 
         var pobjTabla = {};
         pobjTabla["Codigo"] = vcodSolicitudDeta;
+        pobjTabla["codPlantillaDeta"] = vcodPlantillaDeta;
         pobjTabla["codSolicitud"] = vcodSolicitud;
         pobjTabla["gloDescripcion"] = vgloDescripcion;
         pobjTabla["monEstimado"] = vmonEstimado;

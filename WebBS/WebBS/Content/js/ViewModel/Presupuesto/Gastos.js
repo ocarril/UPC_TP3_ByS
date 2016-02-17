@@ -334,7 +334,7 @@ Pantalla POPUP para editar registro de Tabla
 
         $('#hddcodPlantillaDeta').val(codPlantillaDeta);
         $.fnu_showDialogEditGasto(0);
-        $.fnu_MostrarRegistroGasto(0);
+       
     };
 })(jQuery);
 
@@ -345,6 +345,7 @@ Pantalla POPUP para editar registro de Tabla
     $.fnu_showDialogEditGasto = function (codGasto) {
         'use strict';
 
+        alert('codGasto: ' + codGasto);
         var divID = 'divRegistro';
         var modal = true;
         var title = ''; //'Datos del gasto presupuestal';
@@ -382,13 +383,14 @@ Pantalla POPUP para editar registro de Tabla
         paramAjax["success"] = function (data) {
             var detalle = data.Data;
             var responsable = data.Empleados;
+            alert('Llego aqui..' + detalle.fecGasto);
             $('#hddcodGasto').val(detalle.Codigo);
             $.f_loadComboFromArray(responsable, 'cbocodEmpleadoResp', true, detalle.codEmpleadoResp, false);
             $('#txtgloObservacion').val(detalle.gloObservacion);
             $('#txtcntCantidad').val(detalle.cntCantidad);
             $('#txtmonTotal').val(detalle.monTotal);
             $('#txtnumDocumento').val(detalle.numDocumento);
-            $('#txtfecGasto').val($.f_formatoFechaDDMMYYYY(detalle.fecGasto));
+            $('#txtfecGasto').val($.f_formatoFechaDDMMYYYY(detalle.fecGasto,false));
             $('#txtsegUsuarioEdita').val(detalle.segUsuarioEdita);
             $('#txtsegFechaEdita').val($.f_formatoFechaDDMMYYYY(detalle.segFechaEdita,true));
 
