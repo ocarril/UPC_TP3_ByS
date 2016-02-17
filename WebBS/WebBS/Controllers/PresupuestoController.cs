@@ -745,11 +745,11 @@ namespace WebBS.Controllers
             {
                 objEmpleadoLogic = new EmpleadoLogic();
                 EmpleadoEntity objEmpleadoEntity = objEmpleadoLogic.BuscarPorLogin(User.Identity.Name);
-                ViewBag.codEmpleado = objEmpleadoEntity.Codigo;
+                ViewBag.codEmpleado = objEmpleadoEntity.Codigo.ToString();
                 ViewBag.nomEmpleado = objEmpleadoEntity.desApellido + ", " + objEmpleadoEntity.desNombre;
                 ViewBag.codArea = objEmpleadoEntity.codArea;
                 ViewBag.cboAreas = ListarAreasPresupuestales(false, true, objEmpleadoEntity.codArea);
-                ViewBag.numAnio = (DateTime.Now.Year);
+                ViewBag.numAnio = DateTime.Now.Year.ToString();
                 ViewBag.codSolicitud = pID;
                 ViewBag.indModo = pInd.HasValue ? pInd.Value : 0;
             }

@@ -6,3 +6,4 @@ D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventar
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\bin\Debug\ByS.Inventario.Data.pdb
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.dll
 D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Inventario.Data\obj\Debug\ByS.Inventario.Data.csprojResolveAssemblyReference.cache

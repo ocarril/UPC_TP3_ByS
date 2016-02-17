@@ -31,19 +31,24 @@ $(document).ready(function () {
 
         $.fnu_showDialogAgregarMasivo();
     });
-
     $.fnu_MostrarRegistroSolicitud(vcodSolicitud);
 
+    
     $.fnu_configuraGridTabla();
+
     $.f_formatoFechas("txtfecSolicitada");
     $.f_formatoFechas("txtfecLimite");
+
+    
     if (vcodSolicitud < 1)
         $('#btnGuardar').attr('class', 'capaOcultar');
+
 
     if (vindModo == 1) {
         $('#btnGuardar').attr('class', 'capaOcultar');
         $('#btnAgregarMasivo').attr('class', 'capaOcultar');
     }
+
 });
 
 /**********************************************************************
@@ -139,7 +144,7 @@ Funcion: Configuración de grilla
                 var tipo = response.Type;
                 var mensaje = response.Data;
                 if (tipo == "E")
-                    $.f_Mensaje(mensaje, false, true, 1);
+                    $.f_Mensaje('kdkdkdkdkd-' + mensaje, false, true, 1);
                 else if (tipo == "I")
                     $.f_Mensaje(mensaje, false, true);
                 else
@@ -308,6 +313,7 @@ Funcion: Configuración de grilla
     $.fnu_MostrarRegistroSolicitud = function (pID) {
         'use strict';
 
+        
         var paramAjax = {};
         paramAjax["ajaxMessage"] = 'Cargando registro de solicitud...';
         paramAjax["url"] = '/Presupuesto/BuscarSolicitud' + '?pId=' + pID;
