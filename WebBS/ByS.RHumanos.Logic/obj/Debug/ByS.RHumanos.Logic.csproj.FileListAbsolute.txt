@@ -11,3 +11,16 @@ F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.To
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.csprojResolveAssemblyReference.cache
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.dll
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Logic.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\GitHubPushLib.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\log4net.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Data.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\bin\Debug\ByS.Tools.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.csprojResolveAssemblyReference.cache
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.RHumanos.Logic\obj\Debug\ByS.RHumanos.Logic.pdb

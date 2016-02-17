@@ -1286,7 +1286,7 @@ GO
 IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_GastoPagina')
 BEGIN
 	EXEC('CREATE PROCEDURE [Presupuesto].[pa_S_GastoPagina] AS RETURN')
-	--[Presupuesto].[pa_S_GastoPagina] 1,10,'codGasto','asc',null,153
+	--[Presupuesto].[pa_S_GastoPagina] 1,10,'codGasto','asc',null,null,2016
 END
 GO
 ALTER PROCEDURE [Presupuesto].[pa_S_GastoPagina]
@@ -1297,6 +1297,8 @@ ALTER PROCEDURE [Presupuesto].[pa_S_GastoPagina]
 	,@p_OrdenTipo			varchar(4)=null
 	,@p_codGasto			INT=null
 	,@p_codPlantillaDeta	INT=null
+	,@p_codArea				INT=null
+	,@p_anio				INT=null
 )
 AS
 BEGIN
@@ -1319,6 +1321,10 @@ BEGIN
 		,gt.segFechaCrea
 		,gt.segFechaEdita
 		,gt.segMaquinaOrigen
+		,pl.codArea
+		,ar.desNombre codAreaNombre
+		,pl.codPresupuesto
+		,pr.desNombre codPresupuestoNombre
 		,COUNT(*) OVER() AS [TOTALROWS]
 	    ,ROW_NUMBER() OVER (ORDER BY CASE WHEN @p_OrdenPor = 'fecGasto'  and @p_OrdenTipo = 'ASC' 
 										   THEN gt.fecGasto
@@ -1335,14 +1341,26 @@ BEGIN
 									 ) AS [ROWNUM]
 		from Presupuesto.Gasto gt
 		left join RecursosHumanos.Empleado em on gt.codEmpleadoResp = em.codEmpleado
+		left join Presupuesto.PlantillaDeta pd on gt.codPlantillaDeta = pd.codPlantillaDeta
+		left join Presupuesto.Plantilla pl on pd.codPlantilla = pl.codPlantilla
+		left join Presupuesto.Presupuesto pr on pl.codPresupuesto = pr.codPresupuesto
+		left join RecursosHumanos.Area ar on pl.codArea = ar.codArea
 		WHERE 
-		ISNULL(gt.codGasto,'')	=	(CASE WHEN ISNULL(@p_codGasto,'')<>''	
-									 THEN  ISNULL(@p_codGasto,'') 
-									 ELSE ISNULL(gt.codGasto,'')	
+		ISNULL(gt.codGasto,0)	=	(CASE WHEN ISNULL(@p_codGasto,0)<>0	
+									 THEN  ISNULL(@p_codGasto,0) 
+									 ELSE ISNULL(gt.codGasto,0)	
 									 END) 
-		AND ISNULL(gt.codPlantillaDeta,'')	=	(CASE WHEN ISNULL(@p_codPlantillaDeta,'')<>''	
-										 THEN  ISNULL(@p_codPlantillaDeta,'') 
-										 ELSE ISNULL(gt.codPlantillaDeta,'')	
+		AND ISNULL(gt.codPlantillaDeta,0)	=	(CASE WHEN ISNULL(@p_codPlantillaDeta,0)<>0	
+										 THEN  ISNULL(@p_codPlantillaDeta,0) 
+										 ELSE ISNULL(gt.codPlantillaDeta,0)	
+									 END) 									 
+		AND ISNULL(pr.numAnio,0)	=	(CASE WHEN ISNULL(@p_anio,0)<>0	
+										 THEN  ISNULL(@p_anio,0) 
+										 ELSE ISNULL(pr.numAnio,0)	
+									 END) 									 
+		AND ISNULL(pl.codArea,0)	=	(CASE WHEN ISNULL(@p_codArea,0)<>0	
+										 THEN  ISNULL(@p_codArea,0) 
+										 ELSE ISNULL(pl.codArea,0)	
 									 END) 									 
 		AND gt.indEliminado	 = 0
 	)
@@ -1727,7 +1745,7 @@ GO
 IF NOT EXISTS (SELECT NAME FROM sys.objects WHERE TYPE = 'P' AND NAME = 'pa_S_SolicitudPagina')
 BEGIN
 	EXEC('CREATE PROCEDURE [Presupuesto].[pa_S_SolicitudPagina] AS RETURN')
-	--[Presupuesto].[pa_S_SolicitudPagina] 1,10,'codSolicitud','asc'
+	--[Presupuesto].[pa_S_SolicitudPagina] 1,10,'codSolicitud','asc',null,null,null,null,null,null,null,'j'
 	--Select * from Presupuesto.Solicitud s
 	--Select * from Presupuesto.Presupuesto
 END
@@ -1745,6 +1763,7 @@ ALTER PROCEDURE [Presupuesto].[pa_S_SolicitudPagina]
 	,@p_codRegEstado		INT=null
 	,@p_codPresupuesto 		INT=null
 	,@p_codArea 			INT=null
+	,@p_indTipo				varchar(1)=null
 )
 AS
 BEGIN
@@ -1766,11 +1785,18 @@ BEGIN
 		,s.codPresupuesto
 		,pr.desNombre			codPresupuestoNombre
 		,s.codRegEstado
+		,CASE WHEN S.codRegEstado = 1 THEN 'SOLICITADO'
+		  WHEN s.codRegEstado = 2 THEN 'APROBADA'
+		  WHEN s.codRegEstado = 3 THEN 'DESAPROBADO'
+		  WHEN s.codRegEstado = 4 THEN 'EJECUTADA'
+		END codRegEstadoNombre
 		,s.segUsuarioCrea
 		,s.segUsuarioEdita
 		,s.segFechaCrea
 		,s.segFechaEdita
 		,s.segMaquinaOrigen
+		,eg.codArea
+		,ar.desNombre codAreaNombre
 		,COUNT(*) OVER() AS [TOTALROWS]
 	    ,ROW_NUMBER() OVER (ORDER BY CASE WHEN @p_OrdenPor = 'fecSolicituda'  and @p_OrdenTipo = 'ASC' 
 										   THEN s.fecSolicitada
@@ -1789,6 +1815,7 @@ BEGIN
 		inner join RecursosHumanos.Empleado eg on s.codEmpleadoGenera = eg.codEmpleado
 		left  join RecursosHumanos.Empleado ea on s.codEmpleadoAprueba = ea.codEmpleado
 		left  join Presupuesto.Presupuesto	pr on s.codPresupuesto	 = pr.codPresupuesto
+		inner join RecursosHumanos.Area ar ON eg.codArea= ar.codArea
 		WHERE 
 		ISNULL(s.codSolicitud,0)	=	(CASE WHEN ISNULL(@p_codSolicitud,0)<>0	
 										 THEN  ISNULL(@p_codSolicitud,0) 
@@ -1798,14 +1825,19 @@ BEGIN
 													 THEN  '%' + ISNULL(@p_numSolicitud,'') + '%' 
 													 ELSE ISNULL(s.numSolicitud,'')	
 												 END) 									 
-		--AND ISNULL(s.numSolicitud,'')	=	(CASE WHEN ISNULL(@p_codPresupuesto,0)<>0	
-		--								 THEN  ISNULL(@p_codPresupuesto,0) 
-		--								 ELSE ISNULL(pr.numAnio,0)	
-		--							 END) 
+		AND ISNULL(pr.numAnio,0)=	(CASE WHEN ISNULL(@p_codPresupuesto,0)<>0	
+										 THEN  ISNULL(@p_codPresupuesto,0) 
+										 ELSE ISNULL(pr.numAnio,0)	
+										END) 
+											 									 
 		AND ISNULL(eg.codArea,0)	=	(CASE WHEN ISNULL(@p_codArea,0)<>0	
 										 THEN  ISNULL(@p_codArea,0) 
 										 ELSE ISNULL(eg.codArea,0)	
-									 END) 									 									 
+									 END) 	
+		AND ISNULL(s.indTipo,'')	LIKE	(CASE WHEN ISNULL(@p_indTipo,'')<>''	
+													 THEN  '%' + ISNULL(@p_indTipo,'') + '%' 
+													 ELSE ISNULL(s.indTipo,'')	
+											 END) 									 
 		AND s.indEliminado	 = 0
 	)
 	AS Tabla

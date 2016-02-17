@@ -10,3 +10,15 @@ F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll.config
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Data.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.RHumanos.Entities.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\GitHubPushLib.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\log4net.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.Presupuesto.Entities.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\bin\Debug\ByS.RHumanos.Entities.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.csprojResolveAssemblyReference.cache
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Presupuesto.Data\obj\Debug\ByS.Presupuesto.Data.pdb

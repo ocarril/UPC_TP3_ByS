@@ -7,3 +7,12 @@ F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.csprojResolveAssemblyReference.cache
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.dll
 F:\CROMSistemas\VS2012\ByS\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll.config
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Data.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\log4net.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\bin\Debug\ByS.Trazabilidad.Entities.pdb
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.csprojResolveAssemblyReference.cache
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.dll
+D:\TP3\ByS\20160216\UPC_TP3_ByS\WebBS\ByS.Trazabilidad.Data\obj\Debug\ByS.Trazabilidad.Data.pdb
