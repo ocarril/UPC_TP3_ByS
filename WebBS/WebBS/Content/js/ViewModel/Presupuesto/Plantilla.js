@@ -403,7 +403,7 @@ Pantalla POPUP para editar registro de Tabla
             $('#txtgloDescripcion').val(detalle.gloDescripcion);
             $('#txtcntCantidad').val(detalle.cntCantidad);
             $('#txtmonEstimado').val(detalle.monEstimado);
-            $('#txtfecEjecucion').val(detalle.fecEjecucion);
+            $('#txtfecEjecucion').val($.f_formatoFechaDDMMYYYY(detalle.fecEjecucion, false));
             $('#txtsegUsuarioEdita').val(detalle.segUsuarioEdita);
             $('#txtsegFechaEdita').val($.f_formatoFechaDDMMYYYY(detalle.segFechaEdita, true));
         }
